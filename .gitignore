@@ -1,5 +1,6 @@
-# Backup directory
+# Project Files to Ignore
 /bak/
+shows.txt
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

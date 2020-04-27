@@ -3,15 +3,16 @@
 
 
 ```shell script
-usage: randomflix.py [-h] [-p] [-l] [-m {1,2,3}] [-s] [-t] [--ip IP]
+usage: randomflix.py [-h] [-p] [-l] [-m {1,2,3,4}] [-s] [-t] [--ip IP]
 
 optional arguments:
   -h, --help            show this help message and exit
   -p, --pause           If set, program will present the show on deck and
                         pause.
   -l, --local           By default plays on Roku, set flag to play on browser
-  -m {1,2,3}, --mode {1,2,3}
-                        1 = Background Mode, 2 = Active Mode, 3 = Mixed Mode
+  -m {1,2,3,4}, --mode {1,2,3,4}
+                        1 = Watched Mode, 2 = Background Mode, 3 = Active
+                        Mode, 4 = Full Random
   -s, --search          If set, program will Roku Search the show, rather than
                         auto-playing
   -t, --test            Ignores the randomly picked show and runs against

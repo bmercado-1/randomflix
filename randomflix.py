@@ -11,8 +11,8 @@ parser = argparse.ArgumentParser(
 parser.add_argument('-p', '--pause', action='store_true',
                     help='If set, program will present the show on deck and pause.')
 parser.add_argument('-l', '--local', action='store_true', help='By default plays on Roku, set flag to play on browser')
-parser.add_argument('-m', '--mode', type=int, choices=[1, 2, 3],
-                    help='1 = Background Mode, 2 = Active Mode, 3 = Mixed Mode')
+parser.add_argument('-m', '--mode', type=int, choices=[1, 2, 3, 4],
+                    help='1 = Watched Mode, 2 = Background Mode, 3 = Active Mode, 4 = Full Random')
 parser.add_argument('-s', '--search', action='store_true',
                     help='If set, program will Roku Search the show, rather than auto-playing')
 parser.add_argument('-t', '--test', action='store_true',
@@ -50,16 +50,22 @@ def show_loader():
 
 def random_show():
     # Break down random show URL into required components
+
     if args.mode == 1:
+        temp = {**watchedShows}
+        show = random.choice(list(temp.keys()))
+        url = temp.get(show)
+
+    if args.mode == 2:
         temp = {**watchedShows, **backgroundShows}
         show = random.choice(list(temp.keys()))
         url = temp.get(show)
 
-    elif args.mode == 2:
+    elif args.mode == 3:
         show = random.choice(list(newShows.keys()))
         url = newShows.get(show)
 
-    elif args.mode == 3:
+    elif args.mode == 4:
         temp = {**watchedShows, **backgroundShows, **newShows}
         show = random.choice(list(temp.keys()))
         url = temp.get(show)

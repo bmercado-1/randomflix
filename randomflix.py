@@ -8,18 +8,21 @@ import argparse
 parser = argparse.ArgumentParser(
     description='Plays a random show from a chosen list directly on Roku or in a web browser')
 
-parser.add_argument('-p', '--pause', action='store_true',
-                    help='If set, program will present the show on deck and pause.')
-parser.add_argument('-l', '--local', action='store_true', help='By default plays on Roku, set flag to play on browser')
 parser.add_argument('-m', '--mode', type=int, choices=[1, 2, 3, 4],
                     help='1 = Watched Mode, 2 = Background Mode, 3 = Active Mode, 4 = Full Random')
+parser.add_argument('-p', '--pause', action='store_true',
+                    help='If set, program will present the show on deck and pause.')
+parser.add_argument('-l', '--local', action='store_true',
+                    help='By default plays on Roku, set flag to play on browser')
 parser.add_argument('-s', '--search', action='store_true',
                     help='If set, program will Roku Search the show, rather than auto-playing')
 parser.add_argument('-t', '--test', action='store_true',
                     help='Ignores the randomly picked show and runs against hard-coded test')
-parser.add_argument('--ip', help='IP address of Roku on the network')
+parser.add_argument('--ip',
+                    help='IP address of Roku on the network')
 
-parser.set_defaults(mode=3, ip='192.168.1.163', pause=False)
+# Defaults section for changing args on Pydroid
+parser.set_defaults(mode=3, pause=False, local=False, ip='192.168.1.163')
 args = parser.parse_args()
 
 

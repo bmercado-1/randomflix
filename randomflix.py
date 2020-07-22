@@ -3,7 +3,6 @@ import requests
 import webbrowser
 import argparse
 
-
 # Argument Parser
 parser = argparse.ArgumentParser(
     description='Plays a random show from a chosen list directly on Roku or in a web browser')
@@ -21,17 +20,16 @@ parser.add_argument('-t', '--test', action='store_true',
 parser.add_argument('--ip',
                     help='IP address of Roku on the network')
 
-# Defaults section for changing args on Pydroid
-parser.set_defaults(mode=3, pause=False, local=False, ip='192.168.1.163')
+# Set Defaults for use in Android Interpreters that don't allow args, such as PyDroid
+parser.set_defaults(mode=1, pause=False, local=False, ip='192.168.1.163')
 args = parser.parse_args()
-
 
 # Initialize Service Mapping
 serviceDict = {"netflix": "12", "hulu": "2285", "amazon": "13"}
 
 
-# Read in shows.txt and load show category dictionaries
-def show_loader():
+def load_show_list():
+    # Read in shows.txt and load show category dictionaries
     watched, background, new = {}, {}, {}
 
     file = open("shows.txt", 'r')
@@ -40,62 +38,63 @@ def show_loader():
         if line.startswith("#") | line.startswith("\n"):
             continue
         else:
-            line = line.strip().split(",")
-            if line[2] == "1":
+            line = line.split(",")
+            if line[2].strip() == "1":
                 watched.update({line[0]: line[1]})
-            elif line[2] == "2":
+            elif line[2].strip() == "2":
                 background.update({line[0]: line[1]})
-            elif line[2] == "3":
+            elif line[2].strip() == "3":
                 new.update({line[0]: line[1]})
     file.close()
     return watched, background, new
 
 
-def random_show():
+def get_show():
     # Break down random show URL into required components
 
     if args.mode == 1:
         temp = {**watchedShows}
         show = random.choice(list(temp.keys()))
-        url = temp.get(show)
+        show_url = temp.get(show)
 
     if args.mode == 2:
         temp = {**watchedShows, **backgroundShows}
         show = random.choice(list(temp.keys()))
-        url = temp.get(show)
+        show_url = temp.get(show)
 
     elif args.mode == 3:
         show = random.choice(list(newShows.keys()))
-        url = newShows.get(show)
+        show_url = newShows.get(show)
 
     elif args.mode == 4:
         temp = {**watchedShows, **backgroundShows, **newShows}
         show = random.choice(list(temp.keys()))
-        url = temp.get(show)
+        show_url = temp.get(show)
 
     if args.test:
         temp = {"White Rabbit Project": "https://www.netflix.com/title/80091245"}
         show = random.choice(list(temp.keys()))
-        url = temp.get(show)
+        show_url = temp.get(show)
 
-    return temp, show, url
+    return temp, show, show_url
 
 
-def url_builder():
+def get_streaming_service_info():
     # Build info from url
     showId = url.split("/")[-1]
     service = url.split(".")[1]
     return showId, service
 
 
-def endpoint_builder():
+def build_endpoint():
     if service in serviceDict.keys() and not args.search:
-        return 'http://{}:8060/launch/{}?contentId={}&mediaType=season'.format(args.ip, serviceDict.get(service), showId)
+        return 'http://{}:8060/launch/{}?contentId={}&mediaType=season'.format(args.ip, serviceDict.get(service),
+                                                                               showId)
     else:
         return 'http://{}:8060/search/browse?title={}&type=tv-show&launch=true'.format(args.ip, showName)
 
 
-def whats_playing():
+def get_whats_playing():
     print()
     print("Show: " + showName)
     print("url: " + url)
@@ -110,23 +109,23 @@ def play_on_roku():
 
 
 # Main
-watchedShows, backgroundShows, newShows = show_loader()
-tempDict, showName, url = random_show()
-showId, service = url_builder()
-endpoint = endpoint_builder()
-
-whats_playing()
+watchedShows, backgroundShows, newShows = load_show_list()
+tempDict, showName, url = get_show()
+showId, service = get_streaming_service_info()
+endpoint = build_endpoint()
+get_whats_playing()
 
 if args.pause:
+    # Allow user to decide if they want to watch the random show surfaced
     if input("Enter to continue or x to exit\n").lower() == "x":
         exit(0)
 
 if args.local:
     # Open Show in Browser
-    webbrowser.open(url)
+    webbrowser.open(url.strip(), new=1)
     exit(0)
 else:
-    play_on_roku()
-
-
-
+    try:
+        play_on_roku()
+    except:
+        print("Error connecting to Roku ... configured IP might not longer be right")

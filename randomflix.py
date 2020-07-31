@@ -1,7 +1,10 @@
 import random
+from time import sleep
+
 import requests
 import webbrowser
 import argparse
+import urllib.parse
 
 # Argument Parser
 parser = argparse.ArgumentParser(
@@ -21,7 +24,7 @@ parser.add_argument('--ip',
                     help='IP address of Roku on the network')
 
 # Set Defaults for use in Android Interpreters that don't allow args, such as PyDroid
-parser.set_defaults(mode=1, pause=False, local=False, ip='192.168.1.163')
+parser.set_defaults(mode=1, pause=False, local=False, search=True, ip='192.168.1.197')
 args = parser.parse_args()
 
 # Initialize Service Mapping
@@ -40,11 +43,11 @@ def load_show_list():
         else:
             line = line.split(",")
             if line[2].strip() == "1":
-                watched.update({line[0]: line[1]})
+                watched.update({line[0].strip(): line[1].strip()})
             elif line[2].strip() == "2":
-                background.update({line[0]: line[1]})
+                background.update({line[0].strip(): line[1].strip()})
             elif line[2].strip() == "3":
-                new.update({line[0]: line[1]})
+                new.update({line[0].strip(): line[1].strip()})
     file.close()
     return watched, background, new
 
@@ -72,7 +75,9 @@ def get_show():
         show_url = temp.get(show)
 
     if args.test:
-        temp = {"White Rabbit Project": "https://www.netflix.com/title/80091245"}
+        # temp = {"How I Met Your Mother": "https://www.hulu.com/series/how-i-met-your-mother-bc68ac79-3ace-4427-9ec0-5ee6f314d194"}
+        # temp = {"Avatar: The Last Airbender": "https://www.netflix.com/title/70142405"}
+        temp = {"Bones": "https://www.amazon.com/Pilot/dp/B000HVMML2"}
         show = random.choice(list(temp.keys()))
         show_url = temp.get(show)
 
@@ -88,23 +93,44 @@ def get_streaming_service_info():
 
 def build_endpoint():
     if service in serviceDict.keys() and not args.search:
-        return 'http://{}:8060/launch/{}?contentId={}&mediaType=season'.format(args.ip, serviceDict.get(service),
-                                                                               showId)
+        # Deep link into supported services, such as Netflix and Amazon
+        return 'http://{}:8060/launch/{}?contentId={}'.format(args.ip, serviceDict.get(service), showId)
+
     else:
-        return 'http://{}:8060/search/browse?title={}&type=tv-show&launch=true'.format(args.ip, showName)
+        # Search for show on Roku Universal Search and launch show if found
+        params = {'title': showName,
+                  'type': 'tv-show',
+                  'season': '1',
+                  'provider-id': serviceDict.get(service)
+                  }
+
+        return 'http://{}:8060/search/browse?'.format(args.ip) + urllib.parse.urlencode(params,
+                                                                                        quote_via=urllib.parse.quote)
 
 
 def get_whats_playing():
-    print()
-    print("Show: " + showName)
-    print("url: " + url)
-    print("Service = " + service.capitalize())
-    print()
+    whats_playing = ("Show: {}\n"
+                     "Show URL: {}\n"
+                     "HTTP Endpoint: {}\n"
+                     "Service: {}\n"
+                     .format(showName, url, endpoint, service.capitalize()))
+    print(whats_playing)
+
+
+def press_right():
+    keypress = 'http://{}:8060/keypress/right'.format(args.ip)
+    sleep(1)
+    for i in range(8):
+        sleep(0.25)
+        requests.post(keypress, headers={'cache-control': 'no-cache'})
 
 
 def play_on_roku():
     # Build request and hit Roku DeepLink Endpoint
     response = requests.post(endpoint, headers={'cache-control': 'no-cache'})
+    if args.search:
+        press_right()
+
     print("Roku Response Code = " + str(response))
 
 

@@ -1,10 +1,12 @@
 import random
+import urllib.parse
+import os, sys
 from time import sleep
 
 import requests
 import webbrowser
 import argparse
-import urllib.parse
+
 
 # Argument Parser
 parser = argparse.ArgumentParser(
@@ -24,7 +26,7 @@ parser.add_argument('--ip',
                     help='IP address of Roku on the network')
 
 # Set Defaults for use in Android Interpreters that don't allow args, such as PyDroid
-parser.set_defaults(mode=1, pause=False, local=False, search=True, ip='192.168.1.197')
+parser.set_defaults(mode=1, pause=False, local=False, search=True, ip='192.168.1.163') # 192.168.1.163 / 192.168.1.197
 args = parser.parse_args()
 
 # Initialize Service Mapping
@@ -35,7 +37,7 @@ def load_show_list():
     # Read in shows.txt and load show category dictionaries
     watched, background, new = {}, {}, {}
 
-    file = open("shows.txt", 'r')
+    file = open('shows.txt', 'r')
 
     for line in file:
         if line.startswith("#") | line.startswith("\n"):
@@ -44,10 +46,13 @@ def load_show_list():
             line = line.split(",")
             if line[2].strip() == "1":
                 watched.update({line[0].strip(): line[1].strip()})
+            
             elif line[2].strip() == "2":
                 background.update({line[0].strip(): line[1].strip()})
+            
             elif line[2].strip() == "3":
                 new.update({line[0].strip(): line[1].strip()})
+    
     file.close()
     return watched, background, new
 
@@ -76,8 +81,8 @@ def get_show():
 
     if args.test:
         # temp = {"How I Met Your Mother": "https://www.hulu.com/series/how-i-met-your-mother-bc68ac79-3ace-4427-9ec0-5ee6f314d194"}
-        # temp = {"Avatar: The Last Airbender": "https://www.netflix.com/title/70142405"}
-        temp = {"Bones": "https://www.amazon.com/Pilot/dp/B000HVMML2"}
+        temp = {"Avatar: The Last Airbender": "https://www.netflix.com/title/70142405"}
+        # temp = {"Battlestar Galactica", "https://www.amazon.com/gp/video/detail/B000UU2YKE"}
         show = random.choice(list(temp.keys()))
         show_url = temp.get(show)
 
@@ -94,6 +99,7 @@ def get_streaming_service_info():
 def build_endpoint():
     if service in serviceDict.keys() and not args.search:
         # Deep link into supported services, such as Netflix and Amazon
+        # Roku seems to have broken this functionality. Deeplinking into an episode isn't working for any service
         return 'http://{}:8060/launch/{}?contentId={}'.format(args.ip, serviceDict.get(service), showId)
 
     else:
@@ -109,7 +115,8 @@ def build_endpoint():
 
 
 def get_whats_playing():
-    whats_playing = ("Show: {}\n"
+    whats_playing = ("\n"
+                     "Show: {}\n"
                      "Show URL: {}\n"
                      "HTTP Endpoint: {}\n"
                      "Service: {}\n"

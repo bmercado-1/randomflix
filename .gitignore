@@ -81,3 +81,4 @@ target/
 # VS Code Settings
 .vscode/
 
+/shows.csv

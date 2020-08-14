@@ -1,6 +1,6 @@
 # Project Files to Ignore
 /bak/
-shows.txt
+shows.csv
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

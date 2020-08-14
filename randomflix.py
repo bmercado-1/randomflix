@@ -1,6 +1,6 @@
 import random
 import urllib.parse
-import os, sys
+import csv
 from time import sleep
 
 import requests
@@ -33,27 +33,27 @@ args = parser.parse_args()
 serviceDict = {"netflix": "12", "hulu": "2285", "amazon": "13"}
 
 
-def load_show_list():
+def load_show_csv():
     # Read in shows.txt and load show category dictionaries
     watched, background, new = {}, {}, {}
 
-    file = open('shows.txt', 'r')
+    with open('shows.csv', mode='r') as csv_file:
+        csv_reader = csv.DictReader(csv_file)
 
-    for line in file:
-        if line.startswith("#") | line.startswith("\n"):
-            continue
-        else:
-            line = line.split(",")
-            if line[2].strip() == "1":
-                watched.update({line[0].strip(): line[1].strip()})
-            
-            elif line[2].strip() == "2":
-                background.update({line[0].strip(): line[1].strip()})
-            
-            elif line[2].strip() == "3":
-                new.update({line[0].strip(): line[1].strip()})
-    
-    file.close()
+        for line in csv_reader:
+            if line['Name'].startswith('#') | line['Name'].startswith('\n'):
+                continue
+
+            else:
+                if line['Category'].strip() == "1":
+                    watched.update({line['Name'].strip(): line['Show-URL'].strip()})
+
+                elif line['Category'].strip() == "2":
+                    background.update({line['Name'].strip(): line['Show-URL'].strip()})
+
+                elif line['Category'].strip() == "3":
+                    new.update({line['Name'].strip(): line['Show-URL'].strip()})
+
     return watched, background, new
 
 
@@ -142,7 +142,7 @@ def play_on_roku():
 
 
 # Main
-watchedShows, backgroundShows, newShows = load_show_list()
+watchedShows, backgroundShows, newShows = load_show_csv()
 tempDict, showName, url = get_show()
 showId, service = get_streaming_service_info()
 endpoint = build_endpoint()

@@ -14,8 +14,8 @@ parser = argparse.ArgumentParser(
 
 parser.add_argument('-m', '--mode', type=int, choices=[1, 2, 3, 4],
                     help='1 = Watched Mode, 2 = Background Mode, 3 = Active Mode, 4 = Full Random')
-parser.add_argument('-p', '--pause', action='store_true',
-                    help='If set, program will present the show on deck and pause.')
+parser.add_argument('-p', '--play', action='store_true',
+                    help='If set, program play random choice and exit.')
 parser.add_argument('-l', '--local', action='store_true',
                     help='By default plays on Roku, set flag to play on browser')
 parser.add_argument('-s', '--search', action='store_true',
@@ -26,7 +26,7 @@ parser.add_argument('--ip',
                     help='IP address of Roku on the network')
 
 # Set Defaults for use in Android Interpreters that don't allow args, such as PyDroid
-parser.set_defaults(mode=1, pause=False, local=False, search=True, ip='192.168.1.163') # 192.168.1.163 / 192.168.1.197
+parser.set_defaults(mode=2, search=True, ip='192.168.1.163')  # 192.168.1.163 / 192.168.1.197
 args = parser.parse_args()
 
 # Initialize Service Mapping
@@ -141,24 +141,66 @@ def play_on_roku():
     print("Roku Response Code = " + str(response))
 
 
-# Main
-watchedShows, backgroundShows, newShows = load_show_csv()
-tempDict, showName, url = get_show()
-showId, service = get_streaming_service_info()
-endpoint = build_endpoint()
-get_whats_playing()
+def cli(msg):
+    choice = input(msg).lower()
 
-if args.pause:
-    # Allow user to decide if they want to watch the random show surfaced
-    if input("Enter to continue or x to exit\n").lower() == "x":
+    if choice == "1":
+        try:
+            play_on_roku()
+        except:
+            print("Error connecting to Roku ... configured IP might not longer be right")
+
+    elif choice == "2":
+        webbrowser.open(url.strip(), new=1)
+
+    elif choice == "3":
+        pass
+
+    elif choice == "4":
+        category = '''
+                1 = Watched Mode 
+                2 = Background Mode 
+                3 = Active Mode 
+                4 = Full Random
+
+                Enter your choice: '''
+
+        args.mode = int(input(category))
+
+    elif choice == "9":
         exit(0)
 
-if args.local:
-    # Open Show in Browser
-    webbrowser.open(url.strip(), new=1)
-    exit(0)
-else:
-    try:
+
+def argument_processing():
+    if args.play:
         play_on_roku()
-    except:
-        print("Error connecting to Roku ... configured IP might not longer be right")
+        exit()
+
+    if args.local:
+        webbrowser.open(url.strip(), new=1)
+        exit()
+
+
+# Main
+watchedShows, backgroundShows, newShows = load_show_csv()
+CLI_MESSAGE = f'''
+        Random Mode: {args.mode}
+
+        1) Play current choice on Roku
+        2) Play current choice in local browser
+        3) Re roll a new random show
+        4) Change Category
+        
+        9) Exit
+        
+        Enter your choice: '''
+
+while True:
+    tempDict, showName, url = get_show()
+    showId, service = get_streaming_service_info()
+    endpoint = build_endpoint()
+
+    get_whats_playing()
+
+    argument_processing()
+    cli(CLI_MESSAGE)

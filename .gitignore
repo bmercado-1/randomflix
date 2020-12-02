@@ -1,6 +1,10 @@
+# Configuration files to ignore
+/config.json
+/shows.csv
+
 # Project Files to Ignore
 /bak/
-shows.csv
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -82,3 +86,4 @@ target/
 .vscode/
 
 /shows.csv
+

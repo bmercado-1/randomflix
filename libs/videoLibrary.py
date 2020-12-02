@@ -6,56 +6,47 @@ import random
 class VideoLibrary:
     def __init__(self, show_list):
         self.show_list = DictReader(open(show_list, mode='r'))
-
-    def print(self):
-        for line in self.show_list:
-            if line.get('Name').startswith('#'):
-                print(strikeout(f"Name: {line.get('Name')}"))
-            else:
-                print(f"Name: {line.get('Name')}")
-                
-    def get_categories(self):
-        return list(set([line.get("Category").strip() for line in self.show_list]))
-
-    def load(self):
-        watched, background, new = {}, {}, {}
+        self.all = {}
+        self.watched = {}
+        self.background = {}
+        self.new = {}
 
         for line in self.show_list:
             if line.get("Name").startswith("#") | line.get("Name").startswith("\n"):
                 continue
 
             else:
+                self.all.update(({line.get('Name').strip(): line.get("Show-URL").strip()}))
+
                 if line.get("Category").strip() == "1":
-                    watched.update({line.get('Name').strip(): line.get("Show-URL").strip()})
+                    self.watched.update({line.get('Name').strip(): line.get("Show-URL").strip()})
 
                 elif line.get("Category").strip() == "2":
-                    background.update({line.get('Name').strip(): line.get("Show-URL").strip()})
+                    self.background.update({line.get('Name').strip(): line.get("Show-URL").strip()})
 
                 elif line.get("Category").strip() == "3":
-                    new.update({line.get('Name').strip(): line.get("Show-URL").strip()})
+                    self.new.update({line.get('Name').strip(): line.get("Show-URL").strip()})
 
-        return watched, background, new
-
-    def get_show(self, watch_mode, watched_shows, background_shows, new_shows):
+    def get_show(self, watch_mode):
         # Break down random show URL into required components
 
         if watch_mode == 1:
-            categorised_show_list = watched_shows
+            categorised_show_list = self.watched
             show = random.choice(list(categorised_show_list.keys()))
             show_url = categorised_show_list.get(show)
 
         elif watch_mode == 2:
-            categorised_show_list = {**watched_shows, **background_shows}
+            categorised_show_list = {**self.watched, **self.background}
             show = random.choice(list(categorised_show_list.keys()))
             show_url = categorised_show_list.get(show)
 
         elif watch_mode == 3:
-            categorised_show_list = new_shows
-            show = random.choice(list(new_shows.keys()))
-            show_url = new_shows.get(show)
+            categorised_show_list = self.new
+            show = random.choice(list(self.new.keys()))
+            show_url = self.new.get(show)
 
         elif watch_mode == 4:
-            categorised_show_list = {**watched_shows, **background_shows, **new_shows}
+            categorised_show_list = {**self.watched, **self.background, **self.new}
             show = random.choice(list(categorised_show_list.keys()))
             show_url = categorised_show_list.get(show)
 
@@ -82,3 +73,13 @@ class VideoLibrary:
                          "Service: {}\n"
                          .format(show_name, url, endpoint, service.capitalize()))
         print(whats_playing)
+
+    # def print(self):
+    #     for line in self.show_list:
+    #         if line.get('Name').startswith('#'):
+    #             print(strikeout(f"Name: {line.get('Name')}"))
+    #         else:
+    #             print(f"Name: {line.get('Name')}")
+    #
+    # def get_categories(self):
+    #     return list(set([line.get("Category").strip() for line in self.show_list]))

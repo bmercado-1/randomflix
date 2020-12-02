@@ -15,11 +15,11 @@ video_library = VideoLibrary("./shows.csv")
 roku = Roku(config.get("ip"))
 
 # Parse library and sort into dictionaries by category
-watched, background, new = video_library.load()
+# watched, background, new = video_library.load()
 
 while True:
     # Get Random Show
-    filtered_list, show, show_url = video_library.get_show(int(config.get("mode")), watched, background, new)
+    filtered_list, show, show_url = video_library.get_show(int(config.get("mode")))
 
     # Parse Show URL for streaming service info
     show_id, service = video_library.get_streaming_service_info(show_url)

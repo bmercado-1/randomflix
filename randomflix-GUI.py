@@ -30,20 +30,22 @@ window.title("Randomflix")
 window.geometry("200x200")
 window.config(background="white")
 
-frm_commands = Frame(master=window, background='white')
-frm_commands.pack(side='bottom')
+frm_commands = Frame(master=window, background="white")
+frm_commands.pack(side="bottom")
 
 btn_roll_show = ttk.Button(master=frm_commands, text="Roll Show", command=get_show)
-btn_roll_show.pack(side='left')
+btn_roll_show.pack(side="left")
 
-btn_play_local = ttk.Button(master=frm_commands, text="Local/Cast", command=play_show_local)
-btn_play_local.pack(side='right')
+btn_play_local = ttk.Button(
+    master=frm_commands, text="Local/Cast", command=play_show_local
+)
+btn_play_local.pack(side="right")
 
 lbl_heading = Label(master=window, text="What's Playing")
-lbl_heading.pack(side='top')
+lbl_heading.pack(side="top")
 
 lbl_whats_playing = Label(master=window, text="Output")
-lbl_whats_playing.pack(side='top')
+lbl_whats_playing.pack(side="top")
 
 
 window.mainloop()

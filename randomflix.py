@@ -25,7 +25,7 @@ while True:
     print(vl.get_whats_playing())
 
     # Generate cli message
-    CLI_MESSAGE = f'''
+    CLI_MESSAGE = f"""
             Random Mode: {config.get("mode")}
 
             1) Play current choice on Roku
@@ -34,7 +34,7 @@ while True:
             
             9) Exit
 
-            Type your choice or press enter to roll another show '''
+            Type your choice or press enter to roll another show """
 
     choice = input(CLI_MESSAGE).lower()
 
@@ -43,19 +43,21 @@ while True:
             roku.play_on_roku()
             input("Press Enter To Roll Another Random Show")
         except:
-            print("Error connecting to Roku ... configured IP might not longer be right")
+            print(
+                "Error connecting to Roku ... configured IP might not longer be right"
+            )
 
     elif choice == "2":
         webbrowser.open(vl.show_url.strip(), new=1)
 
     elif choice == "3":
-        category = '''
+        category = """
                     1 = Watched Mode 
                     2 = Background Mode 
                     3 = Active Mode 
                     4 = Full Random
 
-                    Enter your choice: '''
+                    Enter your choice: """
 
         config["mode"] = int(input(category))
 

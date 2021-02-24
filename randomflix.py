@@ -9,26 +9,20 @@ from libs.helpers import *
 config = read_config_file()
 
 # Create Video Library instance
-video_library = VideoLibrary("./shows.csv")
+vl = VideoLibrary("./shows.csv")
 
 # Create Roku Instance
 roku = Roku(config.get("ip"))
 
-# Parse library and sort into dictionaries by category
-# watched, background, new = video_library.load()
-
 while True:
     # Get Random Show
-    filtered_list, show, show_url = video_library.get_show(int(config.get("mode")))
-
-    # Parse Show URL for streaming service info
-    show_id, service = video_library.get_streaming_service_info(show_url)
+    vl.get_show(int(config.get("mode")))
 
     # Build endpoint for Roku Universal Search
-    endpoint = roku.build_roku_search_endpoint(show_name=show, service=service, ip=config.get("ip"))
+    # endpoint = roku.build_roku_search_endpoint(show_name=show, service=service, ip=config.get("ip"))
 
     # Show what's playing
-    video_library.get_whats_playing(show, show_url, endpoint, service)
+    print(vl.get_whats_playing())
 
     # Generate cli message
     CLI_MESSAGE = f'''
@@ -52,7 +46,7 @@ while True:
             print("Error connecting to Roku ... configured IP might not longer be right")
 
     elif choice == "2":
-        webbrowser.open(show_url.strip(), new=1)
+        webbrowser.open(vl.show_url.strip(), new=1)
 
     elif choice == "3":
         category = '''

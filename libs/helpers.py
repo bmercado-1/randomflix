@@ -1,5 +1,6 @@
 from json import dump, load
 import argparse
+import webbrowser
 
 
 # Argument Parser
@@ -40,6 +41,18 @@ parser.add_argument(
 )
 args = parser.parse_args()
 
+CLI_MESSAGE = """
+        Random Mode: {mode}
+
+        1) Play current choice on Roku
+        2) Play current choice on local device for casting
+        3) Change Category
+        4) Search Reelgood for current show
+
+        9) Exit
+
+        Type your choice or press enter to roll another show: """
+
 
 def generate_default_config():
     """
@@ -67,6 +80,22 @@ def read_config_file():
     except FileNotFoundError:
         print("Config File Does Not Exist! Generating Default")
         generate_default_config()
+
+
+def search_reelgood(show):
+    webbrowser.open(f"https://reelgood.com/search?q={show}", new=1)
+
+
+def change_category():
+    category = """
+                1 = Watched Mode 
+                2 = Background Mode 
+                3 = Active Mode 
+                4 = Full Random
+
+                Enter your choice: """
+
+    return int(input(category))
 
 
 def strikeout(text):

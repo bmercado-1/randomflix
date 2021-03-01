@@ -88,20 +88,18 @@ class VideoLibrary:
 
     def get_whats_playing(self):
         whats_playing = (
-            "\n"
-            "Show: \n"
-            f"{self.show}\n\n"
-            "Service: \n"
-            f"{self.service.capitalize()}"
+            f"Show: {self.show}\n"
+            f"Service: {self.service.capitalize()}"
         )
         return whats_playing
 
-    # def print(self):
-    #     for line in self.show_list:
-    #         if line.get('Name').startswith('#'):
-    #             print(strikeout(f"Name: {line.get('Name')}"))
-    #         else:
-    #             print(f"Name: {line.get('Name')}")
-    #
+    def print_db(self):
+        for line in self.all:
+            if line.startswith('#'):
+                print(strikeout(f"Name: {line}"))
+            else:
+                print(f"Name: {line}")
+        input("Press any key to continue")
+
     # def get_categories(self):
     #     return list(set([line.get("Category").strip() for line in self.show_list]))

@@ -1,53 +1,117 @@
+from json import dump, load
 import webbrowser
 
+from libs import *
 from libs.videoLibrary import VideoLibrary
 from libs.roku import Roku
-from libs.helpers import *
 
-# Read program config
-config = read_config_file()
 
-# Create Video Library instance
-vl = VideoLibrary("./shows.csv")
+def generate_default_config():
+    """
+    Resets program config to default settings
+    :return: JSON file
+    """
 
-# Create Roku Instance
-roku = Roku(config.get("ip"))
+    config = {
+        "mode": "2",
+        "search": True,
+        "ip": "192.168.1.163",
+        "ip2": "192.168.1.197",
+    }
 
-play_mode = config.get("mode")
+    with open("./config.json", mode="w") as config_file:
+        dump(config, config_file, indent=4)
 
-while True:
-    # Get Random Show
-    vl.get_show(int(play_mode))
 
-    # Build endpoint for Roku Universal Search
-    endpoint = roku.build_roku_search_endpoint(show_name=vl.show, service=vl.service, ip=config.get("ip"))
+def read_config_file():
+    """
+    Ingests config.json to generate program config at runtime
+    :return:
+    """
+    try:
+        with open("./config.json", mode="r") as config_file:
+            config = load(config_file)
+            return config
 
-    # Show what's playing
-    print(vl.get_whats_playing())
+    except FileNotFoundError:
+        print("Config File Does Not Exist! Generating Default")
+        generate_default_config()
 
-    # Generate cli message
-    choice = input(CLI_MESSAGE.format(mode=play_mode)).lower()
 
-    if choice == "1":
-        try:
-            roku.play_on_roku()
-            input("Press Enter To Roll Another Random Show")
-        except:
-            print(
-                "Error connecting to Roku ... configured IP might not longer be right"
-            )
+def search_reelgood(show: str):
+    """
+    Searches Reelgood for the current show on deck
+    :param show: str Show name as a string
+    """
+    webbrowser.open(f"https://reelgood.com/search?q={show}", new=1)
 
-    elif choice == "2":
-        webbrowser.open(vl.show_url.strip(), new=1)
 
-    elif choice == "3":
-        play_mode = change_category()
+def change_category():
+    """
+    Changes the currently loaded show category
+    :return: New show category (int)
+    """
+    category = """
+                1 = Watched Mode 
+                2 = Background Mode 
+                3 = Active Mode 
+                4 = Full Random
 
-    elif choice == "4":
-        search_reelgood(vl.show)
+                Enter your choice: """
 
-    elif choice == "5":
-        vl.print_db()
+    return int(input(category))
 
-    elif choice == "9":
-        exit(0)
+
+def main():
+    # Read program config
+    config = read_config_file()
+
+    # Create Video Library instance
+    vl = VideoLibrary("./shows.csv")
+
+    # Create Roku Instance
+    roku = Roku(config.get("ip"))
+
+    # Set play mode from config
+    play_mode = config.get("mode")
+
+    while True:
+        # Get Random Show
+        vl.get_show(int(play_mode))
+
+        # Build endpoint for Roku Universal Search
+        endpoint = roku.build_roku_search_endpoint(show_name=vl.show, service=vl.service, ip=config.get("ip"))
+
+        # Show what's playing
+        print(vl.get_whats_playing())
+
+        # Generate cli message
+        choice = input(CLI_MESSAGE.format(mode=play_mode)).lower()
+
+        if choice == "1":
+            try:
+                roku.play_on_roku(endpoint)
+                input("Press Enter To Roll Another Random Show")
+            except:
+                print(
+                    "Error connecting to Roku ... configured IP might not longer be right"
+                )
+
+        elif choice == "2":
+            webbrowser.open(vl.show_url.strip(), new=1)
+
+        elif choice == "3":
+            play_mode = change_category()
+
+        elif choice == "4":
+            search_reelgood(vl.show)
+
+        elif choice == "5":
+            vl.print_db()
+
+        elif choice == "9":
+            exit(0)
+
+
+if __name__ == '__main__':
+    main()

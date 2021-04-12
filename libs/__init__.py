@@ -41,10 +41,10 @@ args = parser.parse_args()
 CLI_MESSAGE = """
         Random Mode: {mode}
 
-        1) Play current choice on Roku
-        2) Play current choice on local device for casting
-        3) Change Category
-        4) Search Reelgood for current show
+        1) Play current choice from URL on Record on local device / Chromecast
+        2) Play current choice from URL on Record on Roku
+        3) Open Show on Reelgood
+        4) Change Category
         5) Show Current Show Database
 
         9) Exit

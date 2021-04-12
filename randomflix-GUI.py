@@ -3,7 +3,7 @@ from tkinter import *
 from tkinter import ttk
 
 from libs.videoLibrary import VideoLibrary
-from libs.helpers import *
+from libs import *
 
 
 # SETUP

@@ -1,5 +1,5 @@
 from csv import DictReader
-from libs.helpers import strikeout
+from libs import strikeout
 import random
 
 

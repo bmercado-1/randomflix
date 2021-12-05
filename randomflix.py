@@ -7,6 +7,9 @@ from libs.roku import Roku
 
 
 def main():
+    # Argument Parser
+    define_args()
+
     # Read program config
     config = read_config_file()
 
@@ -34,7 +37,10 @@ def main():
 
         if choice == "1":
             webbrowser.open(vl.show_url.strip(), new=1)
-            input("Press Enter To Roll Another Random Show")            
+            choice = input("\nPress Enter To Roll Another Random Show or x to Open Show on Reelgood: ")
+
+            if choice.lower() == 'x':
+                search_reelgood(vl.show)
 
         elif choice == "2":
             try:

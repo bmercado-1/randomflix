@@ -51,6 +51,7 @@ CLI_MESSAGE = """
         3) Open Show on Reelgood
         4) Change Category
         5) Show Current Show Database
+        6) Download shows.csv from Google Drive
 
         9) Exit
 

@@ -1,9 +1,11 @@
 from json import dump, load
+from pathlib import Path
 import webbrowser
 
 from libs import *
 from libs.videoLibrary import VideoLibrary
 from libs.roku import Roku
+from gdrive.gdrive import get_shows_csv
 
 
 def main():
@@ -14,7 +16,16 @@ def main():
     config = read_config_file()
 
     # Create Video Library instance
-    vl = VideoLibrary("./shows.csv")
+    show_file = Path("shows.csv")
+    if show_file.exists():
+        vl = VideoLibrary("./shows.csv")
+    else:
+        choice = input("Enter G to try downloading shows.csv from Google Drive: \n")
+        if choice == "G":
+            get_shows_csv()
+            vl = VideoLibrary("./shows.csv")
+        else:
+            raise Exception("No shows.csv in root dir.")
 
     # Create Roku Instance
     roku = Roku(config.get("ip"))
@@ -59,6 +70,9 @@ def main():
 
         elif choice == "5":
             vl.print_db()
+
+        elif choice == "6":
+            get_shows_csv()
 
         elif choice == "9":
             exit(0)

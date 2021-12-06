@@ -84,6 +84,4 @@ target/
 
 # VS Code Settings
 .vscode/
-
-/shows.csv
-
+temp/shows_bak.csv

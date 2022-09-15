@@ -1,3 +1,4 @@
+import tkinter
 from json import dump, load
 from tkinter import *
 from tkinter import ttk
@@ -29,28 +30,27 @@ def main():
 
 
     # Create GUI main window
-    window = Tk()
-    window.title("Randomflix")
-    window.geometry("250x200")
-    window.config(background="white")
+    root = Tk()
+    root.title("Randomflix")
+    root.geometry("250x200")
+    root.config(background="gray")
 
-    frm_commands = Frame(master=window, background="white")
+    frm_commands = Frame(master=root, relief=GROOVE, width=200, height=150, background="gray")
     frm_commands.pack(side="bottom")
     
     # Set Top Labels
-    lbl_heading = Label(master=window, text="What's Playing")
+    lbl_heading = Label(master=root, text="What's Playing")
     lbl_heading.pack(side="top")
 
-    lbl_whats_playing = Label(master=window, text="")
+    lbl_whats_playing = Label(master=root, text="")
     lbl_whats_playing.pack(side="top")
 
     # Create Text Entry box to set the show category
-    category_entered = ttk.Entry(window, width = 15)
+    category_entered = ttk.Entry(root, width=15)
     category_entered.pack(side="bottom")
 
-    lbl_category = Label(master=window, text="Override Category")
+    lbl_category = Label(master=root, text="Override Category")
     lbl_category.pack(side="bottom")
-
 
     # Create bottom buttons
     btn_roll_show = ttk.Button(master=frm_commands, text="Roll Show", command=get_show)
@@ -62,7 +62,7 @@ def main():
     btn_play_local.pack(side="right")
 
     # Start GUI
-    window.mainloop()
+    root.mainloop()
 
 
 def generate_default_config():

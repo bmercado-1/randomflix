@@ -89,7 +89,8 @@ class VideoLibrary:
     def get_whats_playing(self):
         whats_playing = (
             f"\nShow: {self.show}\n"
-            f"Service: {self.service.capitalize()}"
+            f"Service: {self.service.capitalize()}\n"
+            f"URL: {self.show_url}\n"
         )
         return whats_playing
 

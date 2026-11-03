@@ -1,0 +1,88 @@
+# Configuration files to ignore
+/config.json
+/shows.csv
+
+# Project Files to Ignore
+/bak/
+
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+.idea/
+
+# C extensions
+*.so
+
+# pyenv virtualenvs
+.python-version
+
+# Distribution / packaging
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+lib64/
+parts/
+sdist/
+var/
+venv/
+*.egg-info/
+.installed.cfg
+*.egg
+aws_service_configs/
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.cache
+.pytest_cache
+nosetests.xml
+coverage.xml
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+
+# Sphinx+Garweb documentation
+docs/
+
+# PyBuilder
+target/
+
+# IntelliJ IDEA 15
+*.iml
+
+# Vim swap files
+*.swp
+
+# OSX metafiles
+.DS_Store
+
+# Atom Editor Tag generation
+.tags
+
+# Atom Editor per-project settings
+.atom
+
+# VS Code Settings
+.vscode/
+temp/shows_bak.csv
+/wip/

@@ -1,0 +1,9 @@
+{
+  "name": "RandomFlix — Couch Channel Surfer",
+  "short_name": "RandomFlix",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0b0e14",
+  "theme_color": "#0b0e14",
+  "description": "Zero-friction living room channel surfing for TV & Anime."
+}

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#0b0e14" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <title>RandomFlix — Couch Channel Surfer</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <!-- Top Header & Mode Switcher -->
+    <header class="top-bar">
+      <div class="brand-row">
+        <div class="brand">
+          <span class="brand-icon">📺</span>
+          <div>
+            <h1>RandomFlix</h1>
+            <p class="subtitle" id="pool-status">Loading rotation...</p>
+          </div>
+        </div>
+        <div class="header-actions">
+          <button id="btn-open-manager" class="secondary-btn" title="Add, remove, or change categories of shows">
+            ⚙️ Manage Shows
+          </button>
+          <button id="btn-reset-snooze" class="ghost-btn" title="Restore snoozed shows">
+            ↺ Reset Snoozed
+          </button>
+        </div>
+      </div>
+
+      <!-- 4 Watch Modes (Faithful to original VideoLibrary) -->
+      <div class="mode-grid" role="tablist" aria-label="Watch Mode">
+        <button class="mode-btn active" data-mode="2" role="tab">
+          <span class="mode-emoji">🛋️</span>
+          <span class="mode-title">Background</span>
+          <span class="mode-desc">Cat 1 + 2 (Watched + Episodic)</span>
+        </button>
+        <button class="mode-btn" data-mode="1" role="tab">
+          <span class="mode-emoji">🔁</span>
+          <span class="mode-title">Comfort Rewatch</span>
+          <span class="mode-desc">Cat 1 Only (Already Watched)</span>
+        </button>
+        <button class="mode-btn" data-mode="3" role="tab">
+          <span class="mode-emoji">🎬</span>
+          <span class="mode-title">Active Focus</span>
+          <span class="mode-desc">Cat 3 Only (Serialized)</span>
+        </button>
+        <button class="mode-btn" data-mode="4" role="tab">
+          <span class="mode-emoji">🎰</span>
+          <span class="mode-title">Full Random</span>
+          <span class="mode-desc">All Shows (Cat 1 + 2 + 3)</span>
+        </button>
+      </div>
+
+      <!-- Filter Pills (Streaming Service, Format, Runtime) -->
+      <div class="filters-bar">
+        <div class="filter-group" id="service-filters" aria-label="Streaming Service Filter">
+          <button class="chip active" data-service="all">All Apps</button>
+          <button class="chip" data-service="netflix">Netflix</button>
+          <button class="chip" data-service="hulu">Hulu</button>
+          <button class="chip" data-service="max">Max</button>
+          <button class="chip" data-service="disney_plus">Disney+</button>
+          <button class="chip" data-service="prime_video">Prime</button>
+          <button class="chip" data-service="crunchyroll">Crunchyroll</button>
+        </div>
+        <div class="filter-group secondary-filters">
+          <select id="filter-type" class="filter-select" aria-label="Media Format">
+            <option value="all">All Formats (TV + Anime)</option>
+            <option value="tv">Live-Action / Western TV</option>
+            <option value="anime">Anime Only</option>
+          </select>
+          <select id="filter-runtime" class="filter-select" aria-label="Episode Runtime">
+            <option value="all">Any Runtime</option>
+            <option value="short">Quick (≤ 30 min)</option>
+            <option value="long">Full Hour (40+ min)</option>
+          </select>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Show Card -->
+    <main class="stage">
+      <article class="show-card" id="show-card">
+        <div class="poster-col">
+          <img id="show-poster" src="" alt="Show Poster" class="poster-img" />
+          <div id="poster-fallback" class="poster-fallback">📺</div>
+        </div>
+
+        <div class="details-col">
+          <div class="meta-badges">
+            <span id="badge-category" class="badge badge-cat">Category</span>
+            <span id="badge-type" class="badge badge-type">TV</span>
+            <span id="badge-runtime" class="badge badge-meta">30m</span>
+            <span id="badge-year" class="badge badge-meta">2020</span>
+            <span id="badge-deck-pos" class="badge badge-deck">1 / 10</span>
+          </div>
+
+          <h2 id="show-title" class="show-title">Select a show</h2>
+          <p id="show-vibe" class="show-vibe"></p>
+          <p id="show-reason" class="show-reason"></p>
+
+          <div id="show-tags" class="tags-row"></div>
+
+          <!-- Streaming Service Deep Links (Both Android TV Intent & Standard Web Link) -->
+          <div class="streaming-section">
+            <h3 class="section-label">Where to Watch Now (Series Page — Resumes Next Episode)</h3>
+            <div id="providers-list" class="providers-list"></div>
+          </div>
+
+          <!-- Strictly Opt-In Random Episode Roller -->
+          <div class="random-ep-section">
+            <div class="random-ep-controls">
+              <button id="btn-roll-episode" class="secondary-btn">
+                🎲 Roll Random Episode (Optional)
+              </button>
+              <button id="btn-hide-episode" class="ghost-btn hidden">
+                ✕ Hide
+              </button>
+            </div>
+            <div id="random-ep-box" class="random-ep-box hidden">
+              <div class="random-ep-header">
+                <span class="ep-label">Suggested Random Episode:</span>
+                <strong id="random-ep-text" class="ep-text">S01E01</strong>
+              </div>
+              <div id="random-ep-links" class="providers-list random-ep-links"></div>
+            </div>
+          </div>
+
+          <!-- Quick Couch Actions -->
+          <div class="couch-actions">
+            <button id="btn-promote-watched" class="action-pill" title="Move this show to Category 1 (Watched)">
+              ✅ Move to Watched (Cat 1)
+            </button>
+            <button id="btn-snooze" class="action-pill" title="Hide this show for the rest of tonight">
+              😴 Not Tonight (Snooze)
+            </button>
+          </div>
+        </div>
+      </article>
+    </main>
+
+    <!-- Bottom Channel Flip Controls (Thumb & TV Mouse Friendly) -->
+    <footer class="bottom-controls">
+      <button id="btn-prev" class="nav-btn prev-btn" title="Previous Show (Left Arrow)">
+        ⬅️ Prev
+      </button>
+      <button id="btn-flip" class="nav-btn flip-btn" title="Flip Channel (Space or Right Arrow)">
+        ⚡ Flip Channel
+      </button>
+    </footer>
+
+    <!-- Manage / Edit Shows Modal Drawer -->
+    <div id="manager-modal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="manager-title">
+      <div class="modal-panel">
+        <div class="modal-header">
+          <h2 id="manager-title">⚙️ Manage Show Rotation</h2>
+          <button id="btn-close-manager" class="ghost-btn">✕ Close</button>
+        </div>
+
+        <form id="form-add-show" class="add-show-form">
+          <input type="text" id="input-show-title" class="text-input" placeholder="Add show or anime title (e.g., Bob's Burgers, Psych)..." required />
+          <select id="input-show-category" class="filter-select">
+            <option value="1">Cat 1 • Watched (Comfort Rewatch)</option>
+            <option value="2">Cat 2 • Background (Episodic)</option>
+            <option value="3">Cat 3 • Active (Serialized)</option>
+          </select>
+          <select id="input-show-type" class="filter-select">
+            <option value="tv">TV Series</option>
+            <option value="anime">Anime</option>
+          </select>
+          <button type="submit" class="provider-btn">➕ Add Show</button>
+        </form>
+        <p class="subtitle">
+          Use <strong>💾 Save &amp; Enrich Locally</strong> when running on your Mac (writes <code>data/shows_source.json</code> &amp; runs <code>enrich_catalog.py</code> directly), or <strong>☁️ Save &amp; Sync to GitHub</strong> when editing from your phone on GitHub Pages.
+        </p>
+
+        <div class="manager-toolbar">
+          <input type="search" id="manager-search" class="text-input" placeholder="Filter current list..." />
+          <button id="btn-save-local" class="provider-btn" title="Write data/shows_source.json to disk and run enrich_catalog.py locally">
+            💾 Save &amp; Enrich Locally
+          </button>
+          <button id="btn-sync-github" class="provider-btn sync-btn" title="Commit shows_source.json to GitHub and trigger auto-enrichment">
+            ☁️ Save &amp; Sync to GitHub
+          </button>
+          <button id="btn-toggle-gh-config" class="secondary-btn" title="Configure GitHub Personal Access Token for 1-tap cloud sync">
+            🔑 GitHub Token
+          </button>
+          <button id="btn-export-json" class="secondary-btn" title="Copy updated shows_source.json to clipboard">
+            📋 Copy JSON
+          </button>
+        </div>
+
+        <!-- Collapsible GitHub Cloud Sync Settings Panel -->
+        <div id="gh-config-panel" class="gh-config-panel hidden">
+          <div class="gh-config-header">
+            <strong>☁️ GitHub Cloud Sync Settings (Stored Only on This Device)</strong>
+            <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener noreferrer" class="gh-help-link">
+              ↗ Create Fine-Grained Token (Repo: bmercado-1/randomflix → Contents: Read &amp; Write)
+            </a>
+          </div>
+          <div class="gh-config-inputs">
+            <input type="text" id="input-gh-repo" class="text-input" value="bmercado-1/randomflix" placeholder="owner/repo (e.g. bmercado-1/randomflix)" />
+            <input type="password" id="input-gh-token" class="text-input" placeholder="Paste GitHub Token (github_pat_... or ghp_...)" autocomplete="off" />
+            <button type="button" id="btn-save-gh-config" class="secondary-btn">💾 Save Token</button>
+            <button type="button" id="btn-clear-gh-config" class="ghost-btn">Clear</button>
+          </div>
+        </div>
+
+        <!-- Live Sync Status Banner -->
+        <div id="gh-sync-status" class="gh-sync-status hidden"></div>
+
+        <div id="manager-list" class="manager-list"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

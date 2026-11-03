@@ -1,0 +1,61 @@
+name: Enrich & Publish Show Catalog
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "data/shows_source.json"
+      - "scripts/enrich_catalog.py"
+  workflow_dispatch:
+    inputs:
+      force_refresh:
+        description: "Force fresh JustWatch & TVMaze API lookup (--refresh)"
+        required: false
+        default: false
+        type: boolean
+  schedule:
+    # Weekly refresh every Sunday at 09:00 UTC to keep streaming links & episode guides current
+    - cron: "0 9 * * 0"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: enrich-catalog
+  cancel-in-progress: true
+
+jobs:
+  enrich:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run catalog enrichment pipeline
+        run: |
+          if [ "${{ github.event_name }}" = "schedule" ] || [ "${{ inputs.force_refresh }}" = "true" ]; then
+            python3 scripts/enrich_catalog.py --refresh
+          else
+            python3 scripts/enrich_catalog.py
+          fi
+
+      - name: Commit and push updated catalog
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/data/catalog.json data/enrichment_cache.json
+          if git diff --staged --quiet; then
+            echo "No changes to catalog.json or enrichment_cache.json."
+          else
+            git commit -m "chore(catalog): auto-enrich docs/data/catalog.json [skip ci]"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi

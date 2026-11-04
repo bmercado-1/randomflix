@@ -423,6 +423,7 @@ def normalize_providers_list(
         fallback_prov = item.get("fallbackService") or infer_provider_from_url(fallback_url)
         if fallback_url and fallback_prov:
             pkg_meta = ANDROID_TV_PACKAGES.get(fallback_prov, {})
+            seen_ids.add(fallback_prov)
             cleaned.append(
                 {
                     "id": fallback_prov,
@@ -433,6 +434,32 @@ def normalize_providers_list(
                     "androidTvIntentUrl": build_android_tv_intent(fallback_url, fallback_prov),
                 }
             )
+
+    # Hulu on Disney+ integration: US Hulu series share the exact same 36-char
+    # BAMTech/Disney entity UUID (`https://www.disneyplus.com/browse/entity-<uuid>`),
+    # even when JustWatch only tags the standalone `hlu` package.
+    if "hulu" in seen_ids and "disney_plus" not in seen_ids:
+        hulu_entry = next((c for c in cleaned if c["id"] == "hulu"), None)
+        if hulu_entry:
+            m = re.search(
+                r"([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})",
+                hulu_entry["webUrl"],
+            )
+            if m:
+                entity_uuid = m.group(1).lower()
+                dnp_url = f"https://www.disneyplus.com/browse/entity-{entity_uuid}"
+                dnp_meta = ANDROID_TV_PACKAGES["disney_plus"]
+                seen_ids.add("disney_plus")
+                cleaned.append(
+                    {
+                        "id": "disney_plus",
+                        "name": dnp_meta["name"],
+                        "color": dnp_meta["color"],
+                        "monetization": hulu_entry.get("monetization") or "flatrate",
+                        "webUrl": dnp_url,
+                        "androidTvIntentUrl": build_android_tv_intent(dnp_url, "disney_plus"),
+                    }
+                )
 
     return cleaned
 
@@ -479,6 +506,23 @@ def build_android_tv_intent(web_url: str, provider_key: str) -> str:
     host_and_path = web_url[len(f"{scheme}://") :] if web_url.startswith(f"{scheme}://") else web_url
     fallback_encoded = urllib.parse.quote(web_url, safe="")
     package = pkg_info["package"]
+
+    # Netflix Android TV (com.netflix.ninja) ignores deep-link URIs and lands on the
+    # home screen unless the Intent includes the String extra `S.source=30`.
+    if provider_key == "netflix":
+        sep = "&" if "?" in host_and_path else "?"
+        if "source=" not in host_and_path:
+            host_and_path = f"{host_and_path}{sep}source=30"
+        return (
+            f"intent://{host_and_path}#Intent;"
+            f"scheme={scheme};"
+            f"package={package};"
+            f"action=android.intent.action.VIEW;"
+            f"S.source=30;"
+            f"S.browser_fallback_url={fallback_encoded};"
+            f"end"
+        )
+
     return (
         f"intent://{host_and_path}#Intent;"
         f"scheme={scheme};"

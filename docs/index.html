@@ -198,14 +198,19 @@
         <div id="gh-config-panel" class="gh-config-panel hidden">
           <div class="gh-config-header">
             <strong>☁️ GitHub Cloud Sync Settings (Stored Only on This Device)</strong>
-            <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener noreferrer" class="gh-help-link">
-              ↗ Create Fine-Grained Token (Repo: bmercado-1/randomflix → Contents: Read &amp; Write)
-            </a>
+            <div style="display:flex;flex-wrap:wrap;gap:12px;">
+              <a href="https://github.com/settings/tokens/new?description=RandomFlix+Sync&amp;scopes=public_repo" target="_blank" rel="noopener noreferrer" class="gh-help-link">
+                ⚡ 1-Click Pre-Filled Token (Recommended — public_repo pre-checked)
+              </a>
+              <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener noreferrer" class="gh-help-link">
+                ↗ Or Fine-Grained Token (Select repo → Permissions → Contents: Read &amp; Write)
+              </a>
+            </div>
           </div>
           <div class="gh-config-inputs">
             <input type="text" id="input-gh-repo" class="text-input" value="bmercado-1/randomflix" placeholder="owner/repo (e.g. bmercado-1/randomflix)" />
-            <input type="password" id="input-gh-token" class="text-input" placeholder="Paste GitHub Token (github_pat_... or ghp_...)" autocomplete="off" />
-            <button type="button" id="btn-save-gh-config" class="secondary-btn">💾 Save Token</button>
+            <input type="password" id="input-gh-token" class="text-input" placeholder="Paste GitHub Token (ghp_... or github_pat_...)" autocomplete="off" />
+            <button type="button" id="btn-save-gh-config" class="secondary-btn">💾 Save &amp; Verify Token</button>
             <button type="button" id="btn-clear-gh-config" class="ghost-btn">Clear</button>
           </div>
         </div>

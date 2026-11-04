@@ -40,8 +40,15 @@ function buildAndroidTvIntent(webUrl, providerId) {
   try {
     const u = new URL(webUrl);
     const scheme = u.protocol.replace(":", "") || "https";
-    const hostAndPath = webUrl.replace(/^https?:\/\//i, "");
+    let hostAndPath = webUrl.replace(/^https?:\/\//i, "");
     const fallbackEncoded = encodeURIComponent(webUrl);
+    if (providerId === "netflix") {
+      const sep = hostAndPath.includes("?") ? "&" : "?";
+      if (!hostAndPath.includes("source=")) {
+        hostAndPath = `${hostAndPath}${sep}source=30`;
+      }
+      return `intent://${hostAndPath}#Intent;scheme=${scheme};package=${pkg};action=android.intent.action.VIEW;S.source=30;S.browser_fallback_url=${fallbackEncoded};end`;
+    }
     return `intent://${hostAndPath}#Intent;scheme=${scheme};package=${pkg};action=android.intent.action.VIEW;S.browser_fallback_url=${fallbackEncoded};end`;
   } catch (_) {
     return "";
@@ -373,6 +380,24 @@ function renderCurrentShow() {
       tvIntentLink.textContent = `📺 Launch ${prov.name} TV App`;
       tvIntentLink.title = "Forces TV Bro / BrowseHere on Google TV to open the native streaming app";
       card.appendChild(tvIntentLink);
+    }
+
+    // For Netflix on Android TV (com.netflix.ninja), some builds only route /watch/<id>
+    // URIs with S.source=30 (which resumes your current episode when passed a series ID).
+    if (prov.id === "netflix" && prov.webUrl) {
+      const m = prov.webUrl.match(/\/title\/(\d+)/);
+      if (m) {
+        const watchUrl = `http://www.netflix.com/watch/${m[1]}`;
+        const watchIntent = buildAndroidTvIntent(watchUrl, "netflix");
+        if (watchIntent) {
+          const tvWatchLink = document.createElement("a");
+          tvWatchLink.className = "provider-btn secondary-link";
+          tvWatchLink.href = watchIntent;
+          tvWatchLink.textContent = "📺 Netflix TV App (Direct Resume)";
+          tvWatchLink.title = "Uses /watch/<series_id> + S.source=30 for Android TV builds that ignore /title/ intents";
+          card.appendChild(tvWatchLink);
+        }
+      }
     }
 
     providersList.appendChild(card);
@@ -726,16 +751,48 @@ function setupEventListeners() {
     ghConfigPanel.classList.toggle("hidden");
   });
 
-  document.getElementById("btn-save-gh-config").addEventListener("click", () => {
+  document.getElementById("btn-save-gh-config").addEventListener("click", async () => {
     const repo = inputGhRepo.value.trim() || "bmercado-1/randomflix";
     const token = inputGhToken.value.trim();
     localStorage.setItem(STORAGE_KEYS.GH_REPO, repo);
-    if (token) {
-      localStorage.setItem(STORAGE_KEYS.GH_TOKEN, token);
+    if (!token) {
+      showSyncStatus("Please paste a valid GitHub Personal Access Token.", true);
+      return;
+    }
+    localStorage.setItem(STORAGE_KEYS.GH_TOKEN, token);
+    showSyncStatus("⏳ Verifying token write permissions on GitHub...", false);
+    try {
+      const resp = await fetch(`https://api.github.com/repos/${repo}`, {
+        headers: {
+          Accept: "application/vnd.github+json",
+          Authorization: `Bearer ${token}`,
+          "X-GitHub-Api-Version": "2022-11-28",
+        },
+        cache: "no-store",
+      });
+      const repoData = await resp.json().catch(() => ({}));
+      if (!resp.ok) {
+        showSyncStatus(
+          `⚠️ Token check failed (${resp.status}): ${repoData.message || "Invalid token"}.`,
+          true
+        );
+        return;
+      }
+      if (repoData.permissions && repoData.permissions.push === false) {
+        showSyncStatus(
+          `⚠️ <strong>This token is Read-Only!</strong> GitHub Fine-Grained tokens default to "Public Repositories (read-only)". Either click <a href="https://github.com/settings/tokens/new?description=RandomFlix+Sync&amp;scopes=public_repo" target="_blank" rel="noopener noreferrer" class="gh-help-link">⚡ 1-Click Pre-Filled Token (public_repo)</a> or edit your Fine-Grained token to select <code>${repo}</code> and set <strong>Repository permissions → Contents → Read and write</strong>.`,
+          true
+        );
+        return;
+      }
+      showSyncStatus(
+        `✅ <strong>GitHub Token verified with Write access to <code>${repo}</code>!</strong> Ready for 1-tap sync.`,
+        false
+      );
+      ghConfigPanel.classList.add("hidden");
+    } catch (err) {
       showSyncStatus("✓ GitHub Token saved locally on this device.", false);
       ghConfigPanel.classList.add("hidden");
-    } else {
-      showSyncStatus("Please paste a valid GitHub Personal Access Token.", true);
     }
   });
 
@@ -898,7 +955,16 @@ async function syncToGitHub() {
       .getElementById("btn-reload-catalog-now")
       ?.addEventListener("click", () => loadCatalog(true));
   } catch (err) {
-    showSyncStatus(`⚠️ GitHub Sync Error: ${err.message}`, true);
+    if (String(err.message).toLowerCase().includes("resource not accessible by personal access token")) {
+      ghConfigPanel.classList.remove("hidden");
+      showSyncStatus(
+        `⚠️ <strong>Token lacks Write permission on <code>${repo}</code>!</strong><br/>
+         GitHub Fine-Grained tokens default to <em>"Public Repositories (read-only)"</em>. To fix in 5 seconds: click <a href="https://github.com/settings/tokens/new?description=RandomFlix+Sync&amp;scopes=public_repo" target="_blank" rel="noopener noreferrer" class="gh-help-link">⚡ 1-Click Pre-Filled Token (public_repo pre-checked)</a>, scroll down &amp; click <strong>Generate token</strong>, then paste it above. (Or edit your Fine-Grained token to select <code>${repo}</code> and set <strong>Repository permissions → Contents → Read and write</strong>.)`,
+        true
+      );
+    } else {
+      showSyncStatus(`⚠️ GitHub Sync Error: ${err.message}`, true);
+    }
   } finally {
     syncBtn.disabled = false;
     syncBtn.textContent = originalLabel;

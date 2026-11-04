@@ -8,7 +8,13 @@
       "serialization": "watched-comfort",
       "vibe": "Absurdist animated CIA family sitcom with Roger's unhinged personas — zero plot commitment.",
       "categoryReason": "Watched comfort animated comedy — classic drop-in background TV.",
-      "moodTags": ["animated", "sitcom", "funny", "20-min", "episodic"]
+      "moodTags": [
+        "animated",
+        "sitcom",
+        "funny",
+        "20-min",
+        "episodic"
+      ]
     },
     {
       "title": "Brooklyn Nine-Nine",
@@ -18,7 +24,13 @@
       "serialization": "watched-comfort",
       "vibe": "Warm, fast-paced NYPD precinct workplace comedy with iconic cold opens.",
       "categoryReason": "Watched workplace sitcom — effortless comfort rewatch.",
-      "moodTags": ["sitcom", "workplace", "funny", "20-min", "comfort"]
+      "moodTags": [
+        "sitcom",
+        "workplace",
+        "funny",
+        "20-min",
+        "comfort"
+      ]
     },
     {
       "title": "Community",
@@ -28,7 +40,13 @@
       "serialization": "watched-comfort",
       "vibe": "Meta, high-concept Greendale study group comedy full of genre parodies.",
       "categoryReason": "Watched comfort sitcom — great for any random episode.",
-      "moodTags": ["sitcom", "meta", "funny", "20-min", "comfort"]
+      "moodTags": [
+        "sitcom",
+        "meta",
+        "funny",
+        "20-min",
+        "comfort"
+      ]
     },
     {
       "title": "Family Guy",
@@ -38,7 +56,13 @@
       "serialization": "watched-comfort",
       "vibe": "Cutaway-gag animated comedy engineered for zero-stakes couch channel surfing.",
       "categoryReason": "Watched episodic animated comedy — ultimate background show.",
-      "moodTags": ["animated", "sitcom", "funny", "20-min", "episodic"]
+      "moodTags": [
+        "animated",
+        "sitcom",
+        "funny",
+        "20-min",
+        "episodic"
+      ]
     },
     {
       "title": "Futurama",
@@ -48,7 +72,13 @@
       "serialization": "watched-comfort",
       "vibe": "Clever 31st-century Planet Express sci-fi animated workplace comedy.",
       "categoryReason": "Watched sci-fi animated sitcom — easy comfort viewing.",
-      "moodTags": ["animated", "sci-fi", "sitcom", "funny", "20-min"]
+      "moodTags": [
+        "animated",
+        "sci-fi",
+        "sitcom",
+        "funny",
+        "20-min"
+      ]
     },
     {
       "title": "How I Met Your Mother",
@@ -58,7 +88,13 @@
       "serialization": "watched-comfort",
       "vibe": "Nostalgic NYC booth-hangout sitcom with running gags and easy pacing.",
       "categoryReason": "Watched hangout sitcom — familiar background comfort.",
-      "moodTags": ["sitcom", "hangout", "funny", "20-min", "comfort"]
+      "moodTags": [
+        "sitcom",
+        "hangout",
+        "funny",
+        "20-min",
+        "comfort"
+      ]
     },
     {
       "title": "Key & Peele",
@@ -68,7 +104,12 @@
       "serialization": "watched-comfort",
       "vibe": "Sharp, quotable sketch comedy where every 4-minute scene stands completely alone.",
       "categoryReason": "Watched sketch comedy — zero continuity needed.",
-      "moodTags": ["sketch", "funny", "20-min", "episodic"]
+      "moodTags": [
+        "sketch",
+        "funny",
+        "20-min",
+        "episodic"
+      ]
     },
     {
       "title": "Scrubs",
@@ -79,17 +120,13 @@
       "serialization": "watched-comfort",
       "vibe": "Sacred Heart hospital comedy blending goofy daydream cutaways with big heart.",
       "categoryReason": "Watched medical sitcom — prime candidate for random episode rewatches.",
-      "moodTags": ["sitcom", "medical", "funny", "20-min", "comfort"]
-    },
-    {
-      "title": "The Good Place",
-      "watched": true,
-      "category": 1,
-      "mediaType": "tv",
-      "serialization": "watched-comfort",
-      "vibe": "Clever, upbeat afterlife philosophy comedy with a fast, breezy rhythm.",
-      "categoryReason": "Already watched — knowing the twists makes it an easy, feel-good rewatch.",
-      "moodTags": ["comedy", "fantasy", "feel-good", "20-min", "comfort"]
+      "moodTags": [
+        "sitcom",
+        "medical",
+        "funny",
+        "20-min",
+        "comfort"
+      ]
     },
     {
       "title": "The Simpsons",
@@ -99,7 +136,13 @@
       "serialization": "watched-comfort",
       "vibe": "The gold standard of classic channel-surfing animated comfort television.",
       "categoryReason": "Watched episodic animated classic — built for random episode surfing.",
-      "moodTags": ["animated", "sitcom", "classic", "20-min", "episodic"]
+      "moodTags": [
+        "animated",
+        "sitcom",
+        "classic",
+        "20-min",
+        "episodic"
+      ]
     },
     {
       "title": "Avatar: The Last Airbender",
@@ -110,37 +153,13 @@
       "serialization": "watched-comfort",
       "vibe": "Iconic elemental bending adventure with humor, warmth, and legendary worldbuilding.",
       "categoryReason": "Already watched favorite — comfort adventure rewatch.",
-      "moodTags": ["animated", "adventure", "fantasy", "20-min", "comfort"]
-    },
-    {
-      "title": "Bones",
-      "watched": true,
-      "category": 1,
-      "mediaType": "tv",
-      "serialization": "watched-comfort",
-      "vibe": "Forensic anthropology case-of-the-week procedural driven by Jeffersonian team banter.",
-      "categoryReason": "Watched procedural — self-contained cases with familiar characters.",
-      "moodTags": ["procedural", "crime", "mystery", "45-min", "episodic"]
-    },
-    {
-      "title": "CSI: Crime Scene Investigation",
-      "watched": true,
-      "category": 1,
-      "mediaType": "tv",
-      "serialization": "watched-comfort",
-      "vibe": "Classic Las Vegas forensic procedural — pure case-of-the-week investigative rhythm.",
-      "categoryReason": "Watched procedural — quintessential late-night TV channel surf.",
-      "moodTags": ["procedural", "crime", "forensics", "45-min", "episodic"]
-    },
-    {
-      "title": "Doctor Who",
-      "watched": true,
-      "category": 1,
-      "mediaType": "tv",
-      "serialization": "watched-comfort",
-      "vibe": "Time-traveling TARDIS adventures ranging from campy monster-of-the-week to epic sci-fi.",
-      "categoryReason": "Already watched sci-fi staple — great for revisiting favorite eras.",
-      "moodTags": ["sci-fi", "adventure", "45-min", "comfort"]
+      "moodTags": [
+        "animated",
+        "adventure",
+        "fantasy",
+        "20-min",
+        "comfort"
+      ]
     },
     {
       "title": "Eureka",
@@ -150,37 +169,13 @@
       "serialization": "watched-comfort",
       "vibe": "Cozy Blue-Sky sci-fi procedural where a regular sheriff keeps a town of geniuses from blowing up.",
       "categoryReason": "Watched light sci-fi procedural — warm, low-stress comfort viewing.",
-      "moodTags": ["sci-fi", "procedural", "lighthearted", "45-min", "comfort"]
-    },
-    {
-      "title": "House",
-      "watched": true,
-      "category": 1,
-      "mediaType": "tv",
-      "serialization": "watched-comfort",
-      "vibe": "Snarky medical detective procedural with a reliable diagnosis-of-the-week formula.",
-      "categoryReason": "Watched medical procedural — easy to drop into any case.",
-      "moodTags": ["medical", "procedural", "drama", "45-min", "episodic"]
-    },
-    {
-      "title": "Law & Order: Special Victims Unit",
-      "watched": true,
-      "category": 1,
-      "mediaType": "tv",
-      "serialization": "watched-comfort",
-      "vibe": "The ultimate cable-TV marathon procedural — self-contained investigation and courtroom drama.",
-      "categoryReason": "Watched procedural staple — classic channel-surfing background TV.",
-      "moodTags": ["procedural", "crime", "legal", "45-min", "episodic"]
-    },
-    {
-      "title": "Lie to Me",
-      "watched": true,
-      "category": 1,
-      "mediaType": "tv",
-      "serialization": "watched-comfort",
-      "vibe": "Micro-expression deception procedural led by Tim Roth's Cal Lightman.",
-      "categoryReason": "Watched case-of-the-week procedural — easy rewatch.",
-      "moodTags": ["procedural", "crime", "mystery", "45-min", "episodic"]
+      "moodTags": [
+        "sci-fi",
+        "procedural",
+        "lighthearted",
+        "45-min",
+        "comfort"
+      ]
     },
     {
       "title": "Star Wars: The Clone Wars",
@@ -190,7 +185,13 @@
       "serialization": "watched-comfort",
       "vibe": "Anthology-style Clone Wars arcs packed with Jedi, clone troopers, and galactic lore.",
       "categoryReason": "Watched animated Star Wars — 22-minute episodes organized in bite-sized arcs.",
-      "moodTags": ["animated", "sci-fi", "star-wars", "20-min", "comfort"]
+      "moodTags": [
+        "animated",
+        "sci-fi",
+        "star-wars",
+        "20-min",
+        "comfort"
+      ]
     },
     {
       "title": "Bleach",
@@ -200,7 +201,13 @@
       "serialization": "watched-comfort",
       "vibe": "Stylish Soul Reaper sword-fighting shonen with an iconic soundtrack.",
       "categoryReason": "Watched comfort shonen anime.",
-      "moodTags": ["anime", "shonen", "action", "20-min", "comfort"]
+      "moodTags": [
+        "anime",
+        "shonen",
+        "action",
+        "20-min",
+        "comfort"
+      ]
     },
     {
       "title": "Castlevania",
@@ -210,27 +217,13 @@
       "serialization": "watched-comfort",
       "vibe": "Dark gothic vampire-hunting action with razor-sharp banter between Trevor, Sypha, and Alucard.",
       "categoryReason": "Watched dark fantasy animation — brisk 24-minute episodes.",
-      "moodTags": ["anime", "dark-fantasy", "action", "20-min", "comfort"]
-    },
-    {
-      "title": "Code Geass: Lelouch of the Rebellion",
-      "watched": true,
-      "category": 1,
-      "mediaType": "anime",
-      "serialization": "watched-comfort",
-      "vibe": "Operatic mecha chess-match thriller full of dramatic cliffhangers and theatrical flair.",
-      "categoryReason": "Already watched classic anime — enjoyable rewatch anytime.",
-      "moodTags": ["anime", "mecha", "thriller", "20-min", "comfort"]
-    },
-    {
-      "title": "Fate/stay night",
-      "watched": true,
-      "category": 1,
-      "mediaType": "anime",
-      "serialization": "watched-comfort",
-      "vibe": "Mythic heroic spirits clash in the Holy Grail War.",
-      "categoryReason": "Watched action fantasy anime.",
-      "moodTags": ["anime", "fantasy", "action", "20-min", "comfort"]
+      "moodTags": [
+        "anime",
+        "dark-fantasy",
+        "action",
+        "20-min",
+        "comfort"
+      ]
     },
     {
       "title": "Fullmetal Alchemist: Brotherhood",
@@ -240,27 +233,13 @@
       "serialization": "watched-comfort",
       "vibe": "Masterpiece alchemical adventure balancing kinetic action, conspiracy, and humor.",
       "categoryReason": "Watched all-time favorite anime — timeless comfort rewatch.",
-      "moodTags": ["anime", "adventure", "fantasy", "20-min", "comfort"]
-    },
-    {
-      "title": "Hellsing",
-      "watched": true,
-      "category": 1,
-      "mediaType": "anime",
-      "serialization": "watched-comfort",
-      "vibe": "Moody, jazz-scored 2001 vampire action following Alucard and the Hellsing Organization.",
-      "categoryReason": "Watched gothic action anime.",
-      "moodTags": ["anime", "vampires", "action", "20-min", "comfort"]
-    },
-    {
-      "title": "Hellsing Ultimate",
-      "watched": true,
-      "category": 1,
-      "mediaType": "anime",
-      "serialization": "watched-comfort",
-      "vibe": "Uncut, over-the-top OVA adaptation of Alucard's supernatural warfare.",
-      "categoryReason": "Watched high-octane OVA anime.",
-      "moodTags": ["anime", "vampires", "action", "45-min", "comfort"]
+      "moodTags": [
+        "anime",
+        "adventure",
+        "fantasy",
+        "20-min",
+        "comfort"
+      ]
     },
     {
       "title": "Naruto",
@@ -270,27 +249,13 @@
       "serialization": "watched-comfort",
       "vibe": "Classic Hidden Leaf ninja tournament and mission arcs full of nostalgic shonen energy.",
       "categoryReason": "Watched classic shonen anime — pure nostalgic comfort viewing.",
-      "moodTags": ["anime", "shonen", "action", "20-min", "comfort"]
-    },
-    {
-      "title": "Naruto Shippuden",
-      "watched": true,
-      "category": 1,
-      "mediaType": "anime",
-      "serialization": "watched-comfort",
-      "vibe": "High-stakes Akatsuki battles and ninja war showdowns.",
-      "categoryReason": "Watched long-running shonen comfort anime.",
-      "moodTags": ["anime", "shonen", "action", "20-min", "comfort"]
-    },
-    {
-      "title": "Neon Genesis Evangelion",
-      "watched": true,
-      "category": 1,
-      "mediaType": "anime",
-      "serialization": "watched-comfort",
-      "vibe": "Iconic 90s mecha psychological sci-fi as NERV defends Tokyo-3 from Angels.",
-      "categoryReason": "Watched sci-fi anime classic.",
-      "moodTags": ["anime", "mecha", "sci-fi", "20-min", "comfort"]
+      "moodTags": [
+        "anime",
+        "shonen",
+        "action",
+        "20-min",
+        "comfort"
+      ]
     },
     {
       "title": "Ouran High School Host Club",
@@ -300,27 +265,14 @@
       "serialization": "watched-comfort",
       "vibe": "Hilarious, fourth-wall-breaking romantic comedy parodying wealthy high-school tropes.",
       "categoryReason": "Watched episodic comedy anime — peak lightweight comfort viewing.",
-      "moodTags": ["anime", "comedy", "funny", "20-min", "episodic", "comfort"]
-    },
-    {
-      "title": "Persona 5: The Animation",
-      "watched": true,
-      "category": 1,
-      "mediaType": "anime",
-      "serialization": "watched-comfort",
-      "vibe": "Stylish Phantom Thieves heist adventures set to acid-jazz vibes.",
-      "categoryReason": "Watched video-game adaptation comfort anime.",
-      "moodTags": ["anime", "supernatural", "action", "20-min", "comfort"]
-    },
-    {
-      "title": "Pokémon: Indigo League",
-      "watched": true,
-      "category": 1,
-      "mediaType": "anime",
-      "serialization": "watched-comfort",
-      "vibe": "Pure Saturday-morning Kanto nostalgia with Ash, Pikachu, Brock, and Misty.",
-      "categoryReason": "Watched childhood classic — zero-stakes episodic background comfort.",
-      "moodTags": ["anime", "adventure", "nostalgia", "20-min", "episodic", "comfort"]
+      "moodTags": [
+        "anime",
+        "comedy",
+        "funny",
+        "20-min",
+        "episodic",
+        "comfort"
+      ]
     },
     {
       "title": "The Legend of Korra",
@@ -330,7 +282,13 @@
       "serialization": "watched-comfort",
       "vibe": "Steampunk Republic City bending action with tight seasonal villains.",
       "categoryReason": "Watched Avatar sequel series — great action comfort rewatch.",
-      "moodTags": ["anime", "action", "fantasy", "20-min", "comfort"]
+      "moodTags": [
+        "anime",
+        "action",
+        "fantasy",
+        "20-min",
+        "comfort"
+      ]
     }
   ]
 }

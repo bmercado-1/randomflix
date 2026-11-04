@@ -121,6 +121,7 @@ function updateUnsavedBadges() {
   const btnOpenManager = document.getElementById("btn-open-manager");
   const btnSaveLocal = document.getElementById("btn-save-local");
   const btnSync = document.getElementById("btn-sync-github");
+  const btnDiscard = document.getElementById("btn-discard-changes");
 
   if (btnOpenManager) {
     btnOpenManager.textContent =
@@ -138,6 +139,101 @@ function updateUnsavedBadges() {
         ? `☁️ Save & Sync to GitHub (${unsaved})`
         : "☁️ Save & Sync to GitHub";
   }
+  if (btnDiscard) {
+    btnDiscard.textContent =
+      unsaved > 0 ? `↺ Discard Unsaved (${unsaved})` : "↺ Discard Unsaved";
+    btnDiscard.classList.toggle("hidden", unsaved === 0);
+  }
+  renderPendingChanges();
+}
+
+function renderPendingChanges() {
+  const box = document.getElementById("pending-changes-box");
+  if (!box) return;
+  box.innerHTML = "";
+
+  const baseById = new Map(state.baseCatalog.map((s) => [s.id, s]));
+  const items = [];
+
+  for (const cs of state.customShows) {
+    if (!baseById.has(cs.id) && !state.removedIds.has(cs.id)) {
+      items.push({
+        label: `➕ Added: ${cs.title}`,
+        undo: () => {
+          state.customShows = state.customShows.filter((s) => s.id !== cs.id);
+          saveCustomState();
+          renderManagerList();
+          rebuildDeck();
+        },
+      });
+    }
+  }
+
+  for (const [id, cat] of Object.entries(state.categoryOverrides)) {
+    if (state.removedIds.has(id)) continue;
+    const baseShow = baseById.get(id);
+    if (baseShow && Number(baseShow.category) !== Number(cat)) {
+      items.push({
+        label: `🏷️ ${baseShow.title}: Cat ${baseShow.category} → Cat ${cat}`,
+        undo: () => {
+          delete state.categoryOverrides[id];
+          saveCustomState();
+          renderManagerList();
+          rebuildDeck();
+        },
+      });
+    }
+  }
+
+  for (const id of state.removedIds) {
+    const baseShow = baseById.get(id);
+    if (baseShow) {
+      items.push({
+        label: `🗑 Removed: ${baseShow.title}`,
+        undo: () => {
+          state.removedIds.delete(id);
+          saveCustomState();
+          renderManagerList();
+          rebuildDeck();
+        },
+      });
+    }
+  }
+
+  if (items.length === 0) {
+    box.classList.add("hidden");
+    return;
+  }
+
+  box.classList.remove("hidden");
+  const titleSpan = document.createElement("strong");
+  titleSpan.textContent = `Queued Changes (${items.length}):`;
+  box.appendChild(titleSpan);
+
+  for (const item of items) {
+    const pill = document.createElement("span");
+    pill.className = "pending-pill";
+    const text = document.createElement("span");
+    text.textContent = item.label;
+    const undoBtn = document.createElement("button");
+    undoBtn.type = "button";
+    undoBtn.className = "pending-undo-btn";
+    undoBtn.textContent = "↺ Undo";
+    undoBtn.addEventListener("click", item.undo);
+    pill.appendChild(text);
+    pill.appendChild(undoBtn);
+    box.appendChild(pill);
+  }
+}
+
+function discardAllUnsavedChanges() {
+  state.customShows = [];
+  state.categoryOverrides = {};
+  state.removedIds.clear();
+  saveCustomState();
+  renderManagerList();
+  rebuildDeck();
+  showSyncStatus("✓ Discarded all unsaved changes and restored the saved rotation.", false);
 }
 
 function saveCustomState() {
@@ -804,6 +900,7 @@ function setupEventListeners() {
 
   document.getElementById("btn-save-local")?.addEventListener("click", saveLocally);
   document.getElementById("btn-sync-github").addEventListener("click", syncToGitHub);
+  document.getElementById("btn-discard-changes")?.addEventListener("click", discardAllUnsavedChanges);
 
   // Keyboard / TV Remote shortcuts (Right Arrow / Space = Flip, Left Arrow = Prev)
   window.addEventListener("keydown", (e) => {

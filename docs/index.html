@@ -186,6 +186,9 @@
           <button id="btn-sync-github" class="provider-btn sync-btn" title="Commit shows_source.json to GitHub and trigger auto-enrichment">
             ☁️ Save &amp; Sync to GitHub
           </button>
+          <button id="btn-discard-changes" class="secondary-btn discard-btn hidden" title="Discard all unsaved additions, removals, and category edits">
+            ↺ Discard Unsaved
+          </button>
           <button id="btn-toggle-gh-config" class="secondary-btn" title="Configure GitHub Personal Access Token for 1-tap cloud sync">
             🔑 GitHub Token
           </button>
@@ -193,6 +196,9 @@
             📋 Copy JSON
           </button>
         </div>
+
+        <!-- Pending Unsaved Changes Bar (Individual Undo or Discard All) -->
+        <div id="pending-changes-box" class="pending-changes-box hidden"></div>
 
         <!-- Collapsible GitHub Cloud Sync Settings Panel -->
         <div id="gh-config-panel" class="gh-config-panel hidden">

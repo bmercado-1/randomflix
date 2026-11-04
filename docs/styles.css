@@ -564,6 +564,52 @@ body {
   padding: 9px 14px;
 }
 
+.discard-btn {
+  border-color: rgba(245, 158, 11, 0.55);
+  color: #fbbf24;
+}
+
+.discard-btn:hover {
+  border-color: #fbbf24;
+  background: rgba(245, 158, 11, 0.14);
+}
+
+.pending-changes-box {
+  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  border-radius: 10px;
+  padding: 10px 12px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.84rem;
+}
+
+.pending-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--surface-elevated);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 0.8rem;
+}
+
+.pending-undo-btn {
+  background: transparent;
+  border: none;
+  color: var(--accent-hover);
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0 2px;
+}
+
+.pending-undo-btn:hover {
+  text-decoration: underline;
+}
+
 .gh-config-panel {
   background: var(--surface-elevated);
   border: 1px solid var(--border);

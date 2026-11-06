@@ -48,3 +48,8 @@ This file is automatically loaded by Antigravity at the start of every chat in `
    - Search grounding summaries can hallucinate characters in Crunchyroll series IDs (e.g., `GRGGPG93R`) or Hulu UUIDs. Always verify URLs via HTTP redirect (`resolve_hulu_series_url`), JustWatch GraphQL, or direct page inspection.
 6. **Git Sync Note:**
    - Because `.github/workflows/enrich.yml` pushes an auto-enrichment commit to `main` whenever `data/shows_source.json` or `scripts/enrich_catalog.py` changes, always run `git pull --rebase origin main` before pushing new commits.
+
+## 5. UI & Sync Guardrails
+- **Always Keep Both Local & Cloud Save Paths:** In the Manage Shows modal (`docs/index.html`, `docs/app.js`), always maintain both `💾 Save & Enrich Locally` (backed by `scripts/dev_server.py` on `localhost`) and `☁️ Save & Sync to GitHub` (for mobile/GitHub Pages). Never remove local-only save workflows.
+- **Unsaved Change Recovery:** Always preserve the `↺ Discard Unsaved (N)` button and the `Queued Changes` bar with individual `↺ Undo` pills so accidental removals or category changes can be reverted before syncing.
+- **GitHub Token Scope:** In-app GitHub Sync (`PUT /repos/bmercado-1/randomflix/contents/data/shows_source.json`) only requires a Fine-Grained PAT scoped to `bmercado-1/randomflix` with `Contents: Read and write` (or Classic PAT with `public_repo`). `Actions` permissions are not required because `.github/workflows/enrich.yml` triggers automatically on `push`.

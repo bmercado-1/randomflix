@@ -21,6 +21,7 @@ import csv
 import json
 import re
 import time
+import unicodedata
 import urllib.parse
 import urllib.request
 from datetime import datetime, timezone
@@ -36,6 +37,7 @@ CATALOG_OUT_PATH = ROOT_DIR / "docs" / "data" / "catalog.json"
 JUSTWATCH_GRAPHQL_URL = "https://apis.justwatch.com/graphql"
 TVMAZE_SEARCH_URL = "https://api.tvmaze.com/singlesearch/shows"
 JIKAN_SEARCH_URL = "https://api.jikan.moe/v4/anime"
+ANILIST_GRAPHQL_URL = "https://graphql.anilist.co"
 
 # Map of Android TV / Google TV native app package names for `intent://` deep links
 ANDROID_TV_PACKAGES: dict[str, dict[str, str]] = {
@@ -195,6 +197,20 @@ SERIES_HUB_OVERRIDES: dict[tuple[str, str], str] = {
     ("naruto", "hulu"): "https://www.hulu.com/series/naruto-993d48dc-d507-47cb-8cca-23e6794f6f66",
     ("narutoshippuden", "hulu"): "https://www.hulu.com/series/naruto-shippuden-c6321cb1-1879-4d7f-9e2f-8d7d4fc55544",
     ("persona5theanimation", "hulu"): "https://www.hulu.com/series/persona5-the-animation-6507e2ba-9faf-49e9-978f-6718a365c4fd",
+    ("frierenbeyondjourneysend", "hulu"): "https://www.hulu.com/series/frieren-beyond-journeys-end-1d4725f8-06d1-43fb-a077-72143ac5502f",
+    ("mashlemagicandmuscles", "hulu"): "https://www.hulu.com/series/mashle-magic-and-muscles-588f6e4a-42f1-48dd-931a-605ae4eec3e4",
+    ("theapothecarydiaries", "hulu"): "https://www.hulu.com/series/the-apothecary-diaries-d7b5390e-b8cb-4cc3-ba7c-7ed570355d7d",
+    ("rascaldoesnotdreamofbunnygirlsenpai", "hulu"): "https://www.hulu.com/series/rascal-does-not-dream-of-bunny-girl-senpai-e4c45f43-dc4b-44ce-a9b8-14139ac1af69",
+    ("misskobayashisdragonmaid", "hulu"): "https://www.hulu.com/series/miss-kobayashis-dragon-maid-8649fd36-8025-412a-bec7-2e03fde2ea77",
+    ("thedangersinmyheart", "hulu"): "https://www.hulu.com/series/the-dangers-in-my-heart-3b5bdff1-01cb-499d-a250-9158240a9e2b",
+    ("insomniacsafterschool", "hulu"): "https://www.hulu.com/series/insomniacs-after-school-a625260a-4472-4239-9400-9083a88033eb",
+    ("witchwatch", "hulu"): "https://www.hulu.com/series/witch-watch-7f008578-f8b2-4c27-8e5b-64320349ce63",
+    ("mushokutenseijoblessreincarnation", "hulu"): "https://www.hulu.com/series/mushoku-tensei-jobless-reincarnation-787a5fb4-9cba-4a69-96b2-4fb3b10c860a",
+    ("campfirecookinginanotherworldwithmyabsurdskill", "hulu"): "https://www.hulu.com/series/campfire-cooking-in-another-world-with-my-absurd-skill-fc20b0bc-90b6-45b3-b56a-ad3a5cb2b855",
+    ("farminglifeinanotherworld", "hulu"): "https://www.hulu.com/series/farming-life-in-another-world-40489af2-d45a-40e0-8607-e3deac505971",
+    ("isitwrongtotrytopickupgirlsinadungeon", "hulu"): "https://www.hulu.com/series/is-it-wrong-to-try-to-pick-up-girls-in-a-dungeon-fc1b26af-bd07-4034-95e6-a494d8528069",
+    ("theeminenceinshadow", "hulu"): "https://www.hulu.com/series/the-eminence-in-shadow-66f37cf4-dba5-4511-ae26-e4092df1668b",
+    ("thoughiamanineptvillainess", "hulu"): "https://www.hulu.com/series/though-i-am-an-inept-villainess-8a91ef01-78f6-4c33-9566-841da5a9b053",
     ("codegeasslelouchoftherebellion", "crunchyroll"): "https://www.crunchyroll.com/series/GY2P9ED0Y/code-geass",
     ("fullmetalalchemistbrotherhood", "crunchyroll"): "https://www.crunchyroll.com/series/GRGGPG93R/fullmetal-alchemist-brotherhood",
     ("hellsing", "crunchyroll"): "https://www.crunchyroll.com/series/G649DPXQY/hellsing",
@@ -203,6 +219,22 @@ SERIES_HUB_OVERRIDES: dict[tuple[str, str], str] = {
     ("narutoshippuden", "crunchyroll"): "https://www.crunchyroll.com/series/GYQ4MW246/naruto-shippuden",
     ("ouranhighschoolhostclub", "crunchyroll"): "https://www.crunchyroll.com/series/GRGGJWD2R/ouran-high-school-host-club",
     ("persona5theanimation", "crunchyroll"): "https://www.crunchyroll.com/series/G6VDWKM76/persona5-the-animation",
+    ("horimiya", "crunchyroll"): "https://www.crunchyroll.com/series/G9VHN9P43/horimiya",
+    ("misskobayashisdragonmaid", "crunchyroll"): "https://www.crunchyroll.com/series/G6497Z43Y/miss-kobayashis-dragon-maid",
+    ("thequintessentialquintuplets", "crunchyroll"): "https://www.crunchyroll.com/series/GY4PD7Z06/the-quintessential-quintuplets",
+    ("theiceguyandhiscoolfemalecolleague", "crunchyroll"): "https://www.crunchyroll.com/series/GW4HM75NP/the-ice-guy-and-his-cool-female-colleague",
+    ("lycorisrecoil", "crunchyroll"): "https://www.crunchyroll.com/series/G1XHJV2X9/lycoris-recoil",
+    ("kaguyasamaloveiswar", "crunchyroll"): "https://www.crunchyroll.com/series/GRJ0J828Y/kaguya-sama-love-is-war",
+    ("aharensanisindecipherable", "crunchyroll"): "https://www.crunchyroll.com/series/GNVHKN72N/aharen-san-wa-hakarenai",
+    ("recoveryofanmmojunkie", "crunchyroll"): "https://www.crunchyroll.com/series/GR49WNQE6/recovery-of-an-mmo-junkie",
+    ("banishedfromtheherospartyidecidedtoliveaquietlifeinthecountryside", "crunchyroll"): "https://www.crunchyroll.com/series/G9VHN974E/banished-from-the-heros-party-i-decided-to-live-a-quiet-life-in-the-countryside",
+    ("fruitsbasket2019", "crunchyroll"): "https://www.crunchyroll.com/series/G6ZJMGEXY/fruits-basket-2019",
+    ("thedukeofdeathandhismaid", "crunchyroll"): "https://www.crunchyroll.com/series/G79H23V0G/the-duke-of-death-and-his-maid",
+    ("hyouka", "crunchyroll"): "https://www.crunchyroll.com/series/G6P8G7V86/hyouka",
+    ("mushokutenseijoblessreincarnation", "crunchyroll"): "https://www.crunchyroll.com/series/G24H1N3MP/mushoku-tensei-jobless-reincarnation",
+    ("konosubagodsblessingonthiswonderfulworld", "crunchyroll"): "https://www.crunchyroll.com/series/GYE5K3GQR/konosuba---gods-blessing-on-this-wonderful-world",
+    ("thesaintsmagicpowerisomnipotent", "crunchyroll"): "https://www.crunchyroll.com/series/G1XHJV3P3/the-saints-magic-power-is-omnipotent",
+    ("teasingmastertakagisan", "hidive"): "https://www.hidive.com/tv/teasing-master-takagi-san",
 }
 
 # Live-verified Crunchyroll episode URLs for Fullmetal Alchemist: Brotherhood
@@ -277,8 +309,57 @@ CRUNCHYROLL_EPISODE_OVERRIDES: dict[str, dict[int, str]] = {
 }
 
 
+def strip_diacritics(text: str) -> str:
+    return unicodedata.normalize("NFKD", text).encode("ascii", "ignore").decode("ascii")
+
+
+def strip_year_suffix(title: str) -> str:
+    return re.sub(r"\s*\(\d{4}\)\s*$", "", title).strip()
+
+
 def slugify_title(title: str) -> str:
-    return re.sub(r"[^a-z0-9]+", "-", title.lower()).strip("-")
+    return re.sub(r"[^a-z0-9]+", "-", strip_diacritics(title).lower()).strip("-")
+
+
+def titles_match(cand_title: str, ref_titles: list[str]) -> bool:
+    """Checks if a candidate title from JustWatch/TVMaze reasonably matches any reference title."""
+    cand_ascii = strip_diacritics(strip_year_suffix(cand_title))
+    cand_norm = normalize_title_key(cand_ascii)
+    if not cand_norm:
+        return False
+    cand_prefix = normalize_title_key(re.split(r"[:~]", cand_ascii, maxsplit=1)[0])
+    cand_tokens = {
+        t
+        for t in re.findall(r"[a-z0-9]+", cand_ascii.lower())
+        if len(t) > 2 and t not in {"the", "and", "for", "with", "from", "into"}
+    }
+    for ref in ref_titles:
+        if not ref:
+            continue
+        ref_ascii = strip_diacritics(strip_year_suffix(ref))
+        ref_norm = normalize_title_key(ref_ascii)
+        if not ref_norm:
+            continue
+        if cand_norm == ref_norm:
+            return True
+        ref_prefix = normalize_title_key(re.split(r"[:~]", ref_ascii, maxsplit=1)[0])
+        if len(cand_prefix) >= 10 and cand_prefix == ref_prefix:
+            return True
+        shorter, longer = (
+            (cand_norm, ref_norm) if len(cand_norm) <= len(ref_norm) else (ref_norm, cand_norm)
+        )
+        if len(shorter) >= 6 and shorter in longer:
+            return True
+        ref_tokens = {
+            t
+            for t in re.findall(r"[a-z0-9]+", ref_ascii.lower())
+            if len(t) > 2 and t not in {"the", "and", "for", "with", "from", "into"}
+        }
+        if cand_tokens and ref_tokens:
+            overlap = len(cand_tokens & ref_tokens) / min(len(cand_tokens), len(ref_tokens))
+            if overlap >= 0.65 and min(len(cand_tokens), len(ref_tokens)) >= 2:
+                return True
+    return False
 
 
 def unwrap_affiliate_url(web_url: str) -> str:
@@ -310,12 +391,103 @@ def resolve_hulu_series_url(watch_url: str) -> str | None:
     return None
 
 
+_CR_ACCESS_TOKEN: str | None = None
+
+
+def get_crunchyroll_anonymous_token() -> str | None:
+    """Acquires an anonymous Crunchyroll web client bearer token to resolve /watch/<ep_id> to /series/<id>."""
+    global _CR_ACCESS_TOKEN
+    if _CR_ACCESS_TOKEN:
+        return _CR_ACCESS_TOKEN
+    for basic in (
+        "bm9haWhkZXZtXzZpeWcwYThsMHE6",
+        "a3ZvcGlzdXZ6Yy0teG96Y21kMXk6R21JSTExenVPVnRnTjdlSWZrSlpibzVuLTRHTlZ0cU8=",
+    ):
+        try:
+            req = urllib.request.Request(
+                "https://www.crunchyroll.com/auth/v1/token",
+                data=b"grant_type=client_id",
+                headers={
+                    "Authorization": f"Basic {basic}",
+                    "Content-Type": "application/x-www-form-urlencoded",
+                    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36",
+                },
+                method="POST",
+            )
+            with urllib.request.urlopen(req, timeout=8) as resp:
+                data = json.loads(resp.read().decode("utf-8"))
+                if data.get("access_token"):
+                    _CR_ACCESS_TOKEN = data["access_token"]
+                    return _CR_ACCESS_TOKEN
+        except Exception:
+            continue
+    return None
+
+
+def resolve_crunchyroll_series_url(
+    watch_or_legacy_url: str,
+    anilist_ep_offers: dict[str, str] | None = None,
+) -> str | None:
+    """Resolves a Crunchyroll /watch/<ep_id> or legacy slug URL to its canonical /series/<id>/<slug> hub."""
+    candidate_ep_ids: list[str] = []
+    m_watch = re.search(r"crunchyroll\.com/watch/([A-Z0-9]+)", watch_or_legacy_url)
+    if m_watch and not m_watch.group(1).startswith("GE000"):
+        candidate_ep_ids.append(m_watch.group(1))
+    if anilist_ep_offers:
+        for ep_url in anilist_ep_offers.values():
+            m_ep = re.search(r"crunchyroll\.com/watch/([A-Z0-9]+)", ep_url)
+            if m_ep and m_ep.group(1) not in candidate_ep_ids:
+                candidate_ep_ids.append(m_ep.group(1))
+                break
+
+    if not candidate_ep_ids:
+        return None
+
+    token = get_crunchyroll_anonymous_token()
+    if not token:
+        return None
+
+    for ep_id in candidate_ep_ids:
+        try:
+            req = urllib.request.Request(
+                f"https://www.crunchyroll.com/content/v2/cms/objects/{ep_id}?locale=en-US",
+                headers={
+                    "Authorization": f"Bearer {token}",
+                    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36",
+                },
+            )
+            with urllib.request.urlopen(req, timeout=8) as resp:
+                data = json.loads(resp.read().decode("utf-8"))
+                items = data.get("data") or []
+                if items:
+                    ep_meta = items[0].get("episode_metadata") or {}
+                    series_id = ep_meta.get("series_id")
+                    slug = ep_meta.get("series_slug_title")
+                    if series_id:
+                        return (
+                            f"https://www.crunchyroll.com/series/{series_id}/{slug}"
+                            if slug
+                            else f"https://www.crunchyroll.com/series/{series_id}"
+                        )
+        except Exception:
+            continue
+    return None
+
+
+def normalize_crunchyroll_url(url: str) -> str:
+    url = url.strip()
+    url = re.sub(r"^https?://(?:beta\.|www\.)?crunchyroll\.com/", "https://www.crunchyroll.com/", url)
+    return url
+
+
 def sanitize_series_url(
     web_url: str,
     prov_key: str,
     norm_key: str,
     title: str,
     legacy_info: dict[str, Any],
+    anilist_providers: dict[str, str] | None = None,
+    anilist_ep_offers: dict[str, str] | None = None,
 ) -> str | None:
     """
     Ensures every provider deep link opens the SERIES hub page (where 'Continue Watching'
@@ -331,8 +503,28 @@ def sanitize_series_url(
 
     # 2. Unwrap affiliate redirect wrappers (e.g. crunchyroll.pxf.io?u=...)
     web_url = unwrap_affiliate_url(web_url)
+    if "crunchyroll.com" in web_url:
+        web_url = normalize_crunchyroll_url(web_url)
 
     # 3. Provider-specific episode-suffix stripping & live redirect resolution
+    if prov_key == "netflix":
+        if "/watch/" in web_url and anilist_providers and "/title/" in (anilist_providers.get("netflix") or ""):
+            web_url = anilist_providers["netflix"]
+        m_jbv = re.search(r"jbv=(\d+)", web_url)
+        if m_jbv:
+            return f"https://www.netflix.com/title/{m_jbv.group(1)}"
+        m_title = re.search(r"netflix\.com/(?:[a-zA-Z-]+/)?(?:title|watch)/(\d+)", web_url)
+        if m_title:
+            return f"https://www.netflix.com/title/{m_title.group(1)}"
+        return web_url
+
+    if prov_key == "hidive":
+        if "/interstitial/" in web_url:
+            if anilist_providers and "/tv/" in (anilist_providers.get("hidive") or ""):
+                return anilist_providers["hidive"]
+            return f"https://www.hidive.com/tv/{slugify_title(strip_year_suffix(title))}"
+        return web_url
+
     if prov_key == "peacock":
         # Strip /seasons/1/episodes/... from Peacock asset URLs
         web_url = re.sub(r"/seasons/\d+/episodes/.*$", "", web_url)
@@ -353,6 +545,8 @@ def sanitize_series_url(
             resolved = resolve_hulu_series_url(web_url)
             if resolved:
                 return resolved
+            if anilist_providers and "/series/" in (anilist_providers.get("hulu") or ""):
+                return anilist_providers["hulu"]
             if (
                 legacy_info.get("legacyService") == "hulu"
                 and legacy_info.get("legacyUrl")
@@ -363,14 +557,21 @@ def sanitize_series_url(
         return web_url
 
     if prov_key == "crunchyroll":
-        if "/watch/" in web_url:
+        if "/series/" not in web_url:
+            if anilist_providers and anilist_providers.get("crunchyroll"):
+                al_cr = normalize_crunchyroll_url(anilist_providers["crunchyroll"])
+                if "/series/" in al_cr:
+                    return al_cr
             if (
                 legacy_info.get("legacyService") == "crunchyroll"
                 and legacy_info.get("legacyUrl")
                 and "/series/" in legacy_info["legacyUrl"]
             ):
                 return legacy_info["legacyUrl"]
-            return None
+            resolved_cr = resolve_crunchyroll_series_url(web_url, anilist_ep_offers=anilist_ep_offers)
+            if resolved_cr:
+                return resolved_cr
+            return None if "/watch/" in web_url else web_url
         return web_url
 
     if prov_key == "tubi":
@@ -388,12 +589,35 @@ def normalize_providers_list(
     title: str,
     legacy_info: dict[str, Any],
     item: dict[str, Any],
+    anilist_providers: dict[str, str] | None = None,
+    anilist_ep_offers: dict[str, str] | None = None,
 ) -> list[dict[str, Any]]:
     """Sanitizes all provider URLs to series-level hubs and rebuilds Android TV intent URLs."""
     cleaned: list[dict[str, Any]] = []
     seen_ids: set[str] = set()
 
-    for p in raw_providers:
+    # Use JustWatch US as the authoritative source of US streaming availability;
+    # fall back to AniList anime specialty streaming links (Crunchyroll/HIDIVE) only when JustWatch US has no providers yet.
+    combined_candidates = list(raw_providers)
+    if not combined_candidates and anilist_providers:
+        for prov_key, al_url in anilist_providers.items():
+            if prov_key not in ("crunchyroll", "hidive"):
+                continue
+            if any(non_us in al_url for non_us in (".co.uk", "/-/fr/", "/region/", "/id-en/", "/to/title/")):
+                continue
+            if prov_key in ANDROID_TV_PACKAGES and al_url:
+                pkg_meta = ANDROID_TV_PACKAGES[prov_key]
+                combined_candidates.append(
+                    {
+                        "id": prov_key,
+                        "name": pkg_meta["name"],
+                        "color": pkg_meta["color"],
+                        "monetization": "flatrate",
+                        "webUrl": al_url,
+                    }
+                )
+
+    for p in combined_candidates:
         prov_key = p.get("id") or ""
         raw_url = p.get("webUrl") or ""
         series_url = sanitize_series_url(
@@ -402,6 +626,8 @@ def normalize_providers_list(
             norm_key,
             title,
             legacy_info,
+            anilist_providers=anilist_providers,
+            anilist_ep_offers=anilist_ep_offers,
         )
         if not series_url or prov_key in seen_ids:
             continue
@@ -533,7 +759,12 @@ def build_android_tv_intent(web_url: str, provider_key: str) -> str:
     )
 
 
-def query_justwatch_us(title: str, target_year: int | None = None) -> dict[str, Any] | None:
+def query_justwatch_us(
+    title: str,
+    target_year: int | None = None,
+    alt_titles: list[str] | None = None,
+    expected_year: int | None = None,
+) -> dict[str, Any] | None:
     """
     Queries JustWatch public GraphQL API for US streaming offers (FLATRATE/FREE/ADS)
     and series-level deep links.
@@ -542,8 +773,8 @@ def query_justwatch_us(title: str, target_year: int | None = None) -> dict[str, 
     query SearchShow($searchQuery: String!, $country: Country!, $language: Language!) {
       popularTitles(
         country: $country
-        filter: { searchQuery: $searchQuery, objectTypes: [SHOW, MOVIE] }
-        first: 5
+        filter: { searchQuery: $searchQuery, objectTypes: [SHOW] }
+        first: 6
       ) {
         edges {
           node {
@@ -570,55 +801,126 @@ def query_justwatch_us(title: str, target_year: int | None = None) -> dict[str, 
       }
     }
     """
-    payload = json.dumps(
-        {
-            "operationName": "SearchShow",
-            "query": graphql_query,
-            "variables": {
-                "searchQuery": title,
-                "country": "US",
-                "language": "en",
+    clean_title = strip_year_suffix(title)
+    ref_titles = [clean_title, title] + [t for t in (alt_titles or []) if t]
+    search_queries = [clean_title]
+    for alt in alt_titles or []:
+        alt_clean = strip_year_suffix(alt)
+        if alt_clean and normalize_title_key(alt_clean) not in {
+            normalize_title_key(q) for q in search_queries
+        }:
+            search_queries.append(alt_clean)
+    if ":" in clean_title:
+        prefix = clean_title.split(":", 1)[0].strip()
+        if len(prefix) >= 8 and normalize_title_key(prefix) not in {
+            normalize_title_key(q) for q in search_queries
+        }:
+            search_queries.append(prefix)
+
+    best_node = None
+    for sq in search_queries[:3]:
+        payload = json.dumps(
+            {
+                "operationName": "SearchShow",
+                "query": graphql_query,
+                "variables": {
+                    "searchQuery": sq,
+                    "country": "US",
+                    "language": "en",
+                },
+            }
+        ).encode("utf-8")
+
+        req = urllib.request.Request(
+            JUSTWATCH_GRAPHQL_URL,
+            data=payload,
+            headers={
+                "Content-Type": "application/json",
+                "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)",
             },
-        }
-    ).encode("utf-8")
+            method="POST",
+        )
 
-    req = urllib.request.Request(
-        JUSTWATCH_GRAPHQL_URL,
-        data=payload,
-        headers={
-            "Content-Type": "application/json",
-            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)",
-        },
-        method="POST",
-    )
+        try:
+            with urllib.request.urlopen(req, timeout=10) as resp:
+                data = json.loads(resp.read().decode("utf-8"))
+        except Exception as exc:
+            print(f"  [JustWatch] Warning querying '{sq}': {exc}")
+            continue
 
-    try:
-        with urllib.request.urlopen(req, timeout=10) as resp:
-            data = json.loads(resp.read().decode("utf-8"))
-    except Exception as exc:
-        print(f"  [JustWatch] Warning querying '{title}': {exc}")
+        edges = (
+            data.get("data", {})
+            .get("popularTitles", {})
+            .get("edges", [])
+        )
+        if not edges:
+            continue
+
+        ref_norms = {normalize_title_key(strip_year_suffix(r)) for r in ref_titles if r}
+        # Pass 1: exact normalized title match + target_year match
+        for edge in edges:
+            node = edge["node"]
+            if node.get("objectType") != "SHOW":
+                continue
+            cand_content = node.get("content", {})
+            cand_title = cand_content.get("title", "")
+            cand_year = cand_content.get("originalReleaseYear")
+            if normalize_title_key(cand_title) in ref_norms:
+                if target_year is None or cand_year == target_year:
+                    best_node = node
+                    break
+        if best_node:
+            break
+
+        # Pass 2: fuzzy/token title match + year match (if target_year or expected_year given)
+        year_guard = target_year or expected_year
+        for edge in edges:
+            node = edge["node"]
+            if node.get("objectType") != "SHOW":
+                continue
+            cand_content = node.get("content", {})
+            cand_title = cand_content.get("title", "")
+            cand_year = cand_content.get("originalReleaseYear")
+            if titles_match(cand_title, ref_titles):
+                if year_guard is None or (cand_year and abs(cand_year - year_guard) <= 1):
+                    best_node = node
+                    break
+        if best_node:
+            break
+
+        # Pass 3: JustWatch sometimes returns Japanese phonetic/romaji display titles
+        # (e.g. "Rikorisu rikoiru" for "Lycoris Recoil" or "Tefuda ga Ome no Bikutoria"
+        # for "Victoria of Many Faces"). Accept if year matches expected_year and either
+        # JustWatch returned a single hit or shares a distinctive token with ref_titles.
+        if year_guard is not None:
+            ref_distinct_tokens = {
+                t
+                for r in ref_titles
+                if r
+                for t in re.findall(r"[a-z0-9]+", strip_diacritics(r).lower())
+                if len(t) >= 5 and t not in {"season", "series", "anime", "story", "world"}
+            }
+            for edge in edges[:2]:
+                node = edge["node"]
+                if node.get("objectType") != "SHOW":
+                    continue
+                cand_content = node.get("content", {})
+                cand_title = cand_content.get("title", "")
+                cand_year = cand_content.get("originalReleaseYear")
+                if cand_year == year_guard:
+                    cand_distinct = {
+                        t
+                        for t in re.findall(r"[a-z0-9]+", strip_diacritics(cand_title).lower())
+                        if len(t) >= 5
+                    }
+                    if len(edges) == 1 or (cand_distinct & ref_distinct_tokens):
+                        best_node = node
+                        break
+        if best_node:
+            break
+
+    if not best_node:
         return None
-
-    edges = (
-        data.get("data", {})
-        .get("popularTitles", {})
-        .get("edges", [])
-    )
-    if not edges:
-        return None
-
-    # Prefer SHOW matches or closest title + year match
-    target_norm = normalize_title_key(title)
-    best_node = edges[0]["node"]
-    for edge in edges:
-        node = edge["node"]
-        cand_content = node.get("content", {})
-        cand_title = cand_content.get("title", "")
-        cand_year = cand_content.get("originalReleaseYear")
-        if normalize_title_key(cand_title) == target_norm and node.get("objectType") == "SHOW":
-            if target_year is None or cand_year == target_year:
-                best_node = node
-                break
 
     content = best_node.get("content") or {}
     offers = best_node.get("offers") or []
@@ -780,43 +1082,294 @@ def query_justwatch_episode_offers(
     return episode_offers
 
 
-def query_tvmaze_metadata(title: str, target_year: int | None = None) -> dict[str, Any] | None:
-    """Fetches TV show runtime, genres, poster, and episode guide from TVMaze."""
-    search_title = "Pokémon" if "pok" in title.lower() and "indigo" in title.lower() else title
-    if target_year is not None:
-        # Disambiguate across multiple TVMaze matches by release year
-        search_url = f"https://api.tvmaze.com/search/shows?{urllib.parse.urlencode({'q': search_title})}"
+ANILIST_SITE_MAP: dict[str, str] = {
+    "crunchyroll": "crunchyroll",
+    "netflix": "netflix",
+    "hulu": "hulu",
+    "hidive": "hidive",
+    "amazon prime video": "prime_video",
+    "disney plus": "disney_plus",
+    "tubi tv": "tubi",
+}
+
+
+def query_anilist_metadata(title: str, target_year: int | None = None) -> dict[str, Any] | None:
+    """
+    Queries AniList GraphQL API for anime metadata, high-res cover art, romaji/english
+    titles, official series-level streaming links (especially Crunchyroll /series/ hubs),
+    and streaming episode lists.
+    """
+    graphql_query = """
+    query SearchAnime($search: String) {
+      Page(page: 1, perPage: 8) {
+        media(search: $search, type: ANIME, sort: [SEARCH_MATCH, POPULARITY_DESC]) {
+          id
+          idMal
+          format
+          seasonYear
+          startDate {
+            year
+          }
+          duration
+          episodes
+          genres
+          title {
+            romaji
+            english
+            native
+          }
+          synonyms
+          coverImage {
+            extraLarge
+            large
+          }
+          externalLinks {
+            site
+            url
+            type
+          }
+          streamingEpisodes {
+            title
+            url
+            site
+          }
+        }
+      }
+    }
+    """
+    search_str = strip_year_suffix(title)
+    payload = json.dumps(
+        {
+            "query": graphql_query,
+            "variables": {"search": search_str},
+        }
+    ).encode("utf-8")
+
+    data = None
+    for attempt in range(2):
+        req = urllib.request.Request(
+            ANILIST_GRAPHQL_URL,
+            data=payload,
+            headers={
+                "Content-Type": "application/json",
+                "Accept": "application/json",
+                "User-Agent": "RandomFlix/2.0",
+            },
+            method="POST",
+        )
         try:
-            req = urllib.request.Request(search_url, headers={"User-Agent": "RandomFlix/2.0"})
-            with urllib.request.urlopen(req, timeout=10) as resp:
-                results = json.loads(resp.read().decode("utf-8"))
-            chosen_id = None
-            for r in results:
-                sh = r.get("show") or {}
-                prem = (sh.get("premiered") or "")[:4]
-                if prem.isdigit() and int(prem) == target_year:
-                    chosen_id = sh.get("id")
-                    break
-            if chosen_id:
-                url = f"https://api.tvmaze.com/shows/{chosen_id}?embed=episodes"
+            with urllib.request.urlopen(req, timeout=12) as resp:
+                data = json.loads(resp.read().decode("utf-8"))
+            break
+        except urllib.error.HTTPError as exc:
+            if exc.code == 429 and attempt == 0:
+                retry_after = int(exc.headers.get("Retry-After") or "15")
+                print(f"  [AniList] Rate limited (429), sleeping {retry_after}s...")
+                time.sleep(min(retry_after, 30))
+                continue
+            print(f"  [AniList] Warning querying '{title}': {exc}")
+            return None
+        except Exception as exc:
+            print(f"  [AniList] Warning querying '{title}': {exc}")
+            return None
+
+    media_list = ((data or {}).get("data") or {}).get("Page", {}).get("media") or []
+    if not media_list:
+        return None
+
+    # Filter to TV / ONA formats first if available
+    tv_candidates = [
+        m for m in media_list if m.get("format") in ("TV", "TV_SHORT", "ONA", None)
+    ] or media_list
+
+    target_norm = normalize_title_key(search_str)
+    chosen = tv_candidates[0]
+
+    # Prefer exact title + target_year match
+    best_score = -1
+    for idx, m in enumerate(tv_candidates):
+        t_obj = m.get("title") or {}
+        eng = t_obj.get("english") or ""
+        rom = t_obj.get("romaji") or ""
+        syns = m.get("synonyms") or []
+        cand_norms = {normalize_title_key(s) for s in [eng, rom, *syns] if s}
+        cand_year = m.get("seasonYear") or (m.get("startDate") or {}).get("year")
+
+        score = 0
+        if target_norm in cand_norms:
+            score += 50
+        elif titles_match(search_str, [eng, rom, *syns]):
+            score += 25
+
+        if target_year is not None:
+            if cand_year == target_year:
+                score += 40
+            elif cand_year and abs(cand_year - target_year) <= 1:
+                score += 10
             else:
+                score -= 30
+        else:
+            # Prefer Season 1 / base series over sequels (2nd Season, Part 2, etc.)
+            lower_names = f"{eng} {rom}".lower()
+            if not re.search(r"\b(season\s*[2-9]|2nd\s*season|3rd\s*season|part\s*[2-9]|ii|iii)\b", lower_names):
+                score += 10
+
+        score -= idx  # tie-breaker: preserve search rank
+        if score > best_score:
+            best_score = score
+            chosen = m
+
+    t_obj = chosen.get("title") or {}
+    year = chosen.get("seasonYear") or (chosen.get("startDate") or {}).get("year")
+    cover = chosen.get("coverImage") or {}
+    poster_url = cover.get("extraLarge") or cover.get("large") or ""
+
+    ext_providers: dict[str, str] = {}
+    for link in chosen.get("externalLinks") or []:
+        if link.get("type") not in ("STREAMING", None):
+            continue
+        site = (link.get("site") or "").strip().lower()
+        url = (link.get("url") or "").strip()
+        prov_key = ANILIST_SITE_MAP.get(site)
+        if not prov_key or not url:
+            continue
+        if url.startswith("http://www.crunchyroll.com/"):
+            url = "https://" + url[len("http://") :]
+        # Prefer /series/ URLs on Crunchyroll when multiple links exist
+        if prov_key in ext_providers:
+            if "/series/" in url and "/series/" not in ext_providers[prov_key]:
+                ext_providers[prov_key] = url
+        else:
+            ext_providers[prov_key] = url
+
+    # Parse streamingEpisodes for episode list fallback & direct Crunchyroll episode links
+    ep_list: list[dict[str, Any]] = []
+    cr_ep_offers: dict[str, str] = {}
+    seen_eps: set[int] = set()
+    for idx_ep, se in enumerate(chosen.get("streamingEpisodes") or [], start=1):
+        raw_ep_title = (se.get("title") or "").strip()
+        ep_url = (se.get("url") or "").strip()
+        site = (se.get("site") or "").strip().lower()
+        if ep_url.startswith("http://www.crunchyroll.com/"):
+            ep_url = "https://" + ep_url[len("http://") :]
+
+        m_ep = re.match(r"^Episode\s+(\d+)\s*[-–:]?\s*(.*)$", raw_ep_title, re.IGNORECASE)
+        if m_ep:
+            ep_num = int(m_ep.group(1))
+            clean_ep_title = m_ep.group(2).strip() or f"Episode {ep_num}"
+        else:
+            ep_num = idx_ep
+            clean_ep_title = raw_ep_title or f"Episode {ep_num}"
+
+        if ep_num not in seen_eps:
+            seen_eps.add(ep_num)
+            ep_list.append({"ep": ep_num, "title": clean_ep_title})
+
+        if site == "crunchyroll" and "/watch/" in ep_url:
+            cr_ep_offers[f"1:{ep_num}"] = ep_url
+            cr_ep_offers[f"abs:{ep_num}"] = ep_url
+
+    ep_list.sort(key=lambda x: x["ep"])
+    total_eps = chosen.get("episodes") or len(ep_list)
+    if not ep_list and total_eps and int(total_eps) > 0:
+        ep_list = [{"ep": i, "title": f"Episode {i}"} for i in range(1, int(total_eps) + 1)]
+
+    seasons = [{"season": 1, "episodes": ep_list}] if ep_list else []
+
+    return {
+        "anilistId": chosen.get("id"),
+        "malId": chosen.get("idMal"),
+        "englishTitle": t_obj.get("english"),
+        "romajiTitle": t_obj.get("romaji"),
+        "year": year,
+        "runtimeMinutes": chosen.get("duration") or 24,
+        "genres": chosen.get("genres") or ["Anime"],
+        "posterUrl": poster_url,
+        "externalProviders": ext_providers,
+        "crunchyrollEpisodeOffers": cr_ep_offers,
+        "totalSeasons": 1 if seasons else 0,
+        "totalEpisodes": len(ep_list),
+        "seasons": seasons,
+    }
+
+
+def query_tvmaze_metadata(
+    title: str,
+    target_year: int | None = None,
+    is_anime: bool = False,
+    alt_titles: list[str] | None = None,
+) -> dict[str, Any] | None:
+    """Fetches TV show runtime, genres, poster, and episode guide from TVMaze."""
+    clean_primary = strip_year_suffix(
+        "Pokémon" if "pok" in title.lower() and "indigo" in title.lower() else title
+    )
+    candidates = [clean_primary]
+    for alt in alt_titles or []:
+        alt_clean = strip_year_suffix(alt)
+        if alt_clean and normalize_title_key(alt_clean) not in {
+            normalize_title_key(c) for c in candidates
+        }:
+            candidates.append(alt_clean)
+    ref_titles = [clean_primary, title] + [t for t in (alt_titles or []) if t]
+
+    data = None
+    for search_title in candidates:
+        cand_data = None
+        if target_year is not None:
+            # Disambiguate across multiple TVMaze matches by release year
+            search_url = f"https://api.tvmaze.com/search/shows?{urllib.parse.urlencode({'q': search_title})}"
+            try:
+                req = urllib.request.Request(search_url, headers={"User-Agent": "RandomFlix/2.0"})
+                with urllib.request.urlopen(req, timeout=10) as resp:
+                    results = json.loads(resp.read().decode("utf-8"))
+                chosen_id = None
+                for r in results:
+                    sh = r.get("show") or {}
+                    prem = (sh.get("premiered") or "")[:4]
+                    if prem.isdigit() and int(prem) == target_year:
+                        if is_anime and sh.get("type") != "Animation" and "Anime" not in (sh.get("genres") or []):
+                            continue
+                        chosen_id = sh.get("id")
+                        break
+                if chosen_id:
+                    url = f"https://api.tvmaze.com/shows/{chosen_id}?embed=episodes"
+                else:
+                    params = urllib.parse.urlencode({"q": search_title, "embed": "episodes"})
+                    url = f"{TVMAZE_SEARCH_URL}?{params}"
+            except Exception:
                 params = urllib.parse.urlencode({"q": search_title, "embed": "episodes"})
                 url = f"{TVMAZE_SEARCH_URL}?{params}"
-        except Exception:
+        else:
             params = urllib.parse.urlencode({"q": search_title, "embed": "episodes"})
             url = f"{TVMAZE_SEARCH_URL}?{params}"
-    else:
-        params = urllib.parse.urlencode({"q": search_title, "embed": "episodes"})
-        url = f"{TVMAZE_SEARCH_URL}?{params}"
-    req = urllib.request.Request(
-        url,
-        headers={"User-Agent": "RandomFlix/2.0"},
-    )
-    try:
-        with urllib.request.urlopen(req, timeout=10) as resp:
-            data = json.loads(resp.read().decode("utf-8"))
-    except Exception as exc:
-        print(f"  [TVMaze] Warning querying '{title}': {exc}")
+
+        req = urllib.request.Request(
+            url,
+            headers={"User-Agent": "RandomFlix/2.0"},
+        )
+        try:
+            with urllib.request.urlopen(req, timeout=10) as resp:
+                cand_data = json.loads(resp.read().decode("utf-8"))
+        except Exception:
+            cand_data = None
+
+        if not cand_data:
+            continue
+
+        # Validate that an anime query did not fuzzy-match a live-action Western show
+        if is_anime:
+            show_type = cand_data.get("type") or ""
+            show_genres = cand_data.get("genres") or []
+            if show_type != "Animation" and "Anime" not in show_genres:
+                continue
+            cand_name = cand_data.get("name") or ""
+            if not titles_match(cand_name, ref_titles):
+                continue
+
+        data = cand_data
+        break
+
+    if not data:
         return None
 
     image = data.get("image") or {}
@@ -941,33 +1494,104 @@ def enrich_all(force_refresh: bool = False) -> dict[str, Any]:
     for idx, item in enumerate(shows_input, start=1):
         title = item["title"].strip()
         norm_key = normalize_title_key(title)
+        is_anime = item.get("mediaType") == "anime" or bool(item.get("isAnime"))
         print(f"[{idx}/{len(shows_input)}] Enriching '{title}'...")
 
         cached = cache.get(norm_key, {})
         jw_data = cached.get("justwatch")
         tvm_data = cached.get("tvmaze")
+        anilist_data = cached.get("anilist")
 
         target_year = item.get("year")
+        western_anime_ids = {"castlevania", "thelegendofkorra"}
+
+        if (
+            is_anime
+            and norm_key not in western_anime_ids
+            and (anilist_data is None or force_refresh)
+        ):
+            anilist_data = query_anilist_metadata(title, target_year=target_year)
+            time.sleep(0.6)
+
+        alt_titles: list[str] = []
+        if anilist_data:
+            for k in ("englishTitle", "romajiTitle"):
+                val = anilist_data.get(k)
+                if val and val not in alt_titles:
+                    alt_titles.append(val)
+
+        expected_year = target_year or (anilist_data or {}).get("year")
+
         if (
             jw_data is None
             or force_refresh
-            or "episodeOffers" not in jw_data
-            or (target_year and jw_data.get("year") != target_year)
+            or (jw_data is not None and "episodeOffers" not in jw_data)
+            or (target_year and jw_data and jw_data.get("year") != target_year)
+            or (
+                expected_year
+                and jw_data
+                and jw_data.get("year")
+                and abs(jw_data["year"] - expected_year) > 2
+            )
         ):
-            jw_data = query_justwatch_us(title, target_year=target_year)
+            jw_data = query_justwatch_us(
+                title,
+                target_year=target_year,
+                alt_titles=alt_titles,
+                expected_year=expected_year,
+            )
             time.sleep(0.25)
 
-        if tvm_data is None or force_refresh or (target_year and tvm_data.get("year") != target_year):
-            tvm_data = query_tvmaze_metadata(title, target_year=target_year)
+        # If AniList missed an English-only title (e.g. "Aharen-san Is Indecipherable")
+        # and JustWatch matched its Romaji title ("Aharen-san wa Hakarenai"), retry AniList with that title.
+        if (
+            is_anime
+            and norm_key not in western_anime_ids
+            and anilist_data is None
+            and jw_data
+            and jw_data.get("matchedTitle")
+        ):
+            anilist_data = query_anilist_metadata(
+                jw_data["matchedTitle"], target_year=target_year
+            )
+            time.sleep(0.5)
+            if anilist_data:
+                for k in ("englishTitle", "romajiTitle"):
+                    val = anilist_data.get(k)
+                    if val and val not in alt_titles:
+                        alt_titles.append(val)
+
+        if jw_data and jw_data.get("matchedTitle") and jw_data["matchedTitle"] not in alt_titles:
+            alt_titles.append(jw_data["matchedTitle"])
+
+        if (
+            (tvm_data is None and ("tvmaze" not in cached or alt_titles))
+            or force_refresh
+            or (target_year and tvm_data and tvm_data.get("year") != target_year)
+        ):
+            tvm_data = query_tvmaze_metadata(
+                title,
+                target_year=target_year,
+                is_anime=is_anime,
+                alt_titles=alt_titles,
+            )
             time.sleep(0.25)
 
         cache[norm_key] = {
             "justwatch": jw_data,
             "tvmaze": tvm_data,
+            "anilist": anilist_data,
             "updatedAt": datetime.now(timezone.utc).isoformat(),
         }
+        if idx % 10 == 0:
+            CACHE_PATH.parent.mkdir(parents=True, exist_ok=True)
+            CACHE_PATH.write_text(json.dumps(cache, indent=2), encoding="utf-8")
 
         legacy_info = legacy_lookup.get(norm_key, {})
+        anilist_providers = (anilist_data or {}).get("externalProviders") or {}
+        al_cr_ep_offers: dict[str, str] = (
+            (anilist_data or {}).get("crunchyrollEpisodeOffers") or {}
+        )
 
         # Merge streaming providers and sanitize all links to series-level hubs
         raw_providers = (jw_data or {}).get("streamingProviders") or []
@@ -977,24 +1601,37 @@ def enrich_all(force_refresh: bool = False) -> dict[str, Any]:
             title,
             legacy_info,
             item,
+            anilist_providers=anilist_providers,
+            anilist_ep_offers=al_cr_ep_offers,
         )
 
-        genres = item.get("genres") or (tvm_data or {}).get("genres") or []
+        genres = (
+            item.get("genres")
+            or (tvm_data or {}).get("genres")
+            or (anilist_data or {}).get("genres")
+            or []
+        )
         runtime = (
             item.get("runtimeMinutes")
             or (tvm_data or {}).get("runtimeMinutes")
+            or (anilist_data or {}).get("runtimeMinutes")
             or (jw_data or {}).get("runtimeMinutes")
-            or 30
+            or (24 if is_anime else 30)
         )
         year = (
             item.get("year")
             or (tvm_data or {}).get("year")
+            or (anilist_data or {}).get("year")
             or (jw_data or {}).get("year")
         )
+        jw_poster = ((jw_data or {}).get("posterUrl") or "").replace(
+            "{profile}", "s592"
+        ).replace("{format}", "webp")
         poster_url = (
             item.get("posterUrl")
             or (tvm_data or {}).get("posterUrl")
-            or (jw_data or {}).get("posterUrl")
+            or (anilist_data or {}).get("posterUrl")
+            or jw_poster
             or ""
         )
 
@@ -1018,8 +1655,15 @@ def enrich_all(force_refresh: bool = False) -> dict[str, Any]:
             category in (1, 2) and serialization in ("watched-comfort", "episodic"),
         )
 
-        raw_seasons = (tvm_data or {}).get("seasons") or []
+        raw_seasons = (
+            (tvm_data or {}).get("seasons")
+            or (anilist_data or {}).get("seasons")
+            or []
+        )
         episode_offers: dict[str, dict[str, str]] = (jw_data or {}).get("episodeOffers") or {}
+        al_cr_ep_offers: dict[str, str] = (
+            (anilist_data or {}).get("crunchyrollEpisodeOffers") or {}
+        )
         active_provider_ids = {p["id"] for p in providers}
         series_url_by_provider = {p["id"]: p["webUrl"] for p in providers}
 
@@ -1036,6 +1680,13 @@ def enrich_all(force_refresh: bool = False) -> dict[str, Any]:
                     or episode_offers.get(f"abs:{abs_ep_idx}")
                     or {}
                 )
+                if "crunchyroll" not in raw_links:
+                    al_cr_ep = al_cr_ep_offers.get(f"{s_num}:{e_num}") or al_cr_ep_offers.get(
+                        f"abs:{abs_ep_idx}"
+                    )
+                    if al_cr_ep:
+                        raw_links["crunchyroll"] = al_cr_ep
+
                 if "disney_plus" in active_provider_ids and "hulu" in raw_links:
                     m = re.search(r"/watch/([0-9a-fA-F-]{36})", raw_links["hulu"])
                     if m:
@@ -1064,9 +1715,15 @@ def enrich_all(force_refresh: bool = False) -> dict[str, Any]:
                 enriched_eps.append(ep_entry)
             seasons.append({"season": s_num, "episodes": enriched_eps})
 
-        total_seasons = (tvm_data or {}).get("totalSeasons") or len(seasons)
-        total_episodes = (tvm_data or {}).get("totalEpisodes") or sum(
-            len(s.get("episodes", [])) for s in seasons
+        total_seasons = (
+            (tvm_data or {}).get("totalSeasons")
+            or (anilist_data or {}).get("totalSeasons")
+            or len(seasons)
+        )
+        total_episodes = (
+            (tvm_data or {}).get("totalEpisodes")
+            or (anilist_data or {}).get("totalEpisodes")
+            or sum(len(s.get("episodes", [])) for s in seasons)
         )
 
         catalog_shows.append(

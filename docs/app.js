@@ -9,6 +9,7 @@ const STORAGE_KEYS = {
   CUSTOM_SHOWS: "randomflix_custom_shows_v2",
   SNOOZED_IDS: "randomflix_snoozed_ids_v2",
   LAST_MODE: "randomflix_last_mode_v2",
+  LAST_TYPE_FILTER: "randomflix_last_type_v2",
   GH_TOKEN: "randomflix_gh_token_v2",
   GH_REPO: "randomflix_gh_repo_v2",
 };
@@ -63,7 +64,7 @@ const state = {
   snoozedIds: new Set(JSON.parse(localStorage.getItem(STORAGE_KEYS.SNOOZED_IDS) || "[]")),
   mode: Number(localStorage.getItem(STORAGE_KEYS.LAST_MODE) || 2), // Default Mode 2: Background (Cat 1 + 2)
   serviceFilter: "all",
-  typeFilter: "all",
+  typeFilter: localStorage.getItem(STORAGE_KEYS.LAST_TYPE_FILTER) || "all",
   runtimeFilter: "all",
   deck: [],
   deckIndex: 0,
@@ -526,9 +527,16 @@ function renderManagerList() {
   const query = (document.getElementById("manager-search").value || "").toLowerCase().trim();
   listEl.innerHTML = "";
 
-  const shows = getAllActiveShows().filter(
-    (s) => !query || s.title.toLowerCase().includes(query)
-  );
+  const shows = getAllActiveShows().filter((s) => {
+    if (!query) return true;
+    const provNames = (s.streamingProviders || []).map((p) => p.name).join(" ").toLowerCase();
+    const mType = (s.mediaType || "tv").toLowerCase();
+    return (
+      s.title.toLowerCase().includes(query) ||
+      mType.includes(query) ||
+      provNames.includes(query)
+    );
+  });
 
   for (const show of shows) {
     const cat = getEffectiveCategory(show);
@@ -686,10 +694,15 @@ function setupEventListeners() {
   });
 
   // Format & Runtime selects
-  document.getElementById("filter-type").addEventListener("change", (e) => {
-    state.typeFilter = e.target.value;
-    rebuildDeck();
-  });
+  const filterTypeSelect = document.getElementById("filter-type");
+  if (filterTypeSelect) {
+    filterTypeSelect.value = state.typeFilter;
+    filterTypeSelect.addEventListener("change", (e) => {
+      state.typeFilter = e.target.value;
+      localStorage.setItem(STORAGE_KEYS.LAST_TYPE_FILTER, state.typeFilter);
+      rebuildDeck();
+    });
+  }
 
   document.getElementById("filter-runtime").addEventListener("change", (e) => {
     state.runtimeFilter = e.target.value;

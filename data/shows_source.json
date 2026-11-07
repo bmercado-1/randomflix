@@ -1481,6 +1481,22 @@
         "20-min",
         "comfort"
       ]
+    },
+    {
+      "title": "Dan Da Dan",
+      "watched": true,
+      "category": 1,
+      "mediaType": "anime",
+      "serialization": "watched-comfort",
+      "moodTags": []
+    },
+    {
+      "title": "Ranma 1/2 (2024)",
+      "watched": true,
+      "category": 1,
+      "mediaType": "anime",
+      "serialization": "watched-comfort",
+      "moodTags": []
     }
   ]
 }

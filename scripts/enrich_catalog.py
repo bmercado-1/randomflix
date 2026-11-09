@@ -317,6 +317,11 @@ def strip_year_suffix(title: str) -> str:
     return re.sub(r"\s*\(\d{4}\)\s*$", "", title).strip()
 
 
+def extract_year_suffix(title: str) -> int | None:
+    m = re.search(r"\((\d{4})\)\s*$", title.strip())
+    return int(m.group(1)) if m else None
+
+
 def slugify_title(title: str) -> str:
     return re.sub(r"[^a-z0-9]+", "-", strip_diacritics(title).lower()).strip("-")
 
@@ -1504,13 +1509,17 @@ def enrich_all(force_refresh: bool = False) -> dict[str, Any]:
         tvm_data = cached.get("tvmaze")
         anilist_data = cached.get("anilist")
 
-        target_year = item.get("year")
+        target_year = item.get("year") or extract_year_suffix(title)
         western_anime_ids = {"castlevania", "thelegendofkorra"}
 
         if (
             is_anime
             and norm_key not in western_anime_ids
-            and (anilist_data is None or force_refresh)
+            and (
+                anilist_data is None
+                or force_refresh
+                or (target_year and anilist_data.get("year") != target_year)
+            )
         ):
             anilist_data = query_anilist_metadata(title, target_year=target_year)
             time.sleep(0.6)
@@ -1657,11 +1666,15 @@ def enrich_all(force_refresh: bool = False) -> dict[str, Any]:
             category in (1, 2) and serialization in ("watched-comfort", "episodic"),
         )
 
-        raw_seasons = (
-            (tvm_data or {}).get("seasons")
-            or (anilist_data or {}).get("seasons")
-            or []
-        )
+        tvm_seasons = (tvm_data or {}).get("seasons") or []
+        al_seasons = (anilist_data or {}).get("seasons") or []
+        tvm_ep_count = (tvm_data or {}).get("totalEpisodes") or 0
+        al_ep_count = (anilist_data or {}).get("totalEpisodes") or 0
+
+        if is_anime and len(tvm_seasons) <= 1 and al_ep_count > tvm_ep_count:
+            raw_seasons = al_seasons
+        else:
+            raw_seasons = tvm_seasons or al_seasons or []
         episode_offers: dict[str, dict[str, str]] = (jw_data or {}).get("episodeOffers") or {}
         al_cr_ep_offers: dict[str, str] = (
             (anilist_data or {}).get("crunchyrollEpisodeOffers") or {}
@@ -1717,15 +1730,15 @@ def enrich_all(force_refresh: bool = False) -> dict[str, Any]:
                 enriched_eps.append(ep_entry)
             seasons.append({"season": s_num, "episodes": enriched_eps})
 
-        total_seasons = (
+        total_seasons = len(seasons) or (
             (tvm_data or {}).get("totalSeasons")
             or (anilist_data or {}).get("totalSeasons")
-            or len(seasons)
+            or 0
         )
-        total_episodes = (
+        total_episodes = sum(len(s.get("episodes", [])) for s in seasons) or (
             (tvm_data or {}).get("totalEpisodes")
             or (anilist_data or {}).get("totalEpisodes")
-            or sum(len(s.get("episodes", [])) for s in seasons)
+            or 0
         )
 
         catalog_shows.append(

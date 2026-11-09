@@ -1488,15 +1488,36 @@
       "category": 1,
       "mediaType": "anime",
       "serialization": "watched-comfort",
-      "moodTags": []
+      "vibe": "Unhinged, kinetic supernatural action-comedy as ghost-believer Momo and UFO-nerd Okarun battle Turbo Granny and aliens with explosive visual style.",
+      "categoryReason": "Watched supernatural action-comedy anime — electric animation, banter, and banger OP make it an elite comfort rewatch.",
+      "moodTags": [
+        "anime",
+        "action",
+        "comedy",
+        "supernatural",
+        "rom-com",
+        "20-min",
+        "comfort"
+      ]
     },
     {
       "title": "Ranma 1/2 (2024)",
+      "year": 2024,
       "watched": true,
       "category": 1,
       "mediaType": "anime",
       "serialization": "watched-comfort",
-      "moodTags": []
+      "vibe": "MAPPA's vibrant remake of Rumiko Takahashi's classic martial-arts slapstick rom-com where cursed fiancé Ranma splashes between boy and girl forms.",
+      "categoryReason": "Watched 2024 martial-arts gag rom-com remake — episodic slapstick and nostalgic charm built for background comfort.",
+      "moodTags": [
+        "anime",
+        "rom-com",
+        "comedy",
+        "martial-arts",
+        "episodic",
+        "20-min",
+        "comfort"
+      ]
     }
   ]
 }

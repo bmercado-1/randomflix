@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-09T19:51:08.118202+00:00",
+  "generatedAt": "2026-11-09T19:52:24.925174+00:00",
   "totalShows": 90,
   "totalInList": 90,
   "disabledShows": 0,
@@ -27854,7 +27854,7 @@
       ],
       "googleTvSearchUrl": "https://www.google.com/search?q=Days%20with%20My%20Stepsister%20tv%20show%20watch",
       "totalSeasons": 1,
-      "totalEpisodes": 12,
+      "totalEpisodes": 13,
       "seasons": [
         {
           "season": 1,
@@ -27882,7 +27882,7 @@
             },
             {
               "ep": 4,
-              "title": "Tendencies and Responses",
+              "title": "Tendencies and Strategies",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/G31UVKKKQ"
               }
@@ -27896,7 +27896,7 @@
             },
             {
               "ep": 6,
-              "title": "Sweet 'n' Sour Pork and Rain",
+              "title": "Sweet & Sour Pork and Rain",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/GZ7UDQVEG"
               }
@@ -27938,9 +27938,16 @@
             },
             {
               "ep": 12,
-              "title": "And",
+              "title": "\"     and     \"",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/G9DU9Z703"
+              }
+            },
+            {
+              "ep": 13,
+              "title": "Teaser PV",
+              "links": {
+                "crunchyroll": "https://www.crunchyroll.com/watch/GD9UVMDM4/teaser-pv"
               }
             }
           ]
@@ -37515,7 +37522,7 @@
       ],
       "googleTvSearchUrl": "https://www.google.com/search?q=Tying%20the%20Knot%20with%20an%20Amagami%20Sister%20tv%20show%20watch",
       "totalSeasons": 1,
-      "totalEpisodes": 24,
+      "totalEpisodes": 25,
       "seasons": [
         {
           "season": 1,
@@ -37592,21 +37599,21 @@
             },
             {
               "ep": 11,
-              "title": "The Real Reason for Staying Up Late ~Prelude~",
+              "title": "The Real Reason For Staying Up Late ~Prelude~",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/G4VUW0DD0"
               }
             },
             {
               "ep": 12,
-              "title": "The Real Reason for Staying Up Late ~Connections~",
+              "title": "The Real Reason For Staying Up Late ~Connections~",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/GK9UG29Q9"
               }
             },
             {
               "ep": 13,
-              "title": "The Real Reason for Staying Up Late ~Love~",
+              "title": "The Real Reason For Staying Up Late ~Love~",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/GQJUM04M9"
               }
@@ -37634,7 +37641,7 @@
             },
             {
               "ep": 17,
-              "title": "The Send-Off Fires and the Vow With the Gods",
+              "title": "The Send-Off Fires and the Vow with the Gods",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/G2XUN1JNJ"
               }
@@ -37687,6 +37694,13 @@
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/G50UMN035"
               }
+            },
+            {
+              "ep": 25,
+              "title": "Teaser PV",
+              "links": {
+                "crunchyroll": "https://www.crunchyroll.com/watch/GWDU7V9G3/teaser-pv"
+              }
             }
           ]
         }
@@ -37712,9 +37726,17 @@
         "Sci-Fi",
         "Supernatural"
       ],
-      "moodTags": [],
-      "vibe": "When Momo and Okarun's beliefs clash, they're thrown into a world of ghosts, aliens and awakened powers.",
-      "categoryReason": "Already watched \u2014 safe for background or comfort rewatch anytime.",
+      "moodTags": [
+        "anime",
+        "action",
+        "comedy",
+        "supernatural",
+        "rom-com",
+        "20-min",
+        "comfort"
+      ],
+      "vibe": "Unhinged, kinetic supernatural action-comedy as ghost-believer Momo and UFO-nerd Okarun battle Turbo Granny and aliens with explosive visual style.",
+      "categoryReason": "Watched supernatural action-comedy anime \u2014 electric animation, banter, and banger OP make it an elite comfort rewatch.",
       "posterUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx171018-60q1B6GK2Ghb.jpg",
       "streamingProviders": [
         {
@@ -37816,49 +37838,33 @@
       "serialization": "watched-comfort",
       "allowRandomEpisode": true,
       "year": 2024,
-      "pinnedYear": null,
+      "pinnedYear": 2024,
       "runtimeMinutes": 30,
       "genres": [
         "Comedy",
         "Anime",
         "Fantasy"
       ],
-      "moodTags": [],
-      "vibe": "Ranma Saotome, a teenage martial artist, and his father Genma travel to the 'cursed training ground' of Jusenkyo in China. There, despite the warnings of the Chinese guard, they fall into the cursed springs. From now on, whenever Ranma is doused in cold water, he turns into a girl and a cute, well-built redhead at that. Hot water changes him back into a man again, but only until the next time. To make matters worse, his father engages him to Akane Tendo, a girl who hates boys.",
-      "categoryReason": "Already watched \u2014 safe for background or comfort rewatch anytime.",
+      "moodTags": [
+        "anime",
+        "rom-com",
+        "comedy",
+        "martial-arts",
+        "episodic",
+        "20-min",
+        "comfort"
+      ],
+      "vibe": "MAPPA's vibrant remake of Rumiko Takahashi's classic martial-arts slapstick rom-com where cursed fianc\u00e9 Ranma splashes between boy and girl forms.",
+      "categoryReason": "Watched 2024 martial-arts gag rom-com remake \u2014 episodic slapstick and nostalgic charm built for background comfort.",
       "posterUrl": "https://static.tvmaze.com/uploads/images/original_untouched/609/1522705.jpg",
       "streamingProviders": [
         {
-          "id": "tubi",
-          "name": "Tubi",
-          "color": "#FA382F",
-          "monetization": "ads",
-          "webUrl": "https://tubitv.com/series/300008221/ranma",
-          "androidTvIntentUrl": "intent://tubitv.com/series/300008221/ranma#Intent;scheme=https;package=com.tubitv;action=android.intent.action.VIEW;S.browser_fallback_url=https%3A%2F%2Ftubitv.com%2Fseries%2F300008221%2Franma;end"
-        },
-        {
-          "id": "hulu",
-          "name": "Hulu",
-          "color": "#1CE783",
+          "id": "netflix",
+          "name": "Netflix",
+          "color": "#E50914",
           "monetization": "flatrate",
-          "webUrl": "https://www.hulu.com/series/ranma-12-f1ef7cc6-cf22-4a01-8bc3-6a3c003be4e2",
-          "androidTvIntentUrl": "intent://www.hulu.com/series/ranma-12-f1ef7cc6-cf22-4a01-8bc3-6a3c003be4e2#Intent;scheme=https;package=com.hulu.livingroomplus;action=android.intent.action.VIEW;S.browser_fallback_url=https%3A%2F%2Fwww.hulu.com%2Fseries%2Franma-12-f1ef7cc6-cf22-4a01-8bc3-6a3c003be4e2;end"
-        },
-        {
-          "id": "pluto_tv",
-          "name": "Pluto TV",
-          "color": "#FFCC00",
-          "monetization": "ads",
-          "webUrl": "https://pluto.tv/on-demand/series/ranma-12-ptv3",
-          "androidTvIntentUrl": "intent://pluto.tv/on-demand/series/ranma-12-ptv3#Intent;scheme=https;package=tv.pluto.android;action=android.intent.action.VIEW;S.browser_fallback_url=https%3A%2F%2Fpluto.tv%2Fon-demand%2Fseries%2Franma-12-ptv3;end"
-        },
-        {
-          "id": "disney_plus",
-          "name": "Disney+",
-          "color": "#0063E5",
-          "monetization": "flatrate",
-          "webUrl": "https://www.disneyplus.com/browse/entity-f1ef7cc6-cf22-4a01-8bc3-6a3c003be4e2",
-          "androidTvIntentUrl": "intent://www.disneyplus.com/browse/entity-f1ef7cc6-cf22-4a01-8bc3-6a3c003be4e2#Intent;scheme=https;package=com.disney.disneyplus;action=android.intent.action.VIEW;S.browser_fallback_url=https%3A%2F%2Fwww.disneyplus.com%2Fbrowse%2Fentity-f1ef7cc6-cf22-4a01-8bc3-6a3c003be4e2;end"
+          "webUrl": "https://www.netflix.com/title/81171925",
+          "androidTvIntentUrl": "intent://www.netflix.com/title/81171925?source=30#Intent;scheme=https;package=com.netflix.ninja;action=android.intent.action.VIEW;S.source=30;S.browser_fallback_url=https%3A%2F%2Fwww.netflix.com%2Ftitle%2F81171925;end"
         }
       ],
       "googleTvSearchUrl": "https://www.google.com/search?q=Ranma%201/2%20%282024%29%20tv%20show%20watch",
@@ -37870,123 +37876,51 @@
           "episodes": [
             {
               "ep": 1,
-              "title": "Here's Ranma",
-              "links": {
-                "hulu": "https://www.hulu.com/watch/2b5fbbf7-4a45-43c1-b4f9-5eb6a0239e84",
-                "pluto_tv": "https://pluto.tv/on-demand/series/ranma-12-ptv3/season/1/episode/the-strange-stranger-from-china-1989-1-1?utm_medium=deeplink&utm_source=justwatch",
-                "tubi": "https://tubitv.com/tv-shows/638525",
-                "disney_plus": "https://www.disneyplus.com/play/2b5fbbf7-4a45-43c1-b4f9-5eb6a0239e84"
-              }
+              "title": "Here's Ranma"
             },
             {
               "ep": 2,
-              "title": "I Hate Men!",
-              "links": {
-                "hulu": "https://www.hulu.com/watch/3c9671fc-32e1-4b40-918e-8fce5e224cbc",
-                "pluto_tv": "https://pluto.tv/on-demand/series/ranma-12-ptv3/season/1/episode/school-is-no-place-for-horsing-around-1989-1-2?utm_medium=deeplink&utm_source=justwatch",
-                "tubi": "https://tubitv.com/tv-shows/638524",
-                "disney_plus": "https://www.disneyplus.com/play/3c9671fc-32e1-4b40-918e-8fce5e224cbc"
-              }
+              "title": "I Hate Men!"
             },
             {
               "ep": 3,
-              "title": "Because There\u02bcs Someone He Likes",
-              "links": {
-                "hulu": "https://www.hulu.com/watch/c1345929-ba94-48c8-b904-2d317c21a622",
-                "pluto_tv": "https://pluto.tv/on-demand/series/ranma-12-ptv3/season/1/episode/a-sudden-storm-of-love-1989-1-3?utm_medium=deeplink&utm_source=justwatch",
-                "tubi": "https://tubitv.com/tv-shows/638523",
-                "disney_plus": "https://www.disneyplus.com/play/c1345929-ba94-48c8-b904-2d317c21a622"
-              }
+              "title": "Because There\u02bcs Someone He Likes"
             },
             {
               "ep": 4,
-              "title": "The Hunter",
-              "links": {
-                "hulu": "https://www.hulu.com/watch/109726f2-0d39-44ec-a8fa-c85249fe5743",
-                "pluto_tv": "https://pluto.tv/on-demand/series/ranma-12-ptv3/season/1/episode/ranma-andranma-if-its-not-one-thing-its-another-1989-1-4?utm_medium=deeplink&utm_source=justwatch",
-                "tubi": "https://tubitv.com/tv-shows/638551",
-                "disney_plus": "https://www.disneyplus.com/play/109726f2-0d39-44ec-a8fa-c85249fe5743"
-              }
+              "title": "The Hunter"
             },
             {
               "ep": 5,
-              "title": "Who Says You're Cute",
-              "links": {
-                "hulu": "https://www.hulu.com/watch/042f15c1-2734-4a84-8637-b41aea08c2b2",
-                "pluto_tv": "https://pluto.tv/on-demand/series/ranma-12-ptv3/season/1/episode/love-me-to-the-bone-the-compound-fracture-of-akanes-heart-1989-1-5?utm_medium=deeplink&utm_source=justwatch",
-                "tubi": "https://tubitv.com/tv-shows/638522",
-                "disney_plus": "https://www.disneyplus.com/play/042f15c1-2734-4a84-8637-b41aea08c2b2"
-              }
+              "title": "Who Says You're Cute"
             },
             {
               "ep": 6,
-              "title": "Kodachi, The Black Rose",
-              "links": {
-                "hulu": "https://www.hulu.com/watch/5f1104c7-3ead-4d8c-8bfc-2ffb539db31a",
-                "pluto_tv": "https://pluto.tv/on-demand/series/ranma-12-ptv3/season/1/episode/akanes-lost-love-these-things-happen-you-know-1989-1-6?utm_medium=deeplink&utm_source=justwatch",
-                "tubi": "https://tubitv.com/tv-shows/638550",
-                "disney_plus": "https://www.disneyplus.com/play/5f1104c7-3ead-4d8c-8bfc-2ffb539db31a"
-              }
+              "title": "Kodachi, The Black Rose"
             },
             {
               "ep": 7,
-              "title": "Hot Competition",
-              "links": {
-                "hulu": "https://www.hulu.com/watch/e94f6611-1535-4766-866c-b832f3b9a617",
-                "pluto_tv": "https://pluto.tv/on-demand/series/ranma-12-ptv3/season/1/episode/enter-ryoga-the-eternal-lost-boy-1989-1-7?utm_medium=deeplink&utm_source=justwatch",
-                "tubi": "https://tubitv.com/tv-shows/638549",
-                "disney_plus": "https://www.disneyplus.com/play/e94f6611-1535-4766-866c-b832f3b9a617"
-              }
+              "title": "Hot Competition"
             },
             {
               "ep": 8,
-              "title": "Darling Charlotte",
-              "links": {
-                "hulu": "https://www.hulu.com/watch/0975f267-29a5-4c8c-9513-4073c6223132",
-                "pluto_tv": "https://pluto.tv/on-demand/series/ranma-12-ptv3/season/1/episode/school-is-a-battlefield-ranma-vs-ryoga-1989-1-8?utm_medium=deeplink&utm_source=justwatch",
-                "tubi": "https://tubitv.com/tv-shows/638192",
-                "disney_plus": "https://www.disneyplus.com/play/0975f267-29a5-4c8c-9513-4073c6223132"
-              }
+              "title": "Darling Charlotte"
             },
             {
               "ep": 9,
-              "title": "I'll Never Let Go",
-              "links": {
-                "hulu": "https://www.hulu.com/watch/dd6fbf7c-1f73-416a-b3ea-d05c26af2614",
-                "pluto_tv": "https://pluto.tv/on-demand/series/ranma-12-ptv3/season/1/episode/true-confessions-a-girls-hair-is-her-life-1989-1-9?utm_medium=deeplink&utm_source=justwatch",
-                "tubi": "https://tubitv.com/tv-shows/638548",
-                "disney_plus": "https://www.disneyplus.com/play/dd6fbf7c-1f73-416a-b3ea-d05c26af2614"
-              }
+              "title": "I'll Never Let Go"
             },
             {
               "ep": 10,
-              "title": "Kiss of Death",
-              "links": {
-                "hulu": "https://www.hulu.com/watch/91aa5d84-796a-430e-9da7-8feeaf0e4f09",
-                "pluto_tv": "https://pluto.tv/on-demand/series/ranma-12-ptv3/season/1/episode/p-p-p-chan-hes-good-for-nothin-1989-1-10?utm_medium=deeplink&utm_source=justwatch",
-                "tubi": "https://tubitv.com/tv-shows/638547",
-                "disney_plus": "https://www.disneyplus.com/play/91aa5d84-796a-430e-9da7-8feeaf0e4f09"
-              }
+              "title": "Kiss of Death"
             },
             {
               "ep": 11,
-              "title": "You I Love",
-              "links": {
-                "hulu": "https://www.hulu.com/watch/693af385-8f7d-4ec0-ab62-e7429e47c218",
-                "pluto_tv": "https://pluto.tv/on-demand/series/ranma-12-ptv3/season/1/episode/ranma-meets-love-head-on-enter-the-delinquent-juvenile-gymnast-1989-1-11?utm_medium=deeplink&utm_source=justwatch",
-                "tubi": "https://tubitv.com/tv-shows/638184",
-                "disney_plus": "https://www.disneyplus.com/play/693af385-8f7d-4ec0-ab62-e7429e47c218"
-              }
+              "title": "You I Love"
             },
             {
               "ep": 12,
-              "title": "Shampoo Cleans Up",
-              "links": {
-                "hulu": "https://www.hulu.com/watch/cdcca94d-5a37-4e53-b1c4-17f97c0f9163",
-                "pluto_tv": "https://pluto.tv/on-demand/series/ranma-12-ptv3/season/1/episode/a-womans-love-is-war-the-martial-arts-rhythmic-gymnastics-challenge-1989-1-12?utm_medium=deeplink&utm_source=justwatch",
-                "tubi": "https://tubitv.com/tv-shows/638546",
-                "disney_plus": "https://www.disneyplus.com/play/cdcca94d-5a37-4e53-b1c4-17f97c0f9163"
-              }
+              "title": "Shampoo Cleans Up"
             }
           ]
         },
@@ -37995,87 +37929,51 @@
           "episodes": [
             {
               "ep": 1,
-              "title": "Ranma's Weakness",
-              "links": {
-                "tubi": "https://tubitv.com/tv-shows/638537"
-              }
+              "title": "Ranma's Weakness"
             },
             {
               "ep": 2,
-              "title": "Attack of the Wild Mousse",
-              "links": {
-                "tubi": "https://tubitv.com/tv-shows/638536"
-              }
+              "title": "Attack of the Wild Mousse"
             },
             {
               "ep": 3,
-              "title": "Chestnuts Roasting on an Open Fire",
-              "links": {
-                "tubi": "https://tubitv.com/tv-shows/638535"
-              }
+              "title": "Chestnuts Roasting on an Open Fire"
             },
             {
               "ep": 4,
-              "title": "Naval Engagement",
-              "links": {
-                "tubi": "https://tubitv.com/tv-shows/638534"
-              }
+              "title": "Naval Engagement"
             },
             {
               "ep": 5,
-              "title": "It's Fast or It's Free",
-              "links": {
-                "tubi": "https://tubitv.com/tv-shows/638186"
-              }
+              "title": "It's Fast or It's Free"
             },
             {
               "ep": 6,
-              "title": "The Evil Wakes",
-              "links": {
-                "tubi": "https://tubitv.com/tv-shows/638533"
-              }
+              "title": "The Evil Wakes"
             },
             {
               "ep": 7,
-              "title": "Instant Spring",
-              "links": {
-                "tubi": "https://tubitv.com/tv-shows/638532"
-              }
+              "title": "Instant Spring"
             },
             {
               "ep": 8,
-              "title": "\"Okonomiyaki\" Means \"I Love You\"",
-              "links": {
-                "tubi": "https://tubitv.com/tv-shows/638531"
-              }
+              "title": "\"Okonomiyaki\" Means \"I Love You\""
             },
             {
               "ep": 9,
-              "title": "Love Letters in the Sauce",
-              "links": {
-                "tubi": "https://tubitv.com/tv-shows/638185"
-              }
+              "title": "Love Letters in the Sauce"
             },
             {
               "ep": 10,
-              "title": "Not Your Typical Juliet",
-              "links": {
-                "tubi": "https://tubitv.com/tv-shows/638530"
-              }
+              "title": "Not Your Typical Juliet"
             },
             {
               "ep": 11,
-              "title": "Abduction of ...Akane?",
-              "links": {
-                "tubi": "https://tubitv.com/tv-shows/638529"
-              }
+              "title": "Abduction of ...Akane?"
             },
             {
               "ep": 12,
-              "title": "Fowl Play",
-              "links": {
-                "tubi": "https://tubitv.com/tv-shows/638528"
-              }
+              "title": "Fowl Play"
             }
           ]
         },
@@ -38084,45 +37982,27 @@
           "episodes": [
             {
               "ep": 1,
-              "title": "Training Meals",
-              "links": {
-                "tubi": "https://tubitv.com/tv-shows/638513"
-              }
+              "title": "Training Meals"
             },
             {
               "ep": 2,
-              "title": "The Breaking Point",
-              "links": {
-                "tubi": "https://tubitv.com/tv-shows/638512"
-              }
+              "title": "The Breaking Point"
             },
             {
               "ep": 3,
-              "title": "Happosai Days Are Here Again",
-              "links": {
-                "tubi": "https://tubitv.com/tv-shows/638235"
-              }
+              "title": "Happosai Days Are Here Again"
             },
             {
               "ep": 4,
-              "title": "The Way of Tea",
-              "links": {
-                "tubi": "https://tubitv.com/tv-shows/638511"
-              }
+              "title": "The Way of Tea"
             },
             {
               "ep": 5,
-              "title": "The Way the Cookie Crumbles",
-              "links": {
-                "tubi": "https://tubitv.com/tv-shows/638510"
-              }
+              "title": "The Way the Cookie Crumbles"
             },
             {
               "ep": 6,
-              "title": "I Ate the Whole Thing",
-              "links": {
-                "tubi": "https://tubitv.com/tv-shows/638236"
-              }
+              "title": "I Ate the Whole Thing"
             }
           ]
         }

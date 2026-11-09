@@ -1,6 +1,8 @@
 {
-  "generatedAt": "2026-11-08T15:44:28.636885+00:00",
+  "generatedAt": "2026-11-09T19:50:54.821328+00:00",
   "totalShows": 90,
+  "totalInList": 90,
+  "disabledShows": 0,
   "countsByCategory": {
     "1_watched": 90,
     "2_background": 0,
@@ -10,6 +12,7 @@
     {
       "id": "americandad",
       "title": "American Dad",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "tv",
@@ -3372,6 +3375,7 @@
     {
       "id": "brooklynninenine",
       "title": "Brooklyn Nine-Nine",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "tv",
@@ -4533,6 +4537,7 @@
     {
       "id": "community",
       "title": "Community",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "tv",
@@ -5607,6 +5612,7 @@
     {
       "id": "familyguy",
       "title": "Family Guy",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "tv",
@@ -9428,6 +9434,7 @@
     {
       "id": "futurama",
       "title": "Futurama",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "tv",
@@ -10837,6 +10844,7 @@
     {
       "id": "howimetyourmother",
       "title": "How I Met Your Mother",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "tv",
@@ -12596,6 +12604,7 @@
     {
       "id": "keypeele",
       "title": "Key & Peele",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "tv",
@@ -12926,6 +12935,7 @@
     {
       "id": "scrubs",
       "title": "Scrubs",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "tv",
@@ -14477,6 +14487,7 @@
     {
       "id": "thesimpsons",
       "title": "The Simpsons",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "tv",
@@ -17972,6 +17983,7 @@
     {
       "id": "avatarthelastairbender",
       "title": "Avatar: The Last Airbender",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "tv",
@@ -18273,6 +18285,7 @@
     {
       "id": "eureka",
       "title": "Eureka",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "tv",
@@ -18644,6 +18657,7 @@
     {
       "id": "starwarstheclonewars",
       "title": "Star Wars: The Clone Wars",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "tv",
@@ -19253,6 +19267,7 @@
     {
       "id": "bleach",
       "title": "Bleach",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",
@@ -20892,6 +20907,7 @@
     {
       "id": "castlevania",
       "title": "Castlevania",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",
@@ -21082,6 +21098,7 @@
     {
       "id": "fullmetalalchemistbrotherhood",
       "title": "Fullmetal Alchemist: Brotherhood",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",
@@ -21730,6 +21747,7 @@
     {
       "id": "naruto",
       "title": "Naruto",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",
@@ -23104,6 +23122,7 @@
     {
       "id": "ouranhighschoolhostclub",
       "title": "Ouran High School Host Club",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",
@@ -23256,6 +23275,7 @@
     {
       "id": "thelegendofkorra",
       "title": "The Legend of Korra",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",
@@ -23526,6 +23546,7 @@
     {
       "id": "sakamotodays",
       "title": "Sakamoto Days",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",
@@ -23663,6 +23684,7 @@
     {
       "id": "bocchitherock",
       "title": "Bocchi the Rock!",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",
@@ -23795,6 +23817,7 @@
     {
       "id": "frierenbeyondjourneysend",
       "title": "Frieren: Beyond Journey's End",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",
@@ -24192,6 +24215,7 @@
     {
       "id": "mashlemagicandmuscles",
       "title": "Mashle: Magic and Muscles",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",
@@ -24425,6 +24449,7 @@
     {
       "id": "theapothecarydiaries",
       "title": "The Apothecary Diaries",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",
@@ -24940,6 +24965,7 @@
     {
       "id": "rascaldoesnotdreamofbunnygirlsenpai",
       "title": "Rascal Does Not Dream of Bunny Girl Senpai",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",
@@ -25217,6 +25243,7 @@
     {
       "id": "mydressupdarling",
       "title": "My Dress-Up Darling",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",
@@ -25366,6 +25393,7 @@
     {
       "id": "horimiya",
       "title": "Horimiya",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",
@@ -25505,6 +25533,7 @@
     {
       "id": "makeinetoomanylosingheroines",
       "title": "Makeine: Too Many Losing Heroines!",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",
@@ -25637,6 +25666,7 @@
     {
       "id": "misskobayashisdragonmaid",
       "title": "Miss Kobayashi's Dragon Maid",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",
@@ -25874,6 +25904,7 @@
     {
       "id": "toradora",
       "title": "Toradora!",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",
@@ -26095,6 +26126,7 @@
     {
       "id": "thedangersinmyheart",
       "title": "The Dangers in My Heart",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",
@@ -26332,6 +26364,7 @@
     {
       "id": "thequintessentialquintuplets",
       "title": "The Quintessential Quintuplets",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",
@@ -26553,6 +26586,7 @@
     {
       "id": "alyasometimeshidesherfeelingsinrussian",
       "title": "Alya Sometimes Hides Her Feelings in Russian",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",
@@ -26685,6 +26719,7 @@
     {
       "id": "theiceguyandhiscoolfemalecolleague",
       "title": "The Ice Guy and His Cool Female Colleague",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",
@@ -26818,6 +26853,7 @@
     {
       "id": "lycorisrecoil",
       "title": "Lycoris Recoil",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",
@@ -26957,6 +26993,7 @@
     {
       "id": "kaguyasamaloveiswar",
       "title": "Kaguya-sama: Love Is War",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",
@@ -27274,6 +27311,7 @@
     {
       "id": "theangelnextdoorspoilsmerotten",
       "title": "The Angel Next Door Spoils Me Rotten",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",
@@ -27458,6 +27496,7 @@
     {
       "id": "mylovestorywithyamadakunatlv999",
       "title": "My Love Story with Yamada-kun at Lv999",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",
@@ -27597,6 +27636,7 @@
     {
       "id": "insomniacsafterschool",
       "title": "Insomniacs After School",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",
@@ -27777,6 +27817,7 @@
     {
       "id": "dayswithmystepsister",
       "title": "Days with My Stepsister",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",
@@ -27909,6 +27950,7 @@
     {
       "id": "aharensanisindecipherable",
       "title": "Aharen-san Is Indecipherable",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",
@@ -28130,6 +28172,7 @@
     {
       "id": "komicantcommunicate",
       "title": "Komi Can't Communicate",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",
@@ -28280,6 +28323,7 @@
     {
       "id": "recoveryofanmmojunkie",
       "title": "Recovery of an MMO Junkie",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",
@@ -28399,6 +28443,7 @@
     {
       "id": "morethanamarriedcouplebutnotlovers",
       "title": "More than a Married Couple, but Not Lovers.",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",
@@ -28532,6 +28577,7 @@
     {
       "id": "witchwatch",
       "title": "Witch Watch",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",
@@ -28831,6 +28877,7 @@
     {
       "id": "spiceandwolfmerchantmeetsthewisewolf",
       "title": "Spice and Wolf: Merchant Meets the Wise Wolf",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",
@@ -29055,6 +29102,7 @@
     {
       "id": "banishedfromtheherospartyidecidedtoliveaquietlifeinthecountryside",
       "title": "Banished from the Hero's Party, I Decided to Live a Quiet Life in the Countryside",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",
@@ -29282,6 +29330,7 @@
     {
       "id": "fruitsbasket2019",
       "title": "Fruits Basket (2019)",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",
@@ -29629,6 +29678,7 @@
     {
       "id": "thefragrantflowerbloomswithdignity",
       "title": "The Fragrant Flower Blooms with Dignity",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",
@@ -29728,6 +29778,7 @@
     {
       "id": "secretsofthesilentwitch",
       "title": "Secrets of the Silent Witch",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",
@@ -29868,6 +29919,7 @@
     {
       "id": "thedukeofdeathandhismaid",
       "title": "The Duke of Death and His Maid",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",
@@ -30140,6 +30192,7 @@
     {
       "id": "girlfriendgirlfriend",
       "title": "Girlfriend, Girlfriend",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",
@@ -30361,6 +30414,7 @@
     {
       "id": "almachanwantstobeafamily",
       "title": "Alma-chan Wants to Be a Family!",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",
@@ -30487,6 +30541,7 @@
     {
       "id": "myawkwardsenpai",
       "title": "My Awkward Senpai",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",
@@ -30619,6 +30674,7 @@
     {
       "id": "theresnofreakingwayillbeyourloverunless",
       "title": "There's No Freaking Way I'll be Your Lover! Unless...",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",
@@ -30769,6 +30825,7 @@
     {
       "id": "anarchdemonsdilemmahowtoloveyourelfbride",
       "title": "An Archdemon's Dilemma: How to Love Your Elf Bride",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",
@@ -30902,6 +30959,7 @@
     {
       "id": "lovechunibyootherdelusions",
       "title": "Love, Chunibyo & Other Delusions!",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",
@@ -31092,6 +31150,7 @@
     {
       "id": "kubowontletmebeinvisible",
       "title": "Kubo Won't Let Me Be Invisible",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",
@@ -31188,6 +31247,7 @@
     {
       "id": "youandiarepolaropposites",
       "title": "You and I Are Polar Opposites",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",
@@ -31416,6 +31476,7 @@
     {
       "id": "theinvisiblemanandhissoontobewife",
       "title": "The Invisible Man and His Soon-to-Be Wife",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",
@@ -31548,6 +31609,7 @@
     {
       "id": "deliciousindungeon",
       "title": "Delicious in Dungeon",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",
@@ -31693,6 +31755,7 @@
     {
       "id": "tuneintothemidnightheart",
       "title": "Tune In to the Midnight Heart",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",
@@ -31824,6 +31887,7 @@
     {
       "id": "tistimefortortureprincess",
       "title": "'Tis Time for \"Torture\", Princess",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",
@@ -32045,6 +32109,7 @@
     {
       "id": "saintceciliaandpastorlawrence",
       "title": "Saint Cecilia and Pastor Lawrence",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",
@@ -32178,6 +32243,7 @@
     {
       "id": "smokingbehindthesupermarketwithyou",
       "title": "Smoking Behind the Supermarket with You",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",
@@ -32310,6 +32376,7 @@
     {
       "id": "7thtimeloopthevillainessenjoysacarefreelifemarriedtoherworstenemy",
       "title": "7th Time Loop: The Villainess Enjoys a Carefree Life Married to Her Worst Enemy!",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",
@@ -32443,6 +32510,7 @@
     {
       "id": "hyouka",
       "title": "Hyouka",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",
@@ -32645,6 +32713,7 @@
     {
       "id": "themagicalrevolutionofthereincarnatedprincessandthegeniusyounglady",
       "title": "The Magical Revolution of the Reincarnated Princess and the Genius Young Lady",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",
@@ -32778,6 +32847,7 @@
     {
       "id": "teasingmastertakagisan",
       "title": "Teasing Master Takagi-san",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",
@@ -33016,6 +33086,7 @@
     {
       "id": "mushokutenseijoblessreincarnation",
       "title": "Mushoku Tensei: Jobless Reincarnation",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",
@@ -33639,6 +33710,7 @@
     {
       "id": "the100girlfriendswhoreallyreallyreallyreallyreallyloveyou",
       "title": "The 100 Girlfriends Who Really, Really, Really, Really, REALLY Love You",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",
@@ -33913,6 +33985,7 @@
     {
       "id": "wistoriawandandsword",
       "title": "Wistoria: Wand and Sword",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",
@@ -34099,6 +34172,7 @@
     {
       "id": "chillininanotherworldwithlevel2supercheatpowers",
       "title": "Chillin' in Another World with Level 2 Super Cheat Powers",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",
@@ -34232,6 +34306,7 @@
     {
       "id": "iminlovewiththevillainess",
       "title": "I'm in Love with the Villainess",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",
@@ -34365,6 +34440,7 @@
     {
       "id": "campfirecookinginanotherworldwithmyabsurdskill",
       "title": "Campfire Cooking in Another World with My Absurd Skill",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",
@@ -34590,6 +34666,7 @@
     {
       "id": "imgivingthedisgracednobleladyirescuedacrashcourseinnaughtiness",
       "title": "I'm Giving the Disgraced Noble Lady I Rescued a Crash Course in Naughtiness",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",
@@ -34722,6 +34799,7 @@
     {
       "id": "farminglifeinanotherworld",
       "title": "Farming Life in Another World",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",
@@ -34983,6 +35061,7 @@
     {
       "id": "konosubagodsblessingonthiswonderfulworld",
       "title": "KONOSUBA -God's blessing on this wonderful world!",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",
@@ -35210,6 +35289,7 @@
     {
       "id": "isitwrongtotrytopickupgirlsinadungeon",
       "title": "Is It Wrong to Try to Pick Up Girls in a Dungeon?",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",
@@ -35879,6 +35959,7 @@
     {
       "id": "welcometojapanmself",
       "title": "Welcome to Japan, Ms. Elf!",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",
@@ -36012,6 +36093,7 @@
     {
       "id": "thesaintsmagicpowerisomnipotent",
       "title": "The Saint's Magic Power is Omnipotent",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",
@@ -36233,6 +36315,7 @@
     {
       "id": "victoriaofmanyfaces",
       "title": "Victoria of Many Faces",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",
@@ -36344,6 +36427,7 @@
     {
       "id": "studioapartmentgoodlightingangelincluded",
       "title": "Studio Apartment, Good Lighting, Angel Included",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",
@@ -36474,6 +36558,7 @@
     {
       "id": "heroinesaintnoimanallworksmaidandproudofit",
       "title": "Heroine? Saint? No, I'm an All-Works Maid (And Proud of It)!",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",
@@ -36606,6 +36691,7 @@
     {
       "id": "witchhatatelier",
       "title": "Witch Hat Atelier",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",
@@ -36746,6 +36832,7 @@
     {
       "id": "hanaorisanstillwantstofightinthenextlife",
       "title": "Hanaori-san Still Wants to Fight in the Next Life",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",
@@ -36879,6 +36966,7 @@
     {
       "id": "theeminenceinshadow",
       "title": "The Eminence in Shadow",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",
@@ -37224,6 +37312,7 @@
     {
       "id": "thoughiamanineptvillainess",
       "title": "Though I Am an Inept Villainess",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",
@@ -37389,6 +37478,7 @@
     {
       "id": "tyingtheknotwithanamagamisister",
       "title": "Tying the Knot with an Amagami Sister",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",
@@ -37605,6 +37695,7 @@
     {
       "id": "dandadan",
       "title": "Dan Da Dan",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",
@@ -37718,6 +37809,7 @@
     {
       "id": "ranma122024",
       "title": "Ranma 1/2 (2024)",
+      "disabled": false,
       "category": 1,
       "watched": true,
       "mediaType": "anime",

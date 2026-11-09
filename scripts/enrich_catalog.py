@@ -1495,7 +1495,9 @@ def enrich_all(force_refresh: bool = False) -> dict[str, Any]:
         title = item["title"].strip()
         norm_key = normalize_title_key(title)
         is_anime = item.get("mediaType") == "anime" or bool(item.get("isAnime"))
-        print(f"[{idx}/{len(shows_input)}] Enriching '{title}'...")
+        is_disabled = bool(item.get("disabled", False))
+        status_tag = " [DISABLED]" if is_disabled else ""
+        print(f"[{idx}/{len(shows_input)}] Enriching '{title}'{status_tag}...")
 
         cached = cache.get(norm_key, {})
         jw_data = cached.get("justwatch")
@@ -1730,6 +1732,7 @@ def enrich_all(force_refresh: bool = False) -> dict[str, Any]:
             {
                 "id": norm_key,
                 "title": title,
+                "disabled": is_disabled,
                 "category": category,
                 "watched": category == 1 or bool(item.get("watched")),
                 "mediaType": media_type,
@@ -1754,13 +1757,18 @@ def enrich_all(force_refresh: bool = False) -> dict[str, Any]:
     CACHE_PATH.parent.mkdir(parents=True, exist_ok=True)
     CACHE_PATH.write_text(json.dumps(cache, indent=2), encoding="utf-8")
 
+    active_shows = [s for s in catalog_shows if not s.get("disabled")]
+    disabled_count = len(catalog_shows) - len(active_shows)
+
     catalog_payload = {
         "generatedAt": datetime.now(timezone.utc).isoformat(),
-        "totalShows": len(catalog_shows),
+        "totalShows": len(active_shows),
+        "totalInList": len(catalog_shows),
+        "disabledShows": disabled_count,
         "countsByCategory": {
-            "1_watched": sum(1 for s in catalog_shows if s["category"] == 1),
-            "2_background": sum(1 for s in catalog_shows if s["category"] == 2),
-            "3_active": sum(1 for s in catalog_shows if s["category"] == 3),
+            "1_watched": sum(1 for s in active_shows if s["category"] == 1),
+            "2_background": sum(1 for s in active_shows if s["category"] == 2),
+            "3_active": sum(1 for s in active_shows if s["category"] == 3),
         },
         "shows": catalog_shows,
     }
@@ -1768,7 +1776,7 @@ def enrich_all(force_refresh: bool = False) -> dict[str, Any]:
     CATALOG_OUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     CATALOG_OUT_PATH.write_text(json.dumps(catalog_payload, indent=2), encoding="utf-8")
     print(
-        f"\nSaved {len(catalog_shows)} enriched shows to {CATALOG_OUT_PATH} "
+        f"\nSaved {len(active_shows)} active shows ({disabled_count} disabled, {len(catalog_shows)} total) to {CATALOG_OUT_PATH} "
         f"(Cat 1: {catalog_payload['countsByCategory']['1_watched']}, "
         f"Cat 2: {catalog_payload['countsByCategory']['2_background']}, "
         f"Cat 3: {catalog_payload['countsByCategory']['3_active']})"

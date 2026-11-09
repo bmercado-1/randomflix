@@ -9,6 +9,7 @@ and runs `scripts/enrich_catalog.py` directly on your Mac without needing GitHub
 from __future__ import annotations
 
 import http.server
+import importlib
 import json
 import pathlib
 import sys
@@ -45,12 +46,15 @@ class RandomFlixLocalHandler(http.server.SimpleHTTPRequestHandler):
                 SOURCE_PATH.parent.mkdir(parents=True, exist_ok=True)
                 SOURCE_PATH.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
 
+                importlib.reload(enrich_catalog)
                 catalog = enrich_catalog.enrich_all(force_refresh=False)
                 self._send_json(
                     200,
                     {
                         "ok": True,
                         "totalShows": catalog.get("totalShows", 0),
+                        "totalInList": catalog.get("totalInList", 0),
+                        "disabledShows": catalog.get("disabledShows", 0),
                         "countsByCategory": catalog.get("countsByCategory", {}),
                     },
                 )

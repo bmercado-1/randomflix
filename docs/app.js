@@ -5,6 +5,7 @@
 
 const STORAGE_KEYS = {
   CATEGORY_OVERRIDES: "randomflix_cat_overrides_v2",
+  DISABLED_OVERRIDES: "randomflix_disabled_overrides_v2",
   REMOVED_IDS: "randomflix_removed_ids_v2",
   CUSTOM_SHOWS: "randomflix_custom_shows_v2",
   SNOOZED_IDS: "randomflix_snoozed_ids_v2",
@@ -60,6 +61,7 @@ const state = {
   baseCatalog: [],
   customShows: JSON.parse(localStorage.getItem(STORAGE_KEYS.CUSTOM_SHOWS) || "[]"),
   categoryOverrides: JSON.parse(localStorage.getItem(STORAGE_KEYS.CATEGORY_OVERRIDES) || "{}"),
+  disabledOverrides: JSON.parse(localStorage.getItem(STORAGE_KEYS.DISABLED_OVERRIDES) || "{}"),
   removedIds: new Set(JSON.parse(localStorage.getItem(STORAGE_KEYS.REMOVED_IDS) || "[]")),
   snoozedIds: new Set(JSON.parse(localStorage.getItem(STORAGE_KEYS.SNOOZED_IDS) || "[]")),
   mode: Number(localStorage.getItem(STORAGE_KEYS.LAST_MODE) || 2), // Default Mode 2: Background (Cat 1 + 2)
@@ -93,6 +95,25 @@ function getEffectiveCategory(show) {
   return show.category;
 }
 
+function isShowDisabled(show) {
+  if (Object.prototype.hasOwnProperty.call(state.disabledOverrides, show.id)) {
+    return Boolean(state.disabledOverrides[show.id]);
+  }
+  return Boolean(show.disabled);
+}
+
+function setShowDisabled(show, disabledVal) {
+  const baseDisabled = Boolean(show.disabled);
+  if (Boolean(disabledVal) === baseDisabled) {
+    delete state.disabledOverrides[show.id];
+  } else {
+    state.disabledOverrides[show.id] = Boolean(disabledVal);
+  }
+  saveCustomState();
+  renderManagerList();
+  rebuildDeck();
+}
+
 function countUnsavedChanges() {
   const baseById = new Map(state.baseCatalog.map((s) => [s.id, s]));
   let count = 0;
@@ -106,6 +127,13 @@ function countUnsavedChanges() {
     if (state.removedIds.has(id)) continue;
     const baseShow = baseById.get(id);
     if (baseShow && Number(baseShow.category) !== Number(cat)) {
+      count += 1;
+    }
+  }
+  for (const [id, disabledVal] of Object.entries(state.disabledOverrides)) {
+    if (state.removedIds.has(id)) continue;
+    const baseShow = baseById.get(id);
+    if (baseShow && Boolean(baseShow.disabled) !== Boolean(disabledVal)) {
       count += 1;
     }
   }
@@ -186,6 +214,22 @@ function renderPendingChanges() {
     }
   }
 
+  for (const [id, disabledVal] of Object.entries(state.disabledOverrides)) {
+    if (state.removedIds.has(id)) continue;
+    const baseShow = baseById.get(id);
+    if (baseShow && Boolean(baseShow.disabled) !== Boolean(disabledVal)) {
+      items.push({
+        label: disabledVal ? `🚫 Disabled: ${baseShow.title}` : `✅ Enabled: ${baseShow.title}`,
+        undo: () => {
+          delete state.disabledOverrides[id];
+          saveCustomState();
+          renderManagerList();
+          rebuildDeck();
+        },
+      });
+    }
+  }
+
   for (const id of state.removedIds) {
     const baseShow = baseById.get(id);
     if (baseShow) {
@@ -230,6 +274,7 @@ function renderPendingChanges() {
 function discardAllUnsavedChanges() {
   state.customShows = [];
   state.categoryOverrides = {};
+  state.disabledOverrides = {};
   state.removedIds.clear();
   saveCustomState();
   renderManagerList();
@@ -240,6 +285,7 @@ function discardAllUnsavedChanges() {
 function saveCustomState() {
   localStorage.setItem(STORAGE_KEYS.CUSTOM_SHOWS, JSON.stringify(state.customShows));
   localStorage.setItem(STORAGE_KEYS.CATEGORY_OVERRIDES, JSON.stringify(state.categoryOverrides));
+  localStorage.setItem(STORAGE_KEYS.DISABLED_OVERRIDES, JSON.stringify(state.disabledOverrides));
   localStorage.setItem(STORAGE_KEYS.REMOVED_IDS, JSON.stringify([...state.removedIds]));
   updateUnsavedBadges();
 }
@@ -258,6 +304,14 @@ function reconcileLocalStateWithCatalog() {
     }
   }
 
+  // Clear disabled overrides that now match baseCatalog
+  for (const [id, disabledVal] of Object.entries(state.disabledOverrides)) {
+    const baseShow = baseById.get(id);
+    if (baseShow && Boolean(baseShow.disabled) === Boolean(disabledVal)) {
+      delete state.disabledOverrides[id];
+    }
+  }
+
   // Clear removedIds that are no longer in baseCatalog
   for (const id of [...state.removedIds]) {
     if (!baseById.has(id)) {
@@ -272,11 +326,15 @@ function buildShowsSourcePayload() {
   return {
     shows: getAllActiveShows().map((s) => {
       const cat = getEffectiveCategory(s);
+      const disabled = isShowDisabled(s);
       const entry = {
         title: s.title,
       };
       if (s.pinnedYear) {
         entry.year = s.pinnedYear;
+      }
+      if (disabled) {
+        entry.disabled = true;
       }
       entry.watched = cat === 1;
       entry.category = cat;
@@ -312,6 +370,7 @@ function matchesWatchMode(show, mode) {
 }
 
 function matchesFilters(show) {
+  if (isShowDisabled(show)) return false;
   if (state.snoozedIds.has(show.id)) return false;
   if (!matchesWatchMode(show, state.mode)) return false;
 
@@ -349,6 +408,35 @@ function rebuildDeck() {
   renderCurrentShow();
 }
 
+function openShowById(showId) {
+  const show = getAllActiveShows().find((s) => s.id === showId);
+  if (!show) return false;
+
+  const existingIdx = state.deck.findIndex((s) => s.id === show.id);
+  if (existingIdx !== -1) {
+    state.deckIndex = existingIdx;
+  } else {
+    state.deck.splice(state.deckIndex, 0, show);
+  }
+
+  document.getElementById("manager-modal")?.classList.add("hidden");
+  if (window.history && window.history.replaceState) {
+    window.history.replaceState(null, "", `#show=${encodeURIComponent(show.id)}`);
+  }
+  renderCurrentShow();
+  return true;
+}
+
+function applyHashShowIfPresent(rawHash = window.location.hash) {
+  const hash = (rawHash || "").replace(/^#/, "");
+  if (hash.startsWith("show=")) {
+    const id = decodeURIComponent(hash.slice("show=".length)).trim();
+    if (id) {
+      openShowById(id);
+    }
+  }
+}
+
 function pickRandomEpisode(show) {
   const seasons = show.seasons || [];
   const allEpisodes = [];
@@ -380,7 +468,9 @@ function pickRandomEpisode(show) {
 function renderCurrentShow() {
   const statusEl = document.getElementById("pool-status");
   const totalInDeck = state.deck.length;
-  statusEl.textContent = `${totalInDeck} show${totalInDeck === 1 ? "" : "s"} in current channel rotation`;
+  const totalDisabled = getAllActiveShows().filter(isShowDisabled).length;
+  const disabledNote = totalDisabled > 0 ? ` • ${totalDisabled} disabled` : "";
+  statusEl.textContent = `${totalInDeck} show${totalInDeck === 1 ? "" : "s"} in current channel rotation${disabledNote}`;
 
   // Always hide opt-in random episode box when flipping to a new show
   const epBox = document.getElementById("random-ep-box");
@@ -520,38 +610,99 @@ function renderCurrentShow() {
     promoteBtn.textContent = "✅ Move to Watched (Cat 1)";
     promoteBtn.disabled = false;
   }
+
+  // Update Disable / Enable button state
+  const disableBtn = document.getElementById("btn-disable-current");
+  if (disableBtn) {
+    const disabled = isShowDisabled(show);
+    disableBtn.textContent = disabled ? "✅ Enable Show" : "🚫 Disable Show";
+    disableBtn.title = disabled
+      ? "Re-enable this show in the active channel rotation"
+      : "Keep on list, but exclude from the active channel rotation";
+  }
 }
 
 function renderManagerList() {
   const listEl = document.getElementById("manager-list");
   const query = (document.getElementById("manager-search").value || "").toLowerCase().trim();
+  const statusSelect = document.getElementById("manager-status-filter");
+  const statusFilter = statusSelect ? statusSelect.value : "all";
   listEl.innerHTML = "";
 
-  const shows = getAllActiveShows().filter((s) => {
+  const allShows = getAllActiveShows();
+  const disabledCount = allShows.filter(isShowDisabled).length;
+  const activeCount = allShows.length - disabledCount;
+
+  if (statusSelect && statusSelect.options.length >= 3) {
+    statusSelect.options[0].textContent = `All Shows (${allShows.length})`;
+    statusSelect.options[1].textContent = `Active in DB (${activeCount})`;
+    statusSelect.options[2].textContent = `Disabled Only (${disabledCount})`;
+  }
+
+  const shows = allShows.filter((s) => {
+    const disabled = isShowDisabled(s);
+    if (statusFilter === "active" && disabled) return false;
+    if (statusFilter === "disabled" && !disabled) return false;
     if (!query) return true;
     const provNames = (s.streamingProviders || []).map((p) => p.name).join(" ").toLowerCase();
     const mType = (s.mediaType || "tv").toLowerCase();
+    const statusText = disabled ? "disabled" : "active enabled";
     return (
       s.title.toLowerCase().includes(query) ||
       mType.includes(query) ||
-      provNames.includes(query)
+      provNames.includes(query) ||
+      statusText.includes(query)
     );
   });
 
   for (const show of shows) {
     const cat = getEffectiveCategory(show);
+    const disabled = isShowDisabled(show);
     const row = document.createElement("div");
-    row.className = "manager-row";
+    row.className = disabled ? "manager-row is-disabled" : "manager-row";
 
     const left = document.createElement("div");
     const provNames = (show.streamingProviders || []).map((p) => p.name).join(", ") || "No provider cached";
-    left.innerHTML = `
-      <div class="manager-row-title">${show.title}</div>
-      <div class="subtitle">${show.mediaType === "anime" ? "Anime" : "TV"} • ${provNames}</div>
-    `;
+    const titleRow = document.createElement("div");
+    titleRow.className = "manager-row-title";
+    const titleLink = document.createElement("a");
+    titleLink.href = `#show=${encodeURIComponent(show.id)}`;
+    titleLink.className = "manager-title-link";
+    titleLink.textContent = show.title;
+    titleLink.title = `Open ${show.title} page in RandomFlix`;
+    titleLink.addEventListener("click", (e) => {
+      e.preventDefault();
+      openShowById(show.id);
+    });
+    titleRow.appendChild(titleLink);
+    if (disabled) {
+      const disBadge = document.createElement("span");
+      disBadge.className = "disabled-badge";
+      disBadge.textContent = "Disabled";
+      titleRow.appendChild(disBadge);
+    }
+    const subRow = document.createElement("div");
+    subRow.className = "subtitle";
+    subRow.textContent = `${show.mediaType === "anime" ? "Anime" : "TV"} • ${provNames}`;
+    left.appendChild(titleRow);
+    left.appendChild(subRow);
 
     const actions = document.createElement("div");
     actions.className = "manager-row-actions";
+
+    const disableLabel = document.createElement("label");
+    disableLabel.className = disabled ? "disable-toggle checked" : "disable-toggle";
+    disableLabel.title = "Keep on list, but exclude from the active database rotation";
+    const disableCheckbox = document.createElement("input");
+    disableCheckbox.type = "checkbox";
+    disableCheckbox.checked = disabled;
+    disableCheckbox.addEventListener("change", () => {
+      setShowDisabled(show, disableCheckbox.checked);
+    });
+    const disableText = document.createElement("span");
+    disableText.textContent = "Disable";
+    disableLabel.appendChild(disableCheckbox);
+    disableLabel.appendChild(disableText);
 
     const select = document.createElement("select");
     select.className = "filter-select";
@@ -583,6 +734,7 @@ function renderManagerList() {
       rebuildDeck();
     });
 
+    actions.appendChild(disableLabel);
     actions.appendChild(select);
     actions.appendChild(removeBtn);
     row.appendChild(left);
@@ -648,8 +800,15 @@ async function addShowFromBrowser(title, category, mediaType) {
   rebuildDeck();
 }
 
+function clearShowHash() {
+  if (window.location.hash.startsWith("#show=") && window.history && window.history.replaceState) {
+    window.history.replaceState(null, "", window.location.pathname + window.location.search);
+  }
+}
+
 function flipNext() {
   if (state.deck.length === 0) return;
+  clearShowHash();
   if (state.deckIndex + 1 < state.deck.length) {
     state.deckIndex += 1;
   } else {
@@ -661,6 +820,7 @@ function flipNext() {
 
 function flipPrev() {
   if (state.deck.length === 0) return;
+  clearShowHash();
   state.deckIndex = (state.deckIndex - 1 + state.deck.length) % state.deck.length;
   renderCurrentShow();
 }
@@ -807,6 +967,14 @@ function setupEventListeners() {
     rebuildDeck();
   });
 
+  // Disable / Enable current show (keep on list, exclude from active database)
+  document.getElementById("btn-disable-current")?.addEventListener("click", () => {
+    if (state.deck.length === 0) return;
+    const show = state.deck[state.deckIndex];
+    const nextDisabled = !isShowDisabled(show);
+    setShowDisabled(show, nextDisabled);
+  });
+
   // Reset snoozed
   document.getElementById("btn-reset-snooze").addEventListener("click", () => {
     state.snoozedIds.clear();
@@ -826,6 +994,7 @@ function setupEventListeners() {
   });
 
   document.getElementById("manager-search").addEventListener("input", renderManagerList);
+  document.getElementById("manager-status-filter")?.addEventListener("change", renderManagerList);
 
   document.getElementById("form-add-show").addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -973,8 +1142,13 @@ async function saveLocally() {
     }
 
     await loadCatalog(false);
+    const disCount = data.disabledShows || 0;
+    const countSummary =
+      disCount > 0
+        ? `${data.totalShows} active in DB, ${disCount} disabled`
+        : `${data.totalShows} shows`;
     showSyncStatus(
-      `✅ <strong>Saved &amp; enriched locally!</strong> Updated <code>data/shows_source.json</code> and <code>docs/data/catalog.json</code> (${data.totalShows} shows) directly on your Mac.`,
+      `✅ <strong>Saved &amp; enriched locally!</strong> Updated <code>data/shows_source.json</code> and <code>docs/data/catalog.json</code> (${countSummary}) directly on your Mac.`,
       false
     );
   } catch (err) {
@@ -1084,11 +1258,13 @@ async function syncToGitHub() {
 
 async function loadCatalog(showToast = false) {
   try {
+    const initialHash = window.location.hash;
     const resp = await fetch(`data/catalog.json?t=${Date.now()}`, { cache: "no-store" });
     const data = await resp.json();
     state.baseCatalog = data.shows || [];
     reconcileLocalStateWithCatalog();
     rebuildDeck();
+    applyHashShowIfPresent(initialHash);
     renderManagerList();
     if (showToast) {
       showSyncStatus(
@@ -1105,6 +1281,7 @@ async function loadCatalog(showToast = false) {
 
 async function init() {
   setupEventListeners();
+  window.addEventListener("hashchange", applyHashShowIfPresent);
   if (window.location.hostname.endsWith("github.io")) {
     document.getElementById("btn-save-local")?.classList.add("hidden");
   }

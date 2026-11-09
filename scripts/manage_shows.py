@@ -33,7 +33,8 @@ def summarize_catalog() -> None:
         rt = s.get("runtimeMinutes") or 30
         seasons = s.get("totalSeasons", 0)
         eps = s.get("totalEpisodes", 0)
-        print(f"{i:2d}. {title:36s} | Cat {s['category']} | {mtype:5s} | {rt:2d}m | {seasons:2d}S/{eps:3d}E | {provs}")
+        status = "DISABLED" if s.get("disabled") else "ACTIVE  "
+        print(f"{i:2d}. {title:36s} | {status} | Cat {s['category']} | {mtype:5s} | {rt:2d}m | {seasons:2d}S/{eps:3d}E | {provs}")
 
 
 def load_source() -> dict[str, Any]:
@@ -56,7 +57,25 @@ def list_shows() -> None:
     for i, s in enumerate(shows, 1):
         cat = s.get("category", "?")
         watched = "Watched" if s.get("watched") or cat == 1 else "Unwatched"
-        print(f"{i:2d}. {s['title']} [Cat {cat} | {watched}] — {s.get('vibe', '')}")
+        disabled_tag = " | 🚫 DISABLED" if s.get("disabled") else ""
+        print(f"{i:2d}. {s['title']} [Cat {cat} | {watched}{disabled_tag}] — {s.get('vibe', '')}")
+
+
+def set_show_disabled(title: str, disabled: bool) -> None:
+    data = load_source()
+    shows: list[dict[str, Any]] = data.get("shows", [])
+    key = normalize_title_key(title)
+    existing = next((s for s in shows if normalize_title_key(s["title"]) == key), None)
+    if existing is None:
+        print(f"Show '{title}' not found in {SOURCE_PATH}.")
+        return
+    if disabled:
+        existing["disabled"] = True
+        print(f"Disabled '{existing['title']}' in {SOURCE_PATH} (kept on list, excluded from active database).")
+    else:
+        existing.pop("disabled", None)
+        print(f"Enabled '{existing['title']}' in {SOURCE_PATH}.")
+    save_source(data)
 
 
 def add_show(
@@ -67,6 +86,7 @@ def add_show(
     category_reason: str | None = None,
     media_type: str | None = None,
     mood_tags: list[str] | None = None,
+    disabled: bool | None = None,
 ) -> None:
     data = load_source()
     shows: list[dict[str, Any]] = data.setdefault("shows", [])
@@ -87,6 +107,10 @@ def add_show(
         entry["mediaType"] = media_type
     if mood_tags:
         entry["moodTags"] = mood_tags
+    if disabled is True:
+        entry["disabled"] = True
+    elif disabled is False:
+        entry.pop("disabled", None)
 
     if existing is None:
         shows.append(entry)
@@ -111,7 +135,16 @@ def main() -> None:
     add_p.add_argument("--vibe", help="1-sentence couch vibe")
     add_p.add_argument("--reason", help="Reason for category assignment")
     add_p.add_argument("--type", choices=["tv", "anime", "collection"], help="Media type")
+    add_p.add_argument("--disabled", action="store_true", help="Keep on list but disable from active database")
     add_p.add_argument("--enrich", action="store_true", help="Run catalog enrichment after adding")
+
+    dis_p = sub.add_parser("disable", help="Disable a show (keep on list, exclude from active rotation)")
+    dis_p.add_argument("title", help="Show title to disable")
+    dis_p.add_argument("--enrich", action="store_true", help="Run catalog enrichment after disabling")
+
+    en_p = sub.add_parser("enable", help="Re-enable a disabled show in active rotation")
+    en_p.add_argument("title", help="Show title to enable")
+    en_p.add_argument("--enrich", action="store_true", help="Run catalog enrichment after enabling")
 
     args = parser.parse_args()
     if args.cmd == "list":
@@ -126,7 +159,16 @@ def main() -> None:
             vibe=args.vibe,
             category_reason=args.reason,
             media_type=args.type,
+            disabled=True if args.disabled else None,
         )
+        if args.enrich:
+            enrich_all()
+    elif args.cmd == "disable":
+        set_show_disabled(args.title, True)
+        if args.enrich:
+            enrich_all()
+    elif args.cmd == "enable":
+        set_show_disabled(args.title, False)
         if args.enrich:
             enrich_all()
     else:

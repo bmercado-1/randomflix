@@ -138,6 +138,9 @@
             <button id="btn-snooze" class="action-pill" title="Hide this show for the rest of tonight">
               😴 Not Tonight (Snooze)
             </button>
+            <button id="btn-disable-current" class="action-pill" title="Keep on list, but exclude from the active channel rotation">
+              🚫 Disable Show
+            </button>
           </div>
         </div>
       </article>
@@ -180,6 +183,11 @@
 
         <div class="manager-toolbar">
           <input type="search" id="manager-search" class="text-input" placeholder="Filter current list..." />
+          <select id="manager-status-filter" class="filter-select" aria-label="Show Status Filter">
+            <option value="all">All Shows</option>
+            <option value="active">Active in DB</option>
+            <option value="disabled">Disabled Only</option>
+          </select>
           <button id="btn-save-local" class="provider-btn" title="Write data/shows_source.json to disk and run enrich_catalog.py locally">
             💾 Save &amp; Enrich Locally
           </button>

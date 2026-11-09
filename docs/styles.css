@@ -683,17 +683,86 @@ body {
   border: 1px solid var(--border);
   border-radius: 10px;
   padding: 10px 12px;
+  transition: opacity 0.15s ease, border-color 0.15s ease;
+}
+
+.manager-row.is-disabled {
+  opacity: 0.62;
+  background: rgba(21, 26, 36, 0.7);
+  border-style: dashed;
 }
 
 .manager-row-title {
   font-weight: 700;
   font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.manager-title-link {
+  color: var(--text);
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+
+.manager-title-link:hover,
+.manager-title-link:focus-visible {
+  color: var(--accent-hover);
+  text-decoration: underline;
+}
+
+.disabled-badge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 2px 7px;
+  border-radius: 999px;
+  background: rgba(239, 68, 68, 0.18);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.4);
 }
 
 .manager-row-actions {
   display: flex;
+  flex-wrap: wrap;
   gap: 8px;
   align-items: center;
+}
+
+.disable-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  cursor: pointer;
+  user-select: none;
+}
+
+.disable-toggle:hover {
+  color: var(--text);
+  border-color: var(--text-muted);
+}
+
+.disable-toggle.checked {
+  background: rgba(239, 68, 68, 0.15);
+  border-color: rgba(239, 68, 68, 0.5);
+  color: #fca5a5;
+}
+
+.disable-toggle input[type="checkbox"] {
+  accent-color: #ef4444;
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
 }
 
 /* Mobile Responsive Portrait Layout */

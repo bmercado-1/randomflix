@@ -19,6 +19,14 @@ const CATEGORY_LABELS = {
   1: "Cat 1 • Comfort Rewatch (Watched)",
   2: "Cat 2 • Low-Stakes Background",
   3: "Cat 3 • Active / Serialized",
+  4: "Cat 4 • Now Watching",
+};
+
+const MEDIA_TYPE_LABELS = {
+  tv: "TV Series",
+  anime: "Anime",
+  movie: "Movie",
+  anime_movie: "Anime Movie",
 };
 
 const ANDROID_TV_PACKAGES = {
@@ -336,7 +344,7 @@ function buildShowsSourcePayload() {
       if (disabled) {
         entry.disabled = true;
       }
-      entry.watched = cat === 1;
+      entry.watched = cat === 1 ? true : cat === 4 ? Boolean(s.watched) : false;
       entry.category = cat;
       entry.mediaType = s.mediaType || "tv";
       entry.serialization =
@@ -344,6 +352,8 @@ function buildShowsSourcePayload() {
           ? "watched-comfort"
           : cat === 3
           ? "serialized"
+          : cat === 4
+          ? "now-watching"
           : s.serialization || "episodic";
       if (s.vibe && !s.vibe.startsWith("Added from the Manage Shows")) {
         entry.vibe = s.vibe;
@@ -366,7 +376,8 @@ function matchesWatchMode(show, mode) {
   if (mode === 1) return cat === 1; // Watched only
   if (mode === 2) return cat === 1 || cat === 2; // Background = Watched + Episodic Background
   if (mode === 3) return cat === 3; // Active Serialized only
-  return true; // Mode 4 = Full Random
+  if (mode === 5) return cat === 4; // Now Watching only
+  return true; // Mode 4 = Full Random (Cat 1–4)
 }
 
 function matchesFilters(show) {
@@ -381,9 +392,18 @@ function matchesFilters(show) {
     if (!hasProvider) return false;
   }
 
-  if (state.typeFilter !== "all") {
-    if ((show.mediaType || "tv") !== state.typeFilter) return false;
-  }
+      if (state.typeFilter !== "all") {
+        const mType = show.mediaType || "tv";
+        if (state.typeFilter === "series_all") {
+          if (mType !== "tv" && mType !== "anime") return false;
+        } else if (state.typeFilter === "movies_all") {
+          if (mType !== "movie" && mType !== "anime_movie") return false;
+        } else if (state.typeFilter === "anime_all") {
+          if (mType !== "anime" && mType !== "anime_movie") return false;
+        } else if (mType !== state.typeFilter) {
+          return false;
+        }
+      }
 
   const runtime = show.runtimeMinutes || 30;
   if (state.runtimeFilter === "short" && runtime > 32) return false;
@@ -511,11 +531,24 @@ function renderCurrentShow() {
   catBadge.textContent = CATEGORY_LABELS[cat] || `Category ${cat}`;
   catBadge.className = `badge badge-cat cat-${cat}`;
 
+  const isMovie = show.mediaType === "movie" || show.mediaType === "anime_movie";
   document.getElementById("badge-type").textContent =
-    show.mediaType === "anime" ? "Anime" : "TV Series";
-  document.getElementById("badge-runtime").textContent = `${show.runtimeMinutes || 30} min`;
+    MEDIA_TYPE_LABELS[show.mediaType] || "TV Series";
+  document.getElementById("badge-runtime").textContent = `${show.runtimeMinutes || (isMovie ? 105 : 30)} min`;
   document.getElementById("badge-year").textContent = show.year || "—";
   document.getElementById("badge-deck-pos").textContent = `${state.deckIndex + 1} / ${totalInDeck}`;
+
+  // Hide Random Episode Roller and update streaming label for feature films
+  const randomEpSection = document.querySelector(".random-ep-section");
+  if (randomEpSection) {
+    randomEpSection.classList.toggle("hidden", isMovie);
+  }
+  const streamHeading = document.querySelector(".streaming-section .section-label");
+  if (streamHeading) {
+    streamHeading.textContent = isMovie
+      ? "Where to Watch Now (Feature Film)"
+      : "Where to Watch Now (Series Page — Resumes Next Episode)";
+  }
 
   // Title, Vibe & Category Reason
   document.getElementById("show-title").textContent = show.title;
@@ -601,7 +634,7 @@ function renderCurrentShow() {
     providersList.appendChild(gtvLink);
   }
 
-  // Update Promote button state
+  // Update Promote button states
   const promoteBtn = document.getElementById("btn-promote-watched");
   if (cat === 1) {
     promoteBtn.textContent = "✓ In Comfort Rewatch (Cat 1)";
@@ -609,6 +642,17 @@ function renderCurrentShow() {
   } else {
     promoteBtn.textContent = "✅ Move to Watched (Cat 1)";
     promoteBtn.disabled = false;
+  }
+
+  const watchingBtn = document.getElementById("btn-promote-watching");
+  if (watchingBtn) {
+    if (cat === 4) {
+      watchingBtn.textContent = "✓ In Now Watching (Cat 4)";
+      watchingBtn.disabled = true;
+    } else {
+      watchingBtn.textContent = "▶️ Move to Now Watching (Cat 4)";
+      watchingBtn.disabled = false;
+    }
   }
 
   // Update Disable / Enable button state
@@ -644,14 +688,19 @@ function renderManagerList() {
     if (statusFilter === "active" && disabled) return false;
     if (statusFilter === "disabled" && !disabled) return false;
     if (!query) return true;
+    const cat = getEffectiveCategory(s);
+    const catText = `cat ${cat} ${(CATEGORY_LABELS[cat] || "").toLowerCase()}`;
     const provNames = (s.streamingProviders || []).map((p) => p.name).join(" ").toLowerCase();
     const mType = (s.mediaType || "tv").toLowerCase();
+    const mTypeLabel = (MEDIA_TYPE_LABELS[s.mediaType] || "tv").toLowerCase();
     const statusText = disabled ? "disabled" : "active enabled";
     return (
       s.title.toLowerCase().includes(query) ||
       mType.includes(query) ||
+      mTypeLabel.includes(query) ||
       provNames.includes(query) ||
-      statusText.includes(query)
+      statusText.includes(query) ||
+      catText.includes(query)
     );
   });
 
@@ -683,7 +732,8 @@ function renderManagerList() {
     }
     const subRow = document.createElement("div");
     subRow.className = "subtitle";
-    subRow.textContent = `${show.mediaType === "anime" ? "Anime" : "TV"} • ${provNames}`;
+    const typeLabel = MEDIA_TYPE_LABELS[show.mediaType] || "TV";
+    subRow.textContent = `${typeLabel} • ${provNames}`;
     left.appendChild(titleRow);
     left.appendChild(subRow);
 
@@ -710,6 +760,7 @@ function renderManagerList() {
       { val: 1, label: "Cat 1 • Watched" },
       { val: 2, label: "Cat 2 • Background" },
       { val: 3, label: "Cat 3 • Active" },
+      { val: 4, label: "Cat 4 • Now Watching" },
     ].forEach((opt) => {
       const o = document.createElement("option");
       o.value = String(opt.val);
@@ -745,41 +796,50 @@ function renderManagerList() {
 
 async function addShowFromBrowser(title, category, mediaType) {
   const id = normalizeId(title);
+  const isMovie = mediaType === "movie" || mediaType === "anime_movie";
   let posterUrl = "";
-  let runtimeMinutes = 30;
+  let runtimeMinutes = isMovie ? 105 : 30;
   let year = null;
   let genres = [];
   let seasons = [];
 
-  try {
-    const resp = await fetch(
-      `https://api.tvmaze.com/singlesearch/shows?q=${encodeURIComponent(title)}&embed=episodes`
-    );
-    if (resp.ok) {
-      const data = await resp.json();
-      posterUrl = data.image?.original || data.image?.medium || "";
-      runtimeMinutes = data.averageRuntime || data.runtime || 30;
-      year = data.premiered ? Number(data.premiered.slice(0, 4)) : null;
-      genres = data.genres || [];
-      const epMap = {};
-      for (const ep of data._embedded?.episodes || []) {
-        if (!ep.season || !ep.number) continue;
-        epMap[ep.season] = epMap[ep.season] || [];
-        epMap[ep.season].push({ ep: ep.number, title: ep.name || `Episode ${ep.number}` });
+  if (!isMovie) {
+    try {
+      const resp = await fetch(
+        `https://api.tvmaze.com/singlesearch/shows?q=${encodeURIComponent(title)}&embed=episodes`
+      );
+      if (resp.ok) {
+        const data = await resp.json();
+        posterUrl = data.image?.original || data.image?.medium || "";
+        runtimeMinutes = data.averageRuntime || data.runtime || 30;
+        year = data.premiered ? Number(data.premiered.slice(0, 4)) : null;
+        genres = data.genres || [];
+        const epMap = {};
+        for (const ep of data._embedded?.episodes || []) {
+          if (!ep.season || !ep.number) continue;
+          epMap[ep.season] = epMap[ep.season] || [];
+          epMap[ep.season].push({ ep: ep.number, title: ep.name || `Episode ${ep.number}` });
+        }
+        seasons = Object.keys(epMap).map((s) => ({ season: Number(s), episodes: epMap[s] }));
       }
-      seasons = Object.keys(epMap).map((s) => ({ season: Number(s), episodes: epMap[s] }));
+    } catch (_) {
+      // Offline or not found on TVMaze
     }
-  } catch (_) {
-    // Offline or not found on TVMaze
   }
 
+  const searchSuffix = isMovie ? " movie watch" : " tv show watch";
   const newShow = {
     id,
     title: title.trim(),
     category: Number(category),
     watched: Number(category) === 1,
     mediaType,
-    serialization: Number(category) === 3 ? "serialized" : "episodic",
+    serialization:
+      Number(category) === 3
+        ? "serialized"
+        : Number(category) === 4
+        ? "now-watching"
+        : "episodic",
     runtimeMinutes,
     year,
     genres,
@@ -788,7 +848,7 @@ async function addShowFromBrowser(title, category, mediaType) {
     categoryReason: `Assigned to Category ${category} via Manage Shows.`,
     posterUrl,
     streamingProviders: [],
-    googleTvSearchUrl: `https://www.google.com/search?q=${encodeURIComponent(title + " tv show watch")}`,
+    googleTvSearchUrl: `https://www.google.com/search?q=${encodeURIComponent(title + searchSuffix)}`,
     seasons,
   };
 
@@ -951,6 +1011,15 @@ function setupEventListeners() {
     if (state.deck.length === 0) return;
     const show = state.deck[state.deckIndex];
     state.categoryOverrides[show.id] = 1;
+    saveCustomState();
+    renderCurrentShow();
+  });
+
+  // Promote to Now Watching (Cat 4)
+  document.getElementById("btn-promote-watching")?.addEventListener("click", () => {
+    if (state.deck.length === 0) return;
+    const show = state.deck[state.deckIndex];
+    state.categoryOverrides[show.id] = 4;
     saveCustomState();
     renderCurrentShow();
   });

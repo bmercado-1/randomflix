@@ -17,9 +17,11 @@ Outputs `docs/data/catalog.json` for the static Web App / PWA.
 from __future__ import annotations
 
 import argparse
+import concurrent.futures
 import csv
 import json
 import re
+import threading
 import time
 import unicodedata
 import urllib.parse
@@ -27,6 +29,10 @@ import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
+
+_ANILIST_LOCK = threading.Lock()
+_LAST_ANILIST_CALL = 0.0
+_CACHE_LOCK = threading.Lock()
 
 ROOT_DIR = Path(__file__).resolve().parent.parent
 SOURCE_PATH = ROOT_DIR / "data" / "shows_source.json"
@@ -493,6 +499,7 @@ def sanitize_series_url(
     legacy_info: dict[str, Any],
     anilist_providers: dict[str, str] | None = None,
     anilist_ep_offers: dict[str, str] | None = None,
+    resolved_series_urls: dict[str, str] | None = None,
 ) -> str | None:
     """
     Ensures every provider deep link opens the SERIES hub page (where 'Continue Watching'
@@ -547,8 +554,12 @@ def sanitize_series_url(
 
     if prov_key == "hulu":
         if "/watch/" in web_url:
+            if resolved_series_urls and "/series/" in (resolved_series_urls.get("hulu") or ""):
+                return resolved_series_urls["hulu"]
             resolved = resolve_hulu_series_url(web_url)
             if resolved:
+                if resolved_series_urls is not None:
+                    resolved_series_urls["hulu"] = resolved
                 return resolved
             if anilist_providers and "/series/" in (anilist_providers.get("hulu") or ""):
                 return anilist_providers["hulu"]
@@ -563,6 +574,8 @@ def sanitize_series_url(
 
     if prov_key == "crunchyroll":
         if "/series/" not in web_url:
+            if resolved_series_urls and "/series/" in (resolved_series_urls.get("crunchyroll") or ""):
+                return resolved_series_urls["crunchyroll"]
             if anilist_providers and anilist_providers.get("crunchyroll"):
                 al_cr = normalize_crunchyroll_url(anilist_providers["crunchyroll"])
                 if "/series/" in al_cr:
@@ -575,6 +588,8 @@ def sanitize_series_url(
                 return legacy_info["legacyUrl"]
             resolved_cr = resolve_crunchyroll_series_url(web_url, anilist_ep_offers=anilist_ep_offers)
             if resolved_cr:
+                if resolved_series_urls is not None:
+                    resolved_series_urls["crunchyroll"] = resolved_cr
                 return resolved_cr
             return None if "/watch/" in web_url else web_url
         return web_url
@@ -596,6 +611,7 @@ def normalize_providers_list(
     item: dict[str, Any],
     anilist_providers: dict[str, str] | None = None,
     anilist_ep_offers: dict[str, str] | None = None,
+    resolved_series_urls: dict[str, str] | None = None,
 ) -> list[dict[str, Any]]:
     """Sanitizes all provider URLs to series-level hubs and rebuilds Android TV intent URLs."""
     cleaned: list[dict[str, Any]] = []
@@ -633,6 +649,7 @@ def normalize_providers_list(
             legacy_info,
             anilist_providers=anilist_providers,
             anilist_ep_offers=anilist_ep_offers,
+            resolved_series_urls=resolved_series_urls,
         )
         if not series_url or prov_key in seen_ids:
             continue
@@ -769,42 +786,44 @@ def query_justwatch_us(
     target_year: int | None = None,
     alt_titles: list[str] | None = None,
     expected_year: int | None = None,
+    is_movie: bool = False,
 ) -> dict[str, Any] | None:
     """
     Queries JustWatch public GraphQL API for US streaming offers (FLATRATE/FREE/ADS)
-    and series-level deep links.
+    and series-level or movie-level deep links.
     """
-    graphql_query = """
-    query SearchShow($searchQuery: String!, $country: Country!, $language: Language!) {
+    expected_obj_type = "MOVIE" if is_movie else "SHOW"
+    graphql_query = f"""
+    query SearchShow($searchQuery: String!, $country: Country!, $language: Language!) {{
       popularTitles(
         country: $country
-        filter: { searchQuery: $searchQuery, objectTypes: [SHOW] }
+        filter: {{ searchQuery: $searchQuery, objectTypes: [{expected_obj_type}] }}
         first: 6
-      ) {
-        edges {
-          node {
+      ) {{
+        edges {{
+          node {{
             id
             objectId
             objectType
-            content(country: $country, language: $language) {
+            content(country: $country, language: $language) {{
               title
               originalReleaseYear
               shortDescription
               runtime
               posterUrl
-            }
-            offers(country: $country, platform: WEB) {
+            }}
+            offers(country: $country, platform: WEB) {{
               monetizationType
               standardWebURL
-              package {
+              package {{
                 shortName
                 clearName
-              }
-            }
-          }
-        }
-      }
-    }
+              }}
+            }}
+          }}
+        }}
+      }}
+    }}
     """
     clean_title = strip_year_suffix(title)
     ref_titles = [clean_title, title] + [t for t in (alt_titles or []) if t]
@@ -865,7 +884,7 @@ def query_justwatch_us(
         # Pass 1: exact normalized title match + target_year match
         for edge in edges:
             node = edge["node"]
-            if node.get("objectType") != "SHOW":
+            if node.get("objectType") != expected_obj_type:
                 continue
             cand_content = node.get("content", {})
             cand_title = cand_content.get("title", "")
@@ -881,7 +900,7 @@ def query_justwatch_us(
         year_guard = target_year or expected_year
         for edge in edges:
             node = edge["node"]
-            if node.get("objectType") != "SHOW":
+            if node.get("objectType") != expected_obj_type:
                 continue
             cand_content = node.get("content", {})
             cand_title = cand_content.get("title", "")
@@ -907,7 +926,7 @@ def query_justwatch_us(
             }
             for edge in edges[:2]:
                 node = edge["node"]
-                if node.get("objectType") != "SHOW":
+                if node.get("objectType") != expected_obj_type:
                     continue
                 cand_content = node.get("content", {})
                 cand_title = cand_content.get("title", "")
@@ -1098,99 +1117,62 @@ ANILIST_SITE_MAP: dict[str, str] = {
 }
 
 
-def query_anilist_metadata(title: str, target_year: int | None = None) -> dict[str, Any] | None:
-    """
-    Queries AniList GraphQL API for anime metadata, high-res cover art, romaji/english
-    titles, official series-level streaming links (especially Crunchyroll /series/ hubs),
-    and streaming episode lists.
-    """
-    graphql_query = """
-    query SearchAnime($search: String) {
-      Page(page: 1, perPage: 8) {
-        media(search: $search, type: ANIME, sort: [SEARCH_MATCH, POPULARITY_DESC]) {
-          id
-          idMal
-          format
-          seasonYear
-          startDate {
-            year
-          }
-          duration
-          episodes
-          genres
-          title {
-            romaji
-            english
-            native
-          }
-          synonyms
-          coverImage {
-            extraLarge
-            large
-          }
-          externalLinks {
-            site
-            url
-            type
-          }
-          streamingEpisodes {
-            title
-            url
-            site
-          }
-        }
-      }
-    }
-    """
-    search_str = strip_year_suffix(title)
-    payload = json.dumps(
-        {
-            "query": graphql_query,
-            "variables": {"search": search_str},
-        }
-    ).encode("utf-8")
+ANILIST_MEDIA_FIELDS = """
+  id
+  idMal
+  format
+  seasonYear
+  startDate {
+    year
+  }
+  duration
+  episodes
+  genres
+  title {
+    romaji
+    english
+    native
+  }
+  synonyms
+  coverImage {
+    extraLarge
+    large
+  }
+  externalLinks {
+    site
+    url
+    type
+  }
+  streamingEpisodes {
+    title
+    url
+    site
+  }
+"""
 
-    data = None
-    for attempt in range(2):
-        req = urllib.request.Request(
-            ANILIST_GRAPHQL_URL,
-            data=payload,
-            headers={
-                "Content-Type": "application/json",
-                "Accept": "application/json",
-                "User-Agent": "RandomFlix/2.0",
-            },
-            method="POST",
-        )
-        try:
-            with urllib.request.urlopen(req, timeout=12) as resp:
-                data = json.loads(resp.read().decode("utf-8"))
-            break
-        except urllib.error.HTTPError as exc:
-            if exc.code == 429 and attempt == 0:
-                retry_after = int(exc.headers.get("Retry-After") or "15")
-                print(f"  [AniList] Rate limited (429), sleeping {retry_after}s...")
-                time.sleep(min(retry_after, 30))
-                continue
-            print(f"  [AniList] Warning querying '{title}': {exc}")
-            return None
-        except Exception as exc:
-            print(f"  [AniList] Warning querying '{title}': {exc}")
-            return None
 
-    media_list = ((data or {}).get("data") or {}).get("Page", {}).get("media") or []
+def _parse_anilist_media_candidates(
+    media_list: list[dict[str, Any]],
+    title: str,
+    target_year: int | None = None,
+    is_movie: bool = False,
+) -> dict[str, Any] | None:
     if not media_list:
         return None
 
-    # Filter to TV / ONA formats first if available
+    search_str = strip_year_suffix(title)
+    preferred_formats = (
+        ("MOVIE", "SPECIAL", "OVA", "ONA", None)
+        if is_movie
+        else ("TV", "TV_SHORT", "ONA", "OVA", "SPECIAL", None)
+    )
     tv_candidates = [
-        m for m in media_list if m.get("format") in ("TV", "TV_SHORT", "ONA", None)
+        m for m in media_list if m.get("format") in preferred_formats
     ] or media_list
 
     target_norm = normalize_title_key(search_str)
     chosen = tv_candidates[0]
 
-    # Prefer exact title + target_year match
     best_score = -1
     for idx, m in enumerate(tv_candidates):
         t_obj = m.get("title") or {}
@@ -1214,12 +1196,14 @@ def query_anilist_metadata(title: str, target_year: int | None = None) -> dict[s
             else:
                 score -= 30
         else:
-            # Prefer Season 1 / base series over sequels (2nd Season, Part 2, etc.)
             lower_names = f"{eng} {rom}".lower()
-            if not re.search(r"\b(season\s*[2-9]|2nd\s*season|3rd\s*season|part\s*[2-9]|ii|iii)\b", lower_names):
+            if not re.search(
+                r"\b(season\s*[2-9]|2nd\s*season|3rd\s*season|part\s*[2-9]|ii|iii)\b",
+                lower_names,
+            ):
                 score += 10
 
-        score -= idx  # tie-breaker: preserve search rank
+        score -= idx
         if score > best_score:
             best_score = score
             chosen = m
@@ -1240,14 +1224,12 @@ def query_anilist_metadata(title: str, target_year: int | None = None) -> dict[s
             continue
         if url.startswith("http://www.crunchyroll.com/"):
             url = "https://" + url[len("http://") :]
-        # Prefer /series/ URLs on Crunchyroll when multiple links exist
         if prov_key in ext_providers:
             if "/series/" in url and "/series/" not in ext_providers[prov_key]:
                 ext_providers[prov_key] = url
         else:
             ext_providers[prov_key] = url
 
-    # Parse streamingEpisodes for episode list fallback & direct Crunchyroll episode links
     ep_list: list[dict[str, Any]] = []
     cr_ep_offers: dict[str, str] = {}
     seen_eps: set[int] = set()
@@ -1287,15 +1269,169 @@ def query_anilist_metadata(title: str, target_year: int | None = None) -> dict[s
         "englishTitle": t_obj.get("english"),
         "romajiTitle": t_obj.get("romaji"),
         "year": year,
-        "runtimeMinutes": chosen.get("duration") or 24,
+        "runtimeMinutes": chosen.get("duration") or (105 if is_movie else 24),
         "genres": chosen.get("genres") or ["Anime"],
         "posterUrl": poster_url,
         "externalProviders": ext_providers,
         "crunchyrollEpisodeOffers": cr_ep_offers,
-        "totalSeasons": 1 if seasons else 0,
-        "totalEpisodes": len(ep_list),
-        "seasons": seasons,
+        "totalSeasons": 0 if is_movie else (1 if seasons else 0),
+        "totalEpisodes": 1 if is_movie else len(ep_list),
+        "seasons": [] if is_movie else seasons,
     }
+
+
+def batch_query_anilist_metadata(
+    batch_items: list[dict[str, Any]],
+    batch_size: int = 12,
+) -> dict[str, dict[str, Any]]:
+    """
+    Queries AniList for up to `batch_size` anime in a SINGLE GraphQL request using
+    aliased Page queries (`q0`, `q1`, ...), cutting HTTP request volume by 12x so
+    large catalog imports stay well under AniList's 30 req/min rate limit.
+    """
+    global _LAST_ANILIST_CALL
+    results: dict[str, dict[str, Any]] = {}
+    if not batch_items:
+        return results
+
+    total_batches = (len(batch_items) + batch_size - 1) // batch_size
+    for b_idx in range(0, len(batch_items), batch_size):
+        chunk = batch_items[b_idx : b_idx + batch_size]
+        batch_num = (b_idx // batch_size) + 1
+        print(
+            f"  [AniList Batch {batch_num}/{total_batches}] Fetching {len(chunk)} anime in 1 GraphQL call..."
+        )
+        var_defs = ", ".join(f"$s{i}: String" for i in range(len(chunk)))
+        subqueries = "\n".join(
+            f"q{i}: Page(page: 1, perPage: 5) {{ media(search: $s{i}, type: ANIME, sort: [SEARCH_MATCH, POPULARITY_DESC]) {{ {ANILIST_MEDIA_FIELDS} }} }}"
+            for i in range(len(chunk))
+        )
+        graphql_query = f"query BatchSearch({var_defs}) {{\n{subqueries}\n}}"
+        variables = {
+            f"s{i}": strip_year_suffix(c["title"]) for i, c in enumerate(chunk)
+        }
+        payload = json.dumps({"query": graphql_query, "variables": variables}).encode("utf-8")
+
+        data = None
+        for attempt in range(3):
+            with _ANILIST_LOCK:
+                elapsed = time.time() - _LAST_ANILIST_CALL
+                if elapsed < 2.1:
+                    time.sleep(2.1 - elapsed)
+                req = urllib.request.Request(
+                    ANILIST_GRAPHQL_URL,
+                    data=payload,
+                    headers={
+                        "Content-Type": "application/json",
+                        "Accept": "application/json",
+                        "User-Agent": "RandomFlix/2.0",
+                    },
+                    method="POST",
+                )
+                try:
+                    with urllib.request.urlopen(req, timeout=20) as resp:
+                        rem = resp.headers.get("X-RateLimit-Remaining")
+                        data = json.loads(resp.read().decode("utf-8"))
+                        _LAST_ANILIST_CALL = time.time()
+                        if rem is not None and rem.isdigit() and int(rem) <= 2:
+                            time.sleep(4.0)
+                    break
+                except urllib.error.HTTPError as exc:
+                    _LAST_ANILIST_CALL = time.time()
+                    if exc.code == 429 and attempt < 2:
+                        retry_after = int(exc.headers.get("Retry-After") or "25")
+                        print(f"  [AniList Batch] Rate limited (429), sleeping {retry_after}s...")
+                        time.sleep(min(retry_after + 1, 45))
+                        _LAST_ANILIST_CALL = time.time()
+                        continue
+                    print(f"  [AniList Batch] Warning on batch {batch_num}: {exc}")
+                    break
+                except Exception as exc:
+                    _LAST_ANILIST_CALL = time.time()
+                    print(f"  [AniList Batch] Warning on batch {batch_num}: {exc}")
+                    break
+
+        page_map = (data or {}).get("data") or {}
+        for i, c in enumerate(chunk):
+            media_list = (page_map.get(f"q{i}") or {}).get("media") or []
+            parsed = _parse_anilist_media_candidates(
+                media_list,
+                title=c["title"],
+                target_year=c.get("target_year"),
+                is_movie=bool(c.get("is_movie")),
+            )
+            if parsed is not None:
+                results[c["norm_key"]] = parsed
+
+    return results
+
+
+def query_anilist_metadata(
+    title: str,
+    target_year: int | None = None,
+    is_movie: bool = False,
+) -> dict[str, Any] | None:
+    """
+    Queries AniList GraphQL API for a single anime title.
+    """
+    global _LAST_ANILIST_CALL
+    graphql_query = f"""
+    query SearchAnime($search: String) {{
+      Page(page: 1, perPage: 6) {{
+        media(search: $search, type: ANIME, sort: [SEARCH_MATCH, POPULARITY_DESC]) {{
+          {ANILIST_MEDIA_FIELDS}
+        }}
+      }}
+    }}
+    """
+    search_str = strip_year_suffix(title)
+    payload = json.dumps(
+        {
+            "query": graphql_query,
+            "variables": {"search": search_str},
+        }
+    ).encode("utf-8")
+
+    data = None
+    for attempt in range(3):
+        with _ANILIST_LOCK:
+            elapsed = time.time() - _LAST_ANILIST_CALL
+            if elapsed < 2.1:
+                time.sleep(2.1 - elapsed)
+            req = urllib.request.Request(
+                ANILIST_GRAPHQL_URL,
+                data=payload,
+                headers={
+                    "Content-Type": "application/json",
+                    "Accept": "application/json",
+                    "User-Agent": "RandomFlix/2.0",
+                },
+                method="POST",
+            )
+            try:
+                with urllib.request.urlopen(req, timeout=12) as resp:
+                    data = json.loads(resp.read().decode("utf-8"))
+                    _LAST_ANILIST_CALL = time.time()
+                break
+            except urllib.error.HTTPError as exc:
+                _LAST_ANILIST_CALL = time.time()
+                if exc.code == 429 and attempt < 2:
+                    retry_after = int(exc.headers.get("Retry-After") or "25")
+                    print(f"  [AniList] Rate limited (429), sleeping {retry_after}s...")
+                    time.sleep(min(retry_after + 1, 45))
+                    _LAST_ANILIST_CALL = time.time()
+                    continue
+                print(f"  [AniList] Warning querying '{title}': {exc}")
+                return None
+            except Exception as exc:
+                _LAST_ANILIST_CALL = time.time()
+                print(f"  [AniList] Warning querying '{title}': {exc}")
+                return None
+
+    media_list = ((data or {}).get("data") or {}).get("Page", {}).get("media") or []
+    return _parse_anilist_media_candidates(
+        media_list, title=title, target_year=target_year, is_movie=is_movie
+    )
 
 
 def query_tvmaze_metadata(
@@ -1415,6 +1551,107 @@ def query_tvmaze_metadata(
     }
 
 
+def query_imdb_movie_metadata(
+    title: str,
+    target_year: int | None = None,
+) -> dict[str, Any] | None:
+    """
+    Zero-auth public CDN fallback for feature films (`mediaType == "movie"` or `"anime_movie"`).
+    Fetches poster & release year from IMDb's CloudFront suggestion endpoint and 1-2 sentence
+    synopsis + genre tags from Wikipedia's REST summary endpoint.
+    """
+    clean_title = strip_year_suffix(title)
+    norm_target = normalize_title_key(clean_title)
+    if not clean_title:
+        return None
+
+    poster_url = ""
+    year = target_year
+    matched_title = clean_title
+
+    try:
+        sug_url = (
+            f"https://v3.sg.media-imdb.com/suggestion/x/{urllib.parse.quote(clean_title)}.json"
+        )
+        req = urllib.request.Request(sug_url, headers={"User-Agent": "Mozilla/5.0"})
+        with urllib.request.urlopen(req, timeout=8) as resp:
+            sug_data = json.loads(resp.read().decode("utf-8"))
+            items = sug_data.get("d") or []
+            best = None
+            for cand in items:
+                qid = (cand.get("qid") or "").lower()
+                if qid not in ("movie", "tvmovie", "video", "short", ""):
+                    continue
+                cand_title = cand.get("l") or ""
+                cand_year = cand.get("y")
+                if target_year and cand_year == target_year:
+                    best = cand
+                    break
+                if normalize_title_key(cand_title) == norm_target and qid == "movie":
+                    best = cand
+                    break
+                if best is None and qid == "movie":
+                    best = cand
+            if best:
+                matched_title = best.get("l") or clean_title
+                year = year or best.get("y")
+                poster_url = (best.get("i") or {}).get("imageUrl") or ""
+    except Exception:
+        pass
+
+    short_desc = ""
+    genres: list[str] = []
+    wiki_slug_base = clean_title.replace(" ", "_")
+    wiki_candidates = []
+    if year:
+        wiki_candidates.append(f"{wiki_slug_base}_({year}_film)")
+    wiki_candidates.extend([f"{wiki_slug_base}_(film)", wiki_slug_base])
+
+    for slug in wiki_candidates:
+        try:
+            w_url = f"https://en.wikipedia.org/api/rest_v1/page/summary/{urllib.parse.quote(slug)}"
+            req = urllib.request.Request(w_url, headers={"User-Agent": "RandomFlix/2.0"})
+            with urllib.request.urlopen(req, timeout=6) as resp:
+                w_data = json.loads(resp.read().decode("utf-8"))
+                desc = (w_data.get("description") or "").lower()
+                extract = (w_data.get("extract") or "").strip()
+                if "film" in desc or "movie" in desc or "film" in extract[:160].lower():
+                    # Keep first 2 sentences for clean card display
+                    sentences = re.split(r"(?<=[.!?])\s+", extract)
+                    short_desc = " ".join(sentences[:2]).strip()
+                    combined_text = f"{desc} {extract[:200].lower()}"
+                    for g_kw, g_label in [
+                        ("science fiction", "Science-Fiction"),
+                        ("sci-fi", "Science-Fiction"),
+                        ("comedy", "Comedy"),
+                        ("drama", "Drama"),
+                        ("thriller", "Thriller"),
+                        ("action", "Action"),
+                        ("adventure", "Adventure"),
+                        ("horror", "Horror"),
+                        ("romance", "Romance"),
+                        ("fantasy", "Fantasy"),
+                        ("mystery", "Mystery"),
+                        ("animated", "Animation"),
+                    ]:
+                        if g_kw in combined_text and g_label not in genres:
+                            genres.append(g_label)
+                    break
+        except Exception:
+            continue
+
+    if not any([poster_url, year, short_desc]):
+        return None
+
+    return {
+        "matchedTitle": matched_title,
+        "year": year,
+        "posterUrl": poster_url,
+        "shortDescription": short_desc,
+        "genres": genres,
+    }
+
+
 def classify_show_strict(
     entry: dict[str, Any],
     genres: list[str],
@@ -1429,10 +1666,17 @@ def classify_show_strict(
         food/travel/sketch/anthology).
       - Category 3 (Active / Serialized): Unwatched plot-driven, serialized, mystery-box,
         or high-attention shows that must be watched sequentially with full attention.
+      - Category 4 (Now Watching): Shows the user is actively consuming right now
+        (whether for the first time or as a rewatch).
     """
     raw_reason = entry.get("categoryReason") or ""
     if raw_reason.startswith("Assigned to Category"):
         raw_reason = ""
+
+    if entry.get("category") == 4:
+        reason = raw_reason or "Currently watching — in active rotation until finished."
+        serialization = entry.get("serialization") or "now-watching"
+        return 4, reason, serialization
 
     if entry.get("watched") is True or entry.get("category") == 1:
         reason = raw_reason or "Already watched — safe for background or comfort rewatch anytime."
@@ -1494,35 +1738,71 @@ def enrich_all(force_refresh: bool = False) -> dict[str, Any]:
             cache = {}
 
     legacy_lookup = load_legacy_csv_lookup()
-    catalog_shows: list[dict[str, Any]] = []
+    total_inputs = len(shows_input)
+    completed_counter = 0
+    western_anime_ids = {"castlevania", "thelegendofkorra"}
 
-    for idx, item in enumerate(shows_input, start=1):
+    # Pre-fetch uncached anime from AniList in GraphQL batches of 12 (12x fewer requests)
+    anilist_todo: list[dict[str, Any]] = []
+    for item in shows_input:
         title = item["title"].strip()
         norm_key = normalize_title_key(title)
-        is_anime = item.get("mediaType") == "anime" or bool(item.get("isAnime"))
+        raw_media_type = item.get("mediaType") or ("anime" if item.get("isAnime") else "tv")
+        is_anime = raw_media_type in ("anime", "anime_movie") or bool(item.get("isAnime"))
+        is_movie = raw_media_type in ("movie", "anime_movie")
+        if not is_anime or norm_key in western_anime_ids:
+            continue
+        target_year = item.get("year") or extract_year_suffix(title)
+        cached_al = (cache.get(norm_key) or {}).get("anilist")
+        has_al_key = "anilist" in (cache.get(norm_key) or {})
+        if (
+            not has_al_key
+            or force_refresh
+            or (target_year and cached_al and cached_al.get("year") != target_year)
+        ):
+            anilist_todo.append(
+                {
+                    "title": title,
+                    "norm_key": norm_key,
+                    "target_year": target_year,
+                    "is_movie": is_movie,
+                }
+            )
+
+    if anilist_todo:
+        print(
+            f"Pre-fetching {len(anilist_todo)} uncached anime from AniList in GraphQL batches of 12..."
+        )
+        batched_al = batch_query_anilist_metadata(anilist_todo, batch_size=12)
+        for nk, al_val in batched_al.items():
+            entry_cache = dict(cache.get(nk) or {})
+            entry_cache["anilist"] = al_val
+            entry_cache["updatedAt"] = datetime.now(timezone.utc).isoformat()
+            cache[nk] = entry_cache
+        CACHE_PATH.parent.mkdir(parents=True, exist_ok=True)
+        CACHE_PATH.write_text(json.dumps(cache, indent=2), encoding="utf-8")
+
+    def enrich_single_item(idx: int, item: dict[str, Any]) -> dict[str, Any]:
+        nonlocal completed_counter
+        title = item["title"].strip()
+        norm_key = normalize_title_key(title)
+        raw_media_type = item.get("mediaType") or ("anime" if item.get("isAnime") else "tv")
+        is_anime = raw_media_type in ("anime", "anime_movie") or bool(item.get("isAnime"))
+        is_movie = raw_media_type in ("movie", "anime_movie")
         is_disabled = bool(item.get("disabled", False))
         status_tag = " [DISABLED]" if is_disabled else ""
-        print(f"[{idx}/{len(shows_input)}] Enriching '{title}'{status_tag}...")
+        print(f"[{idx}/{total_inputs}] Enriching '{title}' ({raw_media_type}){status_tag}...")
 
-        cached = cache.get(norm_key, {})
+        with _CACHE_LOCK:
+            cached = dict(cache.get(norm_key, {}))
         jw_data = cached.get("justwatch")
         tvm_data = cached.get("tvmaze")
         anilist_data = cached.get("anilist")
+        movie_meta = cached.get("movieMeta")
+        resolved_series_urls: dict[str, str] = dict(cached.get("resolvedSeriesUrls") or {})
+        cache_dirty = False
 
         target_year = item.get("year") or extract_year_suffix(title)
-        western_anime_ids = {"castlevania", "thelegendofkorra"}
-
-        if (
-            is_anime
-            and norm_key not in western_anime_ids
-            and (
-                anilist_data is None
-                or force_refresh
-                or (target_year and anilist_data.get("year") != target_year)
-            )
-        ):
-            anilist_data = query_anilist_metadata(title, target_year=target_year)
-            time.sleep(0.6)
 
         alt_titles: list[str] = []
         if anilist_data:
@@ -1534,24 +1814,27 @@ def enrich_all(force_refresh: bool = False) -> dict[str, Any]:
         expected_year = target_year or (anilist_data or {}).get("year")
 
         if (
-            jw_data is None
+            "justwatch" not in cached
             or force_refresh
-            or (jw_data is not None and "episodeOffers" not in jw_data)
+            or (not is_movie and jw_data is not None and "episodeOffers" not in jw_data)
             or (target_year and jw_data and jw_data.get("year") != target_year)
-            or (
-                expected_year
-                and jw_data
-                and jw_data.get("year")
-                and abs(jw_data["year"] - expected_year) > 2
-            )
         ):
-            jw_data = query_justwatch_us(
+            new_jw = query_justwatch_us(
                 title,
                 target_year=target_year,
                 alt_titles=alt_titles,
                 expected_year=expected_year,
+                is_movie=is_movie,
             )
-            time.sleep(0.25)
+            if new_jw is not None or jw_data is None:
+                jw_data = new_jw
+            cache_dirty = True
+
+        if is_movie and not is_anime and (movie_meta is None or force_refresh):
+            new_mm = query_imdb_movie_metadata(title, target_year=target_year)
+            if new_mm is not None or movie_meta is None:
+                movie_meta = new_mm
+            cache_dirty = True
 
         # If AniList missed an English-only title (e.g. "Aharen-san Is Indecipherable")
         # and JustWatch matched its Romaji title ("Aharen-san wa Hakarenai"), retry AniList with that title.
@@ -1561,11 +1844,13 @@ def enrich_all(force_refresh: bool = False) -> dict[str, Any]:
             and anilist_data is None
             and jw_data
             and jw_data.get("matchedTitle")
+            and normalize_title_key(jw_data["matchedTitle"])
+            != normalize_title_key(strip_year_suffix(title))
         ):
             anilist_data = query_anilist_metadata(
-                jw_data["matchedTitle"], target_year=target_year
+                jw_data["matchedTitle"], target_year=target_year, is_movie=is_movie
             )
-            time.sleep(0.5)
+            cache_dirty = True
             if anilist_data:
                 for k in ("englishTitle", "romajiTitle"):
                     val = anilist_data.get(k)
@@ -1575,8 +1860,15 @@ def enrich_all(force_refresh: bool = False) -> dict[str, Any]:
         if jw_data and jw_data.get("matchedTitle") and jw_data["matchedTitle"] not in alt_titles:
             alt_titles.append(jw_data["matchedTitle"])
 
-        if (
-            (tvm_data is None and ("tvmaze" not in cached or alt_titles))
+        if not is_movie and (
+            (
+                tvm_data is None
+                and (
+                    not any(cached.get(k) is not None for k in ("justwatch", "tvmaze", "anilist"))
+                    or "tvmaze" not in cached
+                    or alt_titles
+                )
+            )
             or force_refresh
             or (target_year and tvm_data and tvm_data.get("year") != target_year)
         ):
@@ -1586,17 +1878,7 @@ def enrich_all(force_refresh: bool = False) -> dict[str, Any]:
                 is_anime=is_anime,
                 alt_titles=alt_titles,
             )
-            time.sleep(0.25)
-
-        cache[norm_key] = {
-            "justwatch": jw_data,
-            "tvmaze": tvm_data,
-            "anilist": anilist_data,
-            "updatedAt": datetime.now(timezone.utc).isoformat(),
-        }
-        if idx % 10 == 0:
-            CACHE_PATH.parent.mkdir(parents=True, exist_ok=True)
-            CACHE_PATH.write_text(json.dumps(cache, indent=2), encoding="utf-8")
+            cache_dirty = True
 
         legacy_info = legacy_lookup.get(norm_key, {})
         anilist_providers = (anilist_data or {}).get("externalProviders") or {}
@@ -1606,6 +1888,7 @@ def enrich_all(force_refresh: bool = False) -> dict[str, Any]:
 
         # Merge streaming providers and sanitize all links to series-level hubs
         raw_providers = (jw_data or {}).get("streamingProviders") or []
+        prev_resolved = dict(resolved_series_urls)
         providers = normalize_providers_list(
             raw_providers,
             norm_key,
@@ -1614,12 +1897,35 @@ def enrich_all(force_refresh: bool = False) -> dict[str, Any]:
             item,
             anilist_providers=anilist_providers,
             anilist_ep_offers=al_cr_ep_offers,
+            resolved_series_urls=resolved_series_urls,
         )
+        if resolved_series_urls != prev_resolved:
+            cache_dirty = True
+
+        with _CACHE_LOCK:
+            cache_entry: dict[str, Any] = {
+                "justwatch": jw_data,
+                "tvmaze": tvm_data,
+                "anilist": anilist_data,
+                "updatedAt": cached.get("updatedAt") or datetime.now(timezone.utc).isoformat(),
+            }
+            if cache_dirty:
+                cache_entry["updatedAt"] = datetime.now(timezone.utc).isoformat()
+            if movie_meta is not None:
+                cache_entry["movieMeta"] = movie_meta
+            if resolved_series_urls:
+                cache_entry["resolvedSeriesUrls"] = resolved_series_urls
+            cache[norm_key] = cache_entry
+            completed_counter += 1
+            if cache_dirty and completed_counter % 15 == 0:
+                CACHE_PATH.parent.mkdir(parents=True, exist_ok=True)
+                CACHE_PATH.write_text(json.dumps(cache, indent=2), encoding="utf-8")
 
         genres = (
             item.get("genres")
             or (tvm_data or {}).get("genres")
             or (anilist_data or {}).get("genres")
+            or (movie_meta or {}).get("genres")
             or []
         )
         runtime = (
@@ -1627,13 +1933,14 @@ def enrich_all(force_refresh: bool = False) -> dict[str, Any]:
             or (tvm_data or {}).get("runtimeMinutes")
             or (anilist_data or {}).get("runtimeMinutes")
             or (jw_data or {}).get("runtimeMinutes")
-            or (24 if is_anime else 30)
+            or (105 if is_movie else (24 if is_anime else 30))
         )
         year = (
             item.get("year")
             or (tvm_data or {}).get("year")
             or (anilist_data or {}).get("year")
             or (jw_data or {}).get("year")
+            or (movie_meta or {}).get("year")
         )
         jw_poster = ((jw_data or {}).get("posterUrl") or "").replace(
             "{profile}", "s592"
@@ -1643,6 +1950,7 @@ def enrich_all(force_refresh: bool = False) -> dict[str, Any]:
             or (tvm_data or {}).get("posterUrl")
             or (anilist_data or {}).get("posterUrl")
             or jw_poster
+            or (movie_meta or {}).get("posterUrl")
             or ""
         )
 
@@ -1656,14 +1964,19 @@ def enrich_all(force_refresh: bool = False) -> dict[str, Any]:
         vibe = (
             raw_vibe
             or (jw_data or {}).get("shortDescription")
+            or (movie_meta or {}).get("shortDescription")
             or "Ready to stream in your RandomFlix rotation."
         )
         media_type = item.get("mediaType") or (
             "anime" if "Anime" in genres or item.get("isAnime") else "tv"
         )
-        allow_random_episode = item.get(
-            "allowRandomEpisode",
-            category in (1, 2) and serialization in ("watched-comfort", "episodic"),
+        allow_random_episode = (
+            False
+            if is_movie
+            else item.get(
+                "allowRandomEpisode",
+                category in (1, 2) and serialization in ("watched-comfort", "episodic"),
+            )
         )
 
         tvm_seasons = (tvm_data or {}).get("seasons") or []
@@ -1671,14 +1984,14 @@ def enrich_all(force_refresh: bool = False) -> dict[str, Any]:
         tvm_ep_count = (tvm_data or {}).get("totalEpisodes") or 0
         al_ep_count = (anilist_data or {}).get("totalEpisodes") or 0
 
-        if is_anime and len(tvm_seasons) <= 1 and al_ep_count > tvm_ep_count:
+        if is_movie:
+            raw_seasons = []
+        elif is_anime and len(tvm_seasons) <= 1 and al_ep_count > tvm_ep_count:
             raw_seasons = al_seasons
         else:
             raw_seasons = tvm_seasons or al_seasons or []
         episode_offers: dict[str, dict[str, str]] = (jw_data or {}).get("episodeOffers") or {}
-        al_cr_ep_offers: dict[str, str] = (
-            (anilist_data or {}).get("crunchyrollEpisodeOffers") or {}
-        )
+        al_cr_ep_offers = (anilist_data or {}).get("crunchyrollEpisodeOffers") or {}
         active_provider_ids = {p["id"] for p in providers}
         series_url_by_provider = {p["id"]: p["webUrl"] for p in providers}
 
@@ -1730,42 +2043,58 @@ def enrich_all(force_refresh: bool = False) -> dict[str, Any]:
                 enriched_eps.append(ep_entry)
             seasons.append({"season": s_num, "episodes": enriched_eps})
 
-        total_seasons = len(seasons) or (
-            (tvm_data or {}).get("totalSeasons")
-            or (anilist_data or {}).get("totalSeasons")
-            or 0
+        total_seasons = (
+            0
+            if is_movie
+            else (
+                len(seasons)
+                or (tvm_data or {}).get("totalSeasons")
+                or (anilist_data or {}).get("totalSeasons")
+                or 0
+            )
         )
-        total_episodes = sum(len(s.get("episodes", [])) for s in seasons) or (
-            (tvm_data or {}).get("totalEpisodes")
-            or (anilist_data or {}).get("totalEpisodes")
-            or 0
+        total_episodes = (
+            1
+            if is_movie
+            else (
+                sum(len(s.get("episodes", [])) for s in seasons)
+                or (tvm_data or {}).get("totalEpisodes")
+                or (anilist_data or {}).get("totalEpisodes")
+                or 0
+            )
         )
+        search_suffix = " movie watch" if is_movie else " tv show watch"
 
-        catalog_shows.append(
-            {
-                "id": norm_key,
-                "title": title,
-                "disabled": is_disabled,
-                "category": category,
-                "watched": category == 1 or bool(item.get("watched")),
-                "mediaType": media_type,
-                "serialization": serialization,
-                "allowRandomEpisode": allow_random_episode,
-                "year": year,
-                "pinnedYear": item.get("year"),
-                "runtimeMinutes": runtime,
-                "genres": genres,
-                "moodTags": item.get("moodTags") or [],
-                "vibe": vibe,
-                "categoryReason": category_reason,
-                "posterUrl": poster_url,
-                "streamingProviders": providers,
-                "googleTvSearchUrl": f"https://www.google.com/search?q={urllib.parse.quote(title + ' tv show watch')}",
-                "totalSeasons": total_seasons,
-                "totalEpisodes": total_episodes,
-                "seasons": seasons,
-            }
-        )
+        return {
+            "id": norm_key,
+            "title": title,
+            "disabled": is_disabled,
+            "category": category,
+            "watched": category == 1 or bool(item.get("watched")),
+            "mediaType": media_type,
+            "serialization": serialization,
+            "allowRandomEpisode": allow_random_episode,
+            "year": year,
+            "pinnedYear": item.get("year"),
+            "runtimeMinutes": runtime,
+            "genres": genres,
+            "moodTags": item.get("moodTags") or [],
+            "vibe": vibe,
+            "categoryReason": category_reason,
+            "posterUrl": poster_url,
+            "streamingProviders": providers,
+            "googleTvSearchUrl": f"https://www.google.com/search?q={urllib.parse.quote(title + search_suffix)}",
+            "totalSeasons": total_seasons,
+            "totalEpisodes": total_episodes,
+            "seasons": seasons,
+        }
+
+    with concurrent.futures.ThreadPoolExecutor(max_workers=10) as pool:
+        futures = [
+            pool.submit(enrich_single_item, idx, item)
+            for idx, item in enumerate(shows_input, start=1)
+        ]
+        catalog_shows = [f.result() for f in futures]
 
     CACHE_PATH.parent.mkdir(parents=True, exist_ok=True)
     CACHE_PATH.write_text(json.dumps(cache, indent=2), encoding="utf-8")
@@ -1782,6 +2111,7 @@ def enrich_all(force_refresh: bool = False) -> dict[str, Any]:
             "1_watched": sum(1 for s in active_shows if s["category"] == 1),
             "2_background": sum(1 for s in active_shows if s["category"] == 2),
             "3_active": sum(1 for s in active_shows if s["category"] == 3),
+            "4_now_watching": sum(1 for s in active_shows if s["category"] == 4),
         },
         "shows": catalog_shows,
     }
@@ -1792,7 +2122,8 @@ def enrich_all(force_refresh: bool = False) -> dict[str, Any]:
         f"\nSaved {len(active_shows)} active shows ({disabled_count} disabled, {len(catalog_shows)} total) to {CATALOG_OUT_PATH} "
         f"(Cat 1: {catalog_payload['countsByCategory']['1_watched']}, "
         f"Cat 2: {catalog_payload['countsByCategory']['2_background']}, "
-        f"Cat 3: {catalog_payload['countsByCategory']['3_active']})"
+        f"Cat 3: {catalog_payload['countsByCategory']['3_active']}, "
+        f"Cat 4: {catalog_payload['countsByCategory']['4_now_watching']})"
     )
     return catalog_payload
 

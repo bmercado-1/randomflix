@@ -32,7 +32,7 @@
         </div>
       </div>
 
-      <!-- 4 Watch Modes (Faithful to original VideoLibrary) -->
+      <!-- 5 Watch Modes -->
       <div class="mode-grid" role="tablist" aria-label="Watch Mode">
         <button class="mode-btn active" data-mode="2" role="tab">
           <span class="mode-emoji">🛋️</span>
@@ -49,10 +49,15 @@
           <span class="mode-title">Active Focus</span>
           <span class="mode-desc">Cat 3 Only (Serialized)</span>
         </button>
+        <button class="mode-btn" data-mode="5" role="tab">
+          <span class="mode-emoji">▶️</span>
+          <span class="mode-title">Now Watching</span>
+          <span class="mode-desc">Cat 4 Only (Currently Watching)</span>
+        </button>
         <button class="mode-btn" data-mode="4" role="tab">
           <span class="mode-emoji">🎰</span>
           <span class="mode-title">Full Random</span>
-          <span class="mode-desc">All Shows (Cat 1 + 2 + 3)</span>
+          <span class="mode-desc">All Shows (Cat 1–4)</span>
         </button>
       </div>
 
@@ -69,9 +74,14 @@
         </div>
         <div class="filter-group secondary-filters">
           <select id="filter-type" class="filter-select" aria-label="Media Format">
-            <option value="all">All Formats (TV + Anime)</option>
-            <option value="tv">📺 TV Only (Hide Anime)</option>
-            <option value="anime">🎌 Anime Only</option>
+            <option value="all">All Formats</option>
+            <option value="tv">📺 TV Series Only</option>
+            <option value="anime">🎌 Anime Series Only</option>
+            <option value="movie">🎬 Movies Only</option>
+            <option value="anime_movie">🎟️ Anime Movies Only</option>
+            <option value="series_all">📺🎌 All Series (TV + Anime)</option>
+            <option value="movies_all">🎬🎟️ All Movies (Live + Anime)</option>
+            <option value="anime_all">🎌🎟️ All Anime (Series + Movies)</option>
           </select>
           <select id="filter-runtime" class="filter-select" aria-label="Episode Runtime">
             <option value="all">Any Runtime</option>
@@ -132,6 +142,9 @@
 
           <!-- Quick Couch Actions -->
           <div class="couch-actions">
+            <button id="btn-promote-watching" class="action-pill" title="Move this show to Category 4 (Now Watching)">
+              ▶️ Move to Now Watching (Cat 4)
+            </button>
             <button id="btn-promote-watched" class="action-pill" title="Move this show to Category 1 (Watched)">
               ✅ Move to Watched (Cat 1)
             </button>
@@ -170,10 +183,13 @@
             <option value="1">Cat 1 • Watched (Comfort Rewatch)</option>
             <option value="2">Cat 2 • Background (Episodic)</option>
             <option value="3">Cat 3 • Active (Serialized)</option>
+            <option value="4">Cat 4 • Now Watching (Active Queue)</option>
           </select>
           <select id="input-show-type" class="filter-select">
             <option value="tv">TV Series</option>
-            <option value="anime">Anime</option>
+            <option value="anime">Anime Series</option>
+            <option value="movie">Movie</option>
+            <option value="anime_movie">Anime Movie</option>
           </select>
           <button type="submit" class="provider-btn">➕ Add Show</button>
         </form>

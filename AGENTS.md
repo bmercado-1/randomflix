@@ -17,19 +17,24 @@ This file is automatically loaded by Antigravity at the start of every chat in `
 - `legacy/`: Archived 2021–2023 Python CLI/Tkinter/Flask files and old 229-show `shows.csv`. *(User plans to delete `legacy/` once v2.0 is fully settled.)*
 
 ## 3. Categories, Watch Modes & Product Rules
-- **3 Show Categories:**
+- **4 Show Categories:**
   - **Category 1 (`Watched` / Comfort Rewatch):** Already-watched shows (`watched: true`). Always safe for background viewing or rewatching regardless of genre.
   - **Category 2 (`Background` / Episodic):** Unwatched shows that strictly pass the **"Couch Doze-Off Test"** — sitcoms, animated/workplace comedies, pure case-of-the-week procedurals, or sketch/anthology shows where missing 10 minutes doesn't hurt. Never classify plot-heavy serialized dramas into Category 2.
   - **Category 3 (`Active` / Serialized):** Unwatched serialized, mystery-box, or high-attention shows that must be watched sequentially with full focus.
-- **4 Watch Modes in UI:**
+  - **Category 4 (`Now Watching`):** Shows the user is actively consuming right now (whether for the first time or as a rewatch) so they can randomly pick from their currently-watching rotation without letting shows fall into a void.
+- **5 Watch Modes in UI:**
   - `Mode 2` (`🛋️ Background` = Cat 1 + 2, **Default**)
   - `Mode 1` (`🔁 Comfort Rewatch` = Cat 1 only)
   - `Mode 3` (`🎬 Active Focus` = Cat 3 only)
-  - `Mode 4` (`🎰 Full Random` = Cat 1 + 2 + 3)
+  - `Mode 5` (`▶️ Now Watching` = Cat 4 only)
+  - `Mode 4` (`🎰 Full Random` = Cat 1 + 2 + 3 + 4)
+- **4 Media Formats (`mediaType`):**
+  - `"tv"` (`TV Series`), `"anime"` (`Anime` series), `"movie"` (`Movie` — live-action/non-anime feature film), and `"anime_movie"` (`Anime Movie` — standalone anime feature film or 1-episode theatrical OVA/special).
 - **Random Episode Roller (`🎲 Roll Random Episode`):**
-  - Must remain **strictly opt-in** (hidden by default when flipping channels). Default viewing is sequential ("resume next unwatched episode").
+  - Must remain **strictly opt-in** (hidden by default when flipping channels, and automatically hidden on `"movie"` / `"anime_movie"` cards). Default viewing is sequential ("resume next unwatched episode").
   - When clicked, displays 1-click direct episode playback buttons (`▶ Play S##E## on <Service>`) and TV app intents (`📺 <Service> TV App (S##E##)`).
-- **No LiveChart Auto-Import:** Do not bulk-import from the user's LiveChart anime list; only add specific shows the user chooses.
+- **LiveChart Two-Tier Import (`python3 scripts/manage_shows.py import-livechart`):**
+  - Syncs `/Users/bmercado/dev/workspace/random/anime_watchlist.json` into `data/shows_source.json`: `primary` (`planning`, `paused`, `skipping`) entries are imported into Category 3 (`Active Focus`) as **enabled**, and `secondary` (`considering`) entries are imported into Category 3 as **disabled** (`"disabled": true`). Entries with `total_episodes == 1` are classified as `"anime_movie"`.
 
 ## 4. Streaming & Deep-Link Rules (Critical — Do Not Regress)
 1. **Default Series Links Must Open Series Hubs (Never Autoplay S1E1):**

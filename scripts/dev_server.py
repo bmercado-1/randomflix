@@ -23,9 +23,19 @@ sys.path.insert(0, str(ROOT_DIR / "scripts"))
 import enrich_catalog  # noqa: E402
 
 
+class ReusableThreadingHTTPServer(http.server.ThreadingHTTPServer):
+    allow_reuse_address = True
+
+
 class RandomFlixLocalHandler(http.server.SimpleHTTPRequestHandler):
     def __init__(self, *args: Any, **kwargs: Any) -> None:
         super().__init__(*args, directory=str(DOCS_DIR), **kwargs)
+
+    def log_message(self, format: str, *args: Any) -> None:
+        try:
+            super().log_message(format, *args)
+        except Exception:
+            pass
 
     def do_GET(self) -> None:
         if self.path.split("?")[0] == "/api/ping":
@@ -76,8 +86,8 @@ class RandomFlixLocalHandler(http.server.SimpleHTTPRequestHandler):
 
 def main() -> None:
     port = int(sys.argv[1]) if len(sys.argv) > 1 else 8765
-    server = http.server.ThreadingHTTPServer(("127.0.0.1", port), RandomFlixLocalHandler)
-    print(f"RandomFlix local server running at http://localhost:{port}/")
+    server = ReusableThreadingHTTPServer(("127.0.0.1", port), RandomFlixLocalHandler)
+    print(f"RandomFlix local server running at http://localhost:{port}/", flush=True)
     try:
         server.serve_forever()
     except KeyboardInterrupt:

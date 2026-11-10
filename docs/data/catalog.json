@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-10T20:51:20.493497+00:00",
+  "generatedAt": "2026-11-10T20:55:43.090192+00:00",
   "totalShows": 192,
   "totalInList": 720,
   "disabledShows": 528,
@@ -130360,11 +130360,12 @@
       "allowRandomEpisode": false,
       "year": 2016,
       "pinnedYear": null,
-      "runtimeMinutes": 24,
+      "runtimeMinutes": 25,
       "genres": [
         "Drama",
-        "Romance",
-        "Sci-Fi"
+        "Action",
+        "Anime",
+        "Thriller"
       ],
       "moodTags": [
         "Anime",
@@ -130372,7 +130373,7 @@
       ],
       "vibe": "The anime's setting is a fictional Japanese city named Sugomori City. One day, Noriko Sonosaki tells her classmate Katsuhira Agata, \"You have been selected to be a Kiznaiver.\" The Kizuna System, which allows Katsuhira to share his wounds, connects him to the classmates whose lives and personalities completely differ from his. The Kizuna System is an incomplete system for the implementation of world peace that connects people through wounds. All those who are connected to this system are called Kiznaivers. When one Kiznaiver is wounded, the system divides and transmits the wound among the other Kiznaivers. Sugomori City is built on reclaimed land, but as the years go by, the city's population is decreasing. The story is set in this town where Katsuhira and the others live.",
       "categoryReason": "LiveChart Secondary backlog (considering).",
-      "posterUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx21421-5y8ryXsMB7aJ.jpg",
+      "posterUrl": "https://static.tvmaze.com/uploads/images/original_untouched/47/119562.jpg",
       "streamingProviders": [
         {
           "id": "crunchyroll",
@@ -130816,13 +130817,12 @@
       "allowRandomEpisode": false,
       "year": 2012,
       "pinnedYear": null,
-      "runtimeMinutes": 23,
+      "runtimeMinutes": 25,
       "genres": [
         "Comedy",
-        "Drama",
+        "Anime",
         "Romance",
-        "Sci-Fi",
-        "Slice of Life"
+        "Science-Fiction"
       ],
       "moodTags": [
         "Anime",
@@ -130830,7 +130830,7 @@
       ],
       "vibe": "While testing out his camera on a bridge one summer night, Kaito sees a blue light streaking across the sky, only to be blown off the railing seconds later. Just before succumbing to unconsciousness, a hand reaches down to grab ahold of his own. He woke up the next morning wondering how he ended up back in his own room with no injuries or any recollection of the night before. As he proceeds with his normal school life, Kaito and his friends discuss what to do with his camera, finally deciding to make a film with it over the summer break. Noticing that Kaito has an interest in the new upperclassmen Ichika Takatsuki, his friend Tetsurou decides to invite her, as well as her friend Remon Yamano, to join them in their project.\n\nIn what becomes one of the most entertaining and exciting summers of their lives, Kaito and his friends find that their time spent together is not just about creating a film, but something much more meaningful that will force them to confront their true feelings.",
       "categoryReason": "LiveChart Secondary backlog (considering).",
-      "posterUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx11433-KLEzZeK6D46g.jpg",
+      "posterUrl": "https://static.tvmaze.com/uploads/images/original_untouched/624/1560113.jpg",
       "streamingProviders": [],
       "googleTvSearchUrl": "https://www.google.com/search?q=Waiting%20in%20the%20Summer%20tv%20show%20watch",
       "totalSeasons": 1,
@@ -130841,51 +130841,51 @@
           "episodes": [
             {
               "ep": 1,
-              "title": "Episode 1"
+              "title": "I Can't, Senpai"
             },
             {
               "ep": 2,
-              "title": "Episode 2"
+              "title": "Together with Senpai..."
             },
             {
               "ep": 3,
-              "title": "Episode 3"
+              "title": "Senpai Says..."
             },
             {
               "ep": 4,
-              "title": "Episode 4"
+              "title": "Senpai Was Amazing"
             },
             {
               "ep": 5,
-              "title": "Episode 5"
+              "title": "Senpai Is a Heroine"
             },
             {
               "ep": 6,
-              "title": "Episode 6"
+              "title": "Senpai's Rival"
             },
             {
               "ep": 7,
-              "title": "Episode 7"
+              "title": "Senpai's Feelings"
             },
             {
               "ep": 8,
-              "title": "Episode 8"
+              "title": "Senpai's in Trouble"
             },
             {
               "ep": 9,
-              "title": "Episode 9"
+              "title": "Senpai"
             },
             {
               "ep": 10,
-              "title": "Episode 10"
+              "title": "Senpai's and Ours"
             },
             {
               "ep": 11,
-              "title": "Episode 11"
+              "title": "Don't Leave, Senpai"
             },
             {
               "ep": 12,
-              "title": "Episode 12"
+              "title": "Waiting in the Summer"
             }
           ]
         }
@@ -130904,7 +130904,9 @@
       "pinnedYear": null,
       "runtimeMinutes": 2,
       "genres": [
-        "Slice of Life"
+        "Drama",
+        "Anime",
+        "Food"
       ],
       "moodTags": [
         "Anime",
@@ -130912,7 +130914,7 @@
       ],
       "vibe": "Murasaki Wakako is a 26-year-old OL that loves nothing more than delicious food and drink. Wakako's favorite thing to do for relaxation is to go off by herself after work and go to various places to eat and drink, even if she's never been there before. The moment Wakako is able to taste the pairing between the food she wants to eat and the perfect accompanying drink, the happy sound of \"Pshuuu\" leaves her lips. Now, then. Where shall we drink tonight?",
       "categoryReason": "LiveChart Secondary backlog (considering).",
-      "posterUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx21204-I5vZUdjgBp03.jpg",
+      "posterUrl": "https://static.tvmaze.com/uploads/images/original_untouched/21/54567.jpg",
       "streamingProviders": [
         {
           "id": "crunchyroll",
@@ -130932,84 +130934,84 @@
           "episodes": [
             {
               "ep": 1,
-              "title": "1st Night: Fried Salted Salmon",
+              "title": "Salted Grilled Salmon",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/G6VNE270R"
               }
             },
             {
               "ep": 2,
-              "title": "2nd Night: Fried Chicken",
+              "title": "Deep-fried Chicken",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/GYP8X20WY"
               }
             },
             {
               "ep": 3,
-              "title": "3rd Night: Monkfish Liver in Ponzu",
+              "title": "Monkfish Liver and Ponzu",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/GR8VXZNDR"
               }
             },
             {
               "ep": 4,
-              "title": "4th Night: Sea Urchin Cresson",
+              "title": "Sea Urchin and Watercress",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/G6DQNEXDR"
               }
             },
             {
               "ep": 5,
-              "title": "5th Night: Yakitori",
+              "title": "Grilled Chicken",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/GY5VXZ4EY"
               }
             },
             {
               "ep": 6,
-              "title": "6th Night: Steamed Clams",
+              "title": "Salted Sake-Steamed Clams",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/GRGG9XJ2R"
               }
             },
             {
               "ep": 7,
-              "title": "7th Night: Potato Salad",
+              "title": "Potato Salad",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/GRE5K7486"
               }
             },
             {
               "ep": 8,
-              "title": "8th Night: Goya Chanpuru",
+              "title": "Goya Champuru",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/G69PMZK8Y"
               }
             },
             {
               "ep": 9,
-              "title": "9th Night: Kani Miso",
+              "title": "Kani Miso",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/G649MDXWY"
               }
             },
             {
               "ep": 10,
-              "title": "10th Night: Deep-Fried Asparagus Skewers",
+              "title": "Deep-Fried Asparagus",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/G6JQ1JMER"
               }
             },
             {
               "ep": 11,
-              "title": "11th Night: Hokke",
+              "title": "Hokke",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/G6K5X2V4Y"
               }
             },
             {
               "ep": 12,
-              "title": "12th Night: Roasted Ginkgo Nuts",
+              "title": "Roasted Ginko Nuts",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/GRVNE210Y"
               }
@@ -131029,12 +131031,11 @@
       "allowRandomEpisode": false,
       "year": 2017,
       "pinnedYear": null,
-      "runtimeMinutes": 24,
+      "runtimeMinutes": 30,
       "genres": [
         "Comedy",
-        "Ecchi",
-        "Romance",
-        "Slice of Life"
+        "Anime",
+        "Romance"
       ],
       "moodTags": [
         "Anime",
@@ -131042,7 +131043,7 @@
       ],
       "vibe": "Itsuki Hashima is a light novelist obsessed with little sisters, strictly focusing on them when he writes his stories.  Despite his personality, he's surrounded by a tight circle of friends,  including a beautiful genius writer who loves him, a big-sisterly college classmate, a fellow male writer, a sadistic tax accountant, his editor, and Chihiro, his perfect younger step-brother who takes care of the housework and cooking.  As the story progresses, the underlying conflicts of dreams and goals surface, as each character attempts to achieve their dreams, in their own way.",
       "categoryReason": "LiveChart Secondary backlog (considering).",
-      "posterUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx98596-E2aZouOyuQ8G.jpg",
+      "posterUrl": "https://static.tvmaze.com/uploads/images/original_untouched/563/1409528.jpg",
       "streamingProviders": [
         {
           "id": "crunchyroll",
@@ -131069,21 +131070,21 @@
             },
             {
               "ep": 2,
-              "title": "If Only a Miracle Would Happen",
+              "title": "If Only a Miracle Would Happen.",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/GWDU8GZM0/if-only-a-miracle-would-happen"
               }
             },
             {
               "ep": 3,
-              "title": "As Long As It's Research",
+              "title": "As Long as It's Research.",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/GG1U20P5P/as-long-as-its-research"
               }
             },
             {
               "ep": 4,
-              "title": "As Long As You're Working.",
+              "title": "As Long as You're Working.",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/G0DUN4EWV/as-long-as-youre-working"
               }
@@ -131104,7 +131105,7 @@
             },
             {
               "ep": 7,
-              "title": "Adventure Is All You Need.",
+              "title": "Adventure Is All You Need",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/G14U42ZJW/adventure-is-all-you-need"
               }
@@ -131118,7 +131119,7 @@
             },
             {
               "ep": 9,
-              "title": "Nudity and Underwear Are All You Need.",
+              "title": "Nudity and Underwear Are All You Need",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/GVWU0JGX4/nudity-and-underwear-are-all-you-need"
               }
@@ -131139,7 +131140,7 @@
             },
             {
               "ep": 12,
-              "title": "A Sister's All You Need?",
+              "title": "A Sister is All You Need?",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/GG1U20PVP/a-sisters-all-you-need"
               }
@@ -131162,9 +131163,9 @@
       "runtimeMinutes": 25,
       "genres": [
         "Comedy",
-        "Drama",
+        "Anime",
         "Romance",
-        "Sci-Fi"
+        "Science-Fiction"
       ],
       "moodTags": [
         "Anime",
@@ -131172,7 +131173,7 @@
       ],
       "vibe": "Kusanagi Kei, a high-school student living with his aunt and uncle, has an encounter with a female alien. This alien is revealed to be a new teacher at his school. Later, he is forced to marry this alien to preserve her secrets. From there, various romantically-inclined problems crop up repeatedly.",
       "categoryReason": "LiveChart Secondary backlog (considering).",
-      "posterUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx195-0qMiRJbg60Tc.png",
+      "posterUrl": "https://static.tvmaze.com/uploads/images/original_untouched/49/123213.jpg",
       "streamingProviders": [
         {
           "id": "crunchyroll",
@@ -131299,6 +131300,7 @@
       "runtimeMinutes": 24,
       "genres": [
         "Drama",
+        "Anime",
         "Romance"
       ],
       "moodTags": [
@@ -131307,7 +131309,7 @@
       ],
       "vibe": "To trust is to set yourself up for failure. That\u2019s the lesson Mei Tachibana learned when her heart was broken. She found a solution: never make any more friends. It\u2019s not as easy as it sounds, but it works for Mei. At least it did until handsome and charming Yamato Kurosawa showed up to complicate everything. Mei\u2019s not looking for a white knight. So why did he have to kiss her and ruin everything? Between heartbeats and behind trembling lips the specter of betrayals past, future, and present haunt them both in Say \"I Love You\"!",
       "categoryReason": "LiveChart Secondary backlog (considering).",
-      "posterUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/nx14289-vRTzC8u4XuvW.png",
+      "posterUrl": "https://static.tvmaze.com/uploads/images/original_untouched/13/33931.jpg",
       "streamingProviders": [],
       "googleTvSearchUrl": "https://www.google.com/search?q=Say%20%22I%20Love%20You%22.%20tv%20show%20watch",
       "totalSeasons": 1,
@@ -131318,15 +131320,15 @@
           "episodes": [
             {
               "ep": 1,
-              "title": "We Kissed"
+              "title": "First Kiss"
             },
             {
               "ep": 2,
-              "title": "Fried Chicken Flavored"
+              "title": "The Flavor of Deep-Fried Chicken"
             },
             {
               "ep": 3,
-              "title": "If You Trust Someone..."
+              "title": "When You Trust People..."
             },
             {
               "ep": 4,
@@ -131362,11 +131364,11 @@
             },
             {
               "ep": 12,
-              "title": "I'll Protect You"
+              "title": "I`ll Protect You"
             },
             {
               "ep": 13,
-              "title": "Say \"I love you\"."
+              "title": "Say I Love You"
             }
           ]
         }
@@ -131383,10 +131385,9 @@
       "allowRandomEpisode": false,
       "year": 2018,
       "pinnedYear": null,
-      "runtimeMinutes": 24,
+      "runtimeMinutes": 30,
       "genres": [
-        "Comedy",
-        "Ecchi",
+        "Anime",
         "Romance",
         "Supernatural"
       ],
@@ -131396,7 +131397,7 @@
       ],
       "vibe": "Kogarashi Fuyuzora is a \"hands on\" psychic. Ever since the day he got possessed by an evil ghost, he has been burdened with debt. Needing a cheap room to rent, he winds up at a haunted hot springs inn, Yuragi Inn, where only incredibly beautiful girls reside. Amongst the residents is a ghost, Yuuna, who cannot move on to the spirit world. Despite the resistance from the current tenants that are all girls, Kogarashi manages to start his new life at Yuragi Inn.",
       "categoryReason": "LiveChart Secondary backlog (considering).",
-      "posterUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/nx100483-fzseZYJnQTLI.jpg",
+      "posterUrl": "https://static.tvmaze.com/uploads/images/original_untouched/159/397807.jpg",
       "streamingProviders": [
         {
           "id": "crunchyroll",
@@ -131437,14 +131438,14 @@
             },
             {
               "ep": 4,
-              "title": "Watching Youkai! Sagiri and Yaya are Cautious.",
+              "title": "Watching Youkai! Sagiri and Yaya are Cautious",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/GR0XXVEGY/watching-youkai-sagiri-and-yaya-are-cautious"
               }
             },
             {
               "ep": 5,
-              "title": "Yuuna's Body Measurements / Nonko's Crunch Time",
+              "title": "Yuuna's Body Measurements and Nonko's Crunch Time",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/GRG55953R/yuunas-body-measurements-nonkos-crunch-time"
               }
@@ -131458,7 +131459,7 @@
             },
             {
               "ep": 7,
-              "title": "Yuuna's Mysterious Disapppearance",
+              "title": "Yuuna's Mysterious Disappearance",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/GRW44Q9NY/yuunas-mysterious-disapppearance"
               }
@@ -131493,7 +131494,7 @@
             },
             {
               "ep": 12,
-              "title": "Yuuna and the Haunted Hot Springs, and\u2026",
+              "title": "Yuuna and the Haunted Hot Springs and...",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/GY5PJ22EY/yuuna-and-the-haunted-hot-springs-and"
               }
@@ -131513,11 +131514,12 @@
       "allowRandomEpisode": false,
       "year": 2024,
       "pinnedYear": null,
-      "runtimeMinutes": 24,
+      "runtimeMinutes": 30,
       "genres": [
-        "Adventure",
-        "Fantasy",
-        "Slice of Life"
+        "Drama",
+        "Comedy",
+        "Anime",
+        "Fantasy"
       ],
       "moodTags": [
         "Anime",
@@ -131525,7 +131527,7 @@
       ],
       "vibe": "Takumi's reborn in a new world and finds super-strong twins, Alan and Elena. As their guardian, he joins an adventurers' guild to provide for them.",
       "categoryReason": "LiveChart Secondary backlog (considering).",
-      "posterUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx171031-7RJll3TJnVFA.jpg",
+      "posterUrl": "https://static.tvmaze.com/uploads/images/original_untouched/630/1577258.jpg",
       "streamingProviders": [
         {
           "id": "crunchyroll",
@@ -131743,8 +131745,9 @@
       "runtimeMinutes": 24,
       "genres": [
         "Action",
-        "Comedy",
-        "Fantasy"
+        "Anime",
+        "Fantasy",
+        "Medical"
       ],
       "moodTags": [
         "Anime",
@@ -131752,7 +131755,7 @@
       ],
       "vibe": "Banished as \"useless,\" Zenos, a self-taught healer from the slums, turns despair into defiance and opens a secret clinic in the city's shadows. With unlicensed, unmatched magic, he cures, comforts, and rights wrongs, quietly becoming a legend. But as his power grows, even the royal palace takes notice. Can he buck the odds and heal a world that cast him aside?",
       "categoryReason": "LiveChart Secondary backlog (considering).",
-      "posterUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx175872-d55nfiC4WWHO.jpg",
+      "posterUrl": "https://static.tvmaze.com/uploads/images/original_untouched/562/1405601.jpg",
       "streamingProviders": [
         {
           "id": "crunchyroll",
@@ -131876,12 +131879,9 @@
       "allowRandomEpisode": false,
       "year": 2021,
       "pinnedYear": null,
-      "runtimeMinutes": 24,
+      "runtimeMinutes": 27,
       "genres": [
-        "Comedy",
-        "Drama",
-        "Romance",
-        "Slice of Life"
+        "Anime"
       ],
       "moodTags": [
         "Anime",
@@ -131889,7 +131889,7 @@
       ],
       "vibe": "A talented gamer questions real life until meeting a skilled female player who teaches him winning life strategies.",
       "categoryReason": "LiveChart Secondary backlog (considering).",
-      "posterUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx112443-UVB1oKdblsIx.jpg",
+      "posterUrl": "https://static.tvmaze.com/uploads/images/original_untouched/647/1618742.jpg",
       "streamingProviders": [
         {
           "id": "crunchyroll",
@@ -131901,8 +131901,8 @@
         }
       ],
       "googleTvSearchUrl": "https://www.google.com/search?q=Bottom-tier%20Character%20Tomozaki%20tv%20show%20watch",
-      "totalSeasons": 1,
-      "totalEpisodes": 14,
+      "totalSeasons": 2,
+      "totalEpisodes": 25,
       "seasons": [
         {
           "season": 1,
@@ -131930,14 +131930,14 @@
             },
             {
               "ep": 4,
-              "title": "Sometimes you conquer a dungeon only to find a strong boss back in your village",
+              "title": "Sometimes you conquer dungeon only to find a strong boss back in your village",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/G31UXQ0WG"
               }
             },
             {
               "ep": 5,
-              "title": "The characters who become your friends after you clear a hard event usually have high stats",
+              "title": "The characters who becomes your friends after you clear a heard event usually have high stats",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/GD9UVDPQM"
               }
@@ -131951,7 +131951,7 @@
             },
             {
               "ep": 7,
-              "title": "When a mentor character becomes a boss, they'll push you to the edge",
+              "title": "When a mentor Character becomes a boss, they'll push you to the edge",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/G2XU0J8QD"
               }
@@ -131965,7 +131965,7 @@
             },
             {
               "ep": 9,
-              "title": "When you go back to the starter town with the full party, new stuff tends to happen",
+              "title": "When you go back to the starter town with the full party. new stuff tends to happen",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/GJWU2850X"
               }
@@ -131979,30 +131979,112 @@
             },
             {
               "ep": 11,
-              "title": "A single choice can change everything",
+              "title": "Sometimes just one option can change everything",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/GJWU285EX"
               }
             },
             {
               "ep": 12,
-              "title": "Equipment for girls has special effects",
+              "title": "Items that can only be equipped on the heroine have special effects",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/GMKUXW8G7"
+              }
+            }
+          ]
+        },
+        {
+          "season": 2,
+          "episodes": [
+            {
+              "ep": 1,
+              "title": "The best games make reconnaissance fun",
+              "links": {
+                "crunchyroll": "https://www.crunchyroll.com/watch/GK9U3K9EG"
+              }
+            },
+            {
+              "ep": 2,
+              "title": "A happy ending doesn't mean this game is over",
+              "links": {
+                "crunchyroll": "https://www.crunchyroll.com/watch/GG1U2N73E"
+              }
+            },
+            {
+              "ep": 3,
+              "title": "Battles go better when you're fighting alongside someone whose signature move is the opposite of yours",
+              "links": {
+                "crunchyroll": "https://www.crunchyroll.com/watch/GK9U3KZ8K"
+              }
+            },
+            {
+              "ep": 4,
+              "title": "Villagers have their own way of life",
+              "links": {
+                "crunchyroll": "https://www.crunchyroll.com/watch/G31UX43KV"
+              }
+            },
+            {
+              "ep": 5,
+              "title": "If you keep upgrading your initial equipment, it'll usually become your most powerful weapon",
+              "links": {
+                "crunchyroll": "https://www.crunchyroll.com/watch/G31UX4Q35"
+              }
+            },
+            {
+              "ep": 6,
+              "title": "Everyone has different expectations about a big event",
+              "links": {
+                "crunchyroll": "https://www.crunchyroll.com/watch/G50UZV930"
+              }
+            },
+            {
+              "ep": 7,
+              "title": "Important items are usually lying around in enchanted forests",
+              "links": {
+                "crunchyroll": "https://www.crunchyroll.com/watch/GG1U2NQK5"
+              }
+            },
+            {
+              "ep": 8,
+              "title": "Sometimes the main character can't enter the village of another species on his own",
+              "links": {
+                "crunchyroll": "https://www.crunchyroll.com/watch/G8WUN1XNN"
+              }
+            },
+            {
+              "ep": 9,
+              "title": "If you don't make up your mind, the story won't advance",
+              "links": {
+                "crunchyroll": "https://www.crunchyroll.com/watch/GN7UD140Q"
+              }
+            },
+            {
+              "ep": 10,
+              "title": "The patterns carved into the stone tablet are connected to the mysteries of the world",
+              "links": {
+                "crunchyroll": "https://www.crunchyroll.com/watch/GG1U2NZMP"
+              }
+            },
+            {
+              "ep": 11,
+              "title": "Even fairies feel lonely when they're away from their spring by themselves",
+              "links": {
+                "crunchyroll": "https://www.crunchyroll.com/watch/G4VUQVV04"
+              }
+            },
+            {
+              "ep": 12,
+              "title": "Sometimes the ancient tome in the first town is the key to the final dungeon",
+              "links": {
+                "crunchyroll": "https://www.crunchyroll.com/watch/GMKUXP1J7"
               }
             },
             {
               "ep": 13,
-              "title": "Post-game equipment for girls is a little different than usual",
+              "title": "You're sure to find what you want on the other side of the magic door",
               "links": {
-                "crunchyroll": "https://www.crunchyroll.com/watch/GX9UQ9PWE/post-game-equipment-for-girls-is-a-little-different-than-usual"
-              }
-            },
-            {
-              "ep": 14,
-              "title": "Most strange spell names have unknown origins",
-              "links": {
-                "crunchyroll": "https://www.crunchyroll.com/watch/G14U42W7J/most-strange-spell-names-have-unknown-origins"
+                "crunchyroll": "https://www.crunchyroll.com/watch/G9DUE0Z0D"
               }
             }
           ]
@@ -132550,10 +132632,10 @@
       "allowRandomEpisode": false,
       "year": 2024,
       "pinnedYear": null,
-      "runtimeMinutes": 23,
+      "runtimeMinutes": 30,
       "genres": [
-        "Comedy",
         "Drama",
+        "Anime",
         "Romance"
       ],
       "moodTags": [
@@ -132562,7 +132644,7 @@
       ],
       "vibe": "For Makoto Hanaoka, life\u2019s about to get more complicated. Saki Aoi, a lively girl with loads of confidence, confesses her love for Makoto one day. When he fails to reciprocate, Saki declares she will be his first love! She shares her goal with a mutual friend, Ryuji Taiga, who also confesses his crush on Makoto. Stuck in a love triangle, Makoto must find a way to make it work and have fun.",
       "categoryReason": "LiveChart Secondary backlog (considering).",
-      "posterUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx163133-bdr9S2bdLoyj.jpg",
+      "posterUrl": "https://static.tvmaze.com/uploads/images/original_untouched/526/1315646.jpg",
       "streamingProviders": [
         {
           "id": "crunchyroll",
@@ -132582,7 +132664,7 @@
           "episodes": [
             {
               "ep": 1,
-              "title": "Senpai is an Otokonoko",
+              "title": "Senpai Is an Otokonoko",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/GK9U3E0GQ"
               }
@@ -132679,10 +132761,11 @@
       "allowRandomEpisode": false,
       "year": 2021,
       "pinnedYear": null,
-      "runtimeMinutes": 17,
+      "runtimeMinutes": 18,
       "genres": [
         "Comedy",
-        "Slice of Life"
+        "Action",
+        "Anime"
       ],
       "moodTags": [
         "Anime",
@@ -132690,7 +132773,7 @@
       ],
       "vibe": "After disappearing from the underworld, the legendary yakuza known as the \"Immortal Dragon\" resurfaces \u2014 as a fiercely devoted stay-at-home husband.",
       "categoryReason": "LiveChart Secondary backlog (considering).",
-      "posterUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx125426-WeKnIVjCRNIC.png",
+      "posterUrl": "https://static.tvmaze.com/uploads/images/original_untouched/301/753216.jpg",
       "streamingProviders": [
         {
           "id": "netflix",
@@ -132702,11 +132785,56 @@
         }
       ],
       "googleTvSearchUrl": "https://www.google.com/search?q=The%20Way%20of%20the%20Househusband%20tv%20show%20watch",
-      "totalSeasons": 1,
-      "totalEpisodes": 5,
+      "totalSeasons": 2,
+      "totalEpisodes": 15,
       "seasons": [
         {
           "season": 1,
+          "episodes": [
+            {
+              "ep": 1,
+              "title": "Episode 1"
+            },
+            {
+              "ep": 2,
+              "title": "Episode 2"
+            },
+            {
+              "ep": 3,
+              "title": "Episode 3"
+            },
+            {
+              "ep": 4,
+              "title": "Episode 4"
+            },
+            {
+              "ep": 5,
+              "title": "Episode 5"
+            },
+            {
+              "ep": 6,
+              "title": "Episode 6"
+            },
+            {
+              "ep": 7,
+              "title": "Episode 7"
+            },
+            {
+              "ep": 8,
+              "title": "Episode 8"
+            },
+            {
+              "ep": 9,
+              "title": "Episode 9"
+            },
+            {
+              "ep": 10,
+              "title": "Episode 10"
+            }
+          ]
+        },
+        {
+          "season": 2,
           "episodes": [
             {
               "ep": 1,
@@ -132871,9 +132999,10 @@
       "allowRandomEpisode": false,
       "year": 2007,
       "pinnedYear": null,
-      "runtimeMinutes": 25,
+      "runtimeMinutes": 30,
       "genres": [
         "Drama",
+        "Anime",
         "Romance"
       ],
       "moodTags": [
@@ -132882,7 +133011,7 @@
       ],
       "vibe": "Hikada Sana\u00a0returns to his home town after living away in Tokyo for five years. Although some time has passed the town has not changed much. On a detour to his apartment, he notices that a shrine maiden is watching him as he visits the shrine. The following day at school, Sana is surprised to find out that this girl is actually\u00a0Yatsushiro Nanaka, a good childhood friend, whom he gave a bracelet before he left so many years ago. And even to this day, she is still wearing it...",
       "categoryReason": "LiveChart Secondary backlog (considering).",
-      "posterUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx2926-2Xza45SLLi9N.jpg",
+      "posterUrl": "https://static.tvmaze.com/uploads/images/original_untouched/49/123395.jpg",
       "streamingProviders": [
         {
           "id": "crunchyroll",
@@ -132909,7 +133038,7 @@
             },
             {
               "ep": 2,
-              "title": "A Precious Melody",
+              "title": "The Important Melody",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/G6DQ4027R"
               }
@@ -132923,49 +133052,49 @@
             },
             {
               "ep": 4,
-              "title": "I'm Not a Child",
+              "title": "No Longer a Child",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/GRGGPNZDR"
               }
             },
             {
               "ep": 5,
-              "title": "Non-blooming Sakura Blossoms",
+              "title": "Unblooming Cherry Tree",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/GRE5PEZ06"
               }
             },
             {
               "ep": 6,
-              "title": "Adulthood",
+              "title": "Grown Up",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/G69PJG2EY"
               }
             },
             {
               "ep": 7,
-              "title": "Teacher\u2019s Caramel",
+              "title": "Teacher's Caramel",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/G649024EY"
               }
             },
             {
               "ep": 8,
-              "title": "The Secret Mailbox",
+              "title": "Secret Post",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/G6JQ27Z5R"
               }
             },
             {
               "ep": 9,
-              "title": "Good Luck! Animenger!",
+              "title": "Do Your Best! Animenger!",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/G6K5PD19Y"
               }
             },
             {
               "ep": 10,
-              "title": "For the Sakura\u2026",
+              "title": "For Sakura's Sake",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/GRVNX97DY"
               }
@@ -132979,7 +133108,7 @@
             },
             {
               "ep": 12,
-              "title": "Memories in Red",
+              "title": "Red Memories",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/GY8VJ27JY"
               }
@@ -133006,7 +133135,7 @@
       "allowRandomEpisode": false,
       "year": 2025,
       "pinnedYear": null,
-      "runtimeMinutes": 25,
+      "runtimeMinutes": 30,
       "genres": [
         "Action",
         "Comedy",
@@ -133018,7 +133147,7 @@
       ],
       "vibe": "A virus turns humanity into feral cats, leaving a few survivors to fight back. Kunagi, a man with no past but vast cat knowledge, struggles to survive. However, the virus spreads through cuddles\u2014can he resist the adorable menace?",
       "categoryReason": "LiveChart Secondary backlog (considering).",
-      "posterUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx175124-eDYbn0W5F4to.jpg",
+      "posterUrl": "https://static.tvmaze.com/uploads/images/original_untouched/577/1443350.jpg",
       "streamingProviders": [
         {
           "id": "crunchyroll",
@@ -133031,7 +133160,7 @@
       ],
       "googleTvSearchUrl": "https://www.google.com/search?q=Nyaight%20of%20the%20Living%20Cat%20tv%20show%20watch",
       "totalSeasons": 1,
-      "totalEpisodes": 5,
+      "totalEpisodes": 12,
       "seasons": [
         {
           "season": 1,
@@ -133070,6 +133199,55 @@
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/GEVUWQ7VJ"
               }
+            },
+            {
+              "ep": 6,
+              "title": "Cat Rising",
+              "links": {
+                "crunchyroll": "https://www.crunchyroll.com/watch/G7PU3D7N2"
+              }
+            },
+            {
+              "ep": 7,
+              "title": "The Feline D-REX from Another World",
+              "links": {
+                "crunchyroll": "https://www.crunchyroll.com/watch/GMKUE31DZ"
+              }
+            },
+            {
+              "ep": 8,
+              "title": "Nyarmageddon",
+              "links": {
+                "crunchyroll": "https://www.crunchyroll.com/watch/GVWU82MGP"
+              }
+            },
+            {
+              "ep": 9,
+              "title": "Commeowndo",
+              "links": {
+                "crunchyroll": "https://www.crunchyroll.com/watch/G31UV2NJ3"
+              }
+            },
+            {
+              "ep": 10,
+              "title": "Norwegian d'Arc",
+              "links": {
+                "crunchyroll": "https://www.crunchyroll.com/watch/GPWU8X92E"
+              }
+            },
+            {
+              "ep": 11,
+              "title": "Transformeows",
+              "links": {
+                "crunchyroll": "https://www.crunchyroll.com/watch/G0DUMNEGD"
+              }
+            },
+            {
+              "ep": 12,
+              "title": "Meow Am Legend",
+              "links": {
+                "crunchyroll": "https://www.crunchyroll.com/watch/GN7UND3EX"
+              }
             }
           ]
         }
@@ -133086,11 +133264,11 @@
       "allowRandomEpisode": false,
       "year": 2020,
       "pinnedYear": null,
-      "runtimeMinutes": 24,
+      "runtimeMinutes": 30,
       "genres": [
         "Action",
-        "Fantasy",
-        "Romance"
+        "Anime",
+        "Fantasy"
       ],
       "moodTags": [
         "Anime",
@@ -133098,7 +133276,7 @@
       ],
       "vibe": "For years, a great war has raged on between the scientifically advanced Empire and a paradise of witches known as the Nebulis Sovereignty. This age-old battle sets the scene for a fateful encounter between two young combatants: an imperial swordsman, Iska, and the witch princess, Aliceliese. As sworn enemies, they vow to cut each other down in order to unite their worlds, and yet Iska finds himself entranced by her beauty and righteousness, while Aliceliese is moved by his strength and resolve. In the midst of a never-ending war that forbids them from being together, they have no choice but to destroy each other-or find another way.",
       "categoryReason": "LiveChart Secondary backlog (considering).",
-      "posterUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx112667-GYFeAlZ38mXK.jpg",
+      "posterUrl": "https://static.tvmaze.com/uploads/images/original_untouched/274/685799.jpg",
       "streamingProviders": [
         {
           "id": "hulu",
@@ -133126,15 +133304,15 @@
         }
       ],
       "googleTvSearchUrl": "https://www.google.com/search?q=Our%20Last%20Crusade%20or%20the%20Rise%20of%20a%20New%20World%20tv%20show%20watch",
-      "totalSeasons": 1,
-      "totalEpisodes": 12,
+      "totalSeasons": 2,
+      "totalEpisodes": 24,
       "seasons": [
         {
           "season": 1,
           "episodes": [
             {
               "ep": 1,
-              "title": "Witch: Planet's Fate",
+              "title": "The Encounter of the Two Nations' Ultimate Weapons",
               "links": {
                 "hulu": "https://www.hulu.com/watch/f25f4204-1739-418d-a75f-7881c6f24720",
                 "crunchyroll": "https://www.crunchyroll.com/watch/GJWU2XZDW",
@@ -133143,7 +133321,7 @@
             },
             {
               "ep": 2,
-              "title": "Witch: War Between the Sisters (AKA Alice Explodes)",
+              "title": "Encounter: The Enemy You and I Met Was...",
               "links": {
                 "hulu": "https://www.hulu.com/watch/109362da-ccad-445a-b602-4f10bfa0a69d",
                 "crunchyroll": "https://www.crunchyroll.com/watch/GWDU8K148",
@@ -133152,7 +133330,7 @@
             },
             {
               "ep": 3,
-              "title": "Witch: Dance Between the Moon, the Planet, and the Sun",
+              "title": "Encounter: Successor of the Black Steel and the Ice Calamity Witch",
               "links": {
                 "hulu": "https://www.hulu.com/watch/56af5e4f-6c38-447f-9a3e-84de7fa5a854",
                 "crunchyroll": "https://www.crunchyroll.com/watch/G7PU4VQGG",
@@ -133161,7 +133339,7 @@
             },
             {
               "ep": 4,
-              "title": "Line of Descent: My Name is Elletear",
+              "title": "Intersection: Battle for the Vortex",
               "links": {
                 "hulu": "https://www.hulu.com/watch/8e1e5827-0e9b-48ab-8bf2-1fbc1f289c0e",
                 "crunchyroll": "https://www.crunchyroll.com/watch/GJWU2XZP8",
@@ -133170,7 +133348,7 @@
             },
             {
               "ep": 5,
-              "title": "Line of Descent: Three-Sister War (AKA Alice Has Had Enough)",
+              "title": "Intersection: Awakening of the Vortex",
               "links": {
                 "hulu": "https://www.hulu.com/watch/b4b922fc-0d5a-4793-a18d-7bb8aaad7d56",
                 "crunchyroll": "https://www.crunchyroll.com/watch/GPWUK5P1Q",
@@ -133179,7 +133357,7 @@
             },
             {
               "ep": 6,
-              "title": "Line of Descent: Beginning of the End of Paradise",
+              "title": "Paradise: Rin's Big Miscalculation",
               "links": {
                 "hulu": "https://www.hulu.com/watch/11f9df08-38b8-456f-b915-408ca921f5a1",
                 "crunchyroll": "https://www.crunchyroll.com/watch/G8WUNWZK1",
@@ -133188,7 +133366,7 @@
             },
             {
               "ep": 7,
-              "title": "Last Crusade: Night of the Witch Hunt",
+              "title": "Paradise: Alice's Longest Night",
               "links": {
                 "hulu": "https://www.hulu.com/watch/808b0882-7339-4a5f-9be3-31ffaf34ef41",
                 "crunchyroll": "https://www.crunchyroll.com/watch/GEVUZG94X",
@@ -133197,7 +133375,7 @@
             },
             {
               "ep": 8,
-              "title": "Last Crusade: The Unforgiven One",
+              "title": "Paradise: The Transcendent Demon",
               "links": {
                 "hulu": "https://www.hulu.com/watch/9b25b678-55d2-45a9-8af2-a63b8cf13720",
                 "crunchyroll": "https://www.crunchyroll.com/watch/GJWU2XZG2",
@@ -133206,7 +133384,7 @@
             },
             {
               "ep": 9,
-              "title": "Last Crusade: Our Last Crusade or the Night We Make Our Vow",
+              "title": "Paradise: Iska",
               "links": {
                 "hulu": "https://www.hulu.com/watch/8969e00b-382e-4ae5-9404-a70205f203e6",
                 "crunchyroll": "https://www.crunchyroll.com/watch/G31UX3GDM",
@@ -133215,7 +133393,7 @@
             },
             {
               "ep": 10,
-              "title": "Morning Star: The World Rises",
+              "title": "Beginning: The Girl Wishes Upon a Star",
               "links": {
                 "hulu": "https://www.hulu.com/watch/8db22ea9-52f5-49c7-a05a-435bfa2e76e9",
                 "crunchyroll": "https://www.crunchyroll.com/watch/G4VUQXNXM",
@@ -133224,7 +133402,7 @@
             },
             {
               "ep": 11,
-              "title": "Morning Star: Snow the Sun",
+              "title": "Beginning: The Witch Hunt",
               "links": {
                 "hulu": "https://www.hulu.com/watch/149b25ab-f157-4f50-b4b6-b57734ce317c",
                 "crunchyroll": "https://www.crunchyroll.com/watch/G0DUN071J",
@@ -133233,11 +133411,124 @@
             },
             {
               "ep": 12,
-              "title": "Morning Star: Welcome with a Round of Applause",
+              "title": "Beginning: The Two of Them Trigger the Rise of a New World",
               "links": {
                 "hulu": "https://www.hulu.com/watch/bdd18201-2c61-4f83-bc13-1cb088eae017",
                 "crunchyroll": "https://www.crunchyroll.com/watch/G9DUEP8XW",
                 "disney_plus": "https://www.disneyplus.com/play/bdd18201-2c61-4f83-bc13-1cb088eae017"
+              }
+            }
+          ]
+        },
+        {
+          "season": 2,
+          "episodes": [
+            {
+              "ep": 1,
+              "title": "Witch: Planet's Fate",
+              "links": {
+                "hulu": "https://www.hulu.com/watch/844456dc-39e0-44fa-9d43-489b0dff4c42",
+                "crunchyroll": "https://www.crunchyroll.com/watch/GG1U2J445",
+                "disney_plus": "https://www.disneyplus.com/play/844456dc-39e0-44fa-9d43-489b0dff4c42"
+              }
+            },
+            {
+              "ep": 2,
+              "title": "Witch: War Between the Sisters (AKA Alice Explodes)",
+              "links": {
+                "hulu": "https://www.hulu.com/watch/ce1c6be5-4401-428a-89b1-d6809cf84fd7",
+                "crunchyroll": "https://www.crunchyroll.com/watch/GJWU2W05Q",
+                "disney_plus": "https://www.disneyplus.com/play/ce1c6be5-4401-428a-89b1-d6809cf84fd7"
+              }
+            },
+            {
+              "ep": 3,
+              "title": "Witch: Dance Between the Moon, the Planet, and the Sun",
+              "links": {
+                "hulu": "https://www.hulu.com/watch/d6420222-68cd-4d3d-80e2-62359c3a813b",
+                "crunchyroll": "https://www.crunchyroll.com/watch/GK9U3EEEZ",
+                "disney_plus": "https://www.disneyplus.com/play/d6420222-68cd-4d3d-80e2-62359c3a813b"
+              }
+            },
+            {
+              "ep": 4,
+              "title": "Line of Descent: My Name is Elletear",
+              "links": {
+                "hulu": "https://www.hulu.com/watch/898f6aec-b2af-45e1-a6e6-62d00ab431a9",
+                "crunchyroll": "https://www.crunchyroll.com/watch/G4VUWK70Q",
+                "disney_plus": "https://www.disneyplus.com/play/898f6aec-b2af-45e1-a6e6-62d00ab431a9"
+              }
+            },
+            {
+              "ep": 5,
+              "title": "Line of Descent: Three-Sister War (AKA Alice Has Had Enough)",
+              "links": {
+                "hulu": "https://www.hulu.com/watch/e7207a87-deeb-4e05-8846-2efac653c58b",
+                "crunchyroll": "https://www.crunchyroll.com/watch/GK9UGNW9M",
+                "disney_plus": "https://www.disneyplus.com/play/e7207a87-deeb-4e05-8846-2efac653c58b"
+              }
+            },
+            {
+              "ep": 6,
+              "title": "Line of Descent: Beginning of the End of Paradise",
+              "links": {
+                "hulu": "https://www.hulu.com/watch/0d99cc50-ad93-4f4d-9cdb-27ea26eb0814",
+                "crunchyroll": "https://www.crunchyroll.com/watch/GQJUMZ8VN",
+                "disney_plus": "https://www.disneyplus.com/play/0d99cc50-ad93-4f4d-9cdb-27ea26eb0814"
+              }
+            },
+            {
+              "ep": 7,
+              "title": "Last Crusade: Night of the Witch Hunt",
+              "links": {
+                "hulu": "https://www.hulu.com/watch/35194f96-aebf-40ba-8657-e0334df7a6b3",
+                "crunchyroll": "https://www.crunchyroll.com/watch/GJWUQ1P5D",
+                "disney_plus": "https://www.disneyplus.com/play/35194f96-aebf-40ba-8657-e0334df7a6b3"
+              }
+            },
+            {
+              "ep": 8,
+              "title": "Last Crusade: The Unforgiven One",
+              "links": {
+                "hulu": "https://www.hulu.com/watch/66c2f1f3-f6e8-4d25-9f7d-39e356b13113",
+                "crunchyroll": "https://www.crunchyroll.com/watch/G14UVP382",
+                "disney_plus": "https://www.disneyplus.com/play/66c2f1f3-f6e8-4d25-9f7d-39e356b13113"
+              }
+            },
+            {
+              "ep": 9,
+              "title": "Last Crusade: Our Last Crusade or the Night We Make Our Vow",
+              "links": {
+                "hulu": "https://www.hulu.com/watch/3dada126-9d13-440f-9a49-7e14be7a68f4",
+                "crunchyroll": "https://www.crunchyroll.com/watch/G50UMDE84",
+                "disney_plus": "https://www.disneyplus.com/play/3dada126-9d13-440f-9a49-7e14be7a68f4"
+              }
+            },
+            {
+              "ep": 10,
+              "title": "Reclaim: The World Rises",
+              "links": {
+                "hulu": "https://www.hulu.com/watch/d2417a3d-2e5a-40e7-9e41-362595c454cd",
+                "crunchyroll": "https://www.crunchyroll.com/watch/GK9UGNQ9E",
+                "disney_plus": "https://www.disneyplus.com/play/d2417a3d-2e5a-40e7-9e41-362595c454cd"
+              }
+            },
+            {
+              "ep": 11,
+              "title": "Morning Star: Snow the Sun",
+              "links": {
+                "hulu": "https://www.hulu.com/watch/b9ed8ffe-ae2f-421b-93fe-f2bfaa0869ae",
+                "crunchyroll": "https://www.crunchyroll.com/watch/G50UMD94V",
+                "disney_plus": "https://www.disneyplus.com/play/b9ed8ffe-ae2f-421b-93fe-f2bfaa0869ae"
+              }
+            },
+            {
+              "ep": 12,
+              "title": "Morning Star: Welcome with a Round of Applause",
+              "links": {
+                "hulu": "https://www.hulu.com/watch/070add9f-d0b8-4ef8-b114-1eb689d5e782",
+                "crunchyroll": "https://www.crunchyroll.com/watch/G9DU92JM8",
+                "disney_plus": "https://www.disneyplus.com/play/070add9f-d0b8-4ef8-b114-1eb689d5e782"
               }
             }
           ]
@@ -133257,9 +133548,7 @@
       "pinnedYear": null,
       "runtimeMinutes": 24,
       "genres": [
-        "Comedy",
-        "Romance",
-        "Slice of Life"
+        "Anime"
       ],
       "moodTags": [
         "Anime",
@@ -133267,7 +133556,7 @@
       ],
       "vibe": "Ayumu just fell in love at first sight with Urushi and joined the illegitimate Shogi Club! But Ayumu has vowed not to confess his feelings until he can best Urushi, and he has a long way to go before he can stand up to her strategic brilliance.",
       "categoryReason": "LiveChart Secondary backlog (considering).",
-      "posterUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx128223-TOQovu2MXr8k.jpg",
+      "posterUrl": "https://static.tvmaze.com/uploads/images/original_untouched/414/1035706.jpg",
       "streamingProviders": [
         {
           "id": "hidive",
@@ -133287,84 +133576,84 @@
           "episodes": [
             {
               "ep": 1,
-              "title": "Episode 1",
+              "title": "You Are Cute, Senpai",
               "links": {
                 "hidive": "https://www.hidive.com/interstitial/561857"
               }
             },
             {
               "ep": 2,
-              "title": "Episode 2",
+              "title": "I Want to Make You Happy, Senpai",
               "links": {
                 "hidive": "https://www.hidive.com/interstitial/562009"
               }
             },
             {
               "ep": 3,
-              "title": "Episode 3",
+              "title": "I Want to Go on a First Date, Senpai",
               "links": {
                 "hidive": "https://www.hidive.com/interstitial/561922"
               }
             },
             {
               "ep": 4,
-              "title": "Episode 4",
+              "title": "I Want to Spend Time Together, Senpai",
               "links": {
                 "hidive": "https://www.hidive.com/interstitial/561977"
               }
             },
             {
               "ep": 5,
-              "title": "Episode 5",
+              "title": "I Want to Know More, Senpai",
               "links": {
                 "hidive": "https://www.hidive.com/interstitial/561921"
               }
             },
             {
               "ep": 6,
-              "title": "Episode 6",
+              "title": "I Want to Get It From You, Senpai",
               "links": {
                 "hidive": "https://www.hidive.com/interstitial/562007"
               }
             },
             {
               "ep": 7,
-              "title": "Episode 7",
+              "title": "I Can't Just Quit, Senpai",
               "links": {
                 "hidive": "https://www.hidive.com/interstitial/561979"
               }
             },
             {
               "ep": 8,
-              "title": "Episode 8",
+              "title": "It's a Role I Refuse to Relinquish, Senpai",
               "links": {
                 "hidive": "https://www.hidive.com/interstitial/562006"
               }
             },
             {
               "ep": 9,
-              "title": "Episode 9",
+              "title": "I Want to Make Memories, Senpai",
               "links": {
                 "hidive": "https://www.hidive.com/interstitial/562008"
               }
             },
             {
               "ep": 10,
-              "title": "Episode 10",
+              "title": "I Can't Back Down, Senpai",
               "links": {
                 "hidive": "https://www.hidive.com/interstitial/561859"
               }
             },
             {
               "ep": 11,
-              "title": "Episode 11",
+              "title": "I Want to Get Stronger, Senpai",
               "links": {
                 "hidive": "https://www.hidive.com/interstitial/561856"
               }
             },
             {
               "ep": 12,
-              "title": "Episode 12",
+              "title": "I Want to Win and Tell You How I Feel, Senpai",
               "links": {
                 "hidive": "https://www.hidive.com/interstitial/561813"
               }
@@ -133384,12 +133673,12 @@
       "allowRandomEpisode": false,
       "year": 2019,
       "pinnedYear": null,
-      "runtimeMinutes": 24,
+      "runtimeMinutes": 30,
       "genres": [
         "Action",
         "Adventure",
-        "Fantasy",
-        "Psychological"
+        "Anime",
+        "Fantasy"
       ],
       "moodTags": [
         "Anime",
@@ -133397,7 +133686,7 @@
       ],
       "vibe": "Hajime Nagumo and his high school class are suddenly summoned to a fantastical land as heroes. But while most of his classmates have powerful stats and abilities, Hajime does not. Underappreciated and unprepared, he tumbles into the depths of a monster-infested dungeon where voracity and sacrifice are his only options. To thrive in this savage world, he\u2019ll have no choice but to welcome the abyss.",
       "categoryReason": "LiveChart Secondary backlog (considering).",
-      "posterUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx100668-DvOn5bMOt4cy.jpg",
+      "posterUrl": "https://static.tvmaze.com/uploads/images/original_untouched/632/1581915.jpg",
       "streamingProviders": [
         {
           "id": "hulu",
@@ -133425,15 +133714,15 @@
         }
       ],
       "googleTvSearchUrl": "https://www.google.com/search?q=Arifureta%3A%20From%20Commonplace%20to%20World%27s%20Strongest%20tv%20show%20watch",
-      "totalSeasons": 1,
-      "totalEpisodes": 16,
+      "totalSeasons": 3,
+      "totalEpisodes": 41,
       "seasons": [
         {
           "season": 1,
           "episodes": [
             {
               "ep": 1,
-              "title": "Haulias Assemble",
+              "title": "The Monster of the Abyss",
               "links": {
                 "hulu": "https://www.hulu.com/watch/17fa9310-5031-43e2-ae81-af0bc35ef678",
                 "crunchyroll": "https://www.crunchyroll.com/watch/G7PU4V0D1",
@@ -133442,7 +133731,7 @@
             },
             {
               "ep": 2,
-              "title": "Roar of Revolution",
+              "title": "Pandora's Box",
               "links": {
                 "hulu": "https://www.hulu.com/watch/327a54ab-c086-4baf-adfa-e244657659b1",
                 "crunchyroll": "https://www.crunchyroll.com/watch/GWDU8KG04",
@@ -133451,7 +133740,7 @@
             },
             {
               "ep": 3,
-              "title": "The Princess's Ordeal",
+              "title": "The Golden Vampire Princess",
               "links": {
                 "hulu": "https://www.hulu.com/watch/0f15c6b5-6ac3-4997-b0dc-6a66914f7ffc",
                 "crunchyroll": "https://www.crunchyroll.com/watch/G0DUN04Z3",
@@ -133460,7 +133749,7 @@
             },
             {
               "ep": 4,
-              "title": "The Empire VS the Strongest Rabbits",
+              "title": "Guardian of the Depths",
               "links": {
                 "hulu": "https://www.hulu.com/watch/f0646c78-c729-43e2-b865-ba28a83a3f5d",
                 "crunchyroll": "https://www.crunchyroll.com/watch/G7PU4V08V",
@@ -133469,7 +133758,7 @@
             },
             {
               "ep": 5,
-              "title": "The Hero Returns",
+              "title": "The Maverick's Lair",
               "links": {
                 "hulu": "https://www.hulu.com/watch/d6816c22-3d27-4f36-8247-43f049ad3137",
                 "crunchyroll": "https://www.crunchyroll.com/watch/GK9U34Q3W",
@@ -133478,7 +133767,7 @@
             },
             {
               "ep": 6,
-              "title": "Haltina's Labyrinth",
+              "title": "Worthless Rabbit",
               "links": {
                 "hulu": "https://www.hulu.com/watch/990a4ad2-fd36-4b76-a3ea-beb8ba304747",
                 "crunchyroll": "https://www.crunchyroll.com/watch/G14U4E25D",
@@ -133487,7 +133776,7 @@
             },
             {
               "ep": 7,
-              "title": "A Devilish Trial",
+              "title": "The Great Reisen Labyrinth",
               "links": {
                 "hulu": "https://www.hulu.com/watch/4e484f34-01fa-43ca-a04e-1ebdd91046f5",
                 "crunchyroll": "https://www.crunchyroll.com/watch/GN7UD7G04",
@@ -133496,7 +133785,7 @@
             },
             {
               "ep": 8,
-              "title": "Grab Hold of Hope",
+              "title": "Reunion with the Past",
               "links": {
                 "hulu": "https://www.hulu.com/watch/b7e49598-33dd-490e-b038-70acb1e3678f",
                 "crunchyroll": "https://www.crunchyroll.com/watch/GMKUX4W0Q",
@@ -133505,7 +133794,7 @@
             },
             {
               "ep": 9,
-              "title": "Changing Heart",
+              "title": "Dragon Slayer",
               "links": {
                 "hulu": "https://www.hulu.com/watch/83359dfe-22e8-49fc-bd0a-6267aa962b78",
                 "crunchyroll": "https://www.crunchyroll.com/watch/GX9UQ79QP",
@@ -133514,7 +133803,7 @@
             },
             {
               "ep": 10,
-              "title": "The Final Labyrinth",
+              "title": "The Goddess' Sword",
               "links": {
                 "hulu": "https://www.hulu.com/watch/5a4800ad-ea93-4908-bdd2-5fbe609f2304",
                 "crunchyroll": "https://www.crunchyroll.com/watch/GMKUX4WEQ",
@@ -133523,7 +133812,7 @@
             },
             {
               "ep": 11,
-              "title": "Charging Emotions",
+              "title": "The Monsters' Day Off",
               "links": {
                 "hulu": "https://www.hulu.com/watch/d61aeaee-e018-4330-8f57-5bfd35132ae8",
                 "crunchyroll": "https://www.crunchyroll.com/watch/GZ7UVXJ5V",
@@ -133532,7 +133821,7 @@
             },
             {
               "ep": 12,
-              "title": "True Heart",
+              "title": "A Looming Shadow",
               "links": {
                 "hulu": "https://www.hulu.com/watch/f25c823f-cddd-4c00-8910-faa1f12de7d1",
                 "crunchyroll": "https://www.crunchyroll.com/watch/GQJUG978W",
@@ -133541,16 +133830,21 @@
             },
             {
               "ep": 13,
-              "title": "Thank God She's Still a Pervert!",
+              "title": "The Best at Being the Worst",
               "links": {
                 "hulu": "https://www.hulu.com/watch/706f3074-1b0d-4acd-945e-ed2e1afb40c5",
                 "crunchyroll": "https://www.crunchyroll.com/watch/GZ7UVXJ9V",
                 "disney_plus": "https://www.disneyplus.com/play/706f3074-1b0d-4acd-945e-ed2e1afb40c5"
               }
-            },
+            }
+          ]
+        },
+        {
+          "season": 2,
+          "episodes": [
             {
-              "ep": 14,
-              "title": "The Overpowered Vampire Princess and the Godlike Rabbit's Grand Battle",
+              "ep": 1,
+              "title": "Irregular",
               "links": {
                 "hulu": "https://www.hulu.com/watch/00f8fdd8-4d7b-4e26-980a-dc59c70044ec",
                 "crunchyroll": "https://www.crunchyroll.com/watch/GX9UQP03K",
@@ -133558,8 +133852,8 @@
               }
             },
             {
-              "ep": 15,
-              "title": "What Makes a Hero",
+              "ep": 2,
+              "title": "Burning Light",
               "links": {
                 "hulu": "https://www.hulu.com/watch/bfd69f2d-6a1b-4579-b5d4-343529b67881",
                 "crunchyroll": "https://www.crunchyroll.com/watch/G4VUQE2WX",
@@ -133567,12 +133861,242 @@
               }
             },
             {
-              "ep": 16,
-              "title": "The Key to the World",
+              "ep": 3,
+              "title": "Black and White",
               "links": {
                 "hulu": "https://www.hulu.com/watch/8893b643-ffa2-4943-9acc-7fdad912600e",
                 "crunchyroll": "https://www.crunchyroll.com/watch/G14U4WMV2",
                 "disney_plus": "https://www.disneyplus.com/play/8893b643-ffa2-4943-9acc-7fdad912600e"
+              }
+            },
+            {
+              "ep": 4,
+              "title": "Reunion",
+              "links": {
+                "hulu": "https://www.hulu.com/watch/1b9cf09a-10bc-4542-9288-df5d73c14b3d",
+                "crunchyroll": "https://www.crunchyroll.com/watch/GJWU25VQ5",
+                "disney_plus": "https://www.disneyplus.com/play/1b9cf09a-10bc-4542-9288-df5d73c14b3d"
+              }
+            },
+            {
+              "ep": 5,
+              "title": "Memories from the Bottom of the Sea",
+              "links": {
+                "hulu": "https://www.hulu.com/watch/5c4743ec-a33c-4d92-a7df-4290531f124b",
+                "crunchyroll": "https://www.crunchyroll.com/watch/GN7UDP4N9",
+                "disney_plus": "https://www.disneyplus.com/play/5c4743ec-a33c-4d92-a7df-4290531f124b"
+              }
+            },
+            {
+              "ep": 6,
+              "title": "Someone Important",
+              "links": {
+                "hulu": "https://www.hulu.com/watch/af16574d-e4ba-44bc-9ec8-0143cf41dfe9",
+                "crunchyroll": "https://www.crunchyroll.com/watch/G4VUQE2DX",
+                "disney_plus": "https://www.disneyplus.com/play/af16574d-e4ba-44bc-9ec8-0143cf41dfe9"
+              }
+            },
+            {
+              "ep": 7,
+              "title": "A New Vow",
+              "links": {
+                "hulu": "https://www.hulu.com/watch/94a82a1c-6da3-4175-96d7-e9fd0406ce14",
+                "crunchyroll": "https://www.crunchyroll.com/watch/GN7UDP409",
+                "disney_plus": "https://www.disneyplus.com/play/94a82a1c-6da3-4175-96d7-e9fd0406ce14"
+              }
+            },
+            {
+              "ep": 8,
+              "title": "A Disturbing Darkness",
+              "links": {
+                "hulu": "https://www.hulu.com/watch/d626cac2-ed80-4772-ab81-bb12fa0705c9",
+                "crunchyroll": "https://www.crunchyroll.com/watch/GVWU0Q989",
+                "disney_plus": "https://www.disneyplus.com/play/d626cac2-ed80-4772-ab81-bb12fa0705c9"
+              }
+            },
+            {
+              "ep": 9,
+              "title": "Invasion of The Capital",
+              "links": {
+                "hulu": "https://www.hulu.com/watch/aaee6f59-202d-4e04-aa47-776428133a25",
+                "crunchyroll": "https://www.crunchyroll.com/watch/G31UX09VZ",
+                "disney_plus": "https://www.disneyplus.com/play/aaee6f59-202d-4e04-aa47-776428133a25"
+              }
+            },
+            {
+              "ep": 10,
+              "title": "God's Apostle",
+              "links": {
+                "hulu": "https://www.hulu.com/watch/e2e9d853-1c99-438b-bf62-6790dd466840",
+                "crunchyroll": "https://www.crunchyroll.com/watch/GPWUK1GMZ",
+                "disney_plus": "https://www.disneyplus.com/play/e2e9d853-1c99-438b-bf62-6790dd466840"
+              }
+            },
+            {
+              "ep": 11,
+              "title": "Betrayal",
+              "links": {
+                "hulu": "https://www.hulu.com/watch/9faf4330-2970-4cb0-b1e4-af09b5c17d20",
+                "crunchyroll": "https://www.crunchyroll.com/watch/G8WUN4M5J",
+                "disney_plus": "https://www.disneyplus.com/play/9faf4330-2970-4cb0-b1e4-af09b5c17d20"
+              }
+            },
+            {
+              "ep": 12,
+              "title": "A New Journey",
+              "links": {
+                "hulu": "https://www.hulu.com/watch/f3e2f2c7-bf48-4555-aedb-9446ee2f1c34",
+                "crunchyroll": "https://www.crunchyroll.com/watch/G8WUN4M7J",
+                "disney_plus": "https://www.disneyplus.com/play/f3e2f2c7-bf48-4555-aedb-9446ee2f1c34"
+              }
+            }
+          ]
+        },
+        {
+          "season": 3,
+          "episodes": [
+            {
+              "ep": 1,
+              "title": "Haulias Assemble",
+              "links": {
+                "hulu": "https://www.hulu.com/watch/6ae43ded-0fe2-4a3e-9223-4dfdffc6ed53",
+                "crunchyroll": "https://www.crunchyroll.com/watch/GG1UXWGQX",
+                "disney_plus": "https://www.disneyplus.com/play/6ae43ded-0fe2-4a3e-9223-4dfdffc6ed53"
+              }
+            },
+            {
+              "ep": 2,
+              "title": "Roar of Revolution",
+              "links": {
+                "hulu": "https://www.hulu.com/watch/a1811e98-31e3-445e-8459-7b569728df6b",
+                "crunchyroll": "https://www.crunchyroll.com/watch/GWDU7VQ13",
+                "disney_plus": "https://www.disneyplus.com/play/a1811e98-31e3-445e-8459-7b569728df6b"
+              }
+            },
+            {
+              "ep": 3,
+              "title": "The Princess's Ordeal",
+              "links": {
+                "hulu": "https://www.hulu.com/watch/776985f3-a2c3-443a-bb23-3db6c0a03d11",
+                "crunchyroll": "https://www.crunchyroll.com/watch/GX9U31J0V",
+                "disney_plus": "https://www.disneyplus.com/play/776985f3-a2c3-443a-bb23-3db6c0a03d11"
+              }
+            },
+            {
+              "ep": 4,
+              "title": "The Empire versus the Terrifying Rabbits",
+              "links": {
+                "hulu": "https://www.hulu.com/watch/69f46c2e-804c-4309-b278-87452d136254",
+                "crunchyroll": "https://www.crunchyroll.com/watch/GMKUE9PQW",
+                "disney_plus": "https://www.disneyplus.com/play/69f46c2e-804c-4309-b278-87452d136254"
+              }
+            },
+            {
+              "ep": 5,
+              "title": "The Hero Returns",
+              "links": {
+                "hulu": "https://www.hulu.com/watch/3b632d27-6cc0-4b8e-86f0-c26a40a82e91",
+                "crunchyroll": "https://www.crunchyroll.com/watch/G4VUWK5M7",
+                "disney_plus": "https://www.disneyplus.com/play/3b632d27-6cc0-4b8e-86f0-c26a40a82e91"
+              }
+            },
+            {
+              "ep": 6,
+              "title": "Haltina's Labyrinth",
+              "links": {
+                "hulu": "https://www.hulu.com/watch/f4147eb7-dd2e-48d4-908f-69d6d1822d73",
+                "crunchyroll": "https://www.crunchyroll.com/watch/GZ7UD33VW",
+                "disney_plus": "https://www.disneyplus.com/play/f4147eb7-dd2e-48d4-908f-69d6d1822d73"
+              }
+            },
+            {
+              "ep": 7,
+              "title": "A Devilish Trial",
+              "links": {
+                "hulu": "https://www.hulu.com/watch/5c3d3a6f-b5bb-4dbb-b0ef-2d80d5a61046",
+                "crunchyroll": "https://www.crunchyroll.com/watch/G0DUMWXZ4",
+                "disney_plus": "https://www.disneyplus.com/play/5c3d3a6f-b5bb-4dbb-b0ef-2d80d5a61046"
+              }
+            },
+            {
+              "ep": 8,
+              "title": "Grab Hold of Hope",
+              "links": {
+                "hulu": "https://www.hulu.com/watch/4506931a-5fc7-4fd6-a942-01d058fdfa4d",
+                "crunchyroll": "https://www.crunchyroll.com/watch/GPWU8JK57",
+                "disney_plus": "https://www.disneyplus.com/play/4506931a-5fc7-4fd6-a942-01d058fdfa4d"
+              }
+            },
+            {
+              "ep": 9,
+              "title": "Changing Heart",
+              "links": {
+                "hulu": "https://www.hulu.com/watch/4c0e6965-ccca-4823-a7f7-99af34ccf907",
+                "crunchyroll": "https://www.crunchyroll.com/watch/G9DU9NEMX",
+                "disney_plus": "https://www.disneyplus.com/play/4c0e6965-ccca-4823-a7f7-99af34ccf907"
+              }
+            },
+            {
+              "ep": 10,
+              "title": "The Final Labyrinth",
+              "links": {
+                "hulu": "https://www.hulu.com/watch/ee7ae4c0-b563-44b0-a9bd-2849b7c689e8",
+                "crunchyroll": "https://www.crunchyroll.com/watch/GX9U3MNQJ",
+                "disney_plus": "https://www.disneyplus.com/play/ee7ae4c0-b563-44b0-a9bd-2849b7c689e8"
+              }
+            },
+            {
+              "ep": 11,
+              "title": "Charging Emotions",
+              "links": {
+                "hulu": "https://www.hulu.com/watch/85f494b5-af0c-434f-bfde-1a8defeb90cc",
+                "crunchyroll": "https://www.crunchyroll.com/watch/GX9U3MDM2",
+                "disney_plus": "https://www.disneyplus.com/play/85f494b5-af0c-434f-bfde-1a8defeb90cc"
+              }
+            },
+            {
+              "ep": 12,
+              "title": "True Heart",
+              "links": {
+                "hulu": "https://www.hulu.com/watch/9d5b4712-1a48-4d5b-8b81-100f5ca8af2c",
+                "crunchyroll": "https://www.crunchyroll.com/watch/G50UMNEQ9",
+                "disney_plus": "https://www.disneyplus.com/play/9d5b4712-1a48-4d5b-8b81-100f5ca8af2c"
+              }
+            },
+            {
+              "ep": 13,
+              "title": "Thank God She's Still a Pervert!",
+              "links": {
+                "hulu": "https://www.hulu.com/watch/c67d0349-5a6a-4719-84b6-950ae87a20f9",
+                "crunchyroll": "https://www.crunchyroll.com/watch/GK9UG247E",
+                "disney_plus": "https://www.disneyplus.com/play/c67d0349-5a6a-4719-84b6-950ae87a20f9"
+              }
+            },
+            {
+              "ep": 14,
+              "title": "The Overpowered Vampire Princess and the Godlike Rabbit's Grand Battle",
+              "links": {
+                "hulu": "https://www.hulu.com/watch/810ae2b2-0734-4b9a-b01d-961d6343a40e",
+                "crunchyroll": "https://www.crunchyroll.com/watch/G8WU7VEN4",
+                "disney_plus": "https://www.disneyplus.com/play/810ae2b2-0734-4b9a-b01d-961d6343a40e"
+              }
+            },
+            {
+              "ep": 15,
+              "title": "What Makes a Hero",
+              "links": {
+                "hulu": "https://www.hulu.com/watch/3ccc6be6-c5d3-4775-b516-a24d46a0cecf",
+                "crunchyroll": "https://www.crunchyroll.com/watch/G7PU32XE4",
+                "disney_plus": "https://www.disneyplus.com/play/3ccc6be6-c5d3-4775-b516-a24d46a0cecf"
+              }
+            },
+            {
+              "ep": 16,
+              "title": "The Key to the World",
+              "links": {
+                "hulu": "https://www.hulu.com/watch/b984b179-801f-4f34-b7ae-ad97c51b4707",
+                "crunchyroll": "https://www.crunchyroll.com/watch/GQJUM0181",
+                "disney_plus": "https://www.disneyplus.com/play/b984b179-801f-4f34-b7ae-ad97c51b4707"
               }
             }
           ]
@@ -133593,6 +134117,7 @@
       "runtimeMinutes": 24,
       "genres": [
         "Comedy",
+        "Anime",
         "Fantasy",
         "Romance"
       ],
@@ -133602,7 +134127,7 @@
       ],
       "vibe": "An office worker in Japan is reborn in another world and learns to love the craft of magical toolmaking.",
       "categoryReason": "LiveChart Secondary backlog (considering).",
-      "posterUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx168623-30sdDCCLjsEW.jpg",
+      "posterUrl": "https://static.tvmaze.com/uploads/images/original_untouched/533/1334017.jpg",
       "streamingProviders": [
         {
           "id": "crunchyroll",
@@ -133643,7 +134168,7 @@
             },
             {
               "ep": 4,
-              "title": "An Encounter with a Knight",
+              "title": "An Encounter With a Knight",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/GVWU0M57V"
               }
@@ -133719,10 +134244,10 @@
       "allowRandomEpisode": false,
       "year": 2018,
       "pinnedYear": null,
-      "runtimeMinutes": 24,
+      "runtimeMinutes": 25,
       "genres": [
         "Comedy",
-        "Ecchi",
+        "Anime",
         "Fantasy"
       ],
       "moodTags": [
@@ -133731,7 +134256,7 @@
       ],
       "vibe": "Sakamoto Takuma was so strong in the MMORPG Cross Reverie that his fellow players came to call him the \"demon lord.\" One day, he gets summoned to another world in his avatar form, and meets two girls who both insist that they're the one who summoned him. They cast a spell used to enslave summoned beasts on him, but that activates his unique ability, Magic Reflect, and the girls end up being the ones put under the spell! And thus begins the otherworldly adventure of a demon lord (pretend) who blazes his own trail through overwhelming power.",
       "categoryReason": "LiveChart Secondary backlog (considering).",
-      "posterUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx101004-rJLBIWGypbYK.png",
+      "posterUrl": "https://static.tvmaze.com/uploads/images/original_untouched/304/761862.jpg",
       "streamingProviders": [
         {
           "id": "crunchyroll",
@@ -133743,81 +134268,140 @@
         }
       ],
       "googleTvSearchUrl": "https://www.google.com/search?q=How%20NOT%20to%20Summon%20a%20Demon%20Lord%20tv%20show%20watch",
-      "totalSeasons": 1,
-      "totalEpisodes": 10,
+      "totalSeasons": 2,
+      "totalEpisodes": 22,
       "seasons": [
         {
           "season": 1,
           "episodes": [
             {
               "ep": 1,
-              "title": "Head Priest",
+              "title": "The Demon Lord Act",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/GJWU290D0"
               }
             },
             {
               "ep": 2,
-              "title": "Head Paladin",
+              "title": "The Strongest Newcomer",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/GN7UD213M"
               }
             },
             {
               "ep": 3,
-              "title": "Corrupt Ritual",
+              "title": "Fallen Assault",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/GK9U3MK9V"
               }
             },
             {
               "ep": 4,
-              "title": "Personal Domain",
+              "title": "Point-Blank War Dance",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/GVWU0W732"
               }
             },
             {
               "ep": 5,
-              "title": "Black Dragon Clash",
+              "title": "Imperial Knight",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/G31UXW45X"
               }
             },
             {
               "ep": 6,
-              "title": "Demon Lord Army",
+              "title": "Slave Market",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/G8WUNG1KQ"
               }
             },
             {
               "ep": 7,
-              "title": "Little Demon Lord",
+              "title": "Change of Heart",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/GD9UVQ314"
               }
             },
             {
               "ep": 8,
-              "title": "Visit to the Royal Capital",
+              "title": "Hero's Charge",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/GQJUGV3XD"
               }
             },
             {
               "ep": 9,
-              "title": "Storm the Church",
+              "title": "Holy Knight Tale",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/GG1U24NK0"
               }
             },
             {
               "ep": 10,
-              "title": "Pretend God",
+              "title": "The Demon Lord's Resurrection",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/G9DUE5MK8"
               }
+            },
+            {
+              "ep": 11,
+              "title": "The Young Girl Awakens",
+              "links": {
+                "crunchyroll": "https://www.crunchyroll.com/watch/GMKUXWXQD"
+              }
+            },
+            {
+              "ep": 12,
+              "title": "Battle for Legitimacy",
+              "links": {
+                "crunchyroll": "https://www.crunchyroll.com/watch/GVWU0J0W3"
+              }
+            }
+          ]
+        },
+        {
+          "season": 2,
+          "episodes": [
+            {
+              "ep": 1,
+              "title": "Head Priest"
+            },
+            {
+              "ep": 2,
+              "title": "Head Paladin"
+            },
+            {
+              "ep": 3,
+              "title": "Corrupt Ritual"
+            },
+            {
+              "ep": 4,
+              "title": "Personal Domain"
+            },
+            {
+              "ep": 5,
+              "title": "Black Dragon Clash"
+            },
+            {
+              "ep": 6,
+              "title": "Demon Lord Army"
+            },
+            {
+              "ep": 7,
+              "title": "Little Demon Lord"
+            },
+            {
+              "ep": 8,
+              "title": "Visit to the Royal Capital"
+            },
+            {
+              "ep": 9,
+              "title": "Storm the Church"
+            },
+            {
+              "ep": 10,
+              "title": "Pretend God"
             }
           ]
         }
@@ -133834,10 +134418,9 @@
       "allowRandomEpisode": false,
       "year": 2022,
       "pinnedYear": null,
-      "runtimeMinutes": 24,
+      "runtimeMinutes": 30,
       "genres": [
-        "Action",
-        "Psychological",
+        "Anime",
         "Romance"
       ],
       "moodTags": [
@@ -133846,7 +134429,7 @@
       ],
       "vibe": "Two assassins face off at a certain \"workplace.\" The cool bounty hunter Chateau and the mysterious and powerful Ryang-Ha. Chateau and Ryang-Ha become enemies after this fight\u2014at least, they should have, but for some reason Ryang-Ha takes a liking to Chateau and begins following her around. Little by little, Chateau develops a cooperative partnership with Ryang-Ha, which gets her caught up in the struggle against the organizations hunting him down. Furthermore, that battle is related to her past as well. Why did Ryang-Ha approach Chateau? What is Chateau's secret past?",
       "categoryReason": "LiveChart Secondary backlog (considering).",
-      "posterUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx127050-kJ3pIbJzLDYT.png",
+      "posterUrl": "https://static.tvmaze.com/uploads/images/original_untouched/382/957118.jpg",
       "streamingProviders": [
         {
           "id": "crunchyroll",
@@ -133915,7 +134498,7 @@
             },
             {
               "ep": 8,
-              "title": "Confusion",
+              "title": "CONFUSION",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/G50UZ42M2"
               }
@@ -133963,12 +134546,12 @@
       "allowRandomEpisode": false,
       "year": 2024,
       "pinnedYear": null,
-      "runtimeMinutes": 24,
+      "runtimeMinutes": 30,
       "genres": [
+        "Drama",
         "Comedy",
-        "Romance",
-        "Sci-Fi",
-        "Slice of Life"
+        "Anime",
+        "Science-Fiction"
       ],
       "moodTags": [
         "Anime",
@@ -133976,7 +134559,7 @@
       ],
       "vibe": "Takuma isn\u2019t the most exciting guy. He\u2019s awkward, single, and does nothing but go to work and come home. Tired of doing chores, he decides to buy a housekeeping robot named Mina. She can cook and clean perfectly, and the two get to know each other better over time. Soon, Takuma starts to fall for Mina! But could a robot ever love him back?",
       "categoryReason": "LiveChart Secondary backlog (considering).",
-      "posterUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx175450-Wfjd6OqFOn2h.jpg",
+      "posterUrl": "https://static.tvmaze.com/uploads/images/original_untouched/508/1270528.jpg",
       "streamingProviders": [
         {
           "id": "crunchyroll",
@@ -134017,7 +134600,7 @@
             },
             {
               "ep": 4,
-              "title": "If My Wife Changed into a Swimsuit",
+              "title": "My Wife Changed into a Swimsuit",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/G9DUE01Z8"
               }
@@ -134230,11 +134813,11 @@
       "allowRandomEpisode": false,
       "year": 2020,
       "pinnedYear": null,
-      "runtimeMinutes": 24,
+      "runtimeMinutes": 30,
       "genres": [
-        "Comedy",
-        "Mystery",
+        "Anime",
         "Romance",
+        "Mystery",
         "Supernatural"
       ],
       "moodTags": [
@@ -134243,7 +134826,7 @@
       ],
       "vibe": "Kotoko Iwanaga became the god of wisdom to the supernatural beings and spends her days solving problems for them. However, the boy who she fell head over heels for, Kuro Sakuragawa, is someone that is feared by all supernatural creatures. The two of them face various mysterious incidents involving the supernatural in this love x romance x mystery series. Where will these fantastical incidents lead them and what will happen with Kotoko\u2019s crush?",
       "categoryReason": "LiveChart Secondary backlog (considering).",
-      "posterUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx107201-zQYOPotwmSXO.png",
+      "posterUrl": "https://static.tvmaze.com/uploads/images/original_untouched/230/575936.jpg",
       "streamingProviders": [
         {
           "id": "crunchyroll",
@@ -134255,8 +134838,8 @@
         }
       ],
       "googleTvSearchUrl": "https://www.google.com/search?q=In/Spectre%20tv%20show%20watch",
-      "totalSeasons": 1,
-      "totalEpisodes": 12,
+      "totalSeasons": 2,
+      "totalEpisodes": 24,
       "seasons": [
         {
           "season": 1,
@@ -134270,7 +134853,7 @@
             },
             {
               "ep": 2,
-              "title": "What the Guardian Serpent Heard",
+              "title": "What the Guardian Serpent Heard.",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/G63KQDDM6"
               }
@@ -134346,6 +134929,59 @@
               }
             }
           ]
+        },
+        {
+          "season": 2,
+          "episodes": [
+            {
+              "ep": 1,
+              "title": "That God's Name Is"
+            },
+            {
+              "ep": 2,
+              "title": "The Yuki-Onna's Dilemma"
+            },
+            {
+              "ep": 3,
+              "title": "The Yuki-Onna's Alibi"
+            },
+            {
+              "ep": 4,
+              "title": "The Yuki-Onna's Innocence"
+            },
+            {
+              "ep": 5,
+              "title": "Rikka Returns"
+            },
+            {
+              "ep": 6,
+              "title": "Electroshock Pinocchio"
+            },
+            {
+              "ep": 7,
+              "title": "Or You Could Wish Upon a Star"
+            },
+            {
+              "ep": 8,
+              "title": "And So, the Ruler Disappeared"
+            },
+            {
+              "ep": 9,
+              "title": "The Silenced Children"
+            },
+            {
+              "ep": 10,
+              "title": "Uninvited Judge"
+            },
+            {
+              "ep": 11,
+              "title": "Sleeping Murder"
+            },
+            {
+              "ep": 12,
+              "title": "A Lucky Day at the Unagi Restaurant"
+            }
+          ]
         }
       ]
     },
@@ -134360,11 +134996,10 @@
       "allowRandomEpisode": false,
       "year": 2020,
       "pinnedYear": null,
-      "runtimeMinutes": 23,
+      "runtimeMinutes": 30,
       "genres": [
-        "Drama",
-        "Romance",
-        "Slice of Life"
+        "Anime",
+        "Romance"
       ],
       "moodTags": [
         "Anime",
@@ -134372,7 +135007,7 @@
       ],
       "vibe": "After college, Rikuo Uozumi, a boy without much ambition in life, takes on a job at a convenience store. The days pass by uneventfully for Rikuo until he meets his former girlfriend and classmate, but especially thanks to the unusual Haru Nonaka, and her pet raven...",
       "categoryReason": "LiveChart Secondary backlog (considering).",
-      "posterUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx109020-sRBusiVXbsLH.jpg",
+      "posterUrl": "https://static.tvmaze.com/uploads/images/original_untouched/256/641343.jpg",
       "streamingProviders": [
         {
           "id": "crunchyroll",
@@ -134392,14 +135027,14 @@
           "episodes": [
             {
               "ep": 1,
-              "title": "A Misfit's Attempt at Self-Reform",
+              "title": "The Outcasts of Society Aiming to Change Themselves",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/GZ7UV09QV"
               }
             },
             {
               "ep": 2,
-              "title": "cul-de-sac",
+              "title": "A Blind Alley",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/G6G5QJ526"
               }
@@ -134489,13 +135124,11 @@
       "allowRandomEpisode": false,
       "year": 2023,
       "pinnedYear": null,
-      "runtimeMinutes": 24,
+      "runtimeMinutes": 30,
       "genres": [
         "Comedy",
-        "Drama",
-        "Ecchi",
-        "Romance",
-        "Slice of Life"
+        "Anime",
+        "Romance"
       ],
       "moodTags": [
         "Anime",
@@ -134503,7 +135136,7 @@
       ],
       "vibe": "\"I know! I'll become a monk!\" Akagami Akemitsu has spent his days and nights absorbed in studying and part-time work in an effort to distance himself from his family, which is notorious as a household of philanderers. One day, he falls in love at first sight with a girl named Aoba Yuzuki, and suddenly he's constantly drowning in worldly desires. Hoping to fight back against his genes and live a more stoic life, he enters a temple... only to find out that it's a convent filled with gorgeous girls! So begins a new rom-com about the temple life of three adorable triplets and two beautiful freeloaders!",
       "categoryReason": "LiveChart Secondary backlog (considering).",
-      "posterUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx160447-we52M5P85oaJ.png",
+      "posterUrl": "https://static.tvmaze.com/uploads/images/original_untouched/463/1159620.jpg",
       "streamingProviders": [
         {
           "id": "crunchyroll",
@@ -134627,7 +135260,7 @@
       "allowRandomEpisode": false,
       "year": 2025,
       "pinnedYear": null,
-      "runtimeMinutes": 24,
+      "runtimeMinutes": 30,
       "genres": [
         "Action",
         "Adventure",
@@ -134642,7 +135275,7 @@
       ],
       "vibe": "In Eternal Nations, a fantasy strategy game where players manage an empire, Takuto Ira is a legendary player who sits atop the leaderboard. Takuto goes unconscious during a hospitalization and awakens on the continent of Idoragya, which looks just like the game. Takuto meets Sludge Atou, his favorite unit in the game, and decides to build Mynoghra, an evil empire.",
       "categoryReason": "LiveChart Secondary backlog (considering).",
-      "posterUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx178433-8KzNsjTmdAvw.jpg",
+      "posterUrl": "https://static.tvmaze.com/uploads/images/original_untouched/577/1443318.jpg",
       "streamingProviders": [
         {
           "id": "crunchyroll",
@@ -134662,91 +135295,91 @@
           "episodes": [
             {
               "ep": 1,
-              "title": "Episode 1",
+              "title": "New Game",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/GD9UEGPEK"
               }
             },
             {
               "ep": 2,
-              "title": "Episode 2",
+              "title": "Let's Announce the Founding of Mynoghra",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/GQJUMZPMK"
               }
             },
             {
               "ep": 3,
-              "title": "Episode 3",
+              "title": "The Time for Domestic Affairs has Come",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/G50UMD7M5"
               }
             },
             {
               "ep": 4,
-              "title": "Episode 4",
+              "title": "Life Doesn't Always Go Your Way",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/GWDU7357Q"
               }
             },
             {
               "ep": 5,
-              "title": "Episode 5",
+              "title": "I'm the Monster You've Been Looking For",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/GG1UXV3X4"
               }
             },
             {
               "ep": 6,
-              "title": "Episode 6",
+              "title": "King, Are You an Evil Person?",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/G0DUMX5MK"
               }
             },
             {
               "ep": 7,
-              "title": "Episode 7",
+              "title": "Please Be My Friend!",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/GEVUWQ4W7"
               }
             },
             {
               "ep": 8,
-              "title": "Episode 8",
+              "title": "What a Human thing to do!",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/G7PU3DX8P"
               }
             },
             {
               "ep": 9,
-              "title": "Episode 9",
+              "title": "It's Well Past Your Bedtime",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/G9DU9214N"
               }
             },
             {
               "ep": 10,
-              "title": "Episode 10",
+              "title": "Go Forth and Conquer",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/GX9U34P24"
               }
             },
             {
               "ep": 11,
-              "title": "Episode 11",
+              "title": "Let's Launch Our Counterattack",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/G4VUW7EDQ"
               }
             },
             {
               "ep": 12,
-              "title": "Episode 12",
+              "title": "The Moon Is Pretty, Isn't It?",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/G14UVPW5V"
               }
             },
             {
               "ep": 13,
-              "title": "Episode 13",
+              "title": "Then the Game of the Gods Begins",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/GJWUQ15KK"
               }
@@ -134766,11 +135399,12 @@
       "allowRandomEpisode": false,
       "year": 2008,
       "pinnedYear": null,
-      "runtimeMinutes": 24,
+      "runtimeMinutes": 25,
       "genres": [
         "Action",
-        "Ecchi",
-        "Sci-Fi"
+        "Anime",
+        "Science-Fiction",
+        "War"
       ],
       "moodTags": [
         "Anime",
@@ -134778,7 +135412,7 @@
       ],
       "vibe": "The year is 1939 - it was then that the Neuroi appeared. Nobody knows where they came from or what their ultimate agenda is, but the fact remains that their attacks drove people out of their towns and cities. In order to take arms against them, humanity develops a new anti-Neuroi weapon called the \"Striker Unit.\" Using the power of magic to fight against the monsters, this new device enhances and amplifies the power of female magic-wielders. To use this device, young witches from all over the world have been brought together to form an elite task force unit called the 501st Joint Fighter Wing, commonly known as the \"Strike Witches.\"",
       "categoryReason": "LiveChart Secondary backlog (considering).",
-      "posterUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx3667-9ftVhhCHTRLs.jpg",
+      "posterUrl": "https://static.tvmaze.com/uploads/images/original_untouched/68/171380.jpg",
       "streamingProviders": [
         {
           "id": "crunchyroll",
@@ -134790,95 +135424,148 @@
         }
       ],
       "googleTvSearchUrl": "https://www.google.com/search?q=Strike%20Witches%20tv%20show%20watch",
-      "totalSeasons": 1,
-      "totalEpisodes": 12,
+      "totalSeasons": 2,
+      "totalEpisodes": 24,
       "seasons": [
         {
           "season": 1,
           "episodes": [
             {
               "ep": 1,
-              "title": "Episode 1",
+              "title": "Magical Girl",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/G8WUN8231"
               }
             },
             {
               "ep": 2,
-              "title": "Episode 2",
+              "title": "To Do What I Can",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/GZ7UV8PQG"
               }
             },
             {
               "ep": 3,
-              "title": "Episode 3",
+              "title": "Lonely No More",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/GD9UVJ2Z9"
               }
             },
             {
               "ep": 4,
-              "title": "Episode 4",
+              "title": "Thanks",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/GQJUG1E00"
               }
             },
             {
               "ep": 5,
-              "title": "Episode 5",
+              "title": "Swift, Gigantic, and Soft",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/GG1U2QD5X"
               }
             },
             {
               "ep": 6,
-              "title": "Episode 6",
+              "title": "Solidarity",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/G0DUN19WZ"
               }
             },
             {
               "ep": 7,
-              "title": "Episode 7",
+              "title": "Nice 'n Breezy",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/GEVUZ283V"
               }
             },
             {
               "ep": 8,
-              "title": "Episode 8",
+              "title": "Forget You Not",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/G9DUEQDNW"
               }
             },
             {
               "ep": 9,
-              "title": "Episode 9",
+              "title": "Defend at All Costs",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/GJWU2GJ78"
               }
             },
             {
               "ep": 10,
-              "title": "Episode 10",
+              "title": "Trust and Friendship",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/GN7UD9WKP"
               }
             },
             {
               "ep": 11,
-              "title": "Episode 11",
+              "title": "To the Sky",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/GK9U30820"
               }
             },
             {
               "ep": 12,
-              "title": "Episode 12",
+              "title": "Strike Witches",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/GVWU05PXK"
               }
+            }
+          ]
+        },
+        {
+          "season": 2,
+          "episodes": [
+            {
+              "ep": 1,
+              "title": "Into the Sky Once More"
+            },
+            {
+              "ep": 2,
+              "title": "The Legendary Witches"
+            },
+            {
+              "ep": 3,
+              "title": "What We Can Do Together"
+            },
+            {
+              "ep": 4,
+              "title": "Harder, Faster, Greater!"
+            },
+            {
+              "ep": 5,
+              "title": "My Romagna"
+            },
+            {
+              "ep": 6,
+              "title": "Higher Than the Sky"
+            },
+            {
+              "ep": 7,
+              "title": "Creeping About"
+            },
+            {
+              "ep": 8,
+              "title": "Please Grant Me Wings"
+            },
+            {
+              "ep": 9,
+              "title": "The Bridge to Tomorrow"
+            },
+            {
+              "ep": 10,
+              "title": "500 Overs"
+            },
+            {
+              "ep": 11,
+              "title": "To Be Myself"
+            },
+            {
+              "ep": 12,
+              "title": "Beyond the Skies to Eternity"
             }
           ]
         }
@@ -134907,7 +135594,7 @@
       ],
       "vibe": "Worried about her reputation, Hime covers shifts for a cafe manager she accidentally injures to maintain her picture-perfect princess image. But this cafe has a peculiar theme\u2014private school. To put on her best barista schoolgirl act, she\u2019ll be trained by the most graceful girl there, Mitsuki. Under her guidance, Hime\u2019s feelings start to brew, but there\u2019s just one problem\u2014Mitsuki can\u2019t stand her!",
       "categoryReason": "LiveChart Secondary backlog (considering).",
-      "posterUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx149028-RrE2FX1FGIMv.png",
+      "posterUrl": "https://static.tvmaze.com/uploads/images/original_untouched/455/1138711.jpg",
       "streamingProviders": [
         {
           "id": "crunchyroll",
@@ -134990,7 +135677,7 @@
             },
             {
               "ep": 10,
-              "title": "Will You Break it All?",
+              "title": "Will You Break It All?",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/GN7UDV1P7"
               }
@@ -135024,11 +135711,11 @@
       "allowRandomEpisode": false,
       "year": 2014,
       "pinnedYear": null,
-      "runtimeMinutes": 24,
+      "runtimeMinutes": 25,
       "genres": [
         "Action",
         "Adventure",
-        "Comedy",
+        "Anime",
         "Fantasy"
       ],
       "moodTags": [
@@ -135037,7 +135724,7 @@
       ],
       "vibe": "Toru Acura is a 20-year-old retired soldier meandering through life now that the war has ended. He encounters Chaika Trabant, a 14-year-old sorceress carrying a coffin, and follows her in hopes of finding meaning to his life again. The two travel with Toru's adopted sister, Akari, the employed member of the group and thus Toru's source of income.",
       "categoryReason": "LiveChart Secondary backlog (considering).",
-      "posterUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx20462-Gi2HXG6e1oYY.jpg",
+      "posterUrl": "https://static.tvmaze.com/uploads/images/original_untouched/567/1419038.jpg",
       "streamingProviders": [
         {
           "id": "crunchyroll",
@@ -135049,15 +135736,15 @@
         }
       ],
       "googleTvSearchUrl": "https://www.google.com/search?q=Chaika%20the%20Coffin%20Princess%20tv%20show%20watch",
-      "totalSeasons": 1,
-      "totalEpisodes": 12,
+      "totalSeasons": 2,
+      "totalEpisodes": 22,
       "seasons": [
         {
           "season": 1,
           "episodes": [
             {
               "ep": 1,
-              "title": "PV",
+              "title": "The Girl Who Bears the Coffin",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/G60919PW6"
               }
@@ -135138,6 +135825,51 @@
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/GY5VKVWEY"
               }
+            }
+          ]
+        },
+        {
+          "season": 2,
+          "episodes": [
+            {
+              "ep": 1,
+              "title": "The Princess Who Gathers the Remains"
+            },
+            {
+              "ep": 2,
+              "title": "A Wizard's Pride"
+            },
+            {
+              "ep": 3,
+              "title": "The Harbor of Phantom Dreams Recollected"
+            },
+            {
+              "ep": 4,
+              "title": "The Writhing Island"
+            },
+            {
+              "ep": 5,
+              "title": "The Emperor's Fortune"
+            },
+            {
+              "ep": 6,
+              "title": "The Castle of Madness"
+            },
+            {
+              "ep": 7,
+              "title": "Black Agenda"
+            },
+            {
+              "ep": 8,
+              "title": "The Bells of Contention"
+            },
+            {
+              "ep": 9,
+              "title": "The Throne That Invites War"
+            },
+            {
+              "ep": 10,
+              "title": "The Girl Who Carries the Gundo"
             }
           ]
         }
@@ -135547,10 +136279,10 @@
       "allowRandomEpisode": false,
       "year": 2019,
       "pinnedYear": null,
-      "runtimeMinutes": 24,
+      "runtimeMinutes": 30,
       "genres": [
         "Action",
-        "Comedy",
+        "Anime",
         "Fantasy",
         "Romance"
       ],
@@ -135560,7 +136292,7 @@
       ],
       "vibe": "A young man is reborn in another world where he is adopted as a baby by the hero Merlin Wolford and named Shin. By his 15th birthday, Shin has accumulated all kinds of power by studying under Merlin, but one thing his adoptive grandfather didn't give him was a lick of common sense.",
       "categoryReason": "LiveChart Secondary backlog (considering).",
-      "posterUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx100112-eExFpnYG2QAK.jpg",
+      "posterUrl": "https://static.tvmaze.com/uploads/images/original_untouched/647/1618769.jpg",
       "streamingProviders": [
         {
           "id": "hulu",
@@ -135668,7 +136400,7 @@
             },
             {
               "ep": 9,
-              "title": "The Grandchild, the Magic Gear,  and the Engagement Party",
+              "title": "The Grandchild, the Magic Gear, and the Engagement Party",
               "links": {
                 "hulu": "https://www.hulu.com/watch/52b911c6-f56b-4b60-882a-95483760beaf",
                 "crunchyroll": "https://www.crunchyroll.com/watch/G6MEXM17R",
@@ -135717,10 +136449,11 @@
       "allowRandomEpisode": false,
       "year": 2022,
       "pinnedYear": null,
-      "runtimeMinutes": 24,
+      "runtimeMinutes": 30,
       "genres": [
-        "Fantasy",
-        "Slice of Life"
+        "Comedy",
+        "Anime",
+        "Fantasy"
       ],
       "moodTags": [
         "Anime",
@@ -135728,7 +136461,7 @@
       ],
       "vibe": "For a lonely orphan, there is almost only one career path to success. That is to get a national qualification as an alchemist. After graduating from the Royal Alchemist Training Academy, which requires nothing but ability, Sarasa is presented with the rights to a store by her master. After being sent off by her generous mentor, Sarasa sets off on her journey, dreaming of a slightly elegant life as an alchemist, but upon arrival, she is shocked to find that the countryside is even more rural than she had imagined. However, even in such a place, she has to manage a store somehow to make a living.",
       "categoryReason": "LiveChart Secondary backlog (considering).",
-      "posterUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx139369-uwq21xa6v1JJ.jpg",
+      "posterUrl": "https://static.tvmaze.com/uploads/images/original_untouched/421/1053789.jpg",
       "streamingProviders": [
         {
           "id": "hulu",
@@ -135764,7 +136497,7 @@
           "episodes": [
             {
               "ep": 1,
-              "title": "Episode 1",
+              "title": "I Got My Own Shop!",
               "links": {
                 "hulu": "https://www.hulu.com/watch/28a779f8-abe4-4e89-9bdb-8e2605b886c7",
                 "hidive": "https://www.hidive.com/interstitial/564487",
@@ -135773,7 +136506,7 @@
             },
             {
               "ep": 2,
-              "title": "Episode 2",
+              "title": "I Came to the Village!",
               "links": {
                 "hulu": "https://www.hulu.com/watch/2cf7523b-5c1e-43d0-a3ac-f77a2621baf8",
                 "hidive": "https://www.hidive.com/interstitial/564533",
@@ -135782,7 +136515,7 @@
             },
             {
               "ep": 3,
-              "title": "Episode 3",
+              "title": "Monsters Appeared!",
               "links": {
                 "hulu": "https://www.hulu.com/watch/8adfc4bb-16e7-4dbf-93bb-64d6392e61ce",
                 "hidive": "https://www.hidive.com/interstitial/564535",
@@ -135791,7 +136524,7 @@
             },
             {
               "ep": 4,
-              "title": "Episode 4",
+              "title": "Let's Live Together!",
               "links": {
                 "hulu": "https://www.hulu.com/watch/20d30be8-fb41-40a9-baf6-717808c896dc",
                 "hidive": "https://www.hidive.com/interstitial/564485",
@@ -135800,7 +136533,7 @@
             },
             {
               "ep": 5,
-              "title": "Episode 5",
+              "title": "Let's Develop New Products!",
               "links": {
                 "hulu": "https://www.hulu.com/watch/02d10317-015d-4cde-b4e4-c29aef24d64c",
                 "hidive": "https://www.hidive.com/interstitial/564483",
@@ -135809,7 +136542,7 @@
             },
             {
               "ep": 6,
-              "title": "Episode 6",
+              "title": "Let's Head to the Lake!",
               "links": {
                 "hulu": "https://www.hulu.com/watch/921bf983-8b0b-48f7-a4c7-a9ceb16dcd4d",
                 "hidive": "https://www.hidive.com/interstitial/564536",
@@ -135818,7 +136551,7 @@
             },
             {
               "ep": 7,
-              "title": "Episode 7",
+              "title": "My Artifact Broke!",
               "links": {
                 "hulu": "https://www.hulu.com/watch/935a4911-cfe4-4dd9-a6ac-9dd46e649fdd",
                 "hidive": "https://www.hidive.com/interstitial/564488",
@@ -135827,7 +136560,7 @@
             },
             {
               "ep": 8,
-              "title": "Episode 8",
+              "title": "A Business Rival Appeared!",
               "links": {
                 "hulu": "https://www.hulu.com/watch/d8477d04-2929-499e-a45a-c5116ec54f98",
                 "hidive": "https://www.hidive.com/interstitial/564451",
@@ -135836,7 +136569,7 @@
             },
             {
               "ep": 9,
-              "title": "Episode 9",
+              "title": "Let's Go Gather Honey!",
               "links": {
                 "hulu": "https://www.hulu.com/watch/04dd03fd-1f71-43ba-b3d7-165369c27319",
                 "hidive": "https://www.hidive.com/interstitial/564445",
@@ -135845,7 +136578,7 @@
             },
             {
               "ep": 10,
-              "title": "Episode 10",
+              "title": "Let's Settle Things with Money!",
               "links": {
                 "hulu": "https://www.hulu.com/watch/d13e1c23-4ca0-4c89-b5ea-41a2af556973",
                 "hidive": "https://www.hidive.com/interstitial/564563",
@@ -135854,7 +136587,7 @@
             },
             {
               "ep": 11,
-              "title": "Episode 11",
+              "title": "Let's Defeat a Salamander!",
               "links": {
                 "hulu": "https://www.hulu.com/watch/3260f209-e6dc-4e4e-ba5b-5b875537000e",
                 "hidive": "https://www.hidive.com/interstitial/564471",
@@ -135863,7 +136596,7 @@
             },
             {
               "ep": 12,
-              "title": "Episode 12",
+              "title": "Management of a Novice Alchemist",
               "links": {
                 "hulu": "https://www.hulu.com/watch/db494d17-0b60-4cbb-b578-b9af248a26de",
                 "hidive": "https://www.hidive.com/interstitial/564534",
@@ -135885,12 +136618,11 @@
       "allowRandomEpisode": false,
       "year": 2014,
       "pinnedYear": null,
-      "runtimeMinutes": 24,
+      "runtimeMinutes": 25,
       "genres": [
-        "Action",
         "Comedy",
-        "Ecchi",
-        "Fantasy",
+        "Action",
+        "Anime",
         "Romance"
       ],
       "moodTags": [
@@ -135899,7 +136631,7 @@
       ],
       "vibe": "In this \"romantic comedy but sometime serious magical school story,\" life as Arata Kasuga knows it is wiped out by a bizarre incident known as \"Collapse Phenomenon,\" which causes worldwide destruction and takes his cousin Hijiri Kasuga to the next world. To resolve the \"Collapse Phenomenon\" and bring back Hijiri, Arata enrolls in the Royal Biblia Academy. Waiting in the school are seven beautiful female magic users \u2014 the Trinity Seven.",
       "categoryReason": "LiveChart Secondary backlog (considering).",
-      "posterUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx20631-LdCiy3goitcT.png",
+      "posterUrl": "https://static.tvmaze.com/uploads/images/original_untouched/29/74660.jpg",
       "streamingProviders": [
         {
           "id": "crunchyroll",
@@ -135947,7 +136679,7 @@
             },
             {
               "ep": 5,
-              "title": "Dream World and Sub-Administer",
+              "title": "Dream World and Sabbat Minister",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/G6MGDWMW6"
               }
@@ -135961,7 +136693,7 @@
             },
             {
               "ep": 7,
-              "title": "Lost Technica and Problem Solving",
+              "title": "Lost Technique and Problem Solving",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/GR2P1J0KR"
               }
@@ -136016,7 +136748,7 @@
       "allowRandomEpisode": false,
       "year": 2025,
       "pinnedYear": null,
-      "runtimeMinutes": 23,
+      "runtimeMinutes": 30,
       "genres": [
         "Comedy",
         "Fantasy",
@@ -136028,7 +136760,7 @@
       ],
       "vibe": "Sophia Reeler, a timid noble, received the Gorilla God\u2019s blessing\u2014the ultimate combat power. Now her dream of a peaceful student life is shattered as the royal knights recruit her unrivaled strength. Juggling school, the knight life, and her overwhelming power, Sophia learns the hard way that gorilla strength isn\u2019t so simple.",
       "categoryReason": "LiveChart Secondary backlog (considering).",
-      "posterUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx182060-r0ihNqhiyvpT.jpg",
+      "posterUrl": "https://static.tvmaze.com/uploads/images/original_untouched/562/1406784.jpg",
       "streamingProviders": [
         {
           "id": "crunchyroll",
@@ -136145,7 +136877,7 @@
       "allowRandomEpisode": false,
       "year": 2026,
       "pinnedYear": null,
-      "runtimeMinutes": 24,
+      "runtimeMinutes": 30,
       "genres": [
         "Adventure",
         "Fantasy",
@@ -136157,7 +136889,7 @@
       ],
       "vibe": "One day while questing, he entered a dungeon and discovered a young girl being partially devoured by the weakest monster type - a slime.",
       "categoryReason": "LiveChart Secondary backlog (considering).",
-      "posterUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx192261-oaqwOjlr64ki.jpg",
+      "posterUrl": "https://static.tvmaze.com/uploads/images/original_untouched/607/1517873.jpg",
       "streamingProviders": [
         {
           "id": "crunchyroll",
@@ -136177,84 +136909,84 @@
           "episodes": [
             {
               "ep": 1,
-              "title": "Episode 1",
+              "title": "A Single Man and a Little Girl Meet",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/GE00366100TLPH"
               }
             },
             {
               "ep": 2,
-              "title": "Episode 2",
+              "title": "Rirui's Talent",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/GE00366101TLPH"
               }
             },
             {
               "ep": 3,
-              "title": "Episode 3",
+              "title": "Rirui and Anyango",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/GE00366102TLPH"
               }
             },
             {
               "ep": 4,
-              "title": "Episode 4",
+              "title": "First Love's Outcome",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/GE00366103TLPH"
               }
             },
             {
               "ep": 5,
-              "title": "Episode 5",
+              "title": "What's Hatching",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/GE00366104TLPH"
               }
             },
             {
               "ep": 6,
-              "title": "Episode 6",
+              "title": "Decisive Battle in the Dungeon Attack!",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/GE00366105TLPH"
               }
             },
             {
               "ep": 7,
-              "title": "Episode 7",
+              "title": "Rirui and Cocko",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/GE00366106TLPH"
               }
             },
             {
               "ep": 8,
-              "title": "Episode 8",
+              "title": "A Resident of the Village",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/GE00366107TLPH"
               }
             },
             {
               "ep": 9,
-              "title": "Episode 9",
+              "title": "After the Battle",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/GE00366108TLPH"
               }
             },
             {
               "ep": 10,
-              "title": "Episode 10",
+              "title": "A Haircut and a Decision",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/GE00366109TLPH"
               }
             },
             {
               "ep": 11,
-              "title": "Episode 11",
+              "title": "The Power of Charm",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/GE00366110TLPH"
               }
             },
             {
               "ep": 12,
-              "title": "Episode 12",
+              "title": "A Hometown and Friends",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/GE00366111TLPH"
               }
@@ -136274,14 +137006,12 @@
       "allowRandomEpisode": false,
       "year": 2025,
       "pinnedYear": null,
-      "runtimeMinutes": 24,
+      "runtimeMinutes": 30,
       "genres": [
         "Action",
         "Adventure",
-        "Comedy",
-        "Drama",
-        "Fantasy",
-        "Romance"
+        "Anime",
+        "Fantasy"
       ],
       "moodTags": [
         "Anime",
@@ -136289,7 +137019,7 @@
       ],
       "vibe": "In a world where heroes are born, not made, Ein\u2019s god-given gift is the weakest: the power to appraise things. Treated cruelly by his peers, Ein spends his days in self-abasement\u2014until he meets Yuri, the spirit of the World Tree. Yuri and her protector, Ursula, bless Ein with the Spirit Eye, unlocking new strength. As his abilities grow, Ein embarks on a journey to uncover his true purpose.",
       "categoryReason": "LiveChart Secondary backlog (considering).",
-      "posterUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx178548-4QkzBuJAx8w7.jpg",
+      "posterUrl": "https://static.tvmaze.com/uploads/images/original_untouched/551/1378022.jpg",
       "streamingProviders": [
         {
           "id": "crunchyroll",
@@ -136309,84 +137039,84 @@
           "episodes": [
             {
               "ep": 1,
-              "title": "Episode 1",
+              "title": "\"Appraiser\" Is A Worthless Class",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/GN7UNJ2MN"
               }
             },
             {
               "ep": 2,
-              "title": "Episode 2",
+              "title": "Super Appraise with My Spirit Eye",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/GK9UGNMEW"
               }
             },
             {
               "ep": 3,
-              "title": "Episode 3",
+              "title": "Revenge Match",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/G50UMDX03"
               }
             },
             {
               "ep": 4,
-              "title": "Episode 4",
+              "title": "Searching for the Sisters",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/GWDU73E24"
               }
             },
             {
               "ep": 5,
-              "title": "Episode 5",
+              "title": "Quest to Vanquish the Behemoth",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/GG1UXV4J7"
               }
             },
             {
               "ep": 6,
-              "title": "Episode 6",
+              "title": "VS Zoid",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/G0DUMXD23"
               }
             },
             {
               "ep": 7,
-              "title": "Episode 7",
+              "title": "The Girl of the Forbidden Library",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/GEVUWQX78"
               }
             },
             {
               "ep": 8,
-              "title": "Episode 8",
+              "title": "Nigun's Shadow",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/G7PU3DM7V"
               }
             },
             {
               "ep": 9,
-              "title": "Episode 9",
+              "title": "Rise to Action",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/G4VUW715J"
               }
             },
             {
               "ep": 10,
-              "title": "Episode 10",
+              "title": "Nigun's Darkness",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/GPWU8XVNN"
               }
             },
             {
               "ep": 11,
-              "title": "Episode 11",
+              "title": "The Demon Ioana",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/G2XUNVGX1"
               }
             },
             {
               "ep": 12,
-              "title": "Episode 12",
+              "title": "Happiness, Forever",
               "links": {
                 "crunchyroll": "https://www.crunchyroll.com/watch/G8WU7P13P"
               }

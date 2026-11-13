@@ -240,6 +240,8 @@ SERIES_HUB_OVERRIDES: dict[tuple[str, str], str] = {
     ("mushokutenseijoblessreincarnation", "crunchyroll"): "https://www.crunchyroll.com/series/G24H1N3MP/mushoku-tensei-jobless-reincarnation",
     ("konosubagodsblessingonthiswonderfulworld", "crunchyroll"): "https://www.crunchyroll.com/series/GYE5K3GQR/konosuba---gods-blessing-on-this-wonderful-world",
     ("thesaintsmagicpowerisomnipotent", "crunchyroll"): "https://www.crunchyroll.com/series/G1XHJV3P3/the-saints-magic-power-is-omnipotent",
+    ("rezerostartinglifeinanotherworldthefrozenbond", "crunchyroll"): "https://www.crunchyroll.com/series/GRGG9798R/rezero--starting-life-in-another-world-",
+    ("rezerostartinglifeinanotherworldmemorysnow", "crunchyroll"): "https://www.crunchyroll.com/series/GRGG9798R/rezero--starting-life-in-another-world-",
     ("teasingmastertakagisan", "hidive"): "https://www.hidive.com/tv/teasing-master-takagi-san",
 }
 
@@ -1188,6 +1190,15 @@ def _parse_anilist_media_candidates(
         elif titles_match(search_str, [eng, rom, *syns]):
             score += 25
 
+        if is_movie:
+            cand_dur = int(m.get("duration") or 0)
+            if m.get("format") == "MOVIE":
+                score += 25
+            if cand_dur >= 40:
+                score += 15
+            elif 0 < cand_dur <= 5:
+                score -= 40
+
         if target_year is not None:
             if cand_year == target_year:
                 score += 40
@@ -1263,13 +1274,19 @@ def _parse_anilist_media_candidates(
 
     seasons = [{"season": 1, "episodes": ep_list}] if ep_list else []
 
+    raw_dur = int(chosen.get("duration") or 0)
+    if is_movie and raw_dur > 0 and raw_dur < 45 and total_eps and int(total_eps) > 1:
+        effective_runtime = raw_dur * int(total_eps)
+    else:
+        effective_runtime = raw_dur or (105 if is_movie else 24)
+
     return {
         "anilistId": chosen.get("id"),
         "malId": chosen.get("idMal"),
         "englishTitle": t_obj.get("english"),
         "romajiTitle": t_obj.get("romaji"),
         "year": year,
-        "runtimeMinutes": chosen.get("duration") or (105 if is_movie else 24),
+        "runtimeMinutes": effective_runtime,
         "genres": chosen.get("genres") or ["Anime"],
         "posterUrl": poster_url,
         "externalProviders": ext_providers,

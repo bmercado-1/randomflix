@@ -1150,6 +1150,7 @@ function setupEventListeners() {
   });
 
   document.getElementById("btn-save-local")?.addEventListener("click", saveLocally);
+  document.getElementById("btn-sync-livechart")?.addEventListener("click", syncLiveChartLocally);
   document.getElementById("btn-sync-github").addEventListener("click", syncToGitHub);
   document.getElementById("btn-discard-changes")?.addEventListener("click", discardAllUnsavedChanges);
 
@@ -1222,6 +1223,55 @@ async function saveLocally() {
     );
   } catch (err) {
     showSyncStatus(`⚠️ Local Save Error: ${err.message}`, true);
+  } finally {
+    btn.disabled = false;
+    btn.textContent = originalLabel;
+    updateUnsavedBadges();
+  }
+}
+
+async function syncLiveChartLocally() {
+  const btn = document.getElementById("btn-sync-livechart");
+  if (!btn) return;
+  const originalLabel = btn.textContent;
+  btn.disabled = true;
+  btn.textContent = "⏳ Syncing LiveChart...";
+  showSyncStatus(
+    "⏳ Importing 4-tier <code>anime_watchlist.json</code> (Now Watching → Cat 4, Primary → Cat 3, Completed → Cat 1 disabled, Secondary → Cat 3 disabled) and enriching locally...",
+    false
+  );
+
+  try {
+    const bodyObj = countUnsavedChanges() > 0 ? buildShowsSourcePayload() : {};
+    const resp = await fetch("/api/sync-livechart", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(bodyObj),
+    });
+    const data = await resp.json().catch(() => ({}));
+    if (!resp.ok || !data.ok) {
+      throw new Error(
+        data.error ||
+          "Local LiveChart sync endpoint unavailable. Make sure scripts/dev_server.py is running."
+      );
+    }
+
+    await loadCatalog(false);
+    const lc = data.livechart || {};
+    const nwAdded = (lc.addedNowWatchingSeries || 0) + (lc.addedNowWatchingMovies || 0);
+    const nwPromoted = (lc.promotedNowWatching || []).length;
+    const priAdded = (lc.addedPrimarySeries || 0) + (lc.addedPrimaryMovies || 0);
+    const compAdded = (lc.addedCompletedSeries || 0) + (lc.addedCompletedMovies || 0);
+    const compGrad = (lc.graduatedCompleted || []).length;
+    const secAdded = (lc.addedSecondarySeries || 0) + (lc.addedSecondaryMovies || 0);
+    const disCount = data.disabledShows || 0;
+
+    showSyncStatus(
+      `✅ <strong>LiveChart synced &amp; enriched!</strong> Now Watching: +${nwAdded} new / ${nwPromoted} promoted • Primary: +${priAdded} • Completed (Cat 1 disabled): +${compAdded} new / ${compGrad} graduated • Secondary: +${secAdded} (${data.totalShows} active in DB, ${disCount} disabled).`,
+      false
+    );
+  } catch (err) {
+    showSyncStatus(`⚠️ LiveChart Sync Error: ${err.message}`, true);
   } finally {
     btn.disabled = false;
     btn.textContent = originalLabel;
@@ -1353,6 +1403,7 @@ async function init() {
   window.addEventListener("hashchange", applyHashShowIfPresent);
   if (window.location.hostname.endsWith("github.io")) {
     document.getElementById("btn-save-local")?.classList.add("hidden");
+    document.getElementById("btn-sync-livechart")?.classList.add("hidden");
   }
   await loadCatalog(false);
 }

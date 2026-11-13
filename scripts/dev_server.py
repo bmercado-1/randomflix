@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """
 RandomFlix Local Server (http://localhost:8765)
-Serves `docs/` AND provides a local `/api/save-local` endpoint so clicking
-"💾 Save & Enrich Locally" in the browser writes `data/shows_source.json`
-and runs `scripts/enrich_catalog.py` directly on your Mac without needing GitHub Actions.
+Serves `docs/` AND provides local `/api/save-local` and `/api/sync-livechart` endpoints
+so clicking "💾 Save & Enrich Locally" or "📥 Sync LiveChart" in the browser writes
+`data/shows_source.json` and runs `scripts/enrich_catalog.py` directly on your Mac
+without needing GitHub Actions.
 """
 
 from __future__ import annotations
@@ -21,6 +22,7 @@ SOURCE_PATH = ROOT_DIR / "data" / "shows_source.json"
 
 sys.path.insert(0, str(ROOT_DIR / "scripts"))
 import enrich_catalog  # noqa: E402
+import manage_shows  # noqa: E402
 
 
 class ReusableThreadingHTTPServer(http.server.ThreadingHTTPServer):
@@ -44,7 +46,8 @@ class RandomFlixLocalHandler(http.server.SimpleHTTPRequestHandler):
         super().do_GET()
 
     def do_POST(self) -> None:
-        if self.path.split("?")[0] == "/api/save-local":
+        route = self.path.split("?")[0]
+        if route == "/api/save-local":
             try:
                 length = int(self.headers.get("Content-Length", "0"))
                 raw_body = self.rfile.read(length).decode("utf-8")
@@ -66,6 +69,36 @@ class RandomFlixLocalHandler(http.server.SimpleHTTPRequestHandler):
                         "totalInList": catalog.get("totalInList", 0),
                         "disabledShows": catalog.get("disabledShows", 0),
                         "countsByCategory": catalog.get("countsByCategory", {}),
+                    },
+                )
+            except Exception as exc:
+                self._send_json(500, {"ok": False, "error": str(exc)})
+            return
+
+        if route == "/api/sync-livechart":
+            try:
+                length = int(self.headers.get("Content-Length", "0"))
+                if length > 0:
+                    raw_body = self.rfile.read(length).decode("utf-8")
+                    payload = json.loads(raw_body) if raw_body.strip() else {}
+                    if isinstance(payload, dict) and isinstance(payload.get("shows"), list):
+                        SOURCE_PATH.parent.mkdir(parents=True, exist_ok=True)
+                        SOURCE_PATH.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+
+                importlib.reload(manage_shows)
+                lc_stats = manage_shows.import_livechart()
+
+                importlib.reload(enrich_catalog)
+                catalog = enrich_catalog.enrich_all(force_refresh=False)
+                self._send_json(
+                    200,
+                    {
+                        "ok": True,
+                        "totalShows": catalog.get("totalShows", 0),
+                        "totalInList": catalog.get("totalInList", 0),
+                        "disabledShows": catalog.get("disabledShows", 0),
+                        "countsByCategory": catalog.get("countsByCategory", {}),
+                        "livechart": lc_stats,
                     },
                 )
             except Exception as exc:

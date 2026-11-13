@@ -304,7 +304,8 @@
         "comedy",
         "shonen",
         "20-min",
-        "comfort"
+        "comfort",
+        "LiveChart Primary"
       ]
     },
     {
@@ -355,7 +356,8 @@
         "action",
         "parody",
         "20-min",
-        "comfort"
+        "comfort",
+        "LiveChart Primary"
       ]
     },
     {
@@ -576,7 +578,8 @@
         "comedy",
         "episodic",
         "20-min",
-        "comfort"
+        "comfort",
+        "LiveChart Primary"
       ]
     },
     {
@@ -1292,7 +1295,8 @@
         "comedy",
         "funny",
         "20-min",
-        "comfort"
+        "comfort",
+        "LiveChart Primary"
       ]
     },
     {
@@ -1309,7 +1313,8 @@
         "adventure",
         "action",
         "20-min",
-        "comfort"
+        "comfort",
+        "LiveChart Primary"
       ]
     },
     {
@@ -1445,7 +1450,8 @@
         "comedy",
         "action",
         "20-min",
-        "comfort"
+        "comfort",
+        "LiveChart Primary"
       ]
     },
     {
@@ -1508,7 +1514,7 @@
       "mediaType": "anime",
       "serialization": "now-watching",
       "vibe": "MAPPA's vibrant remake of Rumiko Takahashi's classic martial-arts slapstick rom-com where cursed fianc\u00e9 Ranma splashes between boy and girl forms.",
-      "categoryReason": "Currently watching \u2014 in active rotation until finished.",
+      "categoryReason": "Currently watching on LiveChart (Ranma1/2, released) \u2014 active in Now Watching.",
       "moodTags": [
         "anime",
         "rom-com",
@@ -1516,7 +1522,8 @@
         "martial-arts",
         "episodic",
         "20-min",
-        "comfort"
+        "comfort",
+        "LiveChart Now Watching"
       ]
     },
     {
@@ -1557,7 +1564,8 @@
       "categoryReason": "In LiveChart Primary queue (Kamisama Kiss OVA \u2014 paused) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "anime",
-        "comfort"
+        "comfort",
+        "LiveChart Primary"
       ]
     },
     {
@@ -1987,10 +1995,11 @@
       "mediaType": "anime",
       "serialization": "now-watching",
       "vibe": "After being suddenly transported to another world, Subaru Natsuki and his new female partner are brutally murdered. However, Subaru awakens to a familiar scene, meeting the same girl again. The day begins to mysteriously repeat itself.",
-      "categoryReason": "Currently watching \u2014 in active rotation until finished.",
+      "categoryReason": "Currently watching on LiveChart (Re:ZERO -Starting Life in Another World- Season 4, released) \u2014 active in Now Watching.",
       "moodTags": [
         "anime",
-        "comfort"
+        "comfort",
+        "LiveChart Now Watching"
       ]
     },
     {
@@ -2056,10 +2065,11 @@
       "mediaType": "anime",
       "serialization": "serialized",
       "vibe": "Miyo's abusive family deems her worthless \u2013 but together with her powerful husband-to-be, her true self and hidden powers slowly begin to shine.",
-      "categoryReason": "In LiveChart Primary queue (My Happy Marriage Special Episodes \u2014 planning) \u2014 surfaced in Active Focus.",
+      "categoryReason": "In LiveChart Primary queue (My Happy Marriage Season 2 \u2014 paused) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "anime",
-        "comfort"
+        "comfort",
+        "LiveChart Primary"
       ]
     },
     {
@@ -2100,7 +2110,8 @@
       "categoryReason": "In LiveChart Primary queue (Real Girl 2nd Season \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "anime",
-        "comfort"
+        "comfort",
+        "LiveChart Primary"
       ]
     },
     {
@@ -2141,7 +2152,8 @@
       "categoryReason": "In LiveChart Primary queue (Tsukimonogatari \u2014 paused) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "anime",
-        "comfort"
+        "comfort",
+        "LiveChart Primary"
       ]
     },
     {
@@ -2168,7 +2180,8 @@
       "categoryReason": "In LiveChart Primary queue (Trapped in a Dating Sim: The World of Otome Games is Tough for Mobs Season 2 \u2014 paused) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "anime",
-        "comfort"
+        "comfort",
+        "LiveChart Primary"
       ]
     },
     {
@@ -2195,7 +2208,8 @@
       "categoryReason": "In LiveChart Primary queue (Clevatess II \u2014 skipping) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "anime",
-        "comfort"
+        "comfort",
+        "LiveChart Primary"
       ]
     },
     {
@@ -2390,7 +2404,8 @@
       "categoryReason": "In LiveChart Primary queue (Science Fell in Love, So I Tried to Prove It r=1-sin\u03b8 \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "anime",
-        "comfort"
+        "comfort",
+        "LiveChart Primary"
       ]
     },
     {
@@ -3173,7 +3188,8 @@
       "categoryReason": "In LiveChart Primary queue (Blue Box \u2014 paused) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "anime",
-        "comfort"
+        "comfort",
+        "LiveChart Primary"
       ]
     },
     {
@@ -3410,7 +3426,8 @@
       "categoryReason": "In LiveChart Primary queue (Mob Psycho 100 \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "anime",
-        "comfort"
+        "comfort",
+        "LiveChart Primary"
       ]
     },
     {
@@ -3868,7 +3885,7 @@
       "mediaType": "anime_movie",
       "serialization": "serialized",
       "vibe": "Shouya Ishida starts bullying the new girl in class, Shouko Nishimiya, because she is deaf. But as the teasing continues, the rest of the class starts to turn on Shouya for his lack of compassion. When they leave elementary school, Shouko and Shouya do not speak to each other again... until an older, wiser Shouya, tormented by his past behaviour, decides he must see Shouko once more. He wants to atone for his sins, but is it already too late...?",
-      "categoryReason": "LiveChart Primary queue (planning \u2014 feature film/special).",
+      "categoryReason": "In LiveChart Primary queue (A Silent Voice \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime Movie",
         "LiveChart Primary"
@@ -3881,7 +3898,7 @@
       "mediaType": "anime",
       "serialization": "serialized",
       "vibe": "A group of friends have customized their microwave so that it can send text messages to the past. As they perform different experiments, an organization named SERN who has been doing their own research on time travel tracks them down and now the characters have to find a way to avoid being captured by them.",
-      "categoryReason": "LiveChart Primary queue (planning).",
+      "categoryReason": "In LiveChart Primary queue (Steins;Gate \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime",
         "LiveChart Primary"
@@ -3894,7 +3911,7 @@
       "mediaType": "anime",
       "serialization": "serialized",
       "vibe": "A doctor and his recently-deceased patient are reborn as twins to a famous Japanese musical idol and navigate the highs and lows of the Japanese entertainment industry as they grow up together through their lives.",
-      "categoryReason": "LiveChart Primary queue (planning).",
+      "categoryReason": "In LiveChart Primary queue (\u3010OSHI NO KO\u3011 \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime",
         "LiveChart Primary"
@@ -3907,7 +3924,7 @@
       "mediaType": "anime_movie",
       "serialization": "serialized",
       "vibe": "In a brutal war between devils, hunters, and secret enemies, a mysterious girl named Reze has stepped into Denji's world, and he faces his deadliest battle yet, fueled by love in a world where survival knows no rules.",
-      "categoryReason": "LiveChart Primary queue (planning \u2014 feature film/special).",
+      "categoryReason": "In LiveChart Primary queue (Chainsaw Man \u2013 The Movie: Reze Arc \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime Movie",
         "LiveChart Primary"
@@ -3920,7 +3937,7 @@
       "mediaType": "anime",
       "serialization": "serialized",
       "vibe": "Average 37-year-old Minami Satoru dies and is reincarnated as the most unremarkable creature imaginable-a slime.",
-      "categoryReason": "LiveChart Primary queue (planning).",
+      "categoryReason": "In LiveChart Primary queue (That Time I Got Reincarnated as a Slime \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime",
         "LiveChart Primary"
@@ -3933,7 +3950,7 @@
       "mediaType": "anime",
       "serialization": "serialized",
       "vibe": "After his hometown is destroyed, young Eren Jaeger vows to cleanse the earth of the giant humanoid Titans that have brought humanity to the brink of extinction.",
-      "categoryReason": "LiveChart Primary queue (planning).",
+      "categoryReason": "In LiveChart Primary queue (Attack on Titan \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime",
         "LiveChart Primary"
@@ -3946,7 +3963,7 @@
       "mediaType": "anime",
       "serialization": "serialized",
       "vibe": "Follows the adventures of Sung Jinwoo in a world that is constantly threatened by monsters and evil forces. In his battles Sung transforms himself from the weakest hunter of all mankind to one of the strongest hunters in existence.",
-      "categoryReason": "LiveChart Primary queue (planning).",
+      "categoryReason": "In LiveChart Primary queue (Solo Leveling \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime",
         "LiveChart Primary"
@@ -3959,7 +3976,7 @@
       "mediaType": "anime",
       "serialization": "serialized",
       "vibe": "Shinpei Ajiro travels home to attend the funeral of a childhood friend, and finds the remote island plagued by a sinister, supernatural force.",
-      "categoryReason": "LiveChart Primary queue (planning).",
+      "categoryReason": "In LiveChart Primary queue (Summer Time Rendering \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime",
         "LiveChart Primary"
@@ -3972,7 +3989,7 @@
       "mediaType": "anime_movie",
       "serialization": "serialized",
       "vibe": "The summer of his high school freshman year, Hodaka runs away from his remote island home to Tokyo, and quickly finds himself pushed to his financial and personal limits. The weather is unusually gloomy and rainy every day, as if taking its cue from his life. After many days of solitude, he finally finds work as a freelance writer for a mysterious occult magazine. Then, one day, Hodaka meets Hina on a busy street corner. This bright and strong-willed girl possesses a strange and wonderful ability: the power to stop the rain and clear the sky.",
-      "categoryReason": "LiveChart Primary queue (planning \u2014 feature film/special).",
+      "categoryReason": "In LiveChart Primary queue (Weathering With You \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime Movie",
         "LiveChart Primary"
@@ -3985,7 +4002,7 @@
       "mediaType": "anime",
       "serialization": "serialized",
       "vibe": "A college student joins the local diving club after meeting some rowdy upperclassmen. New adventures in booze and the ocean await.",
-      "categoryReason": "LiveChart Primary queue (planning).",
+      "categoryReason": "In LiveChart Primary queue (Grand Blue Dreaming \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime",
         "LiveChart Primary"
@@ -3998,7 +4015,7 @@
       "mediaType": "anime",
       "serialization": "serialized",
       "vibe": "Called \u201cJuggernaut,\u201d these are the unmanned combat drones developed by the Republic of San Magnolia in answer to the attacks by the autonomous unmanned drones of the neighboring Empire of Giad, the \u201cLegion\u201d. But they\u2019re only unmanned in name. In reality, they are piloted by the Eighty-sixers\u2014those considered to be less than human and treated as mere tools. Determined to achieve his own mysterious ends, Shin, the captain of Spearhead Squadron, which is comprised of Eighty-sixers, continues to fight a hopeless war on a battlefield where only death awaits him.",
-      "categoryReason": "LiveChart Primary queue (planning).",
+      "categoryReason": "In LiveChart Primary queue (86 EIGHTY-SIX \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime",
         "LiveChart Primary"
@@ -4011,7 +4028,7 @@
       "mediaType": "anime",
       "serialization": "serialized",
       "vibe": "Scenery that we have never seen. Sounds that we have never heard. Scent that we have never smelled. Food that we have never tasted. And the surge of emotion that we have never experienced. This is the expedition of recollecting the pieces torn apart and sensation left alone. When we reach that place, what will we think? Howling, 40 degree angle. Raging, 50 degree angle. Shouting, 60 degree angle. A wilderness beyond the heavy sea. The furthest south, far from civilization. At the top of the Earth. We will find lights through the girls' eyes to live tomorrow.",
-      "categoryReason": "LiveChart Primary queue (planning).",
+      "categoryReason": "In LiveChart Primary queue (A Place Further Than the Universe \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime",
         "LiveChart Primary"
@@ -4024,7 +4041,7 @@
       "mediaType": "anime",
       "serialization": "serialized",
       "vibe": "While working as a taxi driver on the hectic streets of Tokyo, a reticent walrus gets pulled into a mystery involving a missing teenage girl.",
-      "categoryReason": "LiveChart Primary queue (planning).",
+      "categoryReason": "In LiveChart Primary queue (ODDTAXI \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime",
         "LiveChart Primary"
@@ -4037,7 +4054,7 @@
       "mediaType": "anime_movie",
       "serialization": "serialized",
       "vibe": "Yuta Okkotsu is a nervous high school student who is suffering from a serious problem\u2014his childhood friend Rika has turned into a curse and won't leave him alone. Since Rika is no ordinary curse, his plight is noticed by Satoru Gojo, a teacher at Jujutsu High, a school where fledgling exorcists learn how to combat curses. Gojo convinces Yuta to enroll, but can he learn enough in time to confront the curse that haunts him?",
-      "categoryReason": "LiveChart Primary queue (planning \u2014 feature film/special).",
+      "categoryReason": "In LiveChart Primary queue (JUJUTSU KAISEN 0 \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime Movie",
         "LiveChart Primary"
@@ -4050,7 +4067,7 @@
       "mediaType": "anime_movie",
       "serialization": "serialized",
       "vibe": "Urashima Tunnel \u2013 Once you enter that tunnel, you can get whatever you want, but at a price. Kaoru Tohno, who seems to have an elusive personality and traumatic past, and Anzu Hanashiro, who is struggling to reconcile her ideal image and true-to-heart attitude, team up to investigate the Urashima Tunnel and get what they want. This is an unforgettable summer story of nostalgia and sprinting in a remote countryside.",
-      "categoryReason": "LiveChart Primary queue (planning \u2014 feature film/special).",
+      "categoryReason": "In LiveChart Primary queue (The Tunnel to Summer, the Exit of Goodbyes \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime Movie",
         "LiveChart Primary"
@@ -4063,7 +4080,7 @@
       "mediaType": "anime_movie",
       "serialization": "serialized",
       "vibe": "Suzume, 17, lost her mother as a little girl. On her way to school, she meets a mysterious young man. But her curiosity unleashes a calamity that endangers the entire population of Japan, and so Suzume embarks on a journey to set things right.",
-      "categoryReason": "LiveChart Primary queue (planning \u2014 feature film/special).",
+      "categoryReason": "In LiveChart Primary queue (Suzume \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime Movie",
         "LiveChart Primary"
@@ -4076,7 +4093,7 @@
       "mediaType": "anime",
       "serialization": "serialized",
       "vibe": "Nadeshiko, a high school student who had moved from Shizuoka to Yamanashi, decides to see the famous, 1000 yen-bill-featured Mount Fuji. Even though she manages to bike all the way to Motosu, she's forced to turn back because of worsening weather. Unable to set her eyes on her goal, she faints partway to her destination. When she wakes up, it's night, in a place she's never been before, with no way of knowing how to get home. Nadeshiko is saved when she encounters Rin, a girl who is out camping by herself. This outdoorsy girls story begins with this first encounter between Nadeshiko and Rin.",
-      "categoryReason": "LiveChart Primary queue (planning).",
+      "categoryReason": "In LiveChart Primary queue (Laid-Back Camp \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime",
         "LiveChart Primary"
@@ -4089,7 +4106,7 @@
       "mediaType": "anime",
       "serialization": "serialized",
       "vibe": "A dark fantasy where criminals are sentenced to carry out heroic acts in a penal military unit, and wage war against a demon king's army.",
-      "categoryReason": "LiveChart Primary queue (planning).",
+      "categoryReason": "In LiveChart Primary queue (Sentenced to Be a Hero \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime",
         "LiveChart Primary"
@@ -4102,7 +4119,7 @@
       "mediaType": "anime",
       "serialization": "serialized",
       "vibe": "Kusuo and his gaggle of self-proclaimed friends are back for more psychic mishaps. If he didn't have enough problems before, he's got even more now.",
-      "categoryReason": "LiveChart Primary queue (planning).",
+      "categoryReason": "In LiveChart Primary queue (The Disastrous Life of Saiki K. \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime",
         "LiveChart Primary"
@@ -4115,7 +4132,7 @@
       "mediaType": "anime",
       "serialization": "serialized",
       "vibe": "She has a loving family and best friends, laughs and cries from time to time... Madoka Kaname, an eighth grader of Mitakihara middle school, is one of those who lives such a life. One day, she had a very magical encounter. She doesn't know if it happened by chance or by fate yet. This is a fateful encounter that can change her destiny. This is a beginning of the new story of the magical witch girls.",
-      "categoryReason": "LiveChart Primary queue (planning).",
+      "categoryReason": "In LiveChart Primary queue (Puella Magi Madoka Magica \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime",
         "LiveChart Primary"
@@ -4128,7 +4145,7 @@
       "mediaType": "anime",
       "serialization": "serialized",
       "vibe": "A powerful creature claims that within a year, Earth will be destroyed by him, but he offers mankind a chance by becoming a homeroom teacher where he teaches his students about how to kill him. An assassination classroom begins.",
-      "categoryReason": "LiveChart Primary queue (paused).",
+      "categoryReason": "In LiveChart Primary queue (Assassination Classroom \u2014 paused) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime",
         "LiveChart Primary"
@@ -4141,7 +4158,7 @@
       "mediaType": "anime",
       "serialization": "serialized",
       "vibe": "On the front lines of the war, Tanya Degurechaff, blond hair, blue eyes, and porcelain white skin, commands her squad with lisping voice. Actually, she is one of Japan's most elite salary men, reborn as a little girl into a world of magical warfare after angering a mysterious being who calls himself God.",
-      "categoryReason": "LiveChart Primary queue (planning).",
+      "categoryReason": "In LiveChart Primary queue (Saga of Tanya the Evil \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime",
         "LiveChart Primary"
@@ -4154,7 +4171,7 @@
       "mediaType": "anime",
       "serialization": "serialized",
       "vibe": "Urano, a young Japanese soon-to-be librarian, dies in an earthquake. She is reincarnated in another world as a young girl named Mayne, but learns books are scarce and only provided to prestigious elites.",
-      "categoryReason": "LiveChart Primary queue (planning).",
+      "categoryReason": "In LiveChart Primary queue (Ascendance of a Bookworm \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime",
         "LiveChart Primary"
@@ -4167,7 +4184,7 @@
       "mediaType": "anime",
       "serialization": "serialized",
       "vibe": "Kiyotaka Ayanokouji enrolls at the prestigious Tokyo Koudo Ikusei Academy, but is assigned to Class 1-D, where students with behavioral problems are housed. The school awards points equivalent to 100,000 yen per month and allows unusual freedom in classes, masking a more complex system.",
-      "categoryReason": "LiveChart Primary queue (planning).",
+      "categoryReason": "In LiveChart Primary queue (Classroom of the Elite \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime",
         "LiveChart Primary"
@@ -4180,7 +4197,7 @@
       "mediaType": "anime",
       "serialization": "serialized",
       "vibe": "There is a place after death that\u2019s neither heaven nor hell. A bar that serves you one chance to win. You cannot leave until the game is over, and when it is, your life may be too.",
-      "categoryReason": "LiveChart Primary queue (planning).",
+      "categoryReason": "In LiveChart Primary queue (Death Parade \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime",
         "LiveChart Primary"
@@ -4193,7 +4210,7 @@
       "mediaType": "anime",
       "serialization": "serialized",
       "vibe": "Makoto Misumi is just an ordinary high school student living a regular life, but all of a sudden gets summoned to the other world to become a \"hero.\" The goddess of the other world, however, insults him for being different and strips his \"hero\" title, before casting him off to the wilderness at the edge of the world. As he wanders the wilderness, Makoto encounters dragons, spiders, orcs, dwarves, and all sorts of non-human tribes. Because Makoto comes from a different world, he is able to unleash unimaginable magical powers and combat skills. But just how will he handle his encounters with various species and survive in his new environment. In this fantasy, Makoto tries to transform the other world into a better place despite the humans and gods having turned their backs on him.",
-      "categoryReason": "LiveChart Primary queue (planning).",
+      "categoryReason": "In LiveChart Primary queue (TSUKIMICHI -Moonlit Fantasy- \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime",
         "LiveChart Primary"
@@ -4206,7 +4223,7 @@
       "mediaType": "anime",
       "serialization": "serialized",
       "vibe": "An orphan taken in by a wealthy family with three beautiful daughters soon establishes romantic connections with all three girls.",
-      "categoryReason": "LiveChart Primary queue (planning).",
+      "categoryReason": "In LiveChart Primary queue (Dealing with Mikadono Sisters Is a Breeze \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime",
         "LiveChart Primary"
@@ -4219,7 +4236,7 @@
       "mediaType": "anime",
       "serialization": "serialized",
       "vibe": "The story centers on Keitarou Gentouga, who has the ability to be a spirit medium. In junior high school, he got someone else wrapped up in a spirit possession incident, and he has been a shut-in for more than two years. As he reintroduces himself to society as a private tutor, he meets a genius girl named Yayoi Houzuki. Yayoi is instantly able to tell that Keitarou has skill as a spirit medium, and she invites him to go with her to a haunted location. The two then start their journey capturing evil spirits.",
-      "categoryReason": "LiveChart Primary queue (planning).",
+      "categoryReason": "In LiveChart Primary queue (Dark Gathering \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime",
         "LiveChart Primary"
@@ -4232,7 +4249,7 @@
       "mediaType": "anime",
       "serialization": "serialized",
       "vibe": "Taiy\u00f4 Asano, is socially inept after his family's death, can only interact with Mutsumi Yozakura. Mutsumi's brother after injuring her, targets Taiy\u00f4. To survive, Taiy\u00f4 must marry Mutsumi, join the family, and become a spy to protect her.",
-      "categoryReason": "LiveChart Primary queue (paused).",
+      "categoryReason": "In LiveChart Primary queue (Mission: Yozakura Family \u2014 paused) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime",
         "LiveChart Primary"
@@ -4245,7 +4262,7 @@
       "mediaType": "anime",
       "serialization": "serialized",
       "vibe": "Hatori Chise has lived a life full of neglect and abuse, devoid of anything resembling love. Far from the warmth of family, she has had her share of troubles and pitfalls. Just when all hope seems lost, a fateful encounter awaits her. When a man with the head of a beast, wielding strange powers, obtains her through a slave auction, Chise's life will never be the same again. The man is a \"magus,\"a sorcerer of great power, who decides to free Chise from the bonds of captivity. The magus then makes a bold statement: Chise will become his apprentice--and his bride!",
-      "categoryReason": "LiveChart Primary queue (planning).",
+      "categoryReason": "In LiveChart Primary queue (The Ancient Magus' Bride \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime",
         "LiveChart Primary"
@@ -4258,7 +4275,7 @@
       "mediaType": "anime",
       "serialization": "serialized",
       "vibe": "Tsukasa Akeuraji, a frustrated skater, meets Inori Yuitsuka, a girl who yearns to be a figure skater. Motivated by Inori's obsession on the rink, Tsukasa begins coaching Inori. Inori's talent blossoms, and Tsukasa becomes a brilliant mentor. Together they aim to make her a glorious medalist!",
-      "categoryReason": "LiveChart Primary queue (planning).",
+      "categoryReason": "In LiveChart Primary queue (Medalist \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime",
         "LiveChart Primary"
@@ -4271,7 +4288,7 @@
       "mediaType": "anime",
       "serialization": "serialized",
       "vibe": "When Iruma's parents sell him to a powerful demon, the kindhearted 14-year-old doesn't expect to be adopted and sent to a demon high school.",
-      "categoryReason": "LiveChart Primary queue (planning).",
+      "categoryReason": "In LiveChart Primary queue (Welcome to Demon School! Iruma-kun \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime",
         "LiveChart Primary"
@@ -4284,7 +4301,7 @@
       "mediaType": "anime_movie",
       "serialization": "serialized",
       "vibe": "Miss Kobayashi, Tohru, Ilulu, and Kanna\u2019s peaceful lives are shaken when Kanna\u2019s father, Kimun Kamui, forces her to return to the Dragon World. As a war brews between the Chaos and Harmony factions, Kanna tries to unite the two worlds, torn between her friends and father. When dragons clash, Ilulu uncovers a hidden force manipulating the war. Can they stop the war before it consumes both worlds?",
-      "categoryReason": "LiveChart Primary queue (planning \u2014 feature film/special).",
+      "categoryReason": "In LiveChart Primary queue (Miss Kobayashi's Dragon Maid: A lonely dragon wants to be loved \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime Movie",
         "LiveChart Primary"
@@ -4297,7 +4314,7 @@
       "mediaType": "anime",
       "serialization": "serialized",
       "vibe": "When young Princess Syalis is kidnapped and imprisoned by the Demon King, she's rather indifferent about her situation. But she quickly comes to a terrible realisation\u2014she can't sleep soundly in such an uncomfortable bed! She soon escapes her cell and sets off in search of ways to improve her sleep quality, leaving the castle's inhabitants, and even the Demon King himself, scrambling to keep the unruly princess out of trouble during her chaotic adventures.",
-      "categoryReason": "LiveChart Primary queue (planning).",
+      "categoryReason": "In LiveChart Primary queue (Sleepy Princess in the Demon Castle \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime",
         "LiveChart Primary"
@@ -4310,7 +4327,7 @@
       "mediaType": "anime",
       "serialization": "serialized",
       "vibe": "Nicknamed \"Sadako\" for her spooky appearance, high schooler Sawako begins to break out of her shell when she befriends popular boy Kazehaya.",
-      "categoryReason": "LiveChart Primary queue (planning).",
+      "categoryReason": "In LiveChart Primary queue (Kimi ni Todoke: From Me to You \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime",
         "LiveChart Primary"
@@ -4323,7 +4340,7 @@
       "mediaType": "anime",
       "serialization": "serialized",
       "vibe": "Sato is a tangle of anxieties and conspiracy theories, believing that the nefarious N-H-K wants to turn society\u2019s misfits into a mob of hopeless recluses. Mysterious Misaki might be able to help Sato overcome his phobias\u2014if she can pull him out of his existential foxhole and get him to face the world.",
-      "categoryReason": "LiveChart Primary queue (planning).",
+      "categoryReason": "In LiveChart Primary queue (Welcome to the N.H.K. \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime",
         "LiveChart Primary"
@@ -4336,7 +4353,7 @@
       "mediaType": "anime",
       "serialization": "serialized",
       "vibe": "After being in a coma for 17 years, Takafumi's middle-aged uncle suddenly wakes up speaking an unrecognizable language and wielding magical powers.",
-      "categoryReason": "LiveChart Primary queue (planning).",
+      "categoryReason": "In LiveChart Primary queue (Uncle from Another World \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime",
         "LiveChart Primary"
@@ -4349,7 +4366,7 @@
       "mediaType": "anime",
       "serialization": "serialized",
       "vibe": "Follow the daily lives of five new undergrad college girls as the eat, laugh, and deepen their friendships. They love delicious, want to have lots of fun together, study hard, and enjoy their college life to the fullest!",
-      "categoryReason": "LiveChart Primary queue (planning).",
+      "categoryReason": "In LiveChart Primary queue (Food for the Soul \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime",
         "LiveChart Primary"
@@ -4362,7 +4379,7 @@
       "mediaType": "anime",
       "serialization": "serialized",
       "vibe": "An ordinary walk home from school turns into an epic journey for Usato. After suddenly being dropped into another world with two fellow students, Usato learns he was summoned there by accident. But things turn around when he discovers a unique aptitude for healing magic! Now, he trains beyond human limitations, using his self-healing abilities to gain absurd strength and unrivaled stamina.",
-      "categoryReason": "LiveChart Primary queue (planning).",
+      "categoryReason": "In LiveChart Primary queue (The Wrong Way to Use Healing Magic \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime",
         "LiveChart Primary"
@@ -4375,7 +4392,7 @@
       "mediaType": "anime",
       "serialization": "serialized",
       "vibe": "A Street Kid trying to survive in a technology and body modification-obsessed city of the future. Having everything to lose, he chooses to stay alive by becoming an Edgerunner, a Mercenary outlaw also known as a Cyberpunk.",
-      "categoryReason": "LiveChart Primary queue (paused).",
+      "categoryReason": "In LiveChart Primary queue (Cyberpunk: Edgerunners 2 \u2014 paused) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime",
         "LiveChart Primary"
@@ -4388,7 +4405,7 @@
       "mediaType": "anime",
       "serialization": "serialized",
       "vibe": "Reincarnated as a sentient weapon with memories of his past life, but not his name, a magical sword saves a young beastgirl from a life of slavery. Fran, the cat-eared girl, becomes his wielder, and wants only to grow stronger, while the sword wants to know why he is here. Together, the strange duo's journey has only just begun!",
-      "categoryReason": "LiveChart Primary queue (paused).",
+      "categoryReason": "In LiveChart Primary queue (Reincarnated as a Sword \u2014 paused) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime",
         "LiveChart Primary"
@@ -4401,7 +4418,7 @@
       "mediaType": "anime",
       "serialization": "serialized",
       "vibe": "Kaede Honjou is invited by her friend Risa Shiramine to play a virtual reality MMO game with her. While Kaede doesn't dislike games, what she really, truly dislikes is being in pain. She creates a character named Maple, and decides to put all her points in VIT to minimize pain. As a result, she moves slowly, can't use magic, and even a rabbit can get the best of her. But as it turns out, she acquires a skill known as \"Absolute Defense\" as a result of her pumping points into VIT, as well as a \"Counter Skill\" that works against special moves. Now, with her ability to nullify all damage, she goes on adventures.",
-      "categoryReason": "LiveChart Primary queue (planning).",
+      "categoryReason": "In LiveChart Primary queue (BOFURI: I Don't Want to Get Hurt, so I'll Max Out My Defense. \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime",
         "LiveChart Primary"
@@ -4414,7 +4431,7 @@
       "mediaType": "anime",
       "serialization": "serialized",
       "vibe": "When high schooler Mari runs late for school, she never expects to fall for Tsunagu\u2014a gentle, sensitive, beastfolk! In a world where beastfolk are segregated behind walls, Mari and Tsunagu show their differences are truly bridges. Can their love overcome the divide between beastfolk and humanity?",
-      "categoryReason": "LiveChart Primary queue (planning).",
+      "categoryReason": "In LiveChart Primary queue (Love Through a Prism \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime",
         "LiveChart Primary"
@@ -4427,7 +4444,7 @@
       "mediaType": "anime",
       "serialization": "serialized",
       "vibe": "When a classically trained young conductor meets a free-spirited pianist at music school, their romance and their music have a hard time harmonizing.",
-      "categoryReason": "LiveChart Primary queue (planning).",
+      "categoryReason": "In LiveChart Primary queue (Nodame Cantabile \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime",
         "LiveChart Primary"
@@ -4440,7 +4457,7 @@
       "mediaType": "anime",
       "serialization": "serialized",
       "vibe": "Reborn with the perfect bloodline, this sorcerer is determined to enjoy his new life using his extraordinary magical abilities to master the study of magic that was beyond his reach in his previous life!.",
-      "categoryReason": "LiveChart Primary queue (planning).",
+      "categoryReason": "In LiveChart Primary queue (I Was Reincarnated as the 7th Prince so I Can Take My Time Perfecting My Magical Ability \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime",
         "LiveChart Primary"
@@ -4453,7 +4470,7 @@
       "mediaType": "anime",
       "serialization": "serialized",
       "vibe": "When the Agent of Spring, Hinagiku Kayo, is abducted, spring itself vanishes\u2014plunging the world into unending winter. Refusing to give up, her devoted guard, Sakura Himedaka, searches for her for years. When Hinagiku suddenly returns, the two set out to restore the lost season, face the past that tore them apart, and reclaim the warmth they refuse to lose again.",
-      "categoryReason": "LiveChart Primary queue (planning).",
+      "categoryReason": "In LiveChart Primary queue (Agents of the Four Seasons Dance of Spring \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime",
         "LiveChart Primary"
@@ -4466,7 +4483,7 @@
       "mediaType": "anime",
       "serialization": "serialized",
       "vibe": "The king of the beasts and demons receives female human sacrifices to assert the dominance over the human race. However, the 99th sacrifice intrigues him and lets her stay as his consort.",
-      "categoryReason": "LiveChart Primary queue (planning).",
+      "categoryReason": "In LiveChart Primary queue (Sacrificial Princess and the King of Beasts \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime",
         "LiveChart Primary"
@@ -4479,7 +4496,7 @@
       "mediaType": "anime",
       "serialization": "serialized",
       "vibe": "The last boss of a great battle with heroes returns 200 years after her defeat to explore the world and its changes since her time.",
-      "categoryReason": "LiveChart Primary queue (paused).",
+      "categoryReason": "In LiveChart Primary queue (A Wild Last Boss Appeared! \u2014 paused) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime",
         "LiveChart Primary"
@@ -4492,7 +4509,7 @@
       "mediaType": "anime_movie",
       "serialization": "serialized",
       "vibe": "While struggling to make friends after his parents\u2019 divorce, Koyomi Takasaki meets Kazune Takigawa, but apparently, they already have. Kazune reveals that she\u2019s from World Line 85, an alternate universe in which she and Koyomi are lovers. But in a reality where moving between dimensions is natural, could Koyomi be the one from another world?",
-      "categoryReason": "LiveChart Primary queue (planning \u2014 feature film/special).",
+      "categoryReason": "In LiveChart Primary queue (To Every You I've Loved Before \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime Movie",
         "LiveChart Primary"
@@ -4505,7 +4522,7 @@
       "mediaType": "anime_movie",
       "serialization": "serialized",
       "vibe": "Koyomi Hidaka and Shiori Sato meet at his father\u2019s research center and begin to fall in love, but so do their parents, who eventually marry. To avoid becoming stepsiblings, they decide to run away to a parallel universe. Traveling between dimensions is common in their world, but not without repercussions. Does a universe exist for the young couple, and what will it cost them to find it?",
-      "categoryReason": "LiveChart Primary queue (planning \u2014 feature film/special).",
+      "categoryReason": "In LiveChart Primary queue (To Me, The One Who Loved You \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime Movie",
         "LiveChart Primary"
@@ -4518,7 +4535,7 @@
       "mediaType": "anime",
       "serialization": "serialized",
       "vibe": "The dark fantasy follows a high school sophomore named Akihito Kanbara. Although the boy appears human, he is half Youmu and invulnerable to wounds because he can heal quickly. One day, Akihito meets freshman Mirai Kuriyama when it seems she is about to jump from the school rooftop. Mirai is isolated because of her ability to manipulate blood, which is considered heresy among members of the spirit world. Disturbing events begin to unfold after Akihito saves Mirai.",
-      "categoryReason": "LiveChart Primary queue (planning).",
+      "categoryReason": "In LiveChart Primary queue (Beyond the Boundary \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime",
         "LiveChart Primary"
@@ -4531,7 +4548,7 @@
       "mediaType": "anime",
       "serialization": "serialized",
       "vibe": "Five members of the school culture club\u2014Taichi Yaegashi, Iori Nagase, Himeko Inaba, Yui Kiriyama, and Yoshifumi Aoki\u2014encounter a bizarre phenomenon one day when Aoki and Yui switch personalities without warning. The same begins to happen to the other club members, throwing their daily lives into chaos. At first the five students find some amusement among the confusion, but this connection also exposes the painful scars hidden within their hearts... When their calm lives are shattered, the relationships between the five students also begin to change!",
-      "categoryReason": "LiveChart Primary queue (planning).",
+      "categoryReason": "In LiveChart Primary queue (Kokoro Connect \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime",
         "LiveChart Primary"
@@ -4544,7 +4561,7 @@
       "mediaType": "anime",
       "serialization": "serialized",
       "vibe": "The distant future: Humanity established the mobile fort city, Plantation, upon the ruined wasteland. Within the city were pilot quarters, Mistilteinn, otherwise known as the \u201cBirdcage.\u201d That is where the children live... Their only mission in life was the fight. Their enemies are the mysterious giant organisms known as Kyoryu. The children operate robots known as FRANXX in order to face these still unseen enemies. Among them was a boy who was once called a child prodigy: Code number 016, Hiro. One day, a mysterious girl called Zero Two appears in front of Hiro. \u201cI\u2019ve found you, my Darling.\u201d",
-      "categoryReason": "LiveChart Primary queue (planning).",
+      "categoryReason": "In LiveChart Primary queue (DARLING in the FRANXX \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime",
         "LiveChart Primary"
@@ -4557,7 +4574,7 @@
       "mediaType": "anime_movie",
       "serialization": "serialized",
       "vibe": "Ready to stream in your RandomFlix rotation.",
-      "categoryReason": "LiveChart Primary queue (planning \u2014 feature film/special).",
+      "categoryReason": "In LiveChart Primary queue (SHIBOYUGI: Playing Death Games to Put Food on the Table \u2014 44: CLOUDY BEACH \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime Movie",
         "LiveChart Primary"
@@ -4570,7 +4587,7 @@
       "mediaType": "anime_movie",
       "serialization": "serialized",
       "vibe": "When the monstrous Nergal devastates her kingdom, Princess Sapphire reawakens as the Ribbon Hero and fights to save her new home from the same dark fate.",
-      "categoryReason": "LiveChart Primary queue (planning \u2014 feature film/special).",
+      "categoryReason": "In LiveChart Primary queue (THE RIBBON HERO \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime Movie",
         "LiveChart Primary"
@@ -4583,7 +4600,7 @@
       "mediaType": "anime",
       "serialization": "serialized",
       "vibe": "Ready to stream in your RandomFlix rotation.",
-      "categoryReason": "LiveChart Primary queue (planning).",
+      "categoryReason": "In LiveChart Primary queue (Grimgar, Ashes and Illusions \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime",
         "LiveChart Primary"
@@ -4596,7 +4613,7 @@
       "mediaType": "anime",
       "serialization": "serialized",
       "vibe": "Fifteen-year-old Yuna prefers staying home and obsessively playing her favorite VRMMO to doing anything else, including going to school. When a strange new update gives her a one-of-a-kind bear outfit that comes with overpowered abilities, Yuna is torn: the outfit is unbearably cute, but too embarrassing to wear in-game. But then she suddenly finds herself transported into the world of the game, facing down monsters and magic for real, and the bear suit becomes the best weapon she has!",
-      "categoryReason": "LiveChart Primary queue (planning).",
+      "categoryReason": "In LiveChart Primary queue (Kuma Kuma Kuma Bear \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime",
         "LiveChart Primary"
@@ -4609,7 +4626,7 @@
       "mediaType": "anime",
       "serialization": "serialized",
       "vibe": "Welcome to Pok\u00e9mon Resort, a peaceful getaway for Pok\u00e9mon to relax and have fun. Which adorable guest will the new concierge Haru befriend and help first?",
-      "categoryReason": "LiveChart Primary queue (planning).",
+      "categoryReason": "In LiveChart Primary queue (Pok\u00e9mon Concierge \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime",
         "LiveChart Primary"
@@ -4622,7 +4639,7 @@
       "mediaType": "anime",
       "serialization": "serialized",
       "vibe": "Once feared as the ruler of all demons, Demon King Ahriman seeks to conquer the world\u2026until he\u2019s stopped by an unexpected force: his daughter, Dou! Too kind for chaos and too gentle for war, Dou melts the hearts of demons, humans, and even angels. Desperate to restore demon pride, Ahriman\u2019s aide Jahi vows to train Dou to become a proper demon. But is Jahi any match for Dou\u2019s compassion?!",
-      "categoryReason": "LiveChart Primary queue (planning).",
+      "categoryReason": "In LiveChart Primary queue (The Demon King's Daughter is Too Kind!! \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime",
         "LiveChart Primary"
@@ -4635,7 +4652,7 @@
       "mediaType": "anime",
       "serialization": "serialized",
       "vibe": "Suddenly summoned to a fantasy world and betrothed to the princess, Kazuya Souma is crowned the new king. Unlike the royalty before him, he won\u2019t be using swords and magic to rule; will administrative reform really get this kingdom back on track?",
-      "categoryReason": "LiveChart Primary queue (planning).",
+      "categoryReason": "In LiveChart Primary queue (How a Realist Hero Rebuilt the Kingdom \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime",
         "LiveChart Primary"
@@ -4648,7 +4665,7 @@
       "mediaType": "anime",
       "serialization": "serialized",
       "vibe": "Set in a family restaurant in Hokkaido, the northern prefecture of Japan, 16-year-old high school student S\u014dta Takanashi works part-time along with his strange co-workers: Popura Taneshima, a high school girl who\u2014despite being a year older than S\u014dta\u2014is easily mistaken for a elementary/middle schooler, and Kyoko Shirafuji, the 28-year-old store manager who does not bother to do any work at all.",
-      "categoryReason": "LiveChart Primary queue (planning).",
+      "categoryReason": "In LiveChart Primary queue (Wagnaria!! \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime",
         "LiveChart Primary"
@@ -4661,7 +4678,7 @@
       "mediaType": "anime",
       "serialization": "serialized",
       "vibe": "Sometimes the cure to a hard day\u2019s work is the tender love and care of\u2026a fox girl?! Salaryman Nakano\u2019s stressful life is suddenly intruded upon by the fox, Senko-san, who is eager to help him heal his exhaustion. Whether she\u2019s cooking, cleaning, or finding other ways to care for Nakano, she\u2019s there to take away his stress!",
-      "categoryReason": "LiveChart Primary queue (planning).",
+      "categoryReason": "In LiveChart Primary queue (The Helpful Fox Senko-san \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime",
         "LiveChart Primary"
@@ -4674,7 +4691,7 @@
       "mediaType": "anime",
       "serialization": "serialized",
       "vibe": "Keima is a dating sim champion. Cute girls are rendered powerless by his irresistible game playing techniques. Too bad things aren't that way in the real world. That is, until his tempting game playing causes a real live\u2014and very bubbly-cute\u2014demon hunter named Elsie to materialize! Now Elsie wants Keima to help her free hot girls from sneaky demons who secretly possess them.",
-      "categoryReason": "LiveChart Primary queue (planning).",
+      "categoryReason": "In LiveChart Primary queue (The World God Only Knows \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime",
         "LiveChart Primary"
@@ -4687,7 +4704,7 @@
       "mediaType": "anime",
       "serialization": "serialized",
       "vibe": "Nike, the fourth princess of the Principality of Rain and one who holds the power to call forth the rain, travels to the Sun Kingdom to marry Sun King Livius for her country, despite her own reluctance. She soon discovers that the King, who conquered the world in only three years after his ascendance to the throne, is still a child!! Furthermore, for trivial reasons, he has demanded that Nike call forth the rain\u2026!?",
-      "categoryReason": "LiveChart Primary queue (planning).",
+      "categoryReason": "In LiveChart Primary queue (The World is Still Beautiful \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime",
         "LiveChart Primary"
@@ -4700,7 +4717,7 @@
       "mediaType": "anime",
       "serialization": "serialized",
       "vibe": "One day, high-school boy Yamada bumps into the beautiful girl Shiraishi on the stairs (literally), and their lips touch as they fall. When they regain their wits, they realize that they have swapped bodies. As time progresses, the two realize that this is not the only mysterious happening in the school.",
-      "categoryReason": "LiveChart Primary queue (planning).",
+      "categoryReason": "In LiveChart Primary queue (Yamada-kun and the Seven Witches \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime",
         "LiveChart Primary"
@@ -4713,7 +4730,7 @@
       "mediaType": "anime",
       "serialization": "serialized",
       "vibe": "Akira Tachibana was once the ace of a track club, but an injury forced her to quell her passion for sports. Masami Kondou, a divorced father, had ambitions of being a writer and now manages a restaurant, where Akira works. It is the intersection of Akira and Masami\u2019s seemingly disconnected lives that makes each of them reconsider and redefine everything about themselves.",
-      "categoryReason": "LiveChart Primary queue (planning).",
+      "categoryReason": "In LiveChart Primary queue (After the Rain \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime",
         "LiveChart Primary"
@@ -4726,7 +4743,7 @@
       "mediaType": "anime",
       "serialization": "serialized",
       "vibe": "Makoto Kowata is a little flighty, in multiple ways. With no sense of direction, but the ability to fly on a broom, this witch-in-training has a lot to learn; about magic, her relatives, and the world around her.",
-      "categoryReason": "LiveChart Primary queue (planning).",
+      "categoryReason": "In LiveChart Primary queue (Flying Witch \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime",
         "LiveChart Primary"
@@ -4739,7 +4756,7 @@
       "mediaType": "anime",
       "serialization": "serialized",
       "vibe": "Reborn as nobility with the power to size up talent in a glance, Ars Louvent is on a mission to elevate his new life.",
-      "categoryReason": "LiveChart Primary queue (paused).",
+      "categoryReason": "In LiveChart Primary queue (As a Reincarnated Aristocrat, I'll Use My Appraisal Skill to Rise in the World \u2014 paused) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime",
         "LiveChart Primary"
@@ -4752,7 +4769,7 @@
       "mediaType": "anime",
       "serialization": "serialized",
       "vibe": "A schoolgirl with supernatural powers has a mysterious connection to Mao, an exorcist from the previous century.",
-      "categoryReason": "LiveChart Primary queue (planning).",
+      "categoryReason": "In LiveChart Primary queue (MAO \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime",
         "LiveChart Primary"
@@ -4761,14 +4778,14 @@
     {
       "title": "Catch Me at the Ballpark!",
       "watched": false,
-      "category": 3,
+      "category": 4,
       "mediaType": "anime",
-      "serialization": "serialized",
+      "serialization": "now-watching",
       "vibe": "To escape his tiring job, weary Murata finds escape at a nearby baseball stadium. While the games are thrilling, it\u2019s Ruriko, the gyaru as cold as the beer she serves but secretly a sweetheart, who keeps him coming back. As her first regular, Murata discovers the warmth behind her frosty demeanor, and their hilarious, heartwarming encounters light up the ballpark and maybe even their hearts.",
-      "categoryReason": "LiveChart Primary queue (paused).",
+      "categoryReason": "Currently watching on LiveChart (Catch Me at the Ballpark!, released) \u2014 active in Now Watching.",
       "moodTags": [
         "Anime",
-        "LiveChart Primary"
+        "LiveChart Now Watching"
       ]
     },
     {
@@ -4778,7 +4795,7 @@
       "mediaType": "anime",
       "serialization": "serialized",
       "vibe": "Due to a terrible accident, Keina Kagami is forced to live on life support in order to survive. The only way for her to be free is within the VRMMORPG \"Leadale.\" One day, her life support stops functioning, and Keina loses her life. But when she wakes up, she finds herself in the world of Leadale 200 years in the future. She is now the half-elf Cayna, who possesses lost skills and OP statuses and becomes closer to the other inhabitants of this world. But among those inhabitants happen to be the \"children\" she made in character creation?!",
-      "categoryReason": "LiveChart Primary queue (planning).",
+      "categoryReason": "In LiveChart Primary queue (In the Land of Leadale \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime",
         "LiveChart Primary"
@@ -4791,7 +4808,7 @@
       "mediaType": "anime",
       "serialization": "serialized",
       "vibe": "The best hotels must meet certain standards, including the finest cuisine, ways to relax, and entertainment. Of course, they also need the best selection of weapons, reliable ways to falsify one's identity, and ways to dispose of evidence. In this hotel at the border of death stand two concierges, Ikuro Hoshi and Sara Haizaki. What kinds of requests will the assassins have for them next?",
-      "categoryReason": "LiveChart Primary queue (paused).",
+      "categoryReason": "In LiveChart Primary queue (HOTEL INHUMANS \u2014 paused) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime",
         "LiveChart Primary"
@@ -4804,7 +4821,7 @@
       "mediaType": "anime",
       "serialization": "serialized",
       "vibe": "Ready to stream in your RandomFlix rotation.",
-      "categoryReason": "LiveChart Primary queue (planning).",
+      "categoryReason": "In LiveChart Primary queue (Rec \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime",
         "LiveChart Primary"
@@ -4817,7 +4834,7 @@
       "mediaType": "anime",
       "serialization": "serialized",
       "vibe": "Fumi Manjoume enters Kamakura's accelerated  high school - Matsuoka All-Girls High School.  While waiting at the  Kamakura station on the day of her entrance ceremony, she runs into an  old childhood friend whom she had not seen in 10 years: Akira Okudaira.  As their friendship is rekindled and they start falling back into the  rhythm of friends again, it starts a delicate love story...",
-      "categoryReason": "LiveChart Primary queue (planning).",
+      "categoryReason": "In LiveChart Primary queue (Sweet Blue Flowers \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime",
         "LiveChart Primary"
@@ -4830,7 +4847,7 @@
       "mediaType": "anime",
       "serialization": "serialized",
       "vibe": "In a land dominated by the formidable Shadow Worlds, most of humanity has been destroyed. To rescue their planet from impending doom, six brave heroes fight a perilous battle\u2026and fail. But there\u2019s a glimpse of hope when Desir, one of the last mages, is suddenly sent back in time 13 years! Now armed with knowledge of the grim future, can he alter the course of history and save the world?",
-      "categoryReason": "LiveChart Primary queue (paused).",
+      "categoryReason": "In LiveChart Primary queue (A Returner's Magic Should Be Special \u2014 paused) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime",
         "LiveChart Primary"
@@ -4843,7 +4860,7 @@
       "mediaType": "anime_movie",
       "serialization": "serialized",
       "vibe": "Misuzu Moritani is an introvert who has always had difficulty interacting with her classmates, quickly becoming flustered whenever someone tries to talk to her. Sometimes, she will use her ability to stop time for three minutes to escape troublesome social situations.  One day, as Misuzu watches the suspended environment around her, she observes that her classmate, Haruka Murakami, is somehow able to move despite her temporal influence. From that moment on, Misuzu experiences new wonders as she explores more of the world she has long avoided; no matter where time may take her, Misuzu can count on Haruka to always be at her side.",
-      "categoryReason": "LiveChart Primary queue (planning \u2014 feature film/special).",
+      "categoryReason": "In LiveChart Primary queue (Fragtime \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime Movie",
         "LiveChart Primary"
@@ -4856,7 +4873,7 @@
       "mediaType": "anime",
       "serialization": "serialized",
       "vibe": "At the end of the second semester of third year of high school, four students are prepared for graduation and feel the ending to their high school life. But that changes a little with the arrival of a transfer student.",
-      "categoryReason": "LiveChart Primary queue (planning).",
+      "categoryReason": "In LiveChart Primary queue (Just Because! \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime",
         "LiveChart Primary"
@@ -4869,7 +4886,7 @@
       "mediaType": "anime",
       "serialization": "serialized",
       "vibe": "One day, Mitsuha falls off a cliff and is transported to a medieval Europe\u2013type world! After a near-death encounter with a pack of wolves, she then realizes that she's able to transport between two worlds\u2014this one and her own. Taking advantage of this ability, Mitsuha decides to live in both worlds and calculates that she'll need 80,000 gold coins to be able to retire! Mitsuha now has to come up with different ways to collect her gold coins!",
-      "categoryReason": "LiveChart Primary queue (planning).",
+      "categoryReason": "In LiveChart Primary queue (Saving 80,000 Gold in Another World for My Retirement \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime",
         "LiveChart Primary"
@@ -4882,7 +4899,7 @@
       "mediaType": "anime",
       "serialization": "serialized",
       "vibe": "Azusa Aizawa, a 27 years old woman, died on work site due to overworking. She has the possibility to reincarnate, and so she plans to live a chilling and calm life. But will she be able to be relaxed?",
-      "categoryReason": "LiveChart Primary queue (planning).",
+      "categoryReason": "In LiveChart Primary queue (I've Been Killing Slimes For 300 Years And Maxed Out My Level \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime",
         "LiveChart Primary"
@@ -4895,7 +4912,7 @@
       "mediaType": "anime",
       "serialization": "serialized",
       "vibe": "Betrayed by his childhood friend and cast out of the Hero Party, Orhun Dura\u2014once their loyal Enchanter\u2014is branded by his former comrades as \u201ca jack-of-all-trades but a master of none.\u201d Alone, he sets out to forge a new path as a solo adventurer. His journey sparks explosive battles, deadly rivals, and unexpected allies\u2014and he\u2019ll rise to shatter every expectation. The ultimate solo comeback begins!",
-      "categoryReason": "LiveChart Primary queue (planning).",
+      "categoryReason": "In LiveChart Primary queue (Jack-of-All-Trades, Party of None \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime",
         "LiveChart Primary"
@@ -4908,7 +4925,7 @@
       "mediaType": "anime",
       "serialization": "serialized",
       "vibe": "Sasaki is a middle-aged office worker living in Japan. Feeling drained by the vapid corporate world, he heads to the pet shop in search of a new companion. There he finds an adorable bird named Peeps and takes him home. But Sasaki quickly learns that Peeps isn\u2019t your average bird\u2026he\u2019s a powerful mage from another world! Together, they embark on a magical adventure filled with swords and sorcery.",
-      "categoryReason": "LiveChart Primary queue (paused).",
+      "categoryReason": "In LiveChart Primary queue (Sasaki and Peeps \u2014 paused) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime",
         "LiveChart Primary"
@@ -4921,7 +4938,7 @@
       "mediaType": "anime",
       "serialization": "serialized",
       "vibe": "Konoha Satou\u2019s dark fictional past becomes her reality when she\u2019s reincarnated as Iana Magnolia, the villainess of her own adolescent fantasy. Now as a role she meticulously designed to be despicable, remembering every last detail is now a matter of life and death. Will she be able to rewrite her character\u2019s fate into something peaceful?",
-      "categoryReason": "LiveChart Primary queue (planning).",
+      "categoryReason": "In LiveChart Primary queue (The Dark History of the Reincarnated Villainess \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime",
         "LiveChart Primary"
@@ -4934,7 +4951,7 @@
       "mediaType": "anime",
       "serialization": "serialized",
       "vibe": "Kurihara Misato was a little more capable than other high school girls, and as a result, she was always alone and couldn't live her life the way she wanted. When she was reincarnated in another world after a tragic accident, she wanted a chance to make normal friends and live a normal life. So she asked God for one thing... \"Give me abilities that are average for that world!\" But the abilities God gave her were not \"average\" at all... And now this girl, who's been reborn in a world where magic is real, struggles to find simple, ordinary happiness!",
-      "categoryReason": "LiveChart Primary queue (planning).",
+      "categoryReason": "In LiveChart Primary queue (Didn't I say to make my abilities average in the next life?! \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime",
         "LiveChart Primary"
@@ -4947,7 +4964,7 @@
       "mediaType": "anime",
       "serialization": "serialized",
       "vibe": "Togo Asagaki was the Red Ranger in a heroic Ranger squad. During their final battle against an evil organization, he gave his life to guarantee their triumph. But fate had other plans, and he found himself reborn in an entirely different world. Embracing his new role as an adventurer, he transforms into Kizuna Red and continues his pursuit of justice, helping those in need.",
-      "categoryReason": "LiveChart Primary queue (planning).",
+      "categoryReason": "In LiveChart Primary queue (The Red Ranger Becomes an Adventurer in Another World \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime",
         "LiveChart Primary"
@@ -4960,7 +4977,7 @@
       "mediaType": "anime",
       "serialization": "serialized",
       "vibe": "A fatal mistake leads to the ultimate deal for this clever office lady. After her accidental demise by the gods, Kaoru is offered to be reborn into a new world. She agrees, but with a few demands to help her survive, including a younger body and the ability to create insanely overpowered potions! Now, she\u2019s ready to make the most out of her next life.",
-      "categoryReason": "LiveChart Primary queue (planning).",
+      "categoryReason": "In LiveChart Primary queue (I Shall Survive Using Potions! \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime",
         "LiveChart Primary"
@@ -4973,7 +4990,7 @@
       "mediaType": "anime",
       "serialization": "serialized",
       "vibe": "Moments from death, Sorawo is saved by the mysterious Toriko in the world of the Otherside. Entranced by its beauty, she discovers that this dimension is inhabited by monsters once thought imaginary.",
-      "categoryReason": "LiveChart Primary queue (planning).",
+      "categoryReason": "In LiveChart Primary queue (Otherside Picnic \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime",
         "LiveChart Primary"
@@ -4986,7 +5003,7 @@
       "mediaType": "anime",
       "serialization": "serialized",
       "vibe": "A detective's assistant risks opening old wounds when he stumbles into a new case threading murder, global conspiracy, and his dead partner!.",
-      "categoryReason": "LiveChart Primary queue (paused).",
+      "categoryReason": "In LiveChart Primary queue (The Detective is Already Dead \u2014 paused) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime",
         "LiveChart Primary"
@@ -4999,7 +5016,7 @@
       "mediaType": "anime",
       "serialization": "serialized",
       "vibe": "Everyone knows the most powerful soldier, the Ice Sword Wizard who led the country to victory three years ago, but few know his real name: Ray White.",
-      "categoryReason": "LiveChart Primary queue (planning).",
+      "categoryReason": "In LiveChart Primary queue (The Iceblade Sorcerer Shall Rule the World \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime",
         "LiveChart Primary"
@@ -5012,7 +5029,7 @@
       "mediaType": "anime",
       "serialization": "serialized",
       "vibe": "A fantasy and adventure comedy starring Karla, a dark elf cleric who invested too much in her insulting skills, and Alvin, a swordsman who has to put up with her antics.",
-      "categoryReason": "LiveChart Primary queue (planning).",
+      "categoryReason": "In LiveChart Primary queue (Don't Hurt Me, My Healer! \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime",
         "LiveChart Primary"
@@ -5025,7 +5042,7 @@
       "mediaType": "anime_movie",
       "serialization": "serialized",
       "vibe": "Ready to stream in your RandomFlix rotation.",
-      "categoryReason": "LiveChart Primary queue (planning \u2014 feature film/special).",
+      "categoryReason": "In LiveChart Primary queue (Rascal Does Not Dream of a Dear Friend \u2014 planning) \u2014 surfaced in Active Focus.",
       "moodTags": [
         "Anime Movie",
         "LiveChart Primary"
@@ -10219,8 +10236,11 @@
       "mediaType": "anime",
       "serialization": "now-watching",
       "vibe": "Ready to stream in your RandomFlix rotation.",
-      "categoryReason": "Currently watching \u2014 in active rotation until finished.",
-      "moodTags": []
+      "categoryReason": "Currently watching on LiveChart (Amagami SS+ Plus, released) \u2014 active in Now Watching.",
+      "moodTags": [
+        "Anime",
+        "LiveChart Now Watching"
+      ]
     },
     {
       "title": "Project Hail Mary",
@@ -10229,6 +10249,460 @@
       "mediaType": "movie",
       "serialization": "now-watching",
       "moodTags": []
+    },
+    {
+      "title": "Even the Student Council Has Its Holes!",
+      "watched": false,
+      "category": 4,
+      "mediaType": "anime",
+      "serialization": "now-watching",
+      "categoryReason": "Currently watching on LiveChart (Even the Student Council Has Its Holes!, releasing) \u2014 active in Now Watching.",
+      "moodTags": [
+        "Anime",
+        "LiveChart Now Watching"
+      ]
+    },
+    {
+      "title": "I'm Dating a Dark Summoner",
+      "watched": false,
+      "category": 4,
+      "mediaType": "anime",
+      "serialization": "now-watching",
+      "categoryReason": "Currently watching on LiveChart (I'm Dating a Dark Summoner, releasing) \u2014 active in Now Watching.",
+      "moodTags": [
+        "Anime",
+        "LiveChart Now Watching"
+      ]
+    },
+    {
+      "title": "Kono Oto Tomare!: Sounds of Life",
+      "watched": false,
+      "category": 3,
+      "mediaType": "anime",
+      "serialization": "serialized",
+      "categoryReason": "In LiveChart Primary queue (Kono Oto Tomare!: Sounds of Life \u2014 planning) \u2014 surfaced in Active Focus.",
+      "moodTags": [
+        "Anime",
+        "LiveChart Primary"
+      ]
+    },
+    {
+      "title": "Your Name.",
+      "disabled": true,
+      "watched": true,
+      "category": 1,
+      "mediaType": "anime_movie",
+      "serialization": "watched-comfort",
+      "categoryReason": "Completed on LiveChart (feature film/special) \u2014 disabled by default until enabled for Comfort Rewatch.",
+      "moodTags": [
+        "Anime Movie",
+        "LiveChart Completed"
+      ]
+    },
+    {
+      "title": "Rascal Does Not Dream of a Dreaming Girl",
+      "disabled": true,
+      "watched": true,
+      "category": 1,
+      "mediaType": "anime_movie",
+      "serialization": "watched-comfort",
+      "categoryReason": "Completed on LiveChart (feature film/special) \u2014 disabled by default until enabled for Comfort Rewatch.",
+      "moodTags": [
+        "Anime Movie",
+        "LiveChart Completed"
+      ]
+    },
+    {
+      "title": "KIZUMONOGATARI Part 3: Reiketsu",
+      "disabled": true,
+      "watched": true,
+      "category": 1,
+      "mediaType": "anime_movie",
+      "serialization": "watched-comfort",
+      "categoryReason": "Completed on LiveChart (feature film/special) \u2014 disabled by default until enabled for Comfort Rewatch.",
+      "moodTags": [
+        "Anime Movie",
+        "LiveChart Completed"
+      ]
+    },
+    {
+      "title": "Josee, the Tiger and the Fish",
+      "disabled": true,
+      "watched": true,
+      "category": 1,
+      "mediaType": "anime_movie",
+      "serialization": "watched-comfort",
+      "categoryReason": "Completed on LiveChart (feature film/special) \u2014 disabled by default until enabled for Comfort Rewatch.",
+      "moodTags": [
+        "Anime Movie",
+        "LiveChart Completed"
+      ]
+    },
+    {
+      "title": "Cosmic Princess Kaguya!",
+      "disabled": true,
+      "watched": true,
+      "category": 1,
+      "mediaType": "anime_movie",
+      "serialization": "watched-comfort",
+      "categoryReason": "Completed on LiveChart (feature film/special) \u2014 disabled by default until enabled for Comfort Rewatch.",
+      "moodTags": [
+        "Anime Movie",
+        "LiveChart Completed"
+      ]
+    },
+    {
+      "title": "KIZUMONOGATARI Part 2: Nekketsu",
+      "disabled": true,
+      "watched": true,
+      "category": 1,
+      "mediaType": "anime_movie",
+      "serialization": "watched-comfort",
+      "categoryReason": "Completed on LiveChart (feature film/special) \u2014 disabled by default until enabled for Comfort Rewatch.",
+      "moodTags": [
+        "Anime Movie",
+        "LiveChart Completed"
+      ]
+    },
+    {
+      "title": "The Quintessential Quintuplets Movie",
+      "disabled": true,
+      "watched": true,
+      "category": 1,
+      "mediaType": "anime_movie",
+      "serialization": "watched-comfort",
+      "categoryReason": "Completed on LiveChart (feature film/special) \u2014 disabled by default until enabled for Comfort Rewatch.",
+      "moodTags": [
+        "Anime Movie",
+        "LiveChart Completed"
+      ]
+    },
+    {
+      "title": "KIZUMONOGATARI Part 1: Tekketsu",
+      "disabled": true,
+      "watched": true,
+      "category": 1,
+      "mediaType": "anime_movie",
+      "serialization": "watched-comfort",
+      "categoryReason": "Completed on LiveChart (feature film/special) \u2014 disabled by default until enabled for Comfort Rewatch.",
+      "moodTags": [
+        "Anime Movie",
+        "LiveChart Completed"
+      ]
+    },
+    {
+      "title": "Rascal Does Not Dream of a Knapsack Kid",
+      "disabled": true,
+      "watched": true,
+      "category": 1,
+      "mediaType": "anime_movie",
+      "serialization": "watched-comfort",
+      "categoryReason": "Completed on LiveChart (feature film/special) \u2014 disabled by default until enabled for Comfort Rewatch.",
+      "moodTags": [
+        "Anime Movie",
+        "LiveChart Completed"
+      ]
+    },
+    {
+      "title": "Teasing Master Takagi-san The Movie",
+      "disabled": true,
+      "watched": true,
+      "category": 1,
+      "mediaType": "anime_movie",
+      "serialization": "watched-comfort",
+      "categoryReason": "Completed on LiveChart (feature film/special) \u2014 disabled by default until enabled for Comfort Rewatch.",
+      "moodTags": [
+        "Anime Movie",
+        "LiveChart Completed"
+      ]
+    },
+    {
+      "title": "Hellsing Ultimate",
+      "disabled": true,
+      "watched": true,
+      "category": 1,
+      "mediaType": "anime",
+      "serialization": "watched-comfort",
+      "categoryReason": "Completed on LiveChart \u2014 disabled by default until enabled for Comfort Rewatch.",
+      "moodTags": [
+        "Anime",
+        "LiveChart Completed"
+      ]
+    },
+    {
+      "title": "Love, Chunibyo & Other Delusions! Take on Me",
+      "disabled": true,
+      "watched": true,
+      "category": 1,
+      "mediaType": "anime_movie",
+      "serialization": "watched-comfort",
+      "categoryReason": "Completed on LiveChart (feature film/special) \u2014 disabled by default until enabled for Comfort Rewatch.",
+      "moodTags": [
+        "Anime Movie",
+        "LiveChart Completed"
+      ]
+    },
+    {
+      "title": "Spice and Wolf (2008)",
+      "disabled": true,
+      "watched": true,
+      "category": 1,
+      "mediaType": "anime",
+      "serialization": "watched-comfort",
+      "categoryReason": "Completed on LiveChart \u2014 disabled by default until enabled for Comfort Rewatch.",
+      "moodTags": [
+        "Anime",
+        "LiveChart Completed"
+      ],
+      "year": 2008
+    },
+    {
+      "title": "Fruits Basket -prelude-",
+      "disabled": true,
+      "watched": true,
+      "category": 1,
+      "mediaType": "anime_movie",
+      "serialization": "watched-comfort",
+      "categoryReason": "Completed on LiveChart (feature film/special) \u2014 disabled by default until enabled for Comfort Rewatch.",
+      "moodTags": [
+        "Anime Movie",
+        "LiveChart Completed"
+      ]
+    },
+    {
+      "title": "The Garden of Words",
+      "disabled": true,
+      "watched": true,
+      "category": 1,
+      "mediaType": "anime_movie",
+      "serialization": "watched-comfort",
+      "categoryReason": "Completed on LiveChart (feature film/special) \u2014 disabled by default until enabled for Comfort Rewatch.",
+      "moodTags": [
+        "Anime Movie",
+        "LiveChart Completed"
+      ]
+    },
+    {
+      "title": "Rascal Does Not Dream of a Sister Venturing Out",
+      "disabled": true,
+      "watched": true,
+      "category": 1,
+      "mediaType": "anime_movie",
+      "serialization": "watched-comfort",
+      "categoryReason": "Completed on LiveChart (feature film/special) \u2014 disabled by default until enabled for Comfort Rewatch.",
+      "moodTags": [
+        "Anime Movie",
+        "LiveChart Completed"
+      ]
+    },
+    {
+      "title": "The Dangers in My Heart: The Movie",
+      "disabled": true,
+      "watched": true,
+      "category": 1,
+      "mediaType": "anime_movie",
+      "serialization": "watched-comfort",
+      "categoryReason": "Completed on LiveChart (feature film/special) \u2014 disabled by default until enabled for Comfort Rewatch.",
+      "moodTags": [
+        "Anime Movie",
+        "LiveChart Completed"
+      ]
+    },
+    {
+      "title": "Ruri Rocks",
+      "disabled": true,
+      "watched": true,
+      "category": 1,
+      "mediaType": "anime",
+      "serialization": "watched-comfort",
+      "categoryReason": "Completed on LiveChart \u2014 disabled by default until enabled for Comfort Rewatch.",
+      "moodTags": [
+        "Anime",
+        "LiveChart Completed"
+      ]
+    },
+    {
+      "title": "Re:ZERO -Starting Life in Another World- The Frozen Bond",
+      "disabled": true,
+      "watched": true,
+      "category": 1,
+      "mediaType": "anime_movie",
+      "serialization": "watched-comfort",
+      "categoryReason": "Completed on LiveChart (feature film/special) \u2014 disabled by default until enabled for Comfort Rewatch.",
+      "moodTags": [
+        "Anime Movie",
+        "LiveChart Completed"
+      ]
+    },
+    {
+      "title": "Re:ZERO -Starting Life in Another World- Memory Snow",
+      "disabled": true,
+      "watched": true,
+      "category": 1,
+      "mediaType": "anime_movie",
+      "serialization": "watched-comfort",
+      "categoryReason": "Completed on LiveChart (feature film/special) \u2014 disabled by default until enabled for Comfort Rewatch.",
+      "moodTags": [
+        "Anime Movie",
+        "LiveChart Completed"
+      ]
+    },
+    {
+      "title": "Is It Wrong to Try to Pick Up Girls in a Dungeon? Movie: Arrow of the Orion",
+      "disabled": true,
+      "watched": true,
+      "category": 1,
+      "mediaType": "anime_movie",
+      "serialization": "watched-comfort",
+      "categoryReason": "Completed on LiveChart (feature film/special) \u2014 disabled by default until enabled for Comfort Rewatch.",
+      "moodTags": [
+        "Anime Movie",
+        "LiveChart Completed"
+      ]
+    },
+    {
+      "title": "KIZUMONOGATARI -Koyomi Vamp-",
+      "disabled": true,
+      "watched": true,
+      "category": 1,
+      "mediaType": "anime_movie",
+      "serialization": "watched-comfort",
+      "categoryReason": "Completed on LiveChart (feature film/special) \u2014 disabled by default until enabled for Comfort Rewatch.",
+      "moodTags": [
+        "Anime Movie",
+        "LiveChart Completed"
+      ]
+    },
+    {
+      "title": "Kase-san and Morning Glories",
+      "disabled": true,
+      "watched": true,
+      "category": 1,
+      "mediaType": "anime_movie",
+      "serialization": "watched-comfort",
+      "categoryReason": "Completed on LiveChart (feature film/special) \u2014 disabled by default until enabled for Comfort Rewatch.",
+      "moodTags": [
+        "Anime Movie",
+        "LiveChart Completed"
+      ]
+    },
+    {
+      "title": "Love, Chunibyo & Other Delusions! Rikka Version",
+      "disabled": true,
+      "watched": true,
+      "category": 1,
+      "mediaType": "anime_movie",
+      "serialization": "watched-comfort",
+      "categoryReason": "Completed on LiveChart (feature film/special) \u2014 disabled by default until enabled for Comfort Rewatch.",
+      "moodTags": [
+        "Anime Movie",
+        "LiveChart Completed"
+      ]
+    },
+    {
+      "title": "Hori-san to Miyamura-kun",
+      "disabled": true,
+      "watched": true,
+      "category": 1,
+      "mediaType": "anime",
+      "serialization": "watched-comfort",
+      "categoryReason": "Completed on LiveChart \u2014 disabled by default until enabled for Comfort Rewatch.",
+      "moodTags": [
+        "Anime",
+        "LiveChart Completed"
+      ]
+    },
+    {
+      "title": "5 Centimeters Per Second",
+      "disabled": true,
+      "watched": true,
+      "category": 1,
+      "mediaType": "anime_movie",
+      "serialization": "watched-comfort",
+      "categoryReason": "Completed on LiveChart (feature film/special) \u2014 disabled by default until enabled for Comfort Rewatch.",
+      "moodTags": [
+        "Anime Movie",
+        "LiveChart Completed"
+      ]
+    },
+    {
+      "title": "Hellsing",
+      "disabled": true,
+      "watched": true,
+      "category": 1,
+      "mediaType": "anime",
+      "serialization": "watched-comfort",
+      "categoryReason": "Completed on LiveChart \u2014 disabled by default until enabled for Comfort Rewatch.",
+      "moodTags": [
+        "Anime",
+        "LiveChart Completed"
+      ]
+    },
+    {
+      "title": "The Duke's Son Claims He Won't Love Me, Yet Showers Me with Adoration",
+      "disabled": true,
+      "watched": true,
+      "category": 1,
+      "mediaType": "anime",
+      "serialization": "watched-comfort",
+      "categoryReason": "Completed on LiveChart \u2014 disabled by default until enabled for Comfort Rewatch.",
+      "moodTags": [
+        "Anime",
+        "LiveChart Completed"
+      ]
+    },
+    {
+      "title": "Chillin' in My 30s after Getting Fired from the Demon King's Army",
+      "disabled": true,
+      "watched": true,
+      "category": 1,
+      "mediaType": "anime",
+      "serialization": "watched-comfort",
+      "categoryReason": "Completed on LiveChart \u2014 disabled by default until enabled for Comfort Rewatch.",
+      "moodTags": [
+        "Anime",
+        "LiveChart Completed"
+      ]
+    },
+    {
+      "title": "Clannad The Motion Picture",
+      "disabled": true,
+      "watched": true,
+      "category": 1,
+      "mediaType": "anime_movie",
+      "serialization": "watched-comfort",
+      "categoryReason": "Completed on LiveChart (feature film/special) \u2014 disabled by default until enabled for Comfort Rewatch.",
+      "moodTags": [
+        "Anime Movie",
+        "LiveChart Completed"
+      ]
+    },
+    {
+      "title": "The Place Promised in Our Early Days",
+      "disabled": true,
+      "watched": true,
+      "category": 1,
+      "mediaType": "anime_movie",
+      "serialization": "watched-comfort",
+      "categoryReason": "Completed on LiveChart (feature film/special) \u2014 disabled by default until enabled for Comfort Rewatch.",
+      "moodTags": [
+        "Anime Movie",
+        "LiveChart Completed"
+      ]
+    },
+    {
+      "title": "Fate/stay night",
+      "disabled": true,
+      "watched": true,
+      "category": 1,
+      "mediaType": "anime",
+      "serialization": "watched-comfort",
+      "categoryReason": "Completed on LiveChart \u2014 disabled by default until enabled for Comfort Rewatch.",
+      "moodTags": [
+        "Anime",
+        "LiveChart Completed"
+      ],
+      "year": 2006
     }
   ]
 }

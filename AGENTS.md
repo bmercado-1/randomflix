@@ -5,12 +5,12 @@ This file is automatically loaded by Antigravity at the start of every chat in `
 ## 1. Overview & Live Environment
 - **Purpose:** A living-room-friendly "channel surfing" web app (mobile PWA + Hisense U8H Google TV browser app via TV Bro / BrowseHere) that eliminates streaming decision fatigue.
 - **Live GitHub Pages App:** `https://bmercado-1.github.io/randomflix/` (served from `docs/` on the `main` branch of `bmercado-1/randomflix`).
-- **Local Dev Server:** `python3 scripts/dev_server.py 8765` → `http://localhost:8765/` (serves `docs/` and exposes `POST /api/save-local` so clicking **💾 Save & Enrich Locally** in the browser writes `data/shows_source.json` and runs `scripts/enrich_catalog.py` locally without needing GitHub Actions).
+- **Local Dev Server:** `python3 scripts/dev_server.py 8765` → `http://localhost:8765/` (serves `docs/` and exposes `POST /api/save-local` and `POST /api/sync-livechart` so clicking **💾 Save & Enrich Locally** or **📥 Sync LiveChart** in the browser updates `data/shows_source.json` and runs `scripts/enrich_catalog.py` locally without needing GitHub Actions).
 
 ## 2. Key Repository Files
-- `data/shows_source.json`: Canonical source-of-truth show list (currently seeded with 33 hand-picked Category 1 `Watched` shows; Category 2 and 3 shows will be added incrementally as requested by the user).
-- `scripts/enrich_catalog.py`: Zero-dependency Python 3 stdlib enrichment pipeline. Queries JustWatch US GraphQL (`https://apis.justwatch.com/graphql`) for series & per-episode streaming links and TVMaze (`https://api.tvmaze.com`) for posters, runtimes, years, and episode guides. Caches raw API responses in `data/enrichment_cache.json` and outputs `docs/data/catalog.json`.
-- `scripts/dev_server.py`: Local HTTP server (`localhost:8765`) with `/api/save-local` endpoint.
+- `data/shows_source.json`: Canonical source-of-truth show list (curated TV series, movies, and 4-tier LiveChart anime library).
+- `scripts/enrich_catalog.py`: Zero-dependency Python 3 stdlib enrichment pipeline. Queries AniList GraphQL (`https://graphql.anilist.co`), JustWatch US GraphQL (`https://apis.justwatch.com/graphql`), and TVMaze (`https://api.tvmaze.com`) for series & per-episode streaming links, posters, runtimes, years, and episode guides. Caches raw API responses in `data/enrichment_cache.json` and outputs `docs/data/catalog.json`.
+- `scripts/dev_server.py`: Local HTTP server (`localhost:8765`) with `/api/save-local` and `/api/sync-livechart` endpoints.
 - `scripts/manage_shows.py`: Interactive terminal CLI to list, add, recategorize, or remove shows and re-run enrichment.
 - `docs/`: Static PWA (`index.html`, `styles.css`, `app.js`, `manifest.json`, `.nojekyll`, `data/catalog.json`).
 - `.github/workflows/enrich.yml`: GitHub Actions workflow triggered on pushes to `main` touching `data/shows_source.json` or `scripts/enrich_catalog.py` (plus a weekly Sunday cron with `--refresh` and `workflow_dispatch`). Auto-runs `scripts/enrich_catalog.py` and commits updated `docs/data/catalog.json` and `data/enrichment_cache.json`.
@@ -33,8 +33,13 @@ This file is automatically loaded by Antigravity at the start of every chat in `
 - **Random Episode Roller (`🎲 Roll Random Episode`):**
   - Must remain **strictly opt-in** (hidden by default when flipping channels, and automatically hidden on `"movie"` / `"anime_movie"` cards). Default viewing is sequential ("resume next unwatched episode").
   - When clicked, displays 1-click direct episode playback buttons (`▶ Play S##E## on <Service>`) and TV app intents (`📺 <Service> TV App (S##E##)`).
-- **LiveChart Two-Tier Import (`python3 scripts/manage_shows.py import-livechart`):**
-  - Syncs `/Users/bmercado/dev/workspace/random/anime_watchlist.json` into `data/shows_source.json`: `primary` (`planning`, `paused`, `skipping`) entries are imported into Category 3 (`Active Focus`) as **enabled**, and `secondary` (`considering`) entries are imported into Category 3 as **disabled** (`"disabled": true`). Entries with `total_episodes == 1` are classified as `"anime_movie"`.
+- **LiveChart Four-Tier Import (`python3 scripts/manage_shows.py import-livechart` & `POST /api/sync-livechart`):**
+  - Syncs `/Users/bmercado/dev/workspace/random/anime_watchlist.json` into `data/shows_source.json` in priority order (collapsing multi-season/OVA sequels onto base series):
+    1. `now_watching` (`watching`, `rewatching`) → **Category 4 (`Now Watching`), Enabled**.
+    2. `primary` (`planning`, `paused`, `skipping`) → **Category 3 (`Active Focus`), Enabled**.
+    3. `completed` (`completed`) → **Category 1 (`Watched` / Comfort Rewatch), Disabled by default (`"disabled": true`)** for newly added or graduated entries while preserving existing manual enable/disable choices on shows already in Category 1.
+    4. `secondary` (`considering`) → **Category 3 (`Active Focus`), Disabled (`"disabled": true`)**.
+  - Entries with `total_episodes == 1` (plus forced chapter films like `5 Centimeters Per Second`) are classified as `"anime_movie"`. Shows previously auto-enabled via `"LiveChart Now Watching"` or `"LiveChart Primary"` that disappear from LiveChart (`dropped`) are automatically disabled.
 
 ## 4. Streaming & Deep-Link Rules (Critical — Do Not Regress)
 1. **Default Series Links Must Open Series Hubs (Never Autoplay S1E1):**
